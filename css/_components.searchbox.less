@@ -1,0 +1,132 @@
+//Styles for search input usually found in page header area.  Modified for each project.  Not used for large central search field on homepage, use _components.home-search.less for that
+@searchbox-width: 257px;
+@searchbox-height: 32px; //used on sticky search
+
+.search-trigger{display:none;}
+#searchbox {
+    background: @searchbox-mobile-bg;
+    border: 0;
+    height: auto;
+    margin: 0;
+    padding: 6px 5px;
+    width: 100%;
+    top: auto;
+    bottom:0;
+    position:absolute;
+    input#search_text {
+         background: #fff;
+        border: 0 none !important; /*keep important*/
+        border-radius: 0;
+        color: @searchbox-mobile-text-color;
+        font-size: @searchbox-mobile-font-size !important; /*keep important*/
+        height: 28px;
+        line-height: 28px !important;
+        margin: 0;
+        padding: 0 36px 0 7px;
+        width: 100%;
+        &::-webkit-input-placeholder {
+            color: @searchbox-mobile-text-color;
+            font-size: @searchbox-mobile-font-size;
+            opacity: 1 !important;
+        }
+
+        &:-moz-placeholder {
+            color: @searchbox-mobile-text-color;
+            font-size: @searchbox-mobile-font-size;
+            opacity: 1 !important;
+        }
+        //need both for firefox
+        &::-moz-placeholder {
+            opacity: 1 !important;
+            color: @searchbox-mobile-text-color;
+            font-size: @searchbox-mobile-font-size;
+        }
+        &:-ms-input-placeholder {
+            color: @searchbox-mobile-text-color;
+            font-size: @searchbox-mobile-font-size;
+            opacity: 1 !important;
+        }
+
+        &:focus {
+        }
+    }
+
+    >a {
+        background:  url("_gfx/cmn/search_input_mobile.png") no-repeat center center;
+        border: 0 none !important;
+        height: 28px !important;
+        margin: 0;
+        position: absolute;
+        right: 5px;
+        text-align: left;
+        text-decoration: none;
+        text-indent: -4000px;
+        top: 6px;
+        width: 29px;
+        overflow:hidden;
+    }
+
+    &.active {
+    }
+}
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+ #searchbox {
+        margin: 0;
+        right: 0;
+        top: 49px;
+        bottom: auto;
+        width: @searchbox-width;
+        padding:0;
+        background:@searchbox-bg ;
+        border: @searchbox-border;
+        border-radius: 0;
+        overflow:hidden;
+        >a {
+            display: inline-block;
+            right:0;
+            top:0;
+            height: @searchbox-height !important;
+            width: @searchbox-height;
+            border-radius:50%;
+            background:@searchbox-icon-bg url("_gfx/cmn/search_input_bg.png") no-repeat 1px center;
+            .transition();
+            &:hover{background-color:@searchbox-icon-bg-hover;}
+        }
+
+        input#search_text {
+            color: @searchbox-text-color;
+             font-size: @searchbox-desktop-font-size !important;
+             height: 32px;
+        line-height: 32px !important;
+        background: transparent;
+        padding: 0 32px 0 12px;
+        font-family:@searchbox-font-family;
+
+            &::-webkit-input-placeholder {
+                font-size: @searchbox-desktop-font-size;
+                color: @searchbox-text-color;
+                 font-family:@searchbox-font-family;
+            }
+
+            &:-moz-placeholder {
+                font-size: @searchbox-desktop-font-size;
+                color: @searchbox-text-color;
+                 font-family:@searchbox-font-family;
+            }
+
+            &::-moz-placeholder {
+                font-size: @searchbox-desktop-font-size;
+                color: @searchbox-text-color;
+                 font-family:@searchbox-font-family;
+            }
+
+            &:-ms-input-placeholder {
+                font-size: @searchbox-desktop-font-size;
+                color: @searchbox-text-color;
+                 font-family:@searchbox-font-family;
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+//styles specific to the frontend login page and pages viewed after login.  Do not modify unless there are bugs after CMS integration.
+
+//sso
+.web_site_account_unconfirm_message_container {
+    padding: 10px 0 1px 20px;
+}
+
+.my_dashboard_page .dashboard_block_wrapper .dashboard_block .block_title {
+    background-color: @table-header-bg;
+}
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+    //sso
+    //Center login page
+    .sso_login_container {
+        max-width: 670px;
+        margin: 0 auto;
+
+        .sso_login_header, .sso_login_hint {
+            text-align: center;
+        }
+
+        .content_area {
+             .sso_login_form_box{
+                 display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                
+            }
+            .sso_login_box {
+                margin: 15px 2% 0 0;
+                width: 48%;
+                min-height: 0;
+            }
+            .social_account_login_box {
+                margin-left: 2%;
+                width: 48%;
+                min-height: 0;
+            }
+        }
+    }
+
+}

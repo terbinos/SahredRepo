@@ -1,0 +1,24 @@
+//Default link styles for entire site.  Do not modify unless there are bugs after CMS integration.
+
+a, a:visited, .column a {
+    color: @default-link-color;
+    text-decoration: @default-link-decoration;
+}
+
+a:hover, a:focus {
+    text-decoration: @default-link-decoration-hover;
+}
+
+a[name], a[name]:hover, a[name]:focus {
+    color: @default-text-color;
+    text-decoration: none;
+}
+
+a img {
+    border: 0;
+}
+
+//for IE
+a:before,a:after { text-decoration:underline;}
+a:before,a:after,
+a:hover:before,a:hover:after {text-decoration:none;}

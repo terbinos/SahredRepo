@@ -1,0 +1,115 @@
+@mobile-buttons-padding: 20px 10px; //padding around the entire mobile buttons area
+@mobile-buttons-background: #ccc; //background of entire mobile buttons area (color or image or both)
+@mobile-button-vertical-spacing: 10px;//spacing between rows
+@mobile-button-item-width: 100px; //this width controls how many items per row, and how much space appears between the items.  
+
+@mobile-button-background:#444; //background color behind icons
+@mobile-button-border-radius: 50%;
+@mobile-button-border: 4px solid #222;
+@mobile-button-color:#333; //text color of button text
+@mobile-button-font-size:11px; //font size for button text
+@mobile-button-text-transform: uppercase; //text transform for button text (uppercase or none).
+@mobile-button-text-vertical-align: top;//vertical alignment of button text (top or middle)
+@mobile-button-text-align: center; //horizontal alignment of button text (left, center or right)
+@mobile-button-font-family:inherit;//font-family for button text
+@mobile-button-font-weight: normal; //font-weight for button text
+@mobile-button-line-height: 1.1; // line height for button text
+@mobile-button-icon-area-height: 70px; //height of area that icon should be centered in (area with background).
+@mobile-button-icon-area-width: 70px; //width of area that icon should be centered in (area with background).
+@mobile-button-icon-max-width: 40px; //max width of image icon
+@mobile-button-icon-max-height: 30px;//max height of image icon
+
+.home_mobile_buttons {
+	display: block;
+	float: none;
+	padding: @mobile-buttons-padding;
+	background: @mobile-buttons-background;
+
+	.mobile-buttons-list {
+		.unstyled_list;
+		flex-flow: row wrap;
+		display: flex;
+		justify-content: center;
+		align-content: flex-start;
+		align-items: flex-start;
+		margin-bottom: -@mobile-button-vertical-spacing;
+	}
+
+	.mobile-buttons-item {
+		flex: 0 1 @mobile-button-item-width;
+		margin: 0;
+		padding: 0 0px @mobile-button-vertical-spacing 0;
+
+		&:empty {
+			visibility: hidden;
+			padding: 0;
+		}
+	}
+
+	.mobile-buttons-link {
+		display: table;
+		position: relative;
+		width: 100%;
+		text-decoration: none;
+		text-align: @mobile-button-text-align;
+		max-width: @mobile-button-icon-area-width;
+		margin: 0 auto;
+
+		&:hover, &:focus {
+			text-decoration: none;
+		}
+
+		&:before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: @mobile-button-icon-area-height;
+			background: @mobile-button-background;
+			content: "";
+			border: @mobile-button-border;
+			border-radius: @mobile-button-border-radius;
+			max-width: @mobile-button-icon-area-width;
+			margin: auto;
+		}
+	}
+
+	.mobile-buttons-img {
+		bottom: ~"Calc(100% - "@mobile-button-icon-area-height ~")";
+		left: 0;
+		right: 0;
+		margin: auto;
+		position: absolute;
+		top: 0;
+		max-width: @mobile-button-icon-max-width;
+		max-height: @mobile-button-icon-max-height;
+	}
+
+	.mobile-buttons-title {
+		color: @mobile-button-color;
+		display: table-cell;
+		font-size: @mobile-button-font-size;
+		text-transform: @mobile-button-text-transform;
+		font-family: @mobile-button-font-family;
+		font-weight: @mobile-button-font-weight;
+		line-height: @mobile-button-line-height;
+		vertical-align: @mobile-button-text-vertical-align;
+		padding: @mobile-button-icon-area-height + 8 0 0;
+	}
+}
+ /***420px ***/
+@media screen and (min-width: 26.25em) {
+    .home_mobile_buttons {
+        .mobile-buttons-item {
+            flex: 0 1 25%;
+        }
+    }
+}
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+
+	.home_mobile_buttons {
+		display: none;
+	}
+}
+

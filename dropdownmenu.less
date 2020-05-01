@@ -1,0 +1,30 @@
+/************************************************
+Dropdown Menu
+************************************************/
+
+.downmarket(@site-type) when (@site-type = basic) {
+	@import (optional) "theme/basic/_theme.config.less"; //Color theme is defined here
+	@import (optional) "theme/basic/_theme.global.less"; //Manage theme colors on an element-by-element basis.
+	@import (optional) "theme/basic/_theme.colors.less"; //Manage theme typography on an element-by-element basis.
+	@import (optional) "theme/basic/_tools.typography.less"; //Globally available typography (Google fonts)
+}
+
+.downmarket(@site-type) when (@site-type = custom) {
+	@import (optional) "theme/custom/_settings.global.less"; //Globally-available variables and settings/config.
+	@import (optional) "theme/custom/_settings.colors.less"; //Globally-available variables and settings/config.
+	@import (optional) "theme/custom/_tools.typography.less"; //Globally available typography (Google fonts).  Add font here if needed.
+}
+
+@import "css/_settings.config.less"; //configurations such as site type, sticky header, search type etc.  
+
+.downmarket(@site-type);
+                      
+
+//tools include mixins and other tools we need to include such as google fonts.
+@import "css/_tools.mixins.less";  //Globally available mixins.
+
+@import "css/_components.main-nav.less";  //styles for the root level main navigation
+@import "css/_components.flyout-menu.less";  //styles for the flyout style dropdowns
+
+
+ 

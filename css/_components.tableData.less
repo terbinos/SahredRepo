@@ -1,0 +1,107 @@
+/* Default Data Table Styling.  
+    Should match general table style in Interior comp.  
+    Modify padding and borders ONLY  (if needed), otherwise do not modify.
+    everything else controlled in settings.global or settings.colors.
+    
+    Should match _objects.listtable.less and _components.tableBox.less
+================================================== */
+
+table.tableData {
+    font-weight: normal;
+    background: @box-background;
+    margin-bottom: 14px;
+    border: 0px solid @table-border-color;
+    border-spacing: 0px;
+    width: auto;
+
+    th {
+        text-transform: uppercase;
+        padding: 6px 9px;
+        text-align: left;
+        background: @table-header-bg !important;
+        color: @table-header-color;
+        font-weight: @table-header-weight;
+        font-size: @table-header-size;
+        font-family:@table-header-font-family;
+        a {
+            color: @table-header-color !important;
+        }
+
+        p {
+            padding: 0;
+            margin: 0;
+            color: @table-header-color;
+        }
+    }
+
+    a {
+        color: @table-link-color;
+    }
+
+    p {
+        color: @table-text-color;
+    }
+
+    td {
+        color: @table-text-color;
+        font-size: @table-text-size;
+    }
+    //inner borders (targetting 1st table data of each row and excludes last table row)
+    tr {
+
+        td {
+            border-left: 1px solid @table-border-color;
+
+            &:last-child {
+                border-right: 1px solid @table-border-color;
+            }
+        }
+    }
+
+    tr:hover {
+        background: @row-hover-bg;
+
+        > td a {
+            color: @table-link-hover-color !important;
+        }
+
+        > td, > td > p {
+            color: @table-text-hover-color !important;
+        }
+    }
+}
+
+table.tableData {
+    border-collapse: separate;
+
+    tbody tr:first-child td {
+        border-top: 0;
+    }
+
+    th {
+        border-left: 1px solid @table-header-bg;
+    }
+
+    thead {
+        border: 1px solid @table-header-bg;
+    }
+
+    td {
+        border: 0;
+        border-bottom: 1px solid @table-border-color;
+        padding: 3px 9px 3px 9px;
+
+        p {
+            padding: 0;
+            margin: 0;
+        }
+    }
+}
+
+@media screen and (max-width: 48em){
+    body:not([radeditorbody]){
+        table.tableData {
+            width: 100% !important;
+        }
+    }
+}

@@ -1,0 +1,210 @@
+//see also _objects.mobile-list.less for rest of mobile styles for small box widgets.
+//modify styles here and in settings.global/settings.colors to match the box shown in the 
+//Department Page design.  
+//Notes: no need to match box width to design, keep existing width in template 
+//Might need to also modify _components.social-media-boxes.less if the Facebook or Twitter boxes need specific style changes  
+//May also need to (rarely) modify any of the other individual boxes in their individual stylesheets.  These are: _components.business-box.less, _components.faq-box.less, _components.service-box.less, _components.staff-box.less
+
+
+
+
+//mobile styles outside media queries below are rarely modified.  Modify only if necessary, otherwise start inside media query below.
+
+.small_box .item_new, .listtable span.item_new {
+    color: @mobile-more-color;
+    font-weight: bold;
+    display: inline;
+}
+
+.empty_list {
+    font-weight: bold;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.small_box .empty_box {
+    padding: 10px 10px 10px 16px;
+}
+
+.small_box .box_content ul.item-list li.item-email, .small_box .box_content ul.item-list li.item-phone, .small_box .box_content ul.item-list li.item-map {
+    padding-left: 22px;
+    margin-bottom: 3px;
+}
+
+
+.small_box .box_content ul.item-list li.item-email {
+    background: url(_gfx/cmn/email_table.png) 0 center no-repeat;
+
+    .email_link {
+        cursor: pointer;
+    }
+}
+
+.small_box .box_content ul.item-list li.item-phone {
+    background-position: 0 center;
+}
+
+ .small_box .box_bottomlink{
+     &:after{
+        content:@small-box-more-arrow;
+        font-size:140%;
+        line-height: 1;
+       // vertical-align: middle;
+    }
+ }
+//start modifications here:
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+       .small_box, .twitter_feed, .facebook_feed {
+        margin-bottom: 17px;
+        vertical-align: top;
+        clear: both;
+        background: @small-box-background !important;
+        //set to 0 if boxes don't have a border
+        border: 1px solid @small-box-border !important;
+        word-wrap: break-word;
+
+        .box_title, h2.mobile_header {
+            color: @small-box-title-color !important;
+            font-weight: @small-box-title-weight;
+            line-height: 120%;
+            font-size: @small-box-title-size !important;
+            height: auto;
+            //adjust padding if needed to make header area taller or shorter or push text in.
+            padding: 8px 15px 8px 15px;
+            text-align: left;
+            display: block;
+            text-transform: @small-box-title-text-transform;
+            background: @small-box-title-bg;
+            //set to 0 if boxes don't have a border
+            margin: -1px -1px 0 -1px;
+            font-family:@small-box-title-font-family;
+        }
+
+        .box_content {
+            //adjust padding around box content if needed here
+            padding: 0px 15px 0 15px;
+        }
+
+        .box_content ul, &.twitter_feed ul, &.facebook_feed ul {
+            .unstyled_list;
+            padding: 7px 0 0 0;
+            line-height: 130%; //overwrite product style of 120%
+        }
+
+        .box_content ul li, &.twitter_feed ul li, &.facebook_feed ul li, &.faq_box .box_content > ul > li, &.service_box.mobile_list .box_content > ul > li {
+            //adjust padding between items in boxes if needed here
+            padding: 5px 0 7px 0;
+            position: relative;
+            
+        }
+
+        
+
+        //adjust box_bottomlink styles here to match the "More" link in the design
+        .box_bottomlink {
+            float: right;
+            margin: 6px -3px 13px 0;
+            padding: 6px 15px;
+            border-radius:2px;
+            background: @small-box-more-background;
+            text-transform: @small-box-more-transform;
+            color: @small-box-more-color;
+            font-weight: @small-box-more-weight;
+            font-size: @small-box-more-size;
+            font-family: @small-box-more-font-family;
+             .transition();
+            &:hover{background: @small-box-more-background-hover;text-decoration:none;color:contrast(@small-box-more-background-hover, @default-text-color);}
+        }
+
+        .box_content ul a, &.service_box .box_content li span, &.faq_box ul .listfaq_q, .empty_box {
+            color: @small-box-main-color;
+            text-decoration: none;
+            font-size: @small-box-main-font-size;
+            font-weight: @small-box-main-font-weight;
+            font-family: @small-box-main-font-family;
+        }
+
+        .box_content ul a:hover {
+            //adjust hover styles here if separate hover style is shown in design, if not, leave as is.
+            text-decoration: underline;
+            color: @small-box-main-color;
+            font-weight: @small-box-main-font-weight;
+        }
+
+
+
+        //Styles below here are rarely modified. Modify with caution.
+        .box_content ul img {
+            margin-right: 3px;
+            vertical-align: bottom;
+        }
+
+        .box_content .item_smalltext, .box_content ul.item-list li, &.meeting_item_box ul span {
+            margin: 0;
+            color: @small-box-sub-color;
+            font-size: @small-box-sub-font-size;
+            padding: 0;
+            border: 0;
+        }
+        .document_breadcrumb{color: @small-box-sub-color;}
+        .document_breadcrumb a{color: @small-box-main-color;}
+        .box_content ul.item-list li {
+            font-size: 100%;
+            padding: 0;
+        }
+
+        .box_content ul.item-list li a, &.service_box .box_content ul.service_list li a {
+            color: @small-box-sub-color;
+            font-weight: normal;
+            font-size: @small-box-sub-font-size;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .item_new {
+            margin-left: 5px;
+            color: @small-box-main-color;
+        }
+
+        .box_content ul.item-list {
+            margin: 0;
+            padding: 4px 0 0 0;
+            border: 0;
+        }
+        
+
+        .empty_box {
+            padding: 10px 0;
+        }
+        .downloadmessage{width:100%;}
+    }
+       
+
+    .small_box.staff_box .box_content ul.item-list li.item-phone,
+    .small_box.staff_box .box_content ul.item-list li.item-email a,
+    .small_box.business_box .box_content ul.item-list li.item-phone,
+    .small_box.business_box .box_content ul.item-list li.item-email a,
+    .small_box.business_box .box_content ul.item-list li.item-map a,
+    .small_box.business_box .box_content ul.item-list li.item-map {
+        line-height: 130%;
+        border-bottom: none;
+        font-size: @small-box-sub-font-size;
+    }
+
+    
+    .small_box .box_content ul.item-list li.item-phone {
+        background-position: 0 10%;
+    }
+
+    .small_box .box_content ul.item-list li.item-email {
+        background-position: 0 10%;
+    }
+
+    .small_box .box_content ul.item-list li.item-map {
+        background-position: 0 10%;
+    }
+    
+}

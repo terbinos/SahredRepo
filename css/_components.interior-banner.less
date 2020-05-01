@@ -1,0 +1,24 @@
+//Styles specific to the banner image above the interior page title area on department pages. (shown in design).
+//found in standard_3col.html 
+//related stylesheet: _components.title-widget.less
+//Modified for each project, mainly margins
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+
+    .banner_col .image_widget:first-child .image_rotate_container, .standardlayout .right_col > .image_widget:first-child .image_rotate_container {
+        background: transparent !important;
+        top: 0 !important;
+        left: 0 !important;
+    }
+
+    .banner_col .image_widget:first-child, .standardlayout .right_col .image_widget:first-child {
+        position: relative;
+        max-width: none;
+        padding: 0;
+
+        //modify margin to match design.
+        margin: 0px 0px 0 0px;
+        width: auto;
+    }
+}

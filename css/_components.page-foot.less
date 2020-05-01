@@ -1,0 +1,168 @@
+//site-wide page footer area.  Modified to match design for each site.  
+//Related styles: _components.social-media-icons.less if icons are in footer area.  _objects.wrappers.less
+
+#page_footer {
+    padding: 20px 10px 10px;
+    font-size: 82%;
+    background: @page-footer-bg;
+   
+    #footercolumn {
+        color: @page-footer-color;
+        font-family:@page-footer-font-family;
+        font-size:@page-footer-font-size;
+        letter-spacing: 0.3px;
+    }
+
+     .footer_nav {
+       margin-bottom: 10px;
+       text-align:center;
+        a {
+            white-space: nowrap;
+            text-transform:uppercase;
+            color:@page-footer-nav-color;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+    }
+
+    .footer_address{
+        margin-bottom: 20px;
+        padding-left:30px;
+        position: relative;
+        h2{
+            text-transform:@page-footer-header-text-transform;
+            font-weight:@page-footer-header-font-weight;
+            font-size:@page-footer-header-font-size;
+            letter-spacing:0.75px;
+            color:@page-footer-header-color;
+             margin:0 0 10px;
+        }
+        &:before{
+                position: absolute;
+                content: "\e062";
+                top:0;
+                left:0;
+                width:20px;
+                height:25px;
+                color:@page-footer-icons-color;
+                font-size:15px;
+                font-family: 'Glyphicons Halflings';
+
+            }
+    }
+    .footer_phone{
+        margin-bottom: 20px;
+        padding-left:30px;
+        h2{
+            text-transform:@page-footer-header-text-transform;
+            font-weight:@page-footer-header-font-weight;
+            font-size:@page-footer-header-font-size;
+            letter-spacing:0.75px;
+            color:@page-footer-header-color;
+            margin:0 0 10px;
+        }
+        &:before{
+                position: absolute;
+                content: "\e182";
+                top:0;
+                left:0;
+                width:20px;
+                height:25px;
+                color:@page-footer-icons-color;
+                font-size:16px;
+                font-family: 'Glyphicons Halflings';
+
+            }
+    }
+
+    .footer_copyright {
+        margin-bottom: 10px; 
+        text-align:center;
+        font-size: 75%;
+        a{font-weight:@page-footer-vision-link-weight;color:@page-footer-vision-link-color;}
+    }
+    a{
+        color:@page-footer-link-color;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    p {
+        margin: 0;
+        clear: both;
+    }
+}
+
+
+#view-options {
+    display: none;
+}
+
+
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+    #view-options {
+        display: none;
+    }
+    #page_footer {
+        clear: both;
+        min-height: 107px;
+        font-size: 100%;
+        padding: 0;
+        margin-bottom: 0px;
+        text-align:left;
+        background: darken(@page-footer-bg, 3%);
+        position: relative;
+        z-index:1;
+        &:before{
+            background: @page-footer-bg;
+            position: absolute;
+            top:0;
+            left:0;
+            right:0;
+            height:200px;
+            content: "";
+            z-index:-1;
+        }
+        #footercolumn {
+            margin: 0 auto;
+            position: relative;
+            padding: 45px 0 23px;
+
+            .footer_nav {
+                font-size: 13px;
+                clear:both;
+                margin-bottom:10px;
+                padding-top:19px;
+                a {
+                    padding: 0 2%;
+                    margin:0;
+                    
+                    &:first-child{padding-left:0;}
+                    &:last-child{padding-right:0;}
+                    &:hover {
+                       // color:@page-footer-nav-color-hover;
+                        text-decoration:underline;
+                    }
+
+                    
+                }
+            }
+            p{clear:none;}
+            .footer_address{
+                height:155px;
+                overflow:hidden;
+                margin-bottom:0;
+            }
+            .footer_phone{
+                height:155px;
+                overflow:hidden;
+                margin-bottom:0;
+            }
+            .footer_copyright {
+                margin-bottom:0px;
+            }
+        }
+    }
+}

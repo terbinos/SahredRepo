@@ -1,0 +1,57 @@
+//styles specific to the document central widgets.  Do not modify unless there are bugs after CMS integration.
+//document widgets
+.document_widget {
+    margin-bottom: 17px;
+
+    li {
+        position: relative;
+
+        img {
+            position: absolute;
+            left: 0;
+            top: 0px;
+            margin-top: 0;
+        }
+
+        a {
+            padding-left: 21px;
+            display: block;
+        }
+    }
+}
+
+.doc_folder_img {
+    float: left;
+}
+
+.document_folder_box .content_link, .document_list_box .content_link{ max-width: 100%;word-wrap: break-word;}
+
+.document_list_box.document_list_box, .document_folder_box.document_folder_box {
+	> a[name]:before {
+		display: none;
+	}
+
+	.no-results {
+		padding: 10px 0 10px 16px;
+		display: block;
+		color: @small-box-main-color;
+		font-weight: @small-box-main-font-weight;
+		font-size: @small-box-main-font-size;
+	}
+}
+.document_folder_box .document_breadcrumb {
+    margin-left: 16px;
+    margin-top: 8px;
+}
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+	.document_list_box.document_list_box, .document_folder_box.document_folder_box {
+		.no-results {
+			padding-left: 0;
+		}
+	}
+    .document_folder_box .document_breadcrumb {
+        margin-left: 0px;
+        margin-top:0;
+    }
+}

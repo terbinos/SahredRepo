@@ -1,0 +1,21 @@
+//styles specific to the Business box widget found in standard_3col.html. 
+//rarely modified for each project
+.business_box.mobile_list ul li li, .staff_box.mobile_list ul li li, .service_box.mobile_list ul li li, .faq_box.mobile_list ul li li {
+    background: transparent none;
+    border: 0;
+    padding: 0;
+}
+
+
+
+.business_box.mobile_list .box_content > ul > li > a, .staff_box.mobile_list .box_content > ul > li > a {
+    font-weight: bold;
+}
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+    
+    .business_box.mobile_list .box_content > ul > li > a, .staff_box.mobile_list .box_content > ul > li > a {
+        font-weight: @small-box-main-font-weight;
+    }
+}

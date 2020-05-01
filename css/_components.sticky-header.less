@@ -1,0 +1,253 @@
+
+@sticky-logo-width-portrait: 85px; // width of logo in sticky header on portrait view
+@sticky-logo-width: 126px; //width of logo in sticky header in landscape view and up.
+
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+	& when (@sticky-header = true) {
+		.sticky_header {
+			.sitewrapper {
+				//backgrounds
+				&:before {
+					position: fixed;
+					height: @stickyheader-height;
+					z-index: 7;
+					top: 0;
+				}
+				//&:after{display:none;}
+			}
+			//header, logo, top nav, translate
+			#siteheader {
+				z-index: 9;
+
+				a#home_link {
+					position: fixed;
+					height: @stickyheader-height;
+					left: auto;
+					top: 0px;
+					width: @sticky-logo-width-portrait;
+					background: url(_gfx/cmn/logo-sticky.png) 0 center no-repeat !important;
+					background-size: 100% auto !important;
+					margin: 0 auto;
+				}
+
+				#top_nav {
+					display: none;
+				}
+
+				.translatebox {
+					display: none !important;
+				}
+			}
+			//search
+			.search-trigger {
+				position: fixed;
+				right: auto;
+				top: 0px;
+				margin-left: ~"calc(" @max-width-portrait ~" - " @sticky-search-trigger-width ~")";
+				display: block;
+				cursor: pointer;
+				background: url("_gfx/cmn/search_icon.svg") no-repeat center center;
+				background-size: 20px auto;
+				height: @stickyheader-height;
+				float: right;
+				width: @sticky-search-trigger-width;
+				text-indent: -4000px;
+				text-align: left;
+				overflow: hidden;
+				margin: 0;
+
+				&.active {
+					background: url("_gfx/cmn/close_icon.svg") no-repeat center center;
+					background-size: 20px auto;
+				}
+			}
+
+			& when not(@search-type = overlay) {
+				//for expandable search
+				.top_search {
+					margin: 0 auto;
+					top: 0;
+				}
+
+				#searchbox {
+					display: none;
+					.transition();
+					position: absolute;
+					right: 0;
+					left: auto;
+					top: -@searchbox-height;
+					//margin-left: ~"calc(" @max-width-portrait ~" - " @searchbox-width ~")";
+					&.active_search {
+						top: @stickyheader-height;
+						display: block;
+					}
+				}
+			}
+
+			.top_search {
+				position: fixed;
+				max-width: @max-width-portrait;
+				width: 100%;
+			}
+
+
+			.mainnav {
+				top: auto;
+				position: relative;
+
+				.dropdownmenu {
+					margin-left: @sticky-logo-width-portrait + 15px;
+					margin-right: @sticky-search-trigger-width;
+					//max-width-portrait minus the margins
+					width: @max-width-portrait - @sticky-logo-width-portrait - 15 - @sticky-search-trigger-width;
+					position: fixed;
+					top: 0;
+
+					> li > a {
+						font-size: 12px;
+					}
+				}
+			}
+
+			#dropdownrootitem8 .widthcontainer1col,
+			#dropdownrootitem7 .widthcontainer1col {
+				right: -@sticky-search-trigger-width;
+			}
+
+			#dropdownrootitem8 .widthcontainer2col,
+			#dropdownrootitem7 .widthcontainer2col,
+			#dropdownrootitem6 .widthcontainer2col {
+				right: -@sticky-search-trigger-width;
+			}
+
+			#dropdownrootitem5 .widthcontainer3col,
+			#dropdownrootitem6 .widthcontainer3col,
+			#dropdownrootitem7 .widthcontainer3col,
+			#dropdownrootitem8 .widthcontainer3col {
+				right: -@sticky-search-trigger-width;
+			}
+
+			#sitebody .dropdownmenu .widthcontainer4col,
+			#sitebody .dropdownmenu .widthcontainer5col,
+			#sitebody .dropdownmenu .widthcontainer6col,
+			#sitebody .dropdownmenu .widthcontainer7col,
+			#sitebody .dropdownmenu .widthcontainer8col {
+				width: @max-width-portrait;
+				right: -@sticky-search-trigger-width;
+			}
+		}
+
+		& when (@search-type = overlay) {
+			//to make sure search overlay is over the header not under
+			.sticky_header .search_open {
+				#siteheader {
+					z-index: auto;
+				}
+			}
+		}
+	}
+}
+/*62em = 992px*/
+@media only screen and (min-width:62em) {
+	& when (@sticky-header = true) {
+		.sticky_header {
+			.search-trigger {
+				margin-left: ~"calc(" @max-width-landscape ~" - " @sticky-search-trigger-width ~")";
+			}
+
+			.top_search {
+				max-width: @max-width-landscape;
+			}
+
+			#siteheader {
+				a#home_link {
+					width: @sticky-logo-width;
+				}
+			}
+
+			.mainnav {
+				.dropdownmenu {
+					margin-left: @sticky-logo-width + 15px;
+					//max-width-landscape minus the margins
+					width: @max-width-landscape - @sticky-logo-width - 15 - @sticky-search-trigger-width;
+
+					> li > a {
+						//font-size: @nav-font-size;
+						font-size: 15px;
+					}
+				}
+			}
+
+			#sitebody .dropdownmenu .widthcontainer4col,
+			#sitebody .dropdownmenu .widthcontainer5col,
+			#sitebody .dropdownmenu .widthcontainer6col,
+			#sitebody .dropdownmenu .widthcontainer7col,
+			#sitebody .dropdownmenu .widthcontainer8col {
+				width: @max-width-landscape;
+			}
+		}
+	}
+}
+/*75em = 1200px*/
+@media only screen and (min-width:75em) {
+	& when (@sticky-header = true) {
+		.sticky_header {
+			.search-trigger {
+				margin-left: ~"calc(" @max-width ~" - " @sticky-search-trigger-width ~")";
+			}
+
+			.top_search {
+				max-width: @max-width;
+			}
+
+			.mainnav {
+				.dropdownmenu {
+					//max-width minus the margins
+					width: @max-width - @sticky-logo-width - 15 - @sticky-search-trigger-width;
+				}
+			}
+
+			#sitebody .dropdownmenu .widthcontainer4col,
+			#sitebody .dropdownmenu .widthcontainer5col,
+			#sitebody .dropdownmenu .widthcontainer6col,
+			#sitebody .dropdownmenu .widthcontainer7col,
+			#sitebody .dropdownmenu .widthcontainer8col {
+				width: @max-width;
+			}
+		}
+	}
+}
+
+& when (@wide-layout = true) {
+	/*1366px*/
+	@media only screen and (min-width:85.375em) {
+		& when (@sticky-header = true) {
+			.sticky_header {
+				.search-trigger {
+					margin-left: ~"calc(" @max-width-wide ~" - " @sticky-search-trigger-width ~")";
+				}
+
+				.top_search {
+					max-width: @max-width-wide;
+				}
+
+				.mainnav {
+					.dropdownmenu {
+						//max-width-wide minus the margins
+						width: @max-width-wide - @sticky-logo-width - 15 - @sticky-search-trigger-width;
+					}
+				}
+
+				#sitebody .dropdownmenu .widthcontainer4col,
+				#sitebody .dropdownmenu .widthcontainer5col,
+				#sitebody .dropdownmenu .widthcontainer6col,
+				#sitebody .dropdownmenu .widthcontainer7col,
+				#sitebody .dropdownmenu .widthcontainer8col {
+					width: @max-width-wide;
+				}
+			}
+		}
+	}
+}

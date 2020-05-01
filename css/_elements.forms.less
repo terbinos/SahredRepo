@@ -1,0 +1,28 @@
+//Default form styles for entire site.  Do not modify unless there are bugs after CMS integration.
+.column select {
+    min-width: 150px;
+}
+
+.front_end_body label {
+    line-height: inherit;
+}
+
+
+legend {
+    color: @page-subtitle-color;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.form_button, .column input[type=button], .column input[type=submit], .column input[type=reset],  body.dialog_body input[type="submit"], body.dialog_body input[type="button"], body.dialog_body input[type="reset"], .front_end_body .command.primary, .front_end_body .column .command {
+    background: @table-header-bg !important;
+    color: @table-header-color !important;
+}
+.form_button:hover, .column input[type=button]:hover, .column input[type=submit]:hover, .column input[type=reset]:hover, .front_end_body input[type=submit].command.primary:hover, .front_end_body a.command.primary:hover {
+    color: @default-text-color !important;
+    background: @row-hover-bg !important;
+    border: 2px solid @default-border-color !important;
+}
+.column input[type="text"], .column.column input[type="submit"], .column input[type="password"], .column input[type="email"], .column textarea, .column select, .front_end_form input[type="text"], .front_end_form input[type="password"], .front_end_form input[type="email"], .front_end_form textarea, .front_end_form select {
+	line-height: normal !important; //product overwrite
+}

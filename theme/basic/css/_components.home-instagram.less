@@ -1,0 +1,64 @@
+@instagram-padding-mobile: 40px 10px 0 10px;//instagram Widget padding on mobile (Shorthand: top, right, bottom, left)
+@instagram-padding-tablet: 0 0 0 0;//instagram Widget padding on tablet (Shorthand: top, right, bottom, left)
+@instagram-padding-desktop: 0 0 0 0;//instagram Widget padding on desktop (Shorthand: top, right, bottom, left)
+
+@instagram-h2-margin-mobile: 0 0 20px 0;//instagram Widget Title margins on mobile (Shorthand: top, right, bottom, left)
+@instagram-h2-margin-tablet: 0 0 20px 0;//instagram Widget Title margins on tablet (Shorthand: top, right, bottom, left)
+@instagram-h2-margin-desktop: 0 0 20px 0;//instagram Widget Title margins on desktop (Shorthand: top, right, bottom, left)
+
+
+
+.home_instagram {
+	padding: @instagram-padding-mobile;
+	
+
+	&:before {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		background: @social-media-background;
+		display: block;
+		z-index: -1;
+	}
+
+	.widget_header {
+		margin: @instagram-h2-margin-mobile;
+		font-size: @instagram-h2-font-size-mobile;
+		font-weight: @instagram-h2-font-weight;
+		color: @instagram-h2-color;
+		text-transform: @instagram-h2-text-transform;
+		font-family: @instagram-h2-font-family;
+	}
+
+	.instagram_container {
+		background: #fff;
+		min-height: 470px;
+		padding: 42px 20px;
+	}
+}
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+	.home_instagram {
+		padding: @instagram-padding-tablet;
+
+		.widget_header {
+			margin: @instagram-h2-margin-tablet;
+		}
+	}
+}
+
+/***62em = 992px ***/
+@media screen and (min-width: 62em) {
+	.home_instagram {
+		padding: @instagram-padding-desktop;
+
+		.widget_header {
+			font-size: @instagram-h2-font-size;
+			margin: @instagram-h2-margin-desktop;
+		}
+	}
+}

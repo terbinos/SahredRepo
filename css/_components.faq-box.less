@@ -1,0 +1,73 @@
+//styles specific to the FAQ box widget found in standard_3col.html. 
+//rarely modified for each project
+.small_box.faq_box .box_content > ul > li {
+    padding: 17px 7% 17px 16px;
+}
+.small_box.faq_box .box_content li:before, .small_box.faq_box .box_content li:after{display:none;}
+.small_box.faq_box .box_content .listfaq_a a {
+    color: @default-link-color;
+    text-decoration: @default-link-decoration;
+    //font-size: 90%;
+    display: inline;
+
+    &:hover {
+        text-decoration: @default-link-decoration-hover;
+    }
+}
+.small_box.faq_box .box_content li:before, .small_box.faq_box .box_content li:after{display:none;}
+
+.listfaq_a_content{
+    .clearfix();
+
+}
+.small_box.faq_box .box_content ul .listfaq_a_content a {
+    font-weight: normal;
+    display: inline;
+}
+
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+    //adjust these to match _objects.small-boxes.less spacing between items.
+    .small_box.faq_box .box_content > ul > li {
+        padding: 5px 0 7px 0;
+    }
+    .small_box.faq_box .box_content ul li {
+       // line-height: 140%;
+    }
+
+    .small_box.faq_box .box_content ul ul {
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    .small_box.faq_box .box_content ul ul li {
+        border: 0;
+        font-size: 110%;
+    }
+	.small_box.faq_box .listfaq_q_content {
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+    .small_box.faq_box .box_content ul .listfaq_a_content a {
+        font-size: inherit;
+        font-weight: normal;
+        text-decoration: @default-link-decoration;
+
+        &:hover {
+            text-decoration: @default-link-decoration-hover;
+        }
+    }
+
+    .small_box.faq_box .box_content .listfaq_a {
+        color: @small-box-sub-color;
+        font-size: @small-box-sub-font-size;
+        p, ul, ol, li, div, span {
+            color: @small-box-sub-color;
+            font-size: inherit;
+        }
+    }
+}

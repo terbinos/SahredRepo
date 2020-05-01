@@ -1,0 +1,143 @@
+
+@int-buttons-background: transparent; //background for entire buttons area
+
+@int-button-spacing: 10px; //spacing between buttons in percentage
+@int-button-vertical-margin: 10px; //spacing between rows on mobile
+
+@int-button-decoration: none; //text decoration of buttons text (underline or none)
+@int-button-decoration-hover: none; //text decoration of buttons text on hover (underline or none)
+@int-button-line-height: 1.25; //line height of buttons text (px or ratio or percent)
+@int-button-text-vertical-align: middle; //vertical alignment of buttons text
+
+@int-button-img-max-width: 65px; //width of the widest icon used
+@int-button-img-max-height: 60px; //height of the tallest icon used.
+
+//variables used only when .buttons-icon-left class is NOT used
+@int-button-icon-area-height: 70px; //height of area that icon should be centered in.
+
+
+.int_buttons.int_buttons {
+    display: block;
+    clear:both;
+    background: @int-buttons-background;
+    
+    ul {
+        .unstyled_list;
+         margin: 0px -@int-button-spacing/2;
+      display: -ms-flexbox;
+      -ms-flex-wrap: wrap;
+      -ms-flex-direction: column;
+      -webkit-flex-flow: row wrap; 
+      flex-flow: row wrap; 
+      display: -webkit-box;
+      display: flex;
+      margin-bottom: -@int-button-vertical-margin;
+        li {
+            display:inline-block; /*for graceful degradation of flexbox in IE 8/9*/
+         -webkit-box-flex: auto;
+          -ms-flex: auto;
+          flex: auto; 
+          width: @int-buttons-width; 
+          margin: 0 @int-button-spacing/2; 
+          padding: 0 0px @int-button-vertical-margin 0;
+          max-width: ~"calc(100% - "@int-button-spacing~")";
+        }
+    }
+
+    .button-link {
+        background: @int-buttons-bg;
+        border: @int-buttons-border;
+        border-radius: @int-buttons-border-radius;
+        box-shadow: @int-buttons-box-shadow;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: @int-button-text-vertical-align;
+        -ms-flex-align: @int-button-text-vertical-align;
+        align-items: @int-button-text-vertical-align;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        height: @int-buttons-height;
+        position: relative;
+        width: 100%;
+        text-decoration: @int-button-decoration;
+        text-align: center;
+
+        &:hover, &:focus {
+            text-decoration: @int-button-decoration-hover;
+            background: @int-buttons-bg-hover;
+            border: @int-buttons-border-hover;
+            box-shadow: @int-buttons-box-shadow-hover;
+
+            .button-text {
+                color: @int-buttons-color-hover;
+            }
+        }
+    }
+
+    img {
+        bottom: @int-buttons-height - @int-button-icon-area-height;
+        left: 0;
+        right: 0;
+        margin: auto;
+        position: absolute;
+        top: 11px;
+        max-width: @int-button-img-max-width;
+        max-height:@int-button-img-max-height;
+    }
+
+    .button-text {
+        color: @int-buttons-color;
+        font-size: @int-buttons-font-size;
+        font-weight: @int-buttons-font-weight;
+        font-family: @int-buttons-font-family;
+        text-transform: @int-buttons-text-transform;
+        line-height: @int-button-line-height;
+        vertical-align: @int-button-text-vertical-align;
+        padding: @int-button-icon-area-height 10px 0;
+         -ms-flex: 0 1 100%;
+        -webkit-flex: 0 1 100%;
+        flex: 0 1 100%;
+        max-height: (@int-buttons-font-size * @int-button-line-height * @int-buttons-text-max-lines) + @int-button-icon-area-height;
+        overflow:hidden;
+    }
+
+   
+}
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+
+    .small_col, .left_col {
+        .int_buttons.int_buttons.int_buttons {
+            border:0 !important;
+            padding:0;
+            background: transparent !important;
+            margin-bottom: 17px;
+        }
+    }
+	#sitebody.standardlayout, #sitebody.standardthreecolumnlayout {
+		.top_col {
+			.int_buttons {
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
+
+		.top_col .main_menu_widget + script + script + .int_buttons {
+			padding-top: 30px;
+
+			
+		}
+	}
+    
+}
+
+@media screen and (min-width: 62em) {
+
+
+}

@@ -1,0 +1,364 @@
+
+//Styles for search input "overlay" style.  Modified for each project.  Not used for large central search field on homepage, use _components.home-search.less for that
+
+//mobile
+@searchbox-mobile-input-bg: #fff;
+
+
+//"Close" text next to X
+@search-close-color: contrast(@searchbox-overlay-bg);
+@search-close-font-size: 21px;
+@search-close-text-transform: uppercase;
+
+@toplinks-button-line-height: 1.2;
+
+.search-trigger,
+.top_links,
+.close_search {
+    display: none;
+}
+
+#searchbox {
+    background: @searchbox-mobile-bg;
+    border: 0;
+    height: auto;
+    margin: 0;
+    padding: 6px 5px;
+    width: 100%;
+    top: auto;
+    bottom: 0;
+    position: absolute;
+
+    input#search_text {
+        background: @searchbox-mobile-input-bg;
+        border: 0 none !important; /*keep important*/
+        border-radius: 0;
+        color: @searchbox-mobile-text-color;
+        font-size: @searchbox-mobile-font-size !important; /*keep important*/
+        height: 28px;
+        line-height: 28px !important;
+        margin: 0;
+        padding: 0 36px 0 7px;
+        width: 100%;
+
+        &::-webkit-input-placeholder {
+            color: @searchbox-mobile-text-color;
+            font-size: @searchbox-mobile-font-size;
+            opacity: 1 !important;
+        }
+
+        &:-moz-placeholder {
+            color: @searchbox-mobile-text-color;
+            font-size: @searchbox-mobile-font-size;
+            opacity: 1 !important;
+        }
+        //need both for firefox
+        &::-moz-placeholder {
+            opacity: 1 !important;
+            color: @searchbox-mobile-text-color;
+            font-size: @searchbox-mobile-font-size;
+        }
+
+        &:-ms-input-placeholder {
+            color: @searchbox-mobile-text-color;
+            font-size: @searchbox-mobile-font-size;
+            opacity: 1 !important;
+        }
+
+        &:focus {
+        }
+    }
+
+    > a {
+        background: url("_gfx/cmn/search_input_mobile.png") no-repeat center center;
+        border: 0 none !important;
+        height: 28px !important;
+        margin: 0;
+        position: absolute;
+        right: 5px;
+        text-align: left;
+        text-decoration: none;
+        text-indent: -4000px;
+        top: 6px;
+        width: 29px;
+        overflow: hidden;
+    }
+
+    &.active {
+    }
+}
+
+.top_links {
+    ul {
+        .unstyled_list;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-align-content: stretch;
+        -ms-flex-line-pack: stretch;
+        align-content: stretch;
+        -webkit-align-items: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
+        margin: 0 -5px;
+
+        li {
+            flex: 0 1 100%;
+            max-width: ~"calc(25% - 10px)";
+            padding: 0;
+            margin: 0 5px 12px;
+
+            a {
+                background: @toplinks-button-bg;
+                border: @toplinks-button-border;
+                border-radius: @toplinks-button-border-radius;
+                padding: 5px;
+                height: @toplinks-button-height;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                -webkit-align-content: center;
+                -ms-flex-line-pack: center;
+                align-content: center;
+                -webkit-align-items: center;
+                -ms-flex-align: center;
+                align-items: center;
+                -webkit-justify-content: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+                text-decoration: none;
+                text-align: center;
+
+                &:hover {
+                    background: @toplinks-button-bg-hover;
+                    border-color: @toplinks-button-border-hover;
+
+                    .link-text {
+                        color: @toplinks-button-color-hover;
+                    }
+                    // a{color:#fff;}
+                }
+            }
+
+
+
+            .link-text {
+                //height:100%;
+                font-size: @toplinks-button-font-size;
+                text-align: center;
+                color: @toplinks-button-color;
+                text-decoration: none;
+                //margin-bottom:5px;
+                max-height: @toplinks-button-font-size * @toplinks-button-line-height * @toplinks-button-max-lines;
+                overflow: hidden;
+                line-height: @toplinks-button-line-height;
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+}
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+    .top_links {
+        display: block;
+
+        h2 {
+            font-size: @toplinks-h2-font-size;
+            color: @toplinks-h2-color;
+            font-weight: @toplinks-h2-font-weight;
+            width: 96%;
+            display: block;
+            margin: 29px auto 26px;
+            letter-spacing: 0.2px;
+        }
+
+        ul {
+            -webkit-align-items: flex-start;
+            -ms-flex-align: start;
+            align-items: flex-start;
+
+            li {
+
+                a {
+                    padding: 0 10px;
+                }
+            }
+        }
+    }
+
+    .top_search {
+        display: none;
+        position: absolute;
+        z-index: 12;
+        width: 100%;
+
+        .search_block {
+            width: 84%;
+            margin-left: 8%;
+            border: @searchblock-border;
+            margin-top: 77px;
+            padding: 0 8% 126px;
+        }
+    }
+
+    .search_overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: @searchbox-overlay-bg;
+        z-index: 11;
+    }
+
+    .close_search.close_search {
+        color: @search-close-color;
+        font-size: @search-close-font-size;
+        text-transform: @search-close-text-transform;
+        text-decoration: none;
+        .transition-duration;
+        float: right;
+        display: block;
+        background: url("_gfx/cmn/close_icon.svg") no-repeat right center;
+        background-size: 20px auto;
+        padding-right: 30px;
+        margin: 40px 8%;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    .search-trigger {
+        position: absolute;
+        right: auto;
+        top: @siteheader-height;
+        margin-left: ~"calc(" @max-width-portrait ~" - " 126px ~")";
+        display: block;
+        cursor: pointer;
+        background: #CC421C url("_gfx/cmn/search-main.svg") no-repeat center center;
+        height: @nav-height;
+        float: right;
+        width: @search-trigger-width;
+        text-indent: -4000px;
+        text-align: left;
+        overflow: hidden;
+        border-radius: 100%;
+        z-index: 1;
+        &.active {
+            //background: url("_gfx/cmn/close_icon.svg") no-repeat center center;
+            //background-size: 20px auto;
+            display: none;
+        }
+        &:hover {
+            background: url("_gfx/cmn/search-main.svg") no-repeat center center,  linear-gradient(310deg, #D83B10, #EB6946);
+        }
+    }
+
+	#searchbox {
+		margin: 95px auto 0;
+		position: relative;
+		padding: 0;
+		background: @searchbox-bg;
+		float: none;
+		top: auto;
+		height: auto;
+		border: @searchbox-border;
+		width: @searchbox-width;
+		> a {
+			display: inline-block;
+			background: @searchbox-icon-bg url("_gfx/cmn/search_icon.svg") no-repeat center center;
+			background-size: 20px auto;
+			width: @searchbox-icon-width;
+			height: @searchbox-icon-height !important;
+			top: 2px;
+			right: 2px;
+			border-radius: @searchbox-icon-border-radius;
+
+			&:hover {
+				background-color: @searchbox-icon-bg-hover;
+			}
+			//background-image: url(_gfx/home/search.png);
+		}
+
+		input#search_text {
+			color: @searchbox-text-color;
+			margin: 0;
+			width: 100%;
+			border: 0 !important;
+			font-size: @searchbox-desktop-font-size !important;
+			background: transparent;
+			text-transform: @searchbox-text-transform;
+			height: @searchbox-height;
+			line-height: @searchbox-height !important;
+			padding: 0 (@searchbox-icon-width+4) 0 27px;
+
+			&::-webkit-input-placeholder {
+				font-size: @searchbox-desktop-font-size;
+				color: @searchbox-text-color;
+				text-transform: @searchbox-text-transform;
+			}
+
+			&:-moz-placeholder {
+				font-size: @searchbox-desktop-font-size;
+				color: @searchbox-text-color;
+				text-transform: @searchbox-text-transform;
+			}
+
+			&::-moz-placeholder {
+				font-size: @searchbox-desktop-font-size;
+				color: @searchbox-text-color;
+				text-transform: @searchbox-text-transform;
+			}
+
+			&:-ms-input-placeholder {
+				font-size: @searchbox-desktop-font-size;
+				color: @searchbox-text-color;
+				text-transform: @searchbox-text-transform;
+			}
+		}
+	}
+
+    #searchbox.right_adjust {
+        right: 0px;
+    }
+
+    .search_open {
+        .search_overlay, .top_search {
+            display: block;
+        }
+    }
+}
+/***62em = 992px***/
+@media only screen and (min-width: 62em) {
+
+    .search-trigger {
+        margin-left: ~"calc(" @max-width-landscape ~" - " @search-trigger-width ~")";
+    }
+}
+/***75em = 1200px***/
+@media only screen and (min-width: 75em) {
+
+    .search-trigger {
+        margin-left: ~"calc(" @max-width ~" - " @search-trigger-width ~")";
+    }
+}
+
+
+& when (@wide-layout = true) {
+    /*1366px*/
+    @media only screen and (min-width:85.375em) {
+        .search-trigger {
+            margin-left: ~"calc(" @max-width-wide ~" - " @search-trigger-width ~")";
+        }
+    }
+}

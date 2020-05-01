@@ -1,0 +1,149 @@
+/* Default List Table Styling.  
+    Should match general table style in Interior comp.  
+    Modify padding and borders ONLY  (if needed), otherwise do not modify.
+    everything else controlled in settings.global or settings.colors
+    Should match _components.tableData.less and _components.tableBox.less
+================================================== */
+
+
+.sitewrapper .listtable {
+    width: 100%;
+    border-collapse: separate !important;
+    margin: 10px 0;
+    empty-cells: show;
+    border: solid 0px @table-border-color !important;
+    background: @box-background !important;
+
+    th {
+        border: 1px solid @table-header-bg;
+        font-weight: @table-header-weight;
+        padding: 6px 9px;
+        background: @table-header-bg !important;
+        color: @table-header-color !important;
+        font-size: @table-header-size;
+        font-family:@table-header-font-family;
+        vertical-align:top;
+        &:hover {
+            font-weight: @table-header-weight;
+            padding: 6px 9px;
+            border: 1px solid @table-header-bg;
+        }
+        a{white-space: normal;}
+    }
+
+    td {
+        padding: 3px 9px 3px 9px !important;
+        border: 0;
+        border-bottom: solid 1px @table-border-color;
+        border-right: solid 1px @table-border-color;
+        font-size: @table-text-size;
+        &:first-child {
+            border-left: 1px solid @table-border-color;
+        }
+    }
+
+    tr:hover {
+        background: @row-hover-bg;
+        td{background: @row-hover-bg !important;}
+        > td a {
+            color: @table-link-hover-color !important;
+        }
+
+        > td, > td > p {
+            color: @table-text-hover-color !important;
+        }
+    }
+
+    a.email_link {
+        background-position: center 0;
+    }
+}
+.sitewrapper .listtable th a {
+    color: @table-header-color !important;
+}
+.sitewrapper table.listtable a.phone_link, .sitewrapper table.listtable a.phone_link:hover {
+    color: @table-text-color;
+    text-decoration: none !important;
+}
+
+
+//responsive tables products overwrites (do not modify)
+.front_end_body table.responsive-table-data-mb:not(.non-responsive-table) tr{width:100%;}
+.front_end_body table.responsive-table-data-mb:not(.non-responsive-table) td::before {
+    padding:3px 9px 2px 9px;
+    width:37%;
+    overflow: hidden;
+    // color: @table-header-color !important;
+   //  background:@table-header-bg!important;
+    position: static;
+    white-space: normal;
+    vertical-align:top;
+    display:table-cell;
+    text-overflow: ellipsis;
+}
+
+.front_end_body table.responsive-table-data-mb:not(.non-responsive-table) td {
+    min-height: 28px;
+    padding-left: 0 !important;
+    width:100%;
+    display:table;
+    table-layout: fixed;
+    overflow:hidden;
+}
+
+.front_end_body table.responsive-table-data-mb:not(.non-responsive-table) td:first-child {
+    padding-left: 0!important;
+}
+
+
+//responsive table
+.front_end_body table.responsive-table-data-mb:not(.non-responsive-table) tr {
+    border: 0px;
+    border-bottom: 2px solid @table-header-bg;
+
+    &:last-child {
+        border-bottom: 0;
+    }
+
+    td:last-child {
+        //border-bottom: 0;
+    }
+    
+}
+@media screen and (max-width: 47.9375em) {
+    .front_end_body table.responsive-table-data-mb:not(.non-responsive-table) {
+        border: solid 1px @table-border-color !important;
+        td{width:100% !important; }
+        .mobile_hide{display: table !important;}
+    }
+
+    .title_column {
+        max-width: none;
+    }
+}
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+    .front_end_body table.responsive-table-data-mb:not(.non-responsive-table) td {
+        padding-left: 9px !important;
+        width: auto;
+        display:table-cell;
+    }
+    .front_end_body table.responsive-table-data-mb:not(.non-responsive-table) td:first-child {
+        padding-left: 9px !important;
+    }
+    //responsive tables products overwrites (do not modify)
+    .sitewrapper .listtable{
+        border: solid 0px @table-border-color !important;
+    }
+     //listtable overwrite mobile table style
+    .sitewrapper .listtable td:last-child {
+        border-bottom: solid 1px @table-border-color !important;
+    }
+
+    //tables in a too narrow column
+    .staff_directory_widget, .rfp_widget, .service_directory_widget, .jobs_widget, .events_widget, .form_survey_widget, .facility_directory_list_view_widget, .poll_widget, .meeting_widget, .meeting_item_widget {
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+}

@@ -1,0 +1,86 @@
+//styles specific to the Service Box widget found in standard_3col.html.  Adjust for each project if needed.
+.service_box .box_content .toggle_service {
+    background: none;
+    border: 0 none;
+    display: block;
+    width: auto;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    text-indent: -9999em;
+    vertical-align: top;
+    position: absolute;
+    top: 18px;
+    bottom: 17px;
+    left: 16px;
+    right: 7%;
+    z-index: 1;
+
+    &:before {
+        content: "";
+        background: @small-box-title-bg url(_gfx/int/+.png) 1px 1px no-repeat;
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        top: 4px;
+        left: 0px;
+    }
+
+    &.hide_service:before {
+        background: @small-box-title-bg url(_gfx/int/-.png) 1px 1px no-repeat;
+    }
+}
+
+.small_box.service_box .box_content > ul > li > span {
+    display: block;
+    padding-left: 20px;
+    line-height: 170%;
+}
+
+.service_box .box_content ul.service_list {
+    margin: 0;
+    padding: 2px 0 2px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.service_box .box_content ul.service_list li {
+    padding: 2px 0;
+
+    a {
+        border-top: 0;
+        font-weight: normal;
+        line-height: 130%;
+    }
+}
+
+.service_box .box_content > ul > li {
+    border-top: 0;
+    padding-top: 18px;
+}
+
+.service_box .box_content > ul > li:first-child {
+    border: 0;
+    border-bottom: 1px solid @mobile-solid-border;
+}
+.service_box .box_content > ul > li > span {
+    font-weight: bold;
+}
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+    .service_box .box_content .toggle_service {
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0;
+
+        &:before {
+            top: 9px;
+        }
+    }
+    .small_box.service_box ul li span {
+        padding: 0;
+    }
+}

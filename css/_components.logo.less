@@ -1,0 +1,37 @@
+//Styles specific to the logo in the page header area
+//related stylesheet: _components.page-head.less
+//modified for each site 
+
+#siteheader {
+    //mobile
+     a#home_link {
+        //background:  url("_gfx/cmn/mobile/mobile_header.gif") no-repeat center center !important;
+        background: url(_gfx/cmn/logo.png) center center no-repeat !important;
+        background-size: contain !important;
+        height: 55px;
+        overflow: hidden;
+        position: absolute;
+        text-indent: -4000px; 
+        left: 0;
+        margin: auto;
+        right: 0;
+        top: 5px;
+        width: 80%;
+    }
+}
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+    #siteheader {
+        //desktop
+        a#home_link {
+            height: auto;
+            left: 0;
+            top: 0px;
+            bottom:0;
+            right:auto;
+            width: @logo-width;
+            max-width:460px;
+            background-position: 0 center !important;
+        }
+    }
+}

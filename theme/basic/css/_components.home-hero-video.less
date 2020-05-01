@@ -1,0 +1,608 @@
+@img-height: 600px; //actual height of the hero image, use height shown in desktop design.
+@img-width: 1920px; //actual width of the hero image, use width shown in desktop design.
+
+@img-height-tablet: 375px; //slightly smaller hero image for tablet
+
+@slide-content-padding-mobile: 10px; //padding on slide content area for mobile (use one number only, used in calculations below)
+@slide-content-padding-desktop: 18px 20px 30px 28px; //padding on slide content area for desktop (not used in calculations, can be 4 different values) shorthand: top, right, bottom, left.
+@slide-content-left: 0; //Position of slide content from left on desktop.
+@slide-content-bottom: 192px; //Position of slide content from bottom on desktop.
+@slide-content-top:50%; //Position of slide content from top on desktop.
+@slide-content-right: auto; //Position of slide content from right on desktop.
+@slide-content-width: 341px; //width of slide content on desktop.
+
+@slide-title-line-height: 1.2; //slide title line height
+@slide-title-decoration: none; //text decoration for slide titles (underline or none)
+@slide-title-decoration-hover: underline; //text decoration for slide titles on hover (underline or none)
+@slide-title-margin: 0 0 3px 0; //margin around slide title on desktop.  Shorthand: top, right, bottom, left.
+
+@slide-description-line-height: 1.3; //line height of slide description text
+
+@nav-dots-border-radius: 50%; //navigation dots border radius
+@nav-dots-height: 13px; //height of each individual navigation dot (including borders)
+@nav-dots-width: 13px; //width of each individual navigation dot (including borders)
+@nav-dots-top: auto; //navigation dots position from top on desktop.  Use "auto" if positioning from bottom.
+@nav-dots-left: 0; //navigation dots position from left on desktop.  Use "auto" if positioning from right.
+@nav-dots-bottom: 204px; //navigation dots position from bottom on desktop.  Use "auto" if positioning from top.
+@nav-dots-right: 0; //navigation dots position from right on desktop.  Use "auto" if positioning from left.
+
+//@nav-arrows-width: 30px; //navigation arrows width
+//@nav-arrows-height: 38px; //navigation arrows height
+//@nav-arrows-bg: url(_gfx/home/button_arrows.png) 0 0 no-repeat; //navigation arrows background image (sprite)
+//@nav-arrows-bg-position-hover: 0 -40px; //navigation prev arrow background position on hover
+//@nav-next-bg-position: -32px 0; //navigation next arrow background position
+//@nav-next-bg-position-hover: -32px -40px; //navigation next arrow background position on hover
+
+//update the "50%" for different navigation arrow positions
+//@nav-arrows-top-desktop: ~"calc(50% - " (@nav-arrows-height/2) ~")"; //navigation arrows position on desktop
+
+//@nav-prev-left: 10px; //navigation previous arrow left position
+//@nav-next-right: 10px; //navigation next arrow right position
+
+/*generally should not be updated*/
+//calculates a height as a percentage of the browser width, to keep heights even but scaling with browser size.
+//@mobile-img-height: unit(@img-height/@img-width*100, vw);
+
+.video_bg_image_slider.video_ {
+	position: relative;
+	//padding-bottom: 56.25%; /* 16:9 */
+	padding-bottom: 31.25%; /* 1920:600 */
+	height: 0;
+	overflow: hidden;
+
+	.video_wrapper {
+		position: absolute;
+		padding-bottom: 56.25%; /* 16:9 */
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		height: 0;
+		overflow: hidden;
+		width: 100%;
+	}
+
+	img {
+		min-height: 100%;
+		position: absolute;
+		min-width: 100%;
+		top: 50%;
+		left: 50%;
+		-webkit-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+		max-width: none;
+		display: none;
+	}
+
+	iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.video_caption {
+		width: 100%;
+		padding: @slide-content-padding-mobile;
+		overflow: hidden;
+		letter-spacing: 0.2px;
+	}
+
+	.video_title {
+		margin: @slide-title-margin;
+		font-size: @slide-title-size-mobile;
+		font-weight: @slide-title-weight;
+		color: @slide-title-color;
+		max-height: (@slide-title-size * @slide-title-line-height * @slide-title-max-lines) + 1px;
+		overflow: hidden;
+		font-family: @slide-title-font-family;
+		text-transform: @slide-title-text-transform;
+		//white-space: nowrap;
+		//text-overflow: ellipsis;
+		max-width: 100%;
+		line-height: @slide-title-line-height;
+		/*a {
+			color: @slide-title-color;
+			text-decoration: @slide-title-decoration;
+		}
+
+		&:hover a[href] {
+			color: @slide-title-color-hover;
+			text-decoration: @slide-title-decoration-hover;
+		}*/
+	}
+
+	.video_description {
+		color: @slide-description-color;
+		font-size: @slide-description-size-mobile;
+		font-weight: @slide-description-weight;
+		font-family: @slide-description-font-family;
+		max-height: @slide-description-size * @slide-description-line-height * @slide-description-max-lines;
+		overflow: hidden;
+		line-height: @slide-description-line-height;
+		margin-bottom: 25px;
+	}
+
+	.video_link {
+		display: block;
+		color: #1d2424;
+		font-size: 18px;
+		font-weight: normal;
+		background: #ffd028;
+		width: 160px;
+		height: 40px;
+		line-height: 40px;
+		font-family: inherit;
+		text-transform: uppercase;
+		margin: 0;
+		text-decoration: none;
+		text-align: center;
+		border: 0px solid transparent;
+		border-radius: 3px;
+		.transition();
+		float:right;
+		&:hover {
+			color: #fff;
+			text-decoration: none;
+			background: #1eb299;
+		}
+	}
+
+	.video_controls {
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		z-index: 3;
+
+		a {
+			display: block;
+			width: 61px;
+			height: 69px;
+			text-indent: -4000px;
+			cursor: pointer;
+			background: url(_gfx/home/play-pause.png) no-repeat right 0;
+
+			&.video-pause {
+				background: url(_gfx/home/play-pause.png) no-repeat 0 0;
+			}
+		}
+	}
+}
+	
+	/***48em = 768px ***/
+	@media screen and (min-width: 48em) {
+		.video_bg_image_slider.video_ {
+			.video_caption {
+				padding: @slide-content-padding-desktop;
+				left: @slide-content-left;
+				bottom: auto;
+				margin: auto;
+				top: @slide-content-top;
+				right: @slide-content-right;
+				position: absolute;
+				width: @slide-content-width;
+				white-space: normal;
+				background: @slide-content-background;
+				z-index:3;
+				transform: translateY(-50%);
+			}
+
+			.video_title {
+				white-space: normal;
+			}
+
+			.video_controls {
+				top: 15px;
+				right: 15px;
+			}
+			}
+		}
+	/***62em =992px ***/
+	@media screen and (min-width: 62em) {
+		.video_bg_image_slider.video_ {
+			.video_title {
+				font-size: @slide-title-size;
+			}
+
+			.video_description {
+				font-size: @slide-description-size;
+			}
+			}
+		}
+	/***75em =1200px ***/
+	@media screen and (min-width: 75em) {
+		.video_bg_image_slider.video_ {
+			.video_caption {
+				//bottom: @slide-content-bottom / @img-width * 100vw;
+			}
+			}
+		}
+
+
+	& when (@wide-layout = true) {
+		//1366px
+		@media (min-width: 85.375em) {
+		}
+	}
+
+
+	//image slider
+.home_collage {
+	display: block;
+	width: 100%;
+	background: @slide-content-background;
+
+	.slides {
+		li {
+			overflow: hidden;
+			//transition: opacity 2.5s ease !important;
+			height: 0;
+			padding-top: @img-height / @img-width * 100%;
+
+			> a {
+				height: 0;
+				overflow: hidden;
+				padding-top: @img-height / @img-width * 100%;
+				display: block;
+				position: relative;
+			}
+		}
+
+		img {
+			//max-width: none;
+			height: auto;
+			min-height: 100%;
+			position: absolute;
+			top: 0;
+			left: 50%;
+			bottom: 0;
+			min-width: 100%;
+			transform: translate(-50%, 0);
+		}
+	}
+
+	.container {
+		position: relative;
+	}
+
+	.slide_content {
+		width: 100%;
+		padding: @slide-content-padding-mobile;
+		overflow: hidden;
+		letter-spacing: 0.2px;
+	}
+
+	.slide_title {
+		margin: @slide-title-margin;
+		font-size: @slide-title-size-mobile;
+		font-weight: @slide-title-weight;
+		color: @slide-title-color;
+		max-height: (@slide-title-size * @slide-title-line-height * @slide-title-max-lines) + 1px;
+		overflow: hidden;
+		font-family: @slide-title-font-family;
+		text-transform: @slide-title-text-transform;
+		//white-space: nowrap;
+		//text-overflow: ellipsis;
+		max-width: 100%;
+		line-height: @slide-title-line-height;
+
+		a {
+			color: @slide-title-color;
+			text-decoration: @slide-title-decoration;
+		}
+
+		&:hover a[href] {
+			color: @slide-title-color-hover;
+			text-decoration: @slide-title-decoration-hover;
+		}
+	}
+
+	.slide_description {
+		color: @slide-description-color;
+		font-size: @slide-description-size-mobile;
+		font-weight: @slide-description-weight;
+		font-family: @slide-description-font-family;
+		max-height: @slide-description-size * @slide-description-line-height * @slide-description-max-lines;
+		overflow: hidden;
+		line-height: @slide-description-line-height;
+		//white-space: nowrap;
+		//text-overflow: ellipsis;
+		// max-width: ~"calc(100% - 80px)";
+		//display: inline-block;
+		margin-bottom: 25px;
+		// margin-right: 10px;
+	}
+
+	.slide_link {
+		display: block;
+		color: #1d2424;
+		font-size: 18px;
+		font-weight: normal;
+		background: #ffd028;
+		width: 160px;
+		height: 40px;
+		line-height: 40px;
+		font-family: inherit;
+		text-transform: uppercase;
+		margin: 0;
+		text-decoration: none;
+		text-align: center;
+		border: 0px solid transparent;
+		border-radius: 3px;
+		.transition();
+		//float: right;
+
+		&:hover {
+			color: #fff;
+			text-decoration: none;
+			background: #1eb299;
+		}
+	}
+	//the dots
+	.flex-control-nav {
+		right: 4px;
+		bottom: auto;
+		display: block;
+		position: absolute;
+		z-index: 3;
+		top: 4px;
+		padding: 6px 6px 6px 0;
+		background: @slide-content-background;
+
+		&:empty {
+			display: none
+		}
+
+		a {
+			height: @nav-dots-height;
+			width: @nav-dots-width;
+			border-radius: @nav-dots-border-radius;
+			background: @nav-dots-bg;
+			border: @nav-dots-border;
+			box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+			margin-left: 8px;
+		}
+
+		a.flex-active,
+		a:hover {
+			background: @nav-dots-bg-hover;
+			border: @nav-dots-border-hover;
+		}
+	}
+	//the arrows
+	.flex-direction-nav {
+		display: none;
+	}
+
+	.flex-pauseplay {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		z-index: 3;
+
+		a {
+			display: block;
+			width: 61px;
+			height: 69px;
+			text-indent: -4000px;
+			cursor: pointer;
+			background: url(_gfx/home/play-pause.png) no-repeat right 0;
+
+			&.flex-pause {
+				background: url(_gfx/home/play-pause.png) no-repeat 0 0;
+			}
+		}
+	}
+	/*.flex-direction-nav {
+        a {
+            width: @nav-arrows-width;
+            height: @nav-arrows-height;
+            margin: -@nav-arrows-height/2 0 0 0;
+            display: block;
+            position: absolute;
+            top: @mobile-img-height/2;
+            cursor: pointer;
+            text-indent: -9999px;
+            background: @nav-arrows-bg;
+            z-index: 3;
+            overflow: hidden;
+
+            &:hover {
+                background-position: @nav-arrows-bg-position-hover;
+            }
+        }
+
+        .flex-next {
+            right: @nav-next-right;
+            display: block;
+            background-position: @nav-next-bg-position;
+        }
+
+        .flex-next:hover {
+            background-position: @nav-next-bg-position-hover;
+        }
+
+        .flex-prev {
+            left: @nav-prev-left;
+            display: block;
+        }
+
+        .flex-disabled {
+            cursor: default;
+        }
+    }*/
+}
+
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+
+
+	.home_collage {
+		background: transparent;
+
+		.slides {
+			li {
+				height: auto;
+				padding-top: 0;
+
+				> a {
+					height: auto;
+					padding-top: 0;
+				}
+			}
+
+			img {
+				height: @img-height-tablet;
+				position: relative;
+				max-width: none;
+				max-height: 100%;
+			}
+		}
+
+		.container {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+		}
+
+		.slide_content {
+			padding: @slide-content-padding-desktop;
+			left: @slide-content-left;
+			bottom: 90px;
+			top: auto;
+			right: @slide-content-right;
+			position: absolute;
+			width: @slide-content-width;
+			white-space: normal;
+			background: @slide-content-background;
+		}
+
+		.slide_title {
+			white-space: normal;
+		}
+		/*.flex-direction-nav {
+            a {
+                top: @nav-arrows-top-desktop;
+                margin: 0;
+            }
+        }*/
+		.flex-control-nav {
+			top: @nav-dots-top;
+			bottom: 94px;
+			left: @nav-dots-left;
+			right: @nav-dots-right;
+			background: transparent;
+			padding: 0 400px 0 0;
+			margin: auto;
+			text-align: right;
+
+			li {
+				float: none;
+				display: inline-block;
+			}
+		}
+
+		.flex-control-nav, .flex-direction-nav {
+			width: @max-width-portrait;
+			max-width: @max-width-portrait;
+		}
+
+		.flex-pauseplay {
+			top: 15px;
+			left: 15px;
+		}
+	}
+}
+
+/***62em =992px ***/
+@media screen and (min-width: 62em) {
+	.home_collage {
+
+		.slides {
+			img {
+				//height: @img-height;
+			}
+		}
+
+		.slide_content {
+			//bottom: @slide-content-bottom;
+		}
+
+		.slide_title {
+			font-size: @slide-title-size;
+		}
+
+		.slide_description {
+			font-size: @slide-description-size;
+		}
+
+		.flex-control-nav {
+			padding-right: 633px;
+			//bottom: @nav-dots-bottom;
+		}
+
+		.flex-control-nav, .flex-direction-nav {
+			width: @max-width-landscape;
+			max-width: @max-width-landscape;
+		}
+	}
+}
+
+/***75em =1200px ***/
+@media screen and (min-width: 75em) {
+	.home_collage {
+		.slides {
+			li {
+				height: 0;
+				padding-top: @img-height / @img-width * 100%;
+
+				 > a {
+					height: 0;
+					padding-top: @img-height / @img-width * 100%;
+				}
+			}
+
+			img {
+				height: auto;
+				position: absolute;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				//min-height: @img-height;
+			}
+		}
+
+		.slide_content {
+			bottom: @slide-content-bottom / @img-width * 100vw;
+		}
+
+		.flex-control-nav {
+			padding-right: 700px;
+			bottom: @nav-dots-bottom / @img-width * 100vw;
+		}
+
+		.flex-control-nav, .flex-direction-nav {
+			width: @max-width;
+			max-width: @max-width;
+		}
+	}
+}
+
+
+& when (@wide-layout = true) {
+	//1366px
+	@media (min-width: 85.375em) {
+		.home_collage {
+			.flex-control-nav {
+				padding-right: 980px;
+			}
+
+			.flex-control-nav, .flex-direction-nav {
+				width: @max-width-wide;
+				max-width: @max-width-wide;
+			}
+		}
+	}
+}

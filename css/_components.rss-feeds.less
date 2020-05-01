@@ -1,0 +1,29 @@
+//Styles specific to the RSS feeds component.  Do not modify unless there are bugs after CMS integration.
+//rss feeds
+.rss_feeds_content_type a.rss_link {
+    background: none;
+    position: relative;
+}
+
+.rss_feeds_content_type a.rss_link:before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0px;
+    width: 15px;
+    height: 15px;
+    background: url(_gfx/int/title_icons.png) 0 -15px no-repeat;
+}
+
+.rss_feeds_content_type .rss_feeds_content_type_title {
+    border-bottom: 1px solid @default-border-color;
+}
+
+.rss_feeds_content_type .content_type_name {
+    color: @subtitle-color;
+    font-size: 120%;
+}
+
+.rss_feed_content .item_graytext {
+    margin-left: 10px;
+}

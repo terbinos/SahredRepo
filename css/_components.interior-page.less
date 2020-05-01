@@ -1,0 +1,395 @@
+//Styles specific to the content body on the interior pages.
+//related stylesheet: _objects.wrappers.less
+//modified for each project.
+//set spacing and colors here
+
+//update these when using a 1302px wide design
+.define-site-width() when (@wide-layout) {
+	@site-width: @max-width-wide;
+	@page-padding: 0px; //padding around outside of page.  Set to 0 if page does not have background and content should go to edges of area.
+	@page-padding-percent: (60px/@site-width)*100%;
+	@left_right_col_gap: 0px; //if there is a gap between the left col and right col then put the width here.  If no gap, put 0.
+}
+
+//update these when using a 1024px wide design
+.define-site-width() when (@wide-layout = false) {
+	@site-width: @max-width;
+	@page-padding: 0px; //padding around outside of page.  Set to 0 if page does not have background and content should go to edges of area.
+	@page-padding-percent: (20px/@site-width)*100%;
+	@left_right_col_gap: 0px; //if there is a gap between the left col and right col then put the width here.  If no gap, put 0.
+}
+
+.define-site-width();
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+
+	//modify for each project:
+	#sitebody {
+		width: 100%;
+		max-width: none;
+		display: -ms-grid;
+		display: grid;
+		//grid has 14 columns and a variable number of rows
+		-ms-grid-columns: 1fr @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 1fr;
+		grid-template-columns: 1fr @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 1fr;
+		position: relative;
+		background: transparent;
+		min-height: 650px;
+		//overflow: hidden;
+		padding: 0 0 60px 0;
+		margin: 0 auto;
+
+		&:before {
+			.css-grid-item(@col-start:1, @col-span:14, @row-start:1, @row-span:3);
+			content: "";
+			background: @interior-page-bg;
+			position: relative;
+			z-index: -1;
+			border-bottom: 1px solid #f0f0f0;
+			margin-bottom: -59px; //matches the padding on sitebody (minus 1 because of the border below)
+			min-height: 466px;
+			width:100%;
+			height:100%;
+		}
+
+		.top_col {
+			.css-grid-item(@col-start:2, @col-span:12, @row-start:1, @row-span:1);
+			padding-top: ~"Calc(" 150/1920*100vw ~" + " @nav-height ~")";
+			position: relative;
+
+			&:before {
+				content: "";
+				height: 0;
+				padding-bottom: 150/1920*100vw;
+				position: absolute;
+				top: @nav-height;
+				left: 0;
+				visibility: visible;
+				width: 100vw;
+				margin-left: ~"calc(-1*(50vw - 50%))";
+				z-index: -1;
+				display: block;
+				background: @int-top-bg-color url(_gfx/int/int_top.jpg) center 0 no-repeat;
+				background-size: 100% auto;
+			}
+
+			&:after {
+				content: "";
+				position: absolute;
+				top: @nav-height;
+				left: 0;
+				width: 100vw;
+				margin-left: ~"calc(-1*(50vw - 50%))";
+				z-index: -1;
+				display: block;
+				visibility: visible;
+				height: 0;
+				padding-bottom: 150/1920*100vw;
+				background: @int-top-img-overlay;
+			}
+		}
+
+		.bottom_col {
+			.css-grid-item(@col-start:2, @col-span:12, @row-start:3, @row-span:1);
+		}
+
+		.left_col {
+			.css-grid-item(@col-start:2, @col-span:12, @row-start:2, @row-span:1);
+		}
+
+		.banner_col, .has_small_col {
+			.css-grid-item(@col-start:2, @col-span:12, @row-start:2, @row-span:1);
+            min-width: 1%;
+		}
+
+		.right_col {
+			.css-grid-item(@col-start:2, @col-span:12, @row-start:2, @row-span:1);
+			-ms-grid-column-align: end;
+			justify-self: end;
+		}
+	}
+
+
+	#sitebody.standardlayout, #sitebody.standardthreecolumnlayout, #sitebody.twocolumnreverselayout {
+		padding: 0;
+
+		&:before {
+			margin-bottom: 0; //matches the padding on sitebody
+		}
+
+		&:after {
+			.css-grid-item(@col-start:5, @col-span:10, @row-start:2, @row-span:1);
+			content: "";
+			background: @interior-page-bg;
+			z-index: -1;
+			//to overwrite "clearfix" styles
+			display: block;
+			height: auto;
+			visibility: visible;
+			border-bottom: 1px solid #f0f0f0;
+			width:100%;
+			height:100%;
+		}
+
+		.top_col {
+			min-height: ~"Calc(" 150/1920*100vw ~" + " @nav-height ~")";
+			padding-top: @nav-height;
+
+			&:before {
+				//in this case it should stretch
+				height: auto;
+				bottom: 0;
+			}
+
+			&:after {
+				//in this case it should stretch
+				bottom: 0;
+				height: auto;
+			}
+
+			.content_area.content_area {
+				padding-top: 30px;
+			}
+
+			> *:not(.vi-fullwidth-banner):last-child {
+				padding-bottom: 30px;
+			}
+		}
+	}
+
+	#sitebody.standardlayout, #sitebody.standardthreecolumnlayout {
+		&:before {
+			.css-grid-item(@col-start:1, @col-span:4, @row-start:2, @row-span:1);
+			content: "";
+			background: @leftcol-bg;
+			margin: 0 100%*(@left_right_col_gap/@site-width) 0 0;
+			border-bottom: 0;
+		}
+
+		.left_col.column.column.empty_col {
+			margin: 0 100%*(@left_right_col_gap/@site-width) 0 0 !important; //this line with important needed to overwrite backend style on page templates. Should be same margin as below.
+		}
+
+		.left_col.column {
+			width: 100%;
+			margin: 0 100%*(@left_right_col_gap/@site-width) 0 0;
+			padding: 20px 10px 60px;
+			background: @leftcol-bg;
+			.css-grid-item(@col-start:2, @col-span:3, @row-start:2, @row-span:1);
+		}
+
+		.right_col.column {
+			//temp fix for Edge until Edge fixes issue with percent padding
+			padding: @page-padding-percent @page-padding 60px @page-padding-percent;
+			margin: 0;
+			.css-grid-item(@col-start:5, @col-span:9, @row-start:2, @row-span:1);
+			width: 100%;
+		}
+	}
+	//rarely needs to be modified beyond here, modify with caution.
+	#sitebody.standardthreecolumnlayout {
+		.right_col.column {
+			justify-content: space-between;
+
+			> * {
+				flex: 0 1 auto;
+			}
+		}
+
+		.has_small_col {
+			width: 100%;
+		}
+
+		.small_col {
+			width: 100%;
+			margin: 0 !important;
+
+			.small_box, .minicalendar_widget {
+				display: block;
+				margin-right: auto;
+				width: 100%;
+			}
+		}
+	}
+
+	#sitebody.twocolumnswithbottomlayout {
+
+
+		.left_col {
+			.css-grid-item(@col-start:2, @col-span:12, @row-start:2, @row-span:1);
+			width: 50%;
+			padding: @page-padding-percent @page-padding-percent/2 0 @page-padding;
+
+			.title_widget:first-child {
+				margin-top: -15px;
+			}
+			//title widgets have their own top padding
+		}
+
+		.right_col {
+			.css-grid-item(@col-start:2, @col-span:12, @row-start:2, @row-span:1);
+			width: 50%;
+			//padding: 15px @page-padding 0 15px;
+			padding: @page-padding-percent @page-padding 0 @page-padding-percent/2;
+			float: right;
+			-ms-grid-column-align: end;
+			justify-self: end;
+
+			.title_widget:first-child {
+				margin-top: -15px;
+			}
+			//title widgets have their own top padding
+		}
+
+		.bottom_col {
+			width: 100%;
+			padding: 20px @page-padding;
+		}
+
+		.small_box {
+			width: 100%;
+		}
+	}
+
+	#sitebody.threecolumnswithbottomlayout {
+		.top_col.column {
+			margin-bottom: @top_col_gap;
+		}
+
+		.left_col.column {
+			width: 100%*(1/3);
+			padding: @page-padding-percent 0 0 @page-padding;
+
+			.title_widget:first-child {
+				margin-top: -15px;
+			}
+			//title widgets have their own top padding
+		}
+
+		.middle_col.column {
+			width: 100%*(1/3);
+			padding: @page-padding-percent @page-padding-percent/2 0 @page-padding-percent/2;
+			.css-grid-item(@col-start:2, @col-span:12, @row-start:2, @row-span:1);
+			-ms-grid-column-align: center;
+			justify-self: center;
+
+			.title_widget:first-child {
+				margin-top: -15px;
+			}
+			//title widgets have their own top padding
+		}
+
+		.right_col.column {
+			width: 100%*(1/3);
+			padding: @page-padding-percent @page-padding 0 0;
+			float: right;
+
+			.title_widget:first-child {
+				margin-top: -15px;
+			}
+			//title widgets have their own top padding
+		}
+
+		.bottom_col.column {
+			width: 100%;
+			padding: 20px @page-padding;
+		}
+
+		.small_box {
+			width: 100%;
+		}
+	}
+
+	#sitebody.twocolumnreverselayout {
+
+
+
+		.has_small_col {
+			width: 100%*(2/3);
+			padding: @page-padding-percent @page-padding-percent/2 0 @page-padding;
+			.css-grid-item(@col-start:2, @col-span:12, @row-start:2, @row-span:1);
+
+			.title_widget:first-child {
+				margin-top: -15px;
+			}
+			//title widgets have their own top padding
+		}
+
+		.small_col {
+			.css-grid-item(@col-start:2, @col-span:12, @row-start:2, @row-span:1);
+			-ms-grid-column-align: end;
+			justify-self: end;
+			width: 100%*(1/3);
+			padding: @page-padding-percent @page-padding 0 @page-padding-percent/2;
+			margin: 0 !important;
+		}
+	}
+}
+/*62em = 992px*/
+@media only screen and (min-width:62em) {
+	#sitebody {
+		-ms-grid-columns: 1fr @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 1fr;
+		grid-template-columns: 1fr @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 1fr;
+	}
+
+	#sitebody.standardlayout, #sitebody.standardthreecolumnlayout {
+		.left_col.column.column.empty_col {
+			margin: 0 100%*(@left_right_col_gap/@site-width) 0 0 !important; //this line with important needed to overwrite backend style on page templates. Should be same margin as below.
+		}
+	}
+
+	#sitebody.standardthreecolumnlayout {
+		.has_small_col {
+			width: 67%;
+		}
+
+		.small_col {
+			width: 30.6%;
+			float: right;
+		}
+	}
+}
+
+/*75em = 1200px*/
+@media only screen and (min-width:75em) {
+	#sitebody {
+		-ms-grid-columns: 1fr @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 1fr;
+		grid-template-columns: 1fr @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 1fr;
+	}
+}
+
+& when (@wide-layout = true) {
+	//1366px
+	@media (min-width: 85.375em) {
+		#sitebody {
+			-ms-grid-columns: 1fr @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 1fr;
+			grid-template-columns: 1fr @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 1fr;
+		}
+
+
+
+		#sitebody.standardlayout, #sitebody.standardthreecolumnlayout {
+			.left_col.column.column.empty_col {
+				margin: 0 100%*(@left_right_col_gap/@max-width-wide) 0 0 !important; //this line with important needed to overwrite backend style on page templates. Should be same margin as below.
+			}
+
+			.left_col.column {
+				margin: 0 100%*(@left_right_col_gap/@max-width-wide) 0 0;
+			}
+		}
+
+		@small-col-width: 270px;
+		@right-col-width: 978px;
+
+		#sitebody.standardthreecolumnlayout {
+			.has_small_col {
+				width: 100%*((@right-col-width - (@small-col-width + 35))/@right-col-width);
+			}
+
+			.small_col {
+				width: 100%*((@small-col-width)/@right-col-width);
+			}
+		}
+	}
+}

@@ -1,0 +1,169 @@
+
+@tab-color: #fff; //text color of tabs
+@tab-color-active: #fff; //text color of active tab
+@tab-border-color: rgba(255, 255, 255, 0.5); //bottom border color on tabs
+@tab-border-color-active: #ffd028; //bottom border color on active tabs (and hover)
+@tab-font-size-mobile: 24px; //font size of tab text "Events", "News", "Social" on mobile devices
+@tab-font-size: 50px; //font size of tab text "Events", "News", "Social" on tablet and desktop devices
+@tab-font-family: inherit; //font family of tab text "Events", "News", "Social"
+@tab-font-weight: normal; //font weight of tab text "Events", "News", "Social"
+@tab-text-transform: uppercase; //text transform of tab text "Events", "News", "Social" (Use uppercase or none)
+
+@tab-content-bg: transparent; //background of tab content areas. Use "transparent" to remove background.
+@tab-content-margin-mobile: 0px 0 0px;
+@tab-content-margin: 0px 0 0px;
+@tab-content-padding:0px 13px 0px 13px;
+@tab-content-margin-boxed-mobile:0 0 30px;
+@tab-content-margin-boxed:0 0 70px;
+
+@tab-style: open; // "boxed" for tabs with backgrounds that connect to the tab background or "open" for tabs with just text and no background.
+//used only with tab-style: boxed
+@tab-border-radius: 10px 10px 0 0; //used only when tabs have a background.  Shorthand: top left corner, top right corner, bottom right corner, bottom left corner
+@tab-height-boxed: 88px; //used with "boxed" tabs
+
+@tab-bg:#ccc; //background color of tabs
+@tab-bg-active:#000; //background color of active tab
+
+
+.nav.nav-tabs {
+    border: 0; //bootstrap overwrite
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    width: 100%;
+    padding-top: 21px;
+    max-width: 100%;
+    margin: auto;
+
+    &:before, &:after {
+        display: none;
+    }
+
+    li {
+        padding: 0; //this padding controls space between tabs.
+        -webkit-flex: 1 1 auto;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
+        width: auto;
+        margin: 0;
+
+        a {
+            border: 0; //bootstrap overwrite
+            border-bottom: 3px solid @tab-border-color;
+            text-decoration: none;
+            font-size: @tab-font-size-mobile;
+            font-family: @tab-font-family;
+            font-weight: @tab-font-weight;
+            -webkit-flex: 0 1 100%;
+            -ms-flex: 0 1 100%;
+            flex: 0 1 100%;
+            line-height: 1.1;
+            padding: 0;
+            text-transform: @tab-text-transform;
+            margin: 0 0 0px 0; //overwrite bootstrap margin-bottom 5px
+            text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+            border-radius: @tab-border-radius;
+            color: @tab-color;
+
+            &:hover {
+                background: transparent;
+            }
+
+            
+
+            
+            & when (@tab-style = boxed) {
+                background: @tab-bg;
+                height: @tab-height-boxed;
+
+                &:hover {
+                    background: @tab-bg-active;
+                }
+
+                .tab_text {
+                    height: auto;
+                }
+            }
+            .hover-animation(@hover-animation-name: underline-from-center, @hover-animation-color: @tab-border-color-active, @hover-animation-height: 5px, @hover-animation-target: ~" .tab_text");
+            .tab_text {
+                padding: 0px 10px 10px;
+                width: 100%;
+                overflow:visible;
+                height:100%;
+                 &:before{bottom: -4px;}
+            }
+        }
+
+        &.active a, &.active a:hover, &.active a:focus, a:hover, a:focus {
+            color: @tab-color-active;
+            background: transparent;
+
+            & when (@tab-style = boxed) {
+                background: @tab-bg-active;
+            }
+
+            border: 0;
+            border-bottom: 3px solid @tab-border-color;
+
+            .tab_text {
+                overflow:visible;
+                &:before {
+                    content: "";
+                    position: absolute;
+                    z-index: -1;
+                    left: 0;
+                    right: 0;
+                    bottom: -4px;
+                    background: @tab-border-color-active;
+                    height: 5px;
+                }
+            }
+        }
+    }
+}
+.tab-content{
+    background: @tab-content-bg;
+    margin: @tab-content-margin-mobile;
+    & when (@tab-style = boxed) {
+        margin: @tab-content-margin-boxed-mobile;
+    }
+    .widget_header{display:none;}
+}
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+
+    .nav.nav-tabs {
+        padding-top: 41px;
+
+        li {
+            padding: 0; 
+            a {
+                font-size: @tab-font-size;
+                white-space: nowrap;
+                //line-height: @tab-height - 9px;
+                display: block;
+                .tab_text{ 
+                    overflow:visible;  
+                }
+                & when (@tab-style = boxed) {
+                    height: @tab-height-boxed;
+                    line-height: @tab-height-boxed - 3px;
+                    .tab_text{ height: auto;}
+                }
+            }
+        }
+    }
+    .tab-content{
+        padding: @tab-content-padding;
+        margin: @tab-content-margin;
+        & when (@tab-style = boxed) {
+            margin: @tab-content-margin-boxed;
+        }
+    }
+}

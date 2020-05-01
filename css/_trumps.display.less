@@ -1,0 +1,29 @@
+
+
+.desktop_only {
+    display: none !important;
+}
+
+@media screen and (min-width: 48em) {
+
+
+    // Mobile Resets
+    .mobile_only {
+        display: none !important;
+    }
+
+    .desktop_only {
+        display: block !important;
+    }
+}
+
+//bootstrap overwrite for incorrectly used hidden class :(  
+//used in meetings manager box widget
+.hidden[style*="block"]{display: block !important;}
+
+//google translate
+div#google-infowindow *, div#google-infowindow *:before, div#google-infowindow *:after {
+    background: #fff !important;
+}
+
+.notranslate{background: transparent !important;}

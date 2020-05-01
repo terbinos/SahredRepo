@@ -1,0 +1,25 @@
+//Default font and paragraph styles for entire site.  Do not modify unless there are bugs after CMS integration.
+
+body.front_end_body, .sitewrapper, .sitewrapper select, .sitewrapper input, .sitewrapper textarea, .sitewrapper table, #broken_links_reporter_form, body.dialog_body, 
+body[radeditorbody], body[radeditorbody] table {
+    font-size: @default-text-size !important;
+    line-height: @default-line-height !important;
+    font-family: @default-font-family !important;
+    color: @default-text-color;
+}
+ //when using anchors on a page to link to a section within the page, 
+ //we do not want the destination to end up behind the sticky header
+.front_end_body :target:before, .front_end_body a[name]:before {
+	content: "";
+	display: block;
+	height: @stickyheader-height; /* fixed header height plus a little padding*/
+	//margin: -(@stickyheader-height + 10px) 0 0; /* negative fixed header height plus a little padding */
+	position: relative;
+	z-index: -1;
+}
+
+p {
+    margin: 0 0 1em 0;
+}
+
+table img{max-width:none;}

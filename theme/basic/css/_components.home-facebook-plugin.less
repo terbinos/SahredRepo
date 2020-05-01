@@ -1,0 +1,59 @@
+@facebook-padding-mobile: 40px 10px 0px 10px;//Facebook Widget padding on mobile (Shorthand: top, right, bottom, left)
+@facebook-padding-tablet: 0 0 0 0;//Facebook Widget padding on tablet (Shorthand: top, right, bottom, left)
+@facebook-padding-desktop: 0 0 0 0;//Facebook Widget padding on desktop (Shorthand: top, right, bottom, left)
+
+@facebook-h2-margin-mobile: 0 0 20px 0;//Facebook Widget Title margins on mobile (Shorthand: top, right, bottom, left)
+@facebook-h2-margin-tablet: 0 0 20px 0;//Facebook Widget Title margins on tablet (Shorthand: top, right, bottom, left)
+@facebook-h2-margin-desktop: 0 0 20px 0;//Facebook Widget Title margins on desktop (Shorthand: top, right, bottom, left)
+
+
+
+.home_facebook {
+	padding: @facebook-padding-mobile;
+	
+
+
+	&:before {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		background: @social-media-background;
+		display: block;
+		z-index: -1;
+	}
+
+	h2 {
+		margin: @facebook-h2-margin-mobile;
+		font-size: @facebook-h2-font-size-mobile;
+		font-weight: @facebook-h2-font-weight;
+		color: @facebook-h2-color;
+		text-transform: @facebook-h2-text-transform;
+		font-family: @facebook-h2-font-family;
+	}
+}
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+	.home_facebook {
+		padding: @facebook-padding-tablet;
+
+		h2 {
+			margin: @facebook-h2-margin-tablet;
+		}
+	}
+}
+
+/***62em = 992px ***/
+@media screen and (min-width: 62em) {
+	.home_facebook {
+		padding: @facebook-padding-desktop;
+
+		h2 {
+			font-size: @facebook-h2-font-size;
+			margin: @facebook-h2-margin-desktop;
+		}
+	}
+}

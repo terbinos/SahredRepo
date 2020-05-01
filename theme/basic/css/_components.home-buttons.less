@@ -1,0 +1,270 @@
+//options: add .buttons-icon-left class to .home_buttons to make the icons align to the left of the text.
+//Remove .buttons-icon-left class to make icons align centered above the text.
+
+@buttons-padding-mobile: 15px 0px 15px 0px; //Buttons Widget padding on mobile (Shorthand: top, right, bottom, left)
+@buttons-padding-tablet: 28px 0px 28px; //Buttons Widget padding on tablet (Shorthand: top, right, bottom, left)
+@buttons-padding-desktop: 48px 0px 48px; //Buttons Widget padding on desktop (Shorthand: top, right, bottom, left)
+
+@button-vertical-margin: 20px; //vertical spacing between items on mobile view
+
+@button-spacing: 20px; //space between buttons
+
+//button height is dynamic based on number of buttons and spaceon tablet and desktop.  Height used on mobile.
+@button-height: 139px; //height of buttons
+@button-width: 139px; //width of buttons
+//these two values control the wrapping on tablet and mobile.
+@button-width-tablet: 170px;
+@button-width-mobile: 175px;
+
+@button-decoration: none; //text decoration of buttons text (underline or none)
+@button-decoration-hover: none; //text decoration of buttons text on hover (underline or none)
+@button-line-height: 1.3; //line height of buttons text (px or ratio or percent)
+//@button-text-vertical-align: middle; //vertical alignment of buttons text
+
+@button-img-max-width: 65px; //width of the widest icon used
+@button-img-max-height: 45px; //height of the tallest icon used.
+
+//variables used only when .buttons-icon-left class is NOT used
+@button-icon-area-height: 90px; //height of area that icon should be centered in.
+
+//variables specific to the .buttons-icon-left class
+@button-padding: 0 2% 0 @button-icon-area-width; //left padding to make room for icon
+
+//variables specific to the .buttons-icon-right class
+@button-padding-right: 0 @button-icon-area-width 0 10px; //right padding to make room for icon
+
+//variables used by both .buttons-icon-left and .buttons-icon-right classes.
+@button-icon-area-width: 100px; //width of area that icon should be centered in.
+
+
+
+.home_buttons {
+	display: block;
+
+	&:before {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		background: @buttons-background;
+		display: block;
+		z-index: -1;
+	}
+
+	.buttons-list {
+		.unstyled_list;
+		padding: @buttons-padding-mobile;
+		margin: 0px -@button-spacing/2;
+		display: -ms-flexbox;
+		-ms-flex-wrap: wrap;
+		-ms-flex-direction: row;
+		-webkit-flex-flow: row wrap;
+		flex-flow: row wrap;
+		display: -webkit-box;
+		display: flex;
+		-webkit-align-content: stretch;
+		-ms-flex-line-pack: stretch;
+		align-content: stretch;
+		-webkit-align-items: stretch;
+		-ms-flex-align: stretch;
+		align-items: stretch;
+		margin-bottom: -@button-vertical-margin;
+	}
+
+	.buttons-list-item {
+		-webkit-box-flex: auto;
+		-ms-flex: auto;
+		flex: auto;
+		width: @button-width-mobile;
+		margin: 0 @button-spacing/2;
+		padding: 0 0px @button-vertical-margin 0;
+		max-width: ~"calc(100% - "@button-spacing~")";
+	}
+
+	.button-link {
+		background: @button-background;
+		border: @button-border;
+		border-radius: @button-border-radius;
+		box-shadow: @button-box-shadow;
+		//vertical align middle for text on mobile and desktop
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-align-items: center;
+		-ms-flex-align: center;
+		align-items: center;
+		height: @button-height;
+		position: relative;
+		text-decoration: @button-decoration;
+		text-align: center;
+		.transition();
+		width: 100%;
+		margin: 0 auto;
+
+		&:hover, &:focus {
+			text-decoration: @button-decoration-hover;
+			background: @button-background-hover;
+			box-shadow: @button-box-shadow-hover;
+			border: @button-border-hover;
+			z-index: 1;
+
+			.button-text {
+				color: @button-color-hover;
+			}
+		}
+	}
+	//if it uses images
+	.button-img {
+		bottom: @button-height - @button-icon-area-height;
+		left: 0;
+		right: 0;
+		top: 0;
+		margin: auto;
+		position: absolute;
+		max-width: @button-img-max-width;
+		max-height: @button-img-max-height;
+	}
+
+
+
+	.button-text {
+		color: @button-color;
+		display: block;
+		font-size: @button-size;
+		font-weight: @button-weight;
+		font-family: @button-font-family;
+		text-transform: @button-text-transform;
+		line-height: @button-line-height;
+		//vertical-align: @button-text-vertical-align !important;
+		//padding:@button-icon-area-height 10px 0;
+		margin: 0 20px;
+		max-height: @button-size * @button-line-height * 3;
+		overflow: hidden;
+		width: 100%;
+
+		&:hover, &:focus, &:active {
+			display: block;
+			//vertical-align: @button-text-vertical-align !important;
+		}
+	}
+	//if it uses images
+	.button-img + .button-text {
+		padding: (@button-icon-area-height - 8px) 10px 0;
+		max-height: (@button-size * @button-line-height * 2) + @button-icon-area-height - 8px;
+		text-align: center;
+		margin: 0;
+		align-self: flex-start;
+	}
+	//when the buttons should not distort or stretch, use .no-stretch class
+	&.no-stretch {
+		.button-link {
+			width: @button-width; //makes buttons not stretch
+			margin: 0 auto; //centers buttons within area
+		}
+	}
+
+	& when (@button-icon-alignment = left) {
+		&.home_buttons {
+			.button-link {
+				padding: @button-padding;
+			}
+
+			.button-img {
+				bottom: 0;
+				left: 0;
+				right: calc(~"100% - " @button-icon-area-width);
+				top: 0;
+			}
+
+			.button-img + .button-text {
+				padding: 0;
+				text-align: left;
+				align-self: center;
+			}
+		}
+	}
+
+	& when (@button-icon-alignment = right) {
+		&.home_buttons {
+			.button-link {
+				padding: @button-padding-right;
+			}
+
+			.button-img {
+				left: calc(~"100% - " @button-icon-area-width);
+				right: 0;
+				top: 0;
+				bottom: 0;
+			}
+
+			.button-img + .button-text {
+				padding: 0;
+				text-align: right;
+				align-self: center;
+			}
+		}
+	}
+}
+
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+    .home_buttons {
+        margin: 0;
+       
+
+        .buttons-list {
+
+             padding: @buttons-padding-tablet;
+            
+        }
+
+        .buttons-list-item {
+            width: @button-width-tablet;
+        }
+
+        .button-text {
+            font-size: @button-size-tablet;
+            max-height: @button-size-tablet * @button-line-height * 4;
+        }
+        //if it uses images
+        .button-img + .button-text {
+            max-height: (@button-size-tablet * @button-line-height * 2) + @button-icon-area-height - 8px;
+        }
+
+
+        
+    }
+}
+
+/***62em = 992px ***/
+@media screen and (min-width: 62em) {
+    .home_buttons {
+       
+        .buttons-list {
+
+            padding: @buttons-padding-desktop;
+            
+        }
+        .buttons-list-item {
+                width: @button-width;
+            }
+        .button-text {
+            font-size: @button-size;
+            max-height: @button-size * @button-line-height * 4;
+        }
+        //if it uses images
+        .button-img + .button-text {
+            max-height: (@button-size * @button-line-height * 2) + @button-icon-area-height - 8px;
+        }
+
+        
+    }
+}
+
+
+/***75em = 1200px ***/
+@media screen and (min-width: 75em) {
+}

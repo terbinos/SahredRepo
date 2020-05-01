@@ -1,0 +1,184 @@
+///*----------------------------------*\
+//  #GLOBAL
+//  Modify the values below to match each project
+//\*----------------------------------*/
+
+/* Fonts
+================================================== */
+//initialize the google font(s) that will be used here.
+//Delete any that are not used.  Refer to tools.typography.less
+
+/*font-family: 'Open Sans', sans-serif;*/
+.font-init-open-sans();
+.font-init-Sanches();
+.font-init-Raleway();
+// Base typographical styles.
+
+//IMPORTANT: all default text styles (below) should come from the Interior Page Design main content area.  The font styles should be defined here and nowhere else.
+@default-text-size: 20px; ///*default size for all text.  */
+@default-line-height: unit(22px/@default-text-size); ///*default line-height for all text. Divide default line height in pixels by default text size in pixels for a dynamic line height.*/
+@default-font-family: @Font-Sanches;  ///*default font-family for all text*/
+@default-link-decoration: underline; ///*default text decoration for links*/
+@default-link-decoration-hover: none; ///*default text decoration for links on hover*/
+
+//table header, small box header, calendar header, mobile list header all use these
+@header-font-size: 18px;
+@header-font-weight: bold;
+@header-font-family:@Font-Raleway;
+@header-text-transform: none;
+
+//Based on small box sub text.  Used to calculate some other fonts such as breadcrumbs, sFidenav, title_right, table fonts
+@small-text-size: 14px;
+
+///*page title variables.  Taken from page title area in Interior Page Design*/
+@title-size: percentage(40px/@default-text-size); ///*size of page titles */
+@title-weight: bold; ///*weight of page titles */
+@title-font-family: @Font-Raleway; ///*font family of page titles, if different */
+@title-transform: none; //text-transform for page titles.  Use only "none" or "uppercase".
+@page-subtitle-size: percentage(32px/@default-text-size); ///*size of subtitle that goes in page title area*/
+@page-subtitle-weight: bold; ///*size of subtitle that goes in page title area*/
+@subtitle-size: percentage(28px/@default-text-size); ///*size of subtitle in content area (usually same as above but not always)*/
+@subtitle-weight: bold; ///*weight of subtitle in content area (usually same as above but not always)*/
+
+///* page header variables */
+@logo-width: 232px; //width of the logo in the header
+@siteheader-height-mobile: 165px;
+@siteheader-height: 75px;
+@stickyheader-height: 100px; //IMPORTANT: set to 0 if not using sticky header.
+
+//top nav
+@top-nav-font-size: 13px; //font size for top nav links (top right of header)
+@top-nav-font-family: inherit; //font family for top nav links (top right of header)
+@top-nav-font-weight: normal; //font weight for top nav links (top right of header)
+
+//footer
+@page-footer-font-family: inherit; //page footer font family
+@page-footer-font-size: 16px; //page footer font family
+
+@page-footer-header-font-weight: bold; //page footer header (Come Visit, Phone etc) font weight
+@page-footer-header-font-size: 20px; //page footer header (Come Visit, Phone etc) font size
+@page-footer-header-text-transform: uppercase; //page footer header (Come Visit, Phone etc) text transform (use uppercase or none)
+
+@page-footer-nav-font-size: 14px; //page footer navigation font size
+@page-footer-nav-text-transform: uppercase; //page footer navigation text transform (use uppercase or none)
+@page-footer-vision-link-weight: inherit; //page footer Vision link font weight
+
+@nav-height: 55px; ///*height of the main navigation menu*/
+@nav-font-size: 20px; ///*font size for the top level nav links*/
+@nav-font-weight: normal; ///*font weight for the top level nav links*/
+@nav-font: @default-font-family; ///*font family for the top level nav links*/
+@nav-text-transform: none; //text transform for top level nav links
+
+@top_col_gap: 0px; //if there is a gap below the main nav and above the left/right cols then put the height of the gap here.  If no gap, put 0.
+
+//Dropdown styles
+@mega-dropdown-header-font-size: 16px; ///*dropdownmenu font-size for larger text*/
+@mega-dropdown-header-weight: bold; ///*dropdownmenu text weight for larger text*/
+@mega-dropdown-header-transform: none; //dropdownmenu text transform for larger text
+@mega-dropdown-font-size: 14px; ///*dropdownmenu font-size for smaller text/sub items*/
+@mega-dropdown-decoration-hover: underline; //are dropdown items underlined on hover?
+
+//small box shown in Department Page design, small "News" box on right.
+@small-box-main-font-weight: bold; //are the item titles bold?
+@small-box-main-font-family: @Font-Raleway; //font family of item titles
+@small-box-more-size: percentage(13px/@default-text-size); ///*size of more link text*/
+@small-box-more-weight: normal; ///*are the more links bold?*/
+@small-box-more-transform: none; ///*text transform for more links - use "none" or "uppercase"*/
+@small-box-more-arrow: " >"; ///*arrow after "More" link in small boxes.*/
+@small-box-more-font-family: inherit; //font family for small box more link if different.
+
+///* calendar variables */
+@calendar-month-weight: normal; ///*February,March, April etc font weight*/
+@calendar-month-size: percentage(26px/@default-text-size); ///*February,March, April etc font size*/
+@calendar-month-transform: uppercase; ///*text transform for February,March, April etc - use "none" or "uppercase"*/
+@calendar-month-font-family: inherit; //font family for February, March, April etc.  Use inherit if same as default.
+@calendar-prev-next-size: percentage(13px/@default-text-size); ///*previous and next links font size*/
+
+
+///* widget variables */
+@searchbox-mobile-font-size: 18px; ///*MOBILE font-size of searchbox text*/
+@searchbox-desktop-font-size: 42px; ///*DESKTOP font-size of searchbox text*/
+@searchbox-font-family: inherit; ///*DESKTOP font-family of searchbox text*/
+
+@search-trigger-width: @nav-height; // width of the search trigger icon, used for "dropdown" and "overlay" searches where the icon sits next to the main navigation.
+@sticky-search-trigger-width: 100px;// width of the search trigger icon in the sticky header, used for searches where the icon sits next to the main navigation.
+
+@searchbox-width: 100%; // width of the search bar, including the icon on the right
+@searchbox-height: 67px; // height of the search bar
+@searchbox-icon-width: 64px; //width of the searchbox icon
+@searchbox-icon-height: 63px; //height of the searchbox icon
+@searchbox-desktop-font-size: 42px; //DESKTOP font-size of searchbox text
+
+@searchbox-icon-border-radius: 0; // border radius of the searchbox icon.  Use 50% for a round icon, 0 for square.
+@searchbox-font-family: inherit; ///*DESKTOP font-family of searchbox text*/
+@searchbox-text-transform: none; ///*DESKTOP text transform of searchbox text (uppercase or none)*/
+
+//used only if using the "overlay" search type
+//heading text such as "Popular searches"
+@toplinks-h2-font-size: 20px;
+@toplinks-h2-font-weight: normal;
+@toplinks-button-border-radius: 10px;
+@toplinks-button-font-size: 24px;
+@toplinks-button-max-lines: 2;
+@toplinks-button-height: 68px;
+
+/*********************************************
+    The variables below normally use one of the more generic variables defined above. 
+    Modify below this line only if design is different from standard template
+************************************************/
+// Project-level settings and setup.
+@max-width-portrait: 730px; //site max width for portrait views
+@max-width-landscape: 950px; //site max width for landscape views
+@max-width: 1024px; //site max width
+@max-width-wide: 1302px; //site max width if using wide layout
+
+//mobile
+@mobile-header-font-family: @header-font-family; //header style for mobile sidenav and mobile box widgets
+@mobile-header-font-weight: @header-font-weight; //header style for mobile sidenav and mobile box widgets
+@mobile-header-font-size: percentage(@header-font-size/@default-text-size); //header style for mobile sidenav and mobile box widgets
+
+///*page title variables.  Taken from page title area in Interior Page Design*/
+@breadcrumb-size: (percentage(@small-text-size/@default-text-size)) * 0.9; ///*size of breadcrumb text and links**/
+@breadcrumb-decoration: none;
+@breadcrumb-decoration-hover: @default-link-decoration-hover;
+@title-right-size: (percentage(@small-text-size/@default-text-size)) * 0.9; ///*size of the share & bookmark, print, rss, feedback, and font size links*/
+@title-right-decoration: @default-link-decoration;
+@title-right-decoration-hover: @default-link-decoration-hover;
+
+//important alert
+@alert-text-size: percentage(@small-text-size/@default-text-size);
+
+///* table variables, taken from table shown in content area of Interior Page Design */
+@table-header-size: percentage(@header-font-size/@default-text-size); ///*size of listtable and tableData tables, also used for buttons.*/
+@table-header-weight: @header-font-weight; ///*weight of listtable and tableData tables, also used for buttons.*/
+@table-text-size: percentage(@small-text-size/@default-text-size); ///*size of regular text in listtable and tableData tables.*/
+@table-header-font-family: @header-font-family; //font family of listtable and table data headers, if different.
+
+//small box shown in Department Page design, small "News" box on right.
+@small-box-title-size: percentage(@header-font-size/@default-text-size); ///*size of title text (news, events, FAQ, Businesses etc) in the small boxes*/
+@small-box-title-weight: @header-font-weight; ///*weight of title text (news, events, FAQ, Businesses etc) in the small boxes*/
+@small-box-title-text-transform: @header-text-transform; //are the box titles all caps?
+@small-box-title-font-family: @header-font-family; //font family of the box titles if different
+@small-box-main-font-size: (percentage(@small-text-size/@default-text-size)) * 1.1; //font size of item titles
+@small-box-sub-font-size: percentage(@small-text-size/@default-text-size); //font size of item sub text
+
+//side navigation
+@sidenav-font-size: (percentage(@small-text-size/@default-text-size)) * 1.1; //sidenav text size
+
+///* calendar variables */
+@calendar-header-size: percentage(@header-font-size/@default-text-size); ///*Sunday Monday etc font-size */
+@calendar-header-weight: @header-font-weight; ///*Sunday Monday etc font-weight */
+@calendar-day-size: percentage(20px/@default-text-size); ///*size of numbers on calendar*/
+@calendar-day-weight: normal; ///*weight of numbers on calendar*/
+@calendar-prev-next-decoration: @default-link-decoration; ///*previous and next links text-decoration*/
+@calendar-prev-next-decoration-hover: @default-link-decoration-hover; ///*previous and next links text-decoration on hover*/
+
+//interior buttons
+@int-buttons-height: 125px; //height of buttons
+@int-buttons-width: 180px; //minimum width of buttons (buttons will expand to fill space, while fitting as many across as can fit without going below this width)
+@int-buttons-font-size: 18px; //size of text on buttons
+@int-buttons-font-weight: bold; //font weight of buttons text
+@int-buttons-font-family: @Font-Raleway; //font family of buttons text
+@int-buttons-text-transform: none; //text transform for buttons text (uppercase or none)
+@int-buttons-text-max-lines: 2; // number of lines of text allowed on the buttons
+@int-buttons-border-radius: 0px; //border radius (rounded corners) of buttons (pixel value)

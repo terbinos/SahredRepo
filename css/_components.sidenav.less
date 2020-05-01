@@ -1,0 +1,295 @@
+//styles for the side navigation in standard_2col.html and standard_3col.html.  Adjust if needed for each project.
+.sidenav.sidenav ul li, .sidenav.sidenav ul li.sidenav_expanded>a {
+    display: none;
+}
+.sidenav.open ul li.sidenav_expanded.sidenav_current, .sidenav.open ul li.sidenav_expanded.sidenav_current>ul>li, .sidenav.open>ul>li, .sidenav.open ul li.sidenav_expanded {
+    display: block;
+}
+.sidenav.mobile_list ul li.sidenav_expanded {
+    background: transparent;
+    border: 0px;
+    padding: 0;
+}
+
+.sidenav.mobile_list ul li a {
+    font-weight: normal;
+}
+
+//.sidenav.mobile_list.open ul li:hover a {color: @mobile-list-link-color;}
+//.sidenav.mobile_list.open ul li:hover > a {color: @mobile-list-link-color-active;}
+
+.sidenav.open h2:after {
+   border-top: 7px solid @mobile-header-text-color;
+    border-left:7px solid transparent;
+    border-right:7px solid transparent;
+    top: 7px; 
+    left:10px;
+}
+
+.sidenav h2:after {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 15px;
+    width: 0;
+    height:0;
+    margin:auto;
+    border-left: 7px solid @mobile-header-text-color;
+    border-top:7px solid transparent;
+    border-bottom:7px solid transparent;
+    content: "";
+}
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+    //resets mobile style
+    .sidenav.sidenav ul li, .sidenav.sidenav ul li.sidenav_expanded>a {
+        display: block;
+    }
+    .sidenav {
+        width: 100%;
+        float: left;
+        position: relative;
+        padding: 0;
+        margin: 0 0 17px 0;
+        background: @leftcol-bg;
+
+        ul {
+            .unstyled_list;
+
+            li {
+                position: relative;
+
+                a,
+                a:hover,
+                a:focus {
+                    color: @sidenav-color;
+                    font-size: @sidenav-font-size;
+                    text-decoration: none;
+                    display: block;
+                    padding: 10px 7px 10px 12%;
+                    line-height: 120%;
+                    position: relative;
+                    z-index: 1;
+                    font-weight: normal;
+                    border-bottom: 1px solid @sidenav-item-border;
+                    word-wrap: break-word;
+                }
+            }
+        }
+
+        > ul:last-child {
+            >li:last-child {
+                a, a:hover, a:focus {
+                    // border-bottom: 0px;
+                }
+            }
+        }
+    }
+
+    .standardlayout .left_col .sidenav, .standardthreecolumnlayout .left_col .sidenav {
+        background: transparent;
+        margin: 0 -10px 17px;//left col has 10px left/right padding, but sidenav should extend to edges.
+        width: auto;
+        float:none;
+        .clearfix();
+        min-width: ~"calc(100% + 20px)";//left col has 10px left/right padding, but sidenav should extend to edges.
+    }
+
+    .sidenav ul li.sidenav_haschildren > a {
+        &:before {
+            //code for arrows
+            /*position: absolute;
+            content: "";
+            background: transparent;
+            width: 0;
+            height: 0;
+            left: 5%;
+            top: 33%;
+            border-left: 4px solid @arrow-haschildren;
+            border-right: 4px solid transparent;
+            border-top: 4px solid transparent;
+            border-bottom: solid 4px transparent;*/
+            //code for +/- signs
+            position: absolute;
+            content: "+";
+            background: transparent;
+            top: 0;
+            bottom: 0;
+            left: 5%;
+            padding: 0;
+            height: 10px;
+            line-height: 6px;
+            margin: auto;
+        }
+
+        &:hover:before, &:focus:before {
+            // border-left: 4px solid @arrow-haschildren-hover;
+        }
+    }
+
+    
+
+    .sidenav ul li.sidenav_expanded > a {
+        background: @sidenav-expanded-bg;
+        color: @sidenav-expanded-color;
+        border-bottom: 1px solid @sidenav-item-border;
+
+        &:before {
+            //code for arrows
+            /*
+            position: absolute;
+            content: "";
+            background: transparent;
+            width: 0;
+            height: 0;
+            left: 5%;
+            top: 42%;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 4px solid @arrow-expanded;
+            border-bottom: solid 4px transparent;*/
+            //code for +/- signs
+            position: absolute;
+            content: "-";
+            background: transparent;
+            top: 0;
+            bottom: 0;
+            left: 5%;
+            padding: 0;
+            font-size: 150%;
+            height: 10px;
+            line-height: 6px;
+            margin: auto;
+        }
+
+        &:hover:before, &:focus:before {
+            //border-top: 4px solid @arrow-haschildren-hover;
+            //border-left: 4px solid transparent;
+        }
+    }
+
+    .sidenav > ul > li.sidenav_expanded + li > a {
+        border-top: 1px solid @sidenav-item-border;
+    }
+    /*second level */
+    .sidenav ul li li.sidenav_expanded > a {
+        background: @sidenav-expanded-second-level-bg;
+        color: @sidenav-expanded-children-color;
+        border-bottom: 0px solid @sidenav-item-border;
+
+        &:before {
+            //code for arrows
+            /*
+            position: absolute;
+            content: "";
+            background: transparent;
+            width: 0;
+            height: 0;
+            left: 14px;
+            top: 13px;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 4px solid @arrow-expanded;
+            border-bottom: solid 4px transparent;
+                */
+        }
+
+        &:hover:before, &:focus:before {
+            //border-top: 4px solid @arrow-haschildren-hover;
+            //border-left: 4px solid transparent;
+        }
+    }
+
+    .sidenav ul li.sidenav_current > a, .sidenav ul li.sidenav_current.sidenav_expanded > a {
+        background: @sidenav-current-bg;
+        color: @sidenav-current-color;
+        /*border-bottom: 1px solid @sidenav-item-border;*/
+        /*&:before
+		{
+			position: absolute;
+			content: "";
+			width: 0; 
+			height: 0; 
+			left: 5%;
+			top:12px;
+			background: transparent;
+			border-top: 4px solid transparent;
+			border-bottom: 4px solid transparent;
+			border-left: 4px solid @arrow-current;
+		}
+		&:hover:before
+		{
+			border-left: 4px solid @arrow-current-hover;
+		}*/
+    }
+
+    .sidenav ul li li.sidenav_current > a:before, .sidenav ul li li.sidenav_haschildren > a:before {
+        left: 12%;
+    }
+
+    .sidenav ul li li li.sidenav_current > a:before, .sidenav ul li li li.sidenav_haschildren > a:before {
+        left: 20%;
+    }
+
+    .sidenav ul li li li li.sidenav_current > a:before, .sidenav ul li li li li.sidenav_haschildren > a:before {
+        left: 24%;
+    }
+
+    .sidenav ul li li li li li.sidenav_current > a:before, .sidenav ul li li li li li.sidenav_haschildren > a:before {
+        left: 28%;
+    }
+
+    .sidenav ul li li li li li li.sidenav_current > a:before, .sidenav ul li li li li li li.sidenav_haschildren > a:before {
+        left: 32%;
+    }
+
+    .sidenav ul li li li li li li li.sidenav_current > a:before, .sidenav ul li li li li li li li.sidenav_haschildren > a:before {
+        left: 36%;
+    }
+
+    .sidenav ul li li a {
+        padding-left: 20% !important;
+    }
+
+    .sidenav ul li li li a {
+        padding-left: 28% !important; /*second level*/
+        background: @sidenav-expanded-second-level-children-bg;
+    }
+
+    .sidenav ul li li li li a {
+        padding-left: 32% !important;
+    }
+
+    .sidenav ul li li li li li a {
+        padding-left: 36% !important;
+    }
+
+    .sidenav ul li li li li li li a {
+        padding-left: 40% !important;
+    }
+
+    .sidenav ul li li.sidenav_expanded > a:hover, .sidenav ul li li.sidenav_expanded > a:focus, .sidenav ul li li a:hover, .sidenav ul li li a:focus {
+        border-bottom: 0px solid @sidenav-expanded-children-color;
+        margin-top: 0px;
+    }
+    //expanded children
+    .sidenav ul li li a {
+        background: @sidenav-expanded-children-bg;
+        color: @sidenav-expanded-children-color;
+        margin-top: 0px;
+        border: 0;
+    }
+    //expanded children
+    .sidenav ul li a:hover, .sidenav ul li a:focus, .sidenav ul li li > a:hover, .sidenav ul li li > a:focus {
+        color: @sidenav-color-hover !important;
+        background: @sidenav-background-hover !important;
+    }
+    .small_col {
+        .sidenav {
+            float: left;
+            background: @leftcol-bg;
+        }
+    }
+}

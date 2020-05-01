@@ -1,0 +1,30 @@
+//styles specific to the captchas.  Do not modify unless there are bugs after CMS integration.
+
+//LANAP captcha for narrow columns
+.LBD_CaptchaDiv {
+    max-width: 100%; 
+
+    .LBD_CaptchaImageDiv {
+        max-width: 87%;
+
+        a {
+            max-width: 100%;
+        }
+
+        img {
+            border: 1px solid #d0d0d0 !important;
+        }
+    }
+}
+
+.LBD_CaptchaDiv > div.LBD_CaptchaImageDiv:first-child {
+    border: 0;
+}
+
+.LBD_CaptchaIconsDiv {
+    margin-left: 3px !important;
+}
+
+#recaptcha_image{
+        overflow: hidden;
+}

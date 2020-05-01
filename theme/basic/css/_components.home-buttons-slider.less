@@ -1,0 +1,317 @@
+//options: add .buttons-icon-left class to .home_buttons to make the icons align to the left of the text.
+//Remove .buttons-icon-left class to make icons align centered above the text.
+
+@buttons-slider-padding-mobile: 15px 0px 15px 0px; //Buttons Widget padding on mobile (Shorthand: top, right, bottom, left)
+@buttons-slider-padding-tablet: 28px 0px 28px; //Buttons Widget padding on tablet (Shorthand: top, right, bottom, left)
+@buttons-slider-padding-desktop: 48px 0px 48px; //Buttons Widget padding on desktop (Shorthand: top, right, bottom, left)
+
+@buttons-slider-h2-margin: 0 0 20px; //data Widget Title margins on mobile (Shorthand: top, right, bottom, left)
+
+//styles for entire event list
+@buttons-slider-list-padding: 20px 0 20px; //padding for the entire list.  Use vertical padding only.  Use margins below for horizontal space.
+@buttons-slider-list-margin: 0 35px; //margin for the entire list, to leave room for the prev and next arrows
+
+@button-slider-horizontal-spacing: 20px; //spacing between buttons
+@button-slider-height: 139px; //height of buttons
+@button-slider-width: 139px;  //width of buttons, only used with .no-stretch class.
+
+@button-slider-text-vertical-align: center; //vertical alignment of buttons text - use "center" or "flex-start" or "flex-end"
+@button-slider-text-max-lines:2;
+
+//variables below are for arrows
+@buttons-slider-arrows-width: 24px; //navigation arrows width
+@buttons-slider-arrows-height: 24px; //navigation arrows height
+@buttons-slider-arrows-top: ~ "calc(50% - " ((@buttons-slider-arrows-height + 30)/2) ~ ")"; //navigation arrows position on desktop.  Here they are centered vertically.
+
+//variables used only when .buttons-icon-left class is NOT used
+@button-slider-icon-area-height: 90px; //height of area that icon should be centered in.
+
+//variables specific to the .buttons-icon-left class
+@button-slider-padding: 0 2% 0 @button-slider-icon-area-width; //left padding to make room for icon
+@button-slider-padding-tablet: 0 2% 0 @button-slider-icon-area-width-tablet; //left padding to make room for icon
+
+//variables specific to the .buttons-icon-right class
+@button-slider-padding-right: 0 @button-slider-icon-area-width 0 10px; //left padding to make room for icon
+@button-slider-padding-tablet-right: 0 @button-slider-icon-area-width-tablet 0 10px; //left padding to make room for icon
+
+//variables used by both .buttons-icon-left and .buttons-icon-right classes.
+@button-slider-icon-area-width: 100px; //width of area that icon should be centered in.
+@button-slider-icon-area-width-tablet: 100px; //width of area that icon should be centered in on tablets.
+
+
+.home_buttons_slider {
+	display: block;
+	width: 100%;
+	margin: 0 auto;
+	float: none;
+	clear: both;
+
+	&:before {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		background: @buttons-slider-background;
+		display: block;
+		z-index: -1;
+	}
+
+
+
+	.home-buttons-container {
+		padding: @buttons-slider-padding-mobile;
+		position: relative;
+	}
+
+	.buttons-slider-header {
+		margin: @buttons-slider-h2-margin;
+		font-size: @buttons-slider-h2-font-size-mobile;
+		font-weight: @buttons-slider-h2-font-weight;
+		color: @buttons-slider-h2-color;
+		text-transform: @buttons-slider-h2-text-transform;
+		font-family: @buttons-slider-h2-font-family;
+		text-align: @buttons-slider-h2-align;
+	}
+
+	.slick_content {
+		margin: 0 auto;
+		position: relative;
+		width: 100%;
+		opacity: 0;
+		height: 0;
+		overflow: hidden;
+		.transition();
+
+		&.slick-initialized {
+			opacity: 1;
+			height: auto;
+		}
+	}
+
+	.slick-list {
+		width: auto;
+		position: relative;
+		overflow: hidden;
+		margin: @buttons-slider-list-margin;
+		padding: @buttons-slider-list-padding;
+	}
+
+	.item {
+		float: left;
+		height: @button-slider-height;
+		padding: 0 @button-slider-horizontal-spacing/2;
+	}
+
+	.button-link {
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-align-items: @button-slider-text-vertical-align;
+		-ms-flex-align: @button-slider-text-vertical-align;
+		align-items: @button-slider-text-vertical-align;
+		-webkit-justify-content: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		background: @button-slider-background;
+		border: @button-slider-border;
+		border-radius: @button-slider-border-radius;
+		box-shadow: @button-slider-box-shadow;
+		text-decoration: @button-slider-decoration !important;
+		text-align: center;
+		position: relative;
+		.transition();
+
+		&:hover, &:focus {
+			text-decoration: @button-slider-decoration-hover;
+			background: @button-slider-background-hover;
+			border: @button-slider-border-hover;
+			box-shadow: @button-slider-box-shadow-hover;
+
+			.button-text {
+				color: @button-slider-color-hover;
+			}
+		}
+	}
+
+	.button-img {
+		margin: auto;
+		display: block;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: @button-slider-height - @button-slider-icon-area-height;
+		top: 0;
+		max-width: @button-slider-img-max-width;
+		max-height: @button-slider-img-max-height;
+	}
+
+	.button-text {
+		position: relative;
+		margin: 0 auto;
+		-ms-flex: 0 1 100%;
+		-webkit-flex: 0 1 100%;
+		flex: 0 1 100%;
+		max-height: (@button-slider-size * @button-slider-line-height * @button-slider-text-max-lines) + @button-slider-icon-area-height;
+		overflow: hidden;
+		padding: @button-slider-icon-area-height 10px 0;
+		color: @button-slider-color;
+		font-size: @button-slider-size;
+		font-weight: @button-slider-weight;
+		font-family: @button-slider-font-family;
+		text-transform: @button-slider-text-transform;
+		line-height: @button-slider-line-height;
+		// vertical-align: @button-slider-text-vertical-align;
+		align-self: flex-start;
+	}
+
+
+	.slick-prev, .slick-next {
+		//anchor has the background on it in case the arrows are on top of an image, arrows themselves are on the pseudo element
+		width: @buttons-slider-arrows-width + 20px; //The background should be 20px wider than the actual arrows
+		height: @buttons-slider-arrows-height + 30px; //the background should be 30px taller than the actual arrows
+		margin: 0;
+		display: block;
+		position: absolute;
+		top: @buttons-slider-arrows-top;
+		cursor: pointer;
+		text-indent: -9999px;
+		z-index: 3;
+		//transform: scale(0.5);
+		transform-origin: left;
+		overflow: hidden;
+		background: transparent;
+		border: 0;
+
+		&:before {
+			//the arrows themselves, centered within the background.
+			content: "";
+			display: block;
+			left: 12px;
+			top: 0px;
+			margin: auto;
+			bottom: 0;
+			right: 0;
+			position: absolute;
+			width: @buttons-slider-arrows-width;
+			height: @buttons-slider-arrows-height;
+			//arrows created with two borders and then rotating
+			border-bottom: 5px solid @buttons-slider-arrows-bg;
+			border-left: 5px solid @buttons-slider-arrows-bg;
+			transform: rotate(45deg);
+			transition: border-color 0.2s ease-in-out;
+		}
+
+		&:hover:before {
+			border-color: @buttons-slider-arrows-bg-hover;
+		}
+	}
+
+	.slick-next {
+		transform-origin: right;
+		left: auto;
+		right: 0;
+
+		&:before {
+			transform: rotate(-135deg);
+			top: 0px;
+			left: 0;
+			right: 12px;
+		}
+	}
+
+	.slick-disabled {
+		cursor: default;
+		.opacity(0.1);
+
+		&:hover {
+			.opacity(0.1);
+		}
+	}
+
+	&.no-stretch {
+		.button-link {
+			width: @button-slider-width;
+			margin: 0 auto;
+		}
+	}
+
+	&.button-icons-left {
+
+		.button-link {
+			padding: @button-slider-padding;
+			text-align: left;
+		}
+
+		.button-img {
+			bottom: 0;
+			left: 0;
+			right: calc(~"100% - " @button-slider-icon-area-width);
+			top: 0;
+		}
+
+		.button-text {
+			padding: 0;
+			max-height: @button-slider-size * @button-slider-line-height * @button-slider-text-max-lines;
+		}
+	}
+
+	&.button-icons-right {
+
+		.button-link {
+			padding: @button-slider-padding-right;
+			text-align: right;
+		}
+
+		.button-img {
+			left: calc(~"100% - " @button-slider-icon-area-width);
+			right: 0;
+			top: 0;
+			bottom: 0;
+		}
+
+		.button-text {
+			padding: 0;
+			max-height: @button-slider-size * @button-slider-line-height * @button-slider-text-max-lines;
+		}
+	}
+}
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+	.home_buttons_slider {
+		
+        .home-buttons-container{padding: @buttons-slider-padding-tablet;}
+		.buttons-slider-header {
+			font-size: @buttons-slider-h2-font-size;
+			}
+			.button-text {
+				font-size: @button-slider-size-tablet;
+				max-height: (@button-slider-size-tablet * @button-slider-line-height * @button-slider-text-max-lines) + @button-slider-icon-area-height;
+			}
+
+			&.button-icons-left, &.button-icons-right {
+				.button-text {
+					max-height: @button-slider-size-tablet * @button-slider-line-height * @button-slider-text-max-lines;
+				}
+			}
+		}
+	}
+
+@media screen and (min-width: 62em) {
+    .home_buttons_slider {
+        
+        .home-buttons-container{padding: @buttons-slider-padding-desktop;}
+        .button-text {
+            font-size: @button-slider-size;
+             max-height: (@button-slider-size * @button-slider-line-height * @button-slider-text-max-lines) + @button-slider-icon-area-height;
+        }
+        &.button-icons-left, &.button-icons-right {
+            .button-text {
+                max-height: @button-slider-size * @button-slider-line-height * @button-slider-text-max-lines;
+            }
+        }
+    }
+}

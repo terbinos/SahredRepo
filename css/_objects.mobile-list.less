@@ -1,0 +1,150 @@
+/*#region MOBILE LIST, MOBILE BOX 
+   This controls the mobile view for the Box Widgets in standard_3col.html and the side navigation.  
+    Rarely needs to be modified.   Make sure arrow is centered, if not, adjust here.
+*/
+
+.mobile_header, .facebook_feed .mobile_header, .twitter_feed .mobile_header, .small_box .mobile_header {
+    margin: 0;
+    color: @mobile-header-text-color;
+    font-family: @mobile-header-font-family;
+    font-weight: @mobile-header-font-weight;
+    text-transform: uppercase;
+    font-size: 110%;
+    height: 40px;
+    line-height: 30px;
+    background: @mobile-header-bg-color;
+    padding: 6px 16px;
+}
+
+.small_box .mobile_header {
+    display: block;
+}
+
+.mobile_list, .mobile_box {
+    background: @mobile-list-bg-color;
+    border: 0px;
+    color: @mobile-list-link-color;
+    .clearfix();
+}
+
+.small_col .content_area.mobile_box {
+    border-top: 1px solid @mobile-solid-border;
+    background: @mobile-list-bg-color;
+}
+
+.mobile_box > div {
+    background: @mobile-list-bg-color;
+    padding: 10px;
+}
+
+.mobile_box {
+    background: @mobile-list-bg-color;
+}
+
+.mobile_list ul, .facebook_feed ul, .twitter_feed ul {
+    margin: 0;
+
+    li {
+        width: 100%;
+        //arrow on right side of list items, adjust 20px as needed to center vertically in side navigation 
+        background: @mobile-list-bg-color url(_gfx/cmn/mobile/mob_arrow.png) 96% 20px no-repeat;
+        border-bottom: 1px solid @mobile-solid-border;
+        border-top: 0;
+        padding: 17px 7% 17px 16px;
+        position: relative;
+        .clearfix();
+    }
+
+    ul li:before {
+        border: none;
+    }
+}
+
+.mobile_list a + .item-list {
+    border-top: 0;
+}
+
+.mobile_list .item-list {
+    padding: 0;
+}
+.mobile_list ul li a {
+    border-top: 0;
+    padding: 0;
+    color: @mobile-list-link-color;
+    font-weight: bold; //do not change
+
+    &:hover {
+        color: @mobile-list-link-color-active;
+    }
+}
+
+
+
+
+.mobile_list .item-list a {
+    color: @mobile-list-link-color;
+    font-weight: normal;
+
+    &:hover {
+        color: @mobile-list-link-color-active;
+    }
+}
+
+.mobile_list .item_smalltext {
+    padding: 0;
+    border: 0;
+}
+
+
+.mobile_list .item_smalltext + .item_smalltext {
+    font-style: normal;
+}
+
+
+
+
+.mobile_list .box_bottomlink, .mobile_box .box_bottomlink {
+    background: @mobile-more-bg-color;
+    border: 0;
+    border-bottom: 1px solid @mobile-solid-border;
+    color: @mobile-more-color;
+    font-style: normal;
+    font-weight: 700;
+    text-align: right;
+    padding: 7px 2% 7px 24px;
+    clear: both;
+}
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+
+    .mobile_list, .mobile_box {
+        background: transparent;
+    }
+
+
+    .mobile_box > div {
+        background: transparent;
+        padding: 0px;
+    }
+
+    .mobile_list ul li a, .mobile_list .box_bottomlink, .mobile_box .box_bottomlink, .mobile_list ul li a:hover {
+        background: transparent none;
+        font-weight: normal;
+    }
+
+    .mobile_list ul li {
+        background: transparent none;
+        border-bottom: 0px solid @mobile-solid-border;
+        padding: 0;
+        position: static;
+
+        &:before {
+            display: none;
+        }
+    }
+
+    .mobile_list .box_bottomlink, .mobile_box .box_bottomlink {
+        border: none;
+    }
+}

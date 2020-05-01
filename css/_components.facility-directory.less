@@ -1,0 +1,47 @@
+//styles specific to the Facility Directory widgets.  Do not modify unless there are bugs after CMS integration.
+
+.facility_directory_widgets .facility_detail_page .facility_item_header, .facility_directory_widgets .listtype_listformated .facility_item_header {
+    background: @table-header-bg !important;
+}
+
+#sitebody .facility_directory_widgets .facility_item_infos2 span.item_label,
+#sitebody .facility_directory_widgets .facility_item_infos1 span.item_label,
+#sitebody .facility_directory_widgets .facility_item_infos2 span.item_value,
+#sitebody .facility_directory_widgets .facility_item_infos1 span.item_value {
+    color: @default-text-color;
+}
+
+//Change this if they are using white text on dark background - the map bubbles will still be white background.
+.sitewrapper .content_area .facility_mapmarker_infos a.phone_link, .sitewrapper .content_area .facility_mapmarker_infos a.phone_link:hover {
+    color: @default-text-color;
+}
+
+.facility_directory_map_view_widget .multicats_container ol li input, .facility_directory_map_view_widget .multicats_container ol li span.catimage_holder  {
+    float: left;
+}
+
+.facility_directory_map_view_widget .multicats_container ol li input{height: 18px;}
+
+#sitebody .facility_directory_map_view_widget .multicats_container ol li input + label{width: ~"calc(100% - 52px)" !important;}
+
+.facility_directory_widgets .listtype_listformated .facility_item_header h2 {
+    margin:0;
+}
+
+.facility_directory_widgets .listtype_listformated .facility_item_header a.facility_item_name {
+    color:@table-header-color;
+}
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+    //facility directory
+    .facility_directory_widgets .listtype_listformated a.facility_item_photo_link, .facility_directory_widgets .facility_detail_page .facility_item_photo {
+        max-width: 350px;
+        width: 50%;
+    }
+
+    #sitebody .facility_directory_widgets .facility_item_infos1, #sitebody .facility_directory_widgets .facility_item_infos2 {
+        width: 25%;
+        margin: 0;
+        padding-left: 15px;
+    }
+}

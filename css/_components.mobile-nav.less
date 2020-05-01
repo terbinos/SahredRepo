@@ -1,0 +1,170 @@
+//Main Navigation links.  Not including dropdowns which are in _components.megamenu.less, _components.flyout-menu.less and _components.megamenu-advanced.less
+//compiled in dropdownmegamenu.less and dropdownmenu.less
+//modify for each project to match design.
+
+
+/****************************************
+        Whenever possible use display table and table-cell to distribute 
+        navigation items evenly based on text length. 
+        No need to define widths unless design specifically requires it.
+    
+        If design requires defined widths, uncomment sections below.
+       *********************************** */
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+
+	.mainnav {
+		width: 100%;
+		margin: 0 auto @top_col_gap;
+		max-width: @max-width-portrait;
+		box-shadow: 0 0 0 transparent;
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+
+		&:after {
+			content: '';
+			width: 200%;
+			height: 15px;
+			background: #dce3e3;
+			position: absolute;
+			bottom: -40px;
+			left: -600px;
+		}
+
+	}
+
+		.mainSpan_wrapper_home .mainnav {
+			margin-bottom: 0;
+		}
+
+		.dropdownmenu {
+			padding: 0;
+			width: 100%;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+		}
+	& when (@search-type = dropdown), (@search-type = overlay) {
+		.dropdownmenu {
+			margin-right: 110px;
+			width: auto;
+			padding: 0px 20px 0 115px;
+			position: static;
+		}
+	}
+		.dropdownmenu > li {
+			border: 0px solid transparent;
+			height: @nav-height;
+			float: none !important;
+			-webkit-flex: 1 1 auto;
+			-ms-flex: 1 1 auto;
+			flex: 1 1 auto;
+
+			> a, > .notranslate a {
+				height: @nav-height;
+				font-family: @nav-font;
+				color: @nav-color;
+				font-size: @nav-font-size - 2px;
+				font-weight: @nav-font-weight;
+				background: transparent;
+				margin-right: 0px;
+				text-indent: 0;
+				text-decoration: none;
+				text-align: center;
+				position: relative;
+				line-height: 1.2;
+				letter-spacing: 0.5px;
+				padding: 0 10px;
+				border: 0px solid transparent;
+				text-transform: @nav-text-transform;
+				display: -ms-flexbox;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-align-items: center;
+				-ms-flex-align: center;
+				align-items: center;
+				-webkit-justify-content: center;
+				-ms-flex-pack: center;
+				justify-content: center;
+				border-radius: 10px;
+			}
+		}
+
+
+    .dropdownmenu > li:hover > a,
+    .dropdownmenu > li.active > a {
+        //background: @nav-bg-hover;
+        color: @nav-color-hover;
+        border: 0px solid transparent;
+        text-shadow: 0 0 0 transparent;
+        position: relative;
+
+        &:before {
+            content: '';
+            display: block !important;
+            width: 100%;
+            height: 38px;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            top: 0;
+            right: 0;
+            margin: auto;
+            background: #FFE1B9;
+            z-index: -1;
+            border-radius: 10px;
+        }
+    }
+
+		#dropdownrootitem1 {
+			display: none;
+		}
+	}
+/***62em = 992px***/
+@media only screen and (min-width: 62em) {
+   .mainnav{
+	   max-width: @max-width-landscape;
+	
+		&:after {
+			left: -700px;
+		}
+	}
+
+   .dropdownmenu {
+		margin-right: 162px;
+		padding: 0 20px 0 244px;
+	}
+
+    .dropdownmenu > li {
+        > a, > .notranslate a {
+            font-size: @nav-font-size;
+        }
+    }
+
+   
+}
+//1200px
+@media (min-width: 75em) {
+    .mainnav {
+        max-width: @max-width;
+	}
+	
+	.dropdownmenu {
+		padding: 0 20px 0 275px;
+	}
+}
+& when (@wide-layout = true) {
+	//1366px
+	@media (min-width: 85.375em) {
+		.mainnav {
+			max-width: @max-width-wide;
+		}
+
+		.dropdownmenu {
+			padding: 0 58px 0 468px;
+		}
+	}
+}

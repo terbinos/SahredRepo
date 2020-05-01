@@ -1,0 +1,312 @@
+//Interior Page titles, subtitles, print, feedback, rss, share & bookmark links.  Modified for each project.
+
+/***Title Widget**/
+.title_widget {
+	clear: both;
+
+	h1 {
+		color: @title-color;
+		line-height: 120% !important;
+		font-weight: @title-weight;
+		font-size: @title-size !important;
+		text-transform: @title-transform;
+		font-family: @title-font-family;
+		padding: 0 0 0 0;
+		margin: 24px 0 0 0;
+		overflow: hidden;
+	}
+
+	h2 {
+		color: @page-subtitle-color;
+		font-size: @page-subtitle-size !important; //keep important
+		font-weight: @page-subtitle-weight;
+		line-height: 110%;
+		margin-bottom: 10px;
+	}
+}
+.printer_friendly, .sharelink, .rss, .thickbox {
+    padding-left: 0px;
+}
+
+.printer_friendly, .sharelink, .rss, .thickbox, .font_size, .font_size a {
+    background:none;
+}
+.font_size a.font_larger, .font_size a.font_smaller {
+    float: none;
+    text-indent: 0px;
+    display:inline-block;
+    width:15px;
+    height:16px;
+}
+.font_size a{display:inline-block;float: none;vertical-align: middle;}
+
+.text_size{margin-right: 0 !important;}//important needed to overwrite products style
+
+.printer_friendly:before, .sharelink:before, .rss:before, .thickbox:before, .font_size a:before {
+    font-family: 'Glyphicons Halflings';
+    display:inline-block;
+    vertical-align:middle;
+    width:21px;
+    font-size:14px;
+    text-decoration:none;
+    text-indent: 0;
+}
+
+.printer_friendly:before{
+    content: "\e045";
+    color:@title-right-icon-color;
+}
+
+.thickbox:before{
+    content: "\e111";
+    color:@title-right-icon-color;
+    font-size:15px;
+}
+
+a.font_larger:before,a.font_smaller:before, .sharelink:before{
+    color:#fff;
+    background: @title-right-icon-color;
+    text-align:center;
+    width:15px;
+    height:15px;
+    line-height:15px;
+    font-size:9px;
+    border-radius:3px;
+}
+
+.sharelink:before{
+    content: "\002b";
+    margin-right: 5px;
+}
+
+a.font_larger:before {
+    content: "\002b";
+    
+}
+
+a.font_smaller:before {
+    content: "\2212";
+   
+}
+
+#share {
+    clear: left;
+    &:hover .sharelink{text-decoration:none !important;}
+    .sharelink {
+        margin-left: 0;
+    }
+
+    ul {
+        padding-bottom: 3px;
+
+        li {
+            width: 48%;
+            float: none;
+            display: inline-block;
+            vertical-align: top;
+            line-height: 120%;
+
+            a {
+                height: auto;
+                position: relative;
+                background: transparent none;
+
+                &:before {
+                    background: url("_gfx/int/share_icons.gif") no-repeat 0 0;
+                    height: 20px;
+                    content: "";
+                    top: 0;
+                    left: 0;
+                    width: 20px;
+                    position: absolute;
+                }
+
+                &.sharefacebook:before {
+                    background-position: 0 -150px;
+                }
+
+                &.sharedel:before {
+                    background-position: 0 -200px;
+                }
+
+                &.sharegoogle:before {
+                    background-position: 0 -225px;
+                }
+
+                &.sharegoogleplus:before {
+                    background-position: 0 -25px;
+                }
+
+                &.sharedigg:before {
+                    background-position: 0 -250px;
+                }
+
+                &.sharetwitter:before {
+                    background-position: 0 -50px;
+                }
+
+                &.sharestumble:before {
+                    background-position: 0 -100px;
+                }
+
+                &.sharetumblr:before {
+                    background-position: 0 -125px;
+                }
+
+                &.sharemyspace:before {
+                    background-position: 0 -75px;
+                }
+
+                &.sharelinkedin:before {
+                    background-position: 0 -175px;
+                }
+
+                &.sharereddit:before {
+                    background-position: 0 -275px;
+                }
+            }
+        }
+    }
+}
+
+#share {
+    >ul {
+        margin-top: 0px;
+        width: 275px;
+        top: 25px;
+    }
+
+    &:hover > ul {
+        display: block;
+    }
+}
+
+.printer_friendly, .sharelink, .rss, .thickbox, .font_size, .font_size a {
+   // background: url(_gfx/int/title_icons.png) 0 -75px no-repeat;
+    font-size: @title-right-size !important;
+    color: @title-right-color !important;
+    text-decoration: @title-right-decoration !important;
+}
+
+.title_right > a:hover {
+    text-decoration: @title-right-decoration-hover !important;
+}
+
+.font_size{text-decoration: none !important;}
+
+ .font_size a {
+    font-size: 100% !important;
+    color: @title-right-color !important;
+    text-decoration: none !important;
+}
+
+.printer_friendly {
+    //background-position: 0 0;
+}
+
+.sharelink {
+   // background-position: 0 -60px;
+}
+
+.rss {
+   // background-position: 0 -15px;
+}
+
+.thickbox {
+   // background-position: 0 -28px;
+    //padding-left: 22px;
+}
+
+a.font_larger {
+   // background-position: 0 -60px;
+}
+
+a.font_smaller {
+   // background-position: 0 -45px;
+}
+
+
+.rss {
+   position:relative;
+}
+
+.rss:before,
+.rss:after {
+   content:"";
+   position:absolute;
+}
+
+/* create circle */
+.rss:before {
+   width:15px;
+   height:15px;
+   border-radius:3px;
+   background:@title-right-icon-color; 
+   left:0;
+   bottom:0;
+   position:static;margin-right:5px;
+}
+
+/* create the two arcs */
+.rss:after {
+   border-color: #fff;
+    border-style: double;
+    border-width: 6px 6px 0 0;
+    bottom: 1px;
+    height: 10px;
+    left: 2px;
+    width: 10px;
+   -moz-border-radius: 0 50px 0 0;
+   -webkit-border-radius: 0 50px 0 0;
+   border-radius:0 50px 0 0;
+}
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+
+	.title_widget {
+		padding: 18px 0 0 0;
+		clear: both;
+		
+		h1 {
+		}
+
+		h2 {
+			padding: 0;
+		}
+	}
+	#pagebody:first-child + .title_widget {
+		padding-top: 0;
+	}
+	.top_col .title_widget,
+	.confirm_account_container.content_area, //confirm account page
+	.top_col .redirect_helper_widget,
+	.broken_links_reporter {
+		padding: @page-padding-percent @page-padding 0;
+	}
+    //for when the title widget isn't at the top of top_col
+	#sitebody .top_col .main_menu_widget + script + script + .content_area {
+		padding-top: @page-padding-percent;
+	}
+
+    .title_right {
+        padding: 0 0 21px 0;
+        float: right;
+
+        >a, >div {
+            float: right;
+
+            &:first-child {
+                margin-left: 18px;
+            }
+        }
+
+        #share {
+            clear: none;
+
+            .sharelink {
+                margin-left: 18px;
+            }
+        }
+    }
+}

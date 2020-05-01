@@ -1,0 +1,37 @@
+//styles specific to the enotification widgets.  Do not modify unless there are bugs after CMS integration.
+
+//enotification
+.eNotification_widget .form_label {
+    width: 250px;
+}
+
+#sitebody .checkboxlist-container .enotification_cats_list.formlist li {
+    width: 31.3% !important;
+}
+
+#sitebody .checkboxlist-container label, .front_end_body .enotification_widget_category_checkboxlist label {
+     width: ~"calc(100% - 40px)" !important;
+    white-space: normal;
+}
+
+#sitebody .checkboxlist-container .formlist li {
+    width: 31.3% !important;
+    margin-left: -3px;
+    padding-left: 2% !important;
+    //white-space:nowrap;
+}
+
+#sitebody .checkboxlist-container .formlist li:nth-child(3n+4), #sitebody .checkboxlist-container .formlist li:first-child {
+    padding-left: 0% !important;
+    width: 33.3% !important;
+}
+
+.enotification_cats_list li > a {
+    float: left;
+}
+
+.enotification_cats_list li>a.email_btn, .legend_info a.email_btn,
+.enotification_cats_list li > a, .legend_info a {
+    width: 19px;
+    background-position: 0 center;
+}

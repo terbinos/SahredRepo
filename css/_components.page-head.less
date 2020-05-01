@@ -1,0 +1,66 @@
+//site-wide page header area.  Modified to match design for each site.  
+//Related styles: _components.top-nav.less, _components.translate.less if using translate, _components.searchbox.less, _components.social-media-icons.less if icons are in header area.  _objects.wrappers.less
+
+
+/*#region HEADER */
+#siteheader {
+    z-index: auto;
+    margin-bottom: 0;
+    position: relative;
+   background:@mobile-page-header-bg-color; 
+   
+   &:before {
+	content: '';
+	width: 160px;
+	height: 66px;
+	background: url('_gfx/cmn/mobile/seal_mobile.png') no-repeat center;
+	position: absolute;
+	top: 0;
+	left: 164px;
+	background-size: contain;
+
+	}
+}
+
+#headercolumn {
+	clear: both;
+	float: none;
+	width: auto;
+	position: static;
+	height: @siteheader-height-mobile !important;
+}
+
+
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+
+	#siteheader {
+		height: @siteheader-height;
+		background: transparent;
+		position: relative;
+		margin: 0 auto;
+		z-index: auto;
+
+		&:before {
+			content: '';
+			width: 339px;
+			height: 164px;
+			background: url('_gfx/cmn/seal.png') no-repeat center;
+			position: absolute;
+			top: 0;
+			left: 260px;
+		}
+		//used for search overlay
+		& when (@search-type = overlay) {
+		.search_open & {
+			z-index: auto;
+		}
+		}
+	}
+
+    #headercolumn{
+        background-image: none !important;
+        height: auto !important;
+    }
+}

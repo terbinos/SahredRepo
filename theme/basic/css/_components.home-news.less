@@ -1,0 +1,305 @@
+@news-padding-mobile: 40px 10px 135px 10px; //News Widget padding on mobile (Shorthand: top, right, bottom, left) (bottom padding includes height of More button and space above More button/under list)
+@news-padding-tablet: 40px 0px 175px 0px; //News Widget padding on tablet (Shorthand: top, right, bottom, left)(bottom padding includes height of More button and space above More button/under list)
+@news-padding-desktop: 40px 0px 175px 0px; //News Widget padding on desktop (Shorthand: top, right, bottom, left)(bottom padding includes height of More button and space above More button/under list)
+
+
+@news-item-padding: 23px 15px 22px 25px; //padding between list items (Shorthand: top, right, bottom, left)
+@news-item-padding-mobile: 12px 10px 12px 15px; //padding between list items (Shorthand: top, right, bottom, left)
+@news-item-margin: 0 0 6px 0; //margin between list items on desktop views (Shorthand: top, right, bottom, left)
+@news-item-margin-mobile: 0 0 6px 0; //margin between list items on mobile devices (Shorthand: top, right, bottom, left)
+@news-item-margin-tablet: 0 0 6px 0;//margin between list items on tablets (Shorthand: top, right, bottom, left)
+
+@news-img-margin-right-mobile: 15px; //space between thumbnail and text on right
+@news-img-margin-right: 25px; //space between thumbnail and text on right
+@news-img-width: 164px; //width of thumbnail
+@news-img-max-height: 164px; //height of thumbnail
+
+@news-title-decoration: none; //text decoration for news titles (underline or none)
+@news-title-decoration-hover: none; //text decoration for news titles on hover (underline or none)
+@news-title-line-height: 1.3; //news title line height
+@news-title-margin: 0 0 6px 0; //margin around news title.  Shorthand: top, right, bottom, left.
+
+@news-summary-line-height: 1.4; //news summary line height
+
+@news-bottomlink-width: 252px; //width of bottom "more" link. Use "auto" if no background
+@news-bottomlink-height: 72px; //height of bottom "more" link. Use "auto" if no background
+@news-bottomlink-decoration: none; //text-decoration of bottom "more" link (underline or none)
+@news-bottomlink-decoration-hover: none; //text-decoration of bottom "more" link on hover (underline or none)
+@news-bottomlink-text-align: center; //alignment of text in bottom "more" link. Center, left, right.
+@news-bottomlink-border: 0px solid #bbbbbb; // border of text in bottom "more" link.  Shorthand: size, style, color
+@news-bottomlink-border-radius: 3px; //border radius of text in bottom "more" link (rounded corners)
+@news-bottomlink-margin: 0 auto 40px auto; //news bottom "more" link margin.  Shorthand: top, right, bottom, left.
+@news-bottomlink-margin-mobile: 0 auto 40px auto; //news bottom "more" link margin.  Shorthand: top, right, bottom, left.
+
+.home_news.home_news {
+	.news_container{
+        padding: @news-padding-mobile;
+        position:relative;
+    }
+
+	&:before {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		background: @news-background;
+		display: block;
+		z-index: -1;
+	}
+
+	h2 {
+		font-size: @news-header-font-size-mobile;
+		text-transform: @news-header-text-transform;
+		color: @news-header-color;
+		font-family: @news-header-font-family;
+		margin: @news-header-margin;
+		font-weight: @news-header-font-weight;
+	}
+
+	ul {
+		.unstyled_list;
+	}
+
+	li {
+		margin: @news-item-margin-mobile;
+		position: relative;
+		width: 100%;
+	}
+
+	.news-item {
+		text-decoration: none;
+		display: block;
+		background: @news-item-background;
+		padding: @news-item-padding-mobile;
+		min-height: @news-img-max-height + 54px;
+		border-right: 10px solid transparent;
+
+		&:hover, &:focus {
+			text-decoration: none;
+			border-right: 10px solid @news-hover-border-color;
+			background: @news-item-background-hover;
+		}
+
+		&:hover .box_item_title {
+			text-decoration: @news-title-decoration-hover;
+			color: @news-title-color-hover;
+		}
+
+		&:hover .news-readmore {
+			text-decoration: none;
+		}
+	}
+
+	.box_item_title {
+		color: @news-title-color;
+		font-size: @news-title-size - 8px;
+		font-weight: @news-title-weight;
+		font-family: @news-title-font-family;
+		line-height: @news-title-line-height;
+		display: block;
+		max-height: ((@news-title-size - 8px) * @news-title-line-height * @news-title-max-lines) + 2px;
+		overflow: hidden;
+		margin: @news-title-margin;
+		text-decoration: @news-title-decoration;
+	}
+
+
+
+	img {
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100px;
+		max-height: @news-img-max-height;
+	}
+
+
+	.item_info:not(:first-child) .box_item_title, .item_info:not(:first-child) .box_item_summary, .item_info:not(:first-child) .news-readmore {
+		margin-left: 115px;
+	}
+
+	.box_item_summary {
+		color: @news-summary-color;
+		font-size: @news-summary-size - 3px;
+		max-height: (@news-summary-size - 3px) * @news-summary-line-height * @news-summary-max-lines;
+		overflow: hidden;
+		display: block;
+		font-weight: @news-summary-weight;
+		line-height: @news-summary-line-height;
+		margin: 0;
+	}
+	/*.news-readmore {
+        display: block;
+        color:@news-read-more-link-color;
+        font-size: @news-summary-size;
+        margin:0;
+        line-height: @news-summary-line-height;
+    }*/
+	.box_bottomlink {
+		color: @news-bottomlink-color;
+		font-size: @news-bottomlink-size;
+		font-weight: @news-bottomlink-weight;
+		background: @news-bottomlink-background;
+		width: @news-bottomlink-width;
+		height: @news-bottomlink-height;
+		line-height: @news-bottomlink-height;
+		font-family: @news-bottomlink-font-family;
+		text-transform: @news-bottomlink-transform;
+		margin: @news-bottomlink-margin-mobile;
+		text-decoration: @news-bottomlink-decoration;
+		text-align: @news-bottomlink-text-align;
+		border: @news-bottomlink-border;
+		border-radius: @news-bottomlink-border-radius;
+		.transition();
+		display: block;
+		position: absolute;
+		bottom: 0px;
+		left: 0;
+		right: 0;
+
+		&:hover {
+			color: @news-bottomlink-color-hover;
+			text-decoration: @news-bottomlink-decoration-hover;
+			background: @news-bottomlink-background-hover;
+		}
+	}
+	//center vertically next to datebox if this class is added
+	&.center-vertical {
+		ul li {
+			padding: 0;
+		}
+
+		.news-item {
+			display: table;
+			width: 100%;
+			min-height: 0;
+		}
+
+		img {
+			position: relative;
+			max-width: none;
+		}
+
+		.item_info {
+			display: table-cell;
+			vertical-align: middle;
+			width: 100%;
+		}
+
+		.item_info:not(:first-child) .box_item_title, .item_info:not(:first-child) .box_item_summary {
+			margin-left: @news-img-margin-right-mobile;
+		}
+	}
+}
+
+/*** = 400px ***/
+@media screen and (min-width: 25em) {
+    .home_news.home_news {
+
+        .news-item{padding: @news-item-padding;}
+        img {
+             left: 0;
+            top: 0;
+            width: @news-img-width;
+            
+        }
+         .item_info:not(:first-child) .box_item_title, .item_info:not(:first-child) .box_item_summary,  .item_info:not(:first-child) .news-readmore {
+            margin-left: @news-img-width + @news-img-margin-right + 10px;
+        }
+    }
+}
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+    .home_news.home_news {
+        
+        .news_container{
+            padding: @news-padding-tablet;
+        
+        }
+        h2 {
+            font-size: @news-header-font-size;
+        }
+
+        ul {
+            display: -ms-flexbox;
+            -ms-flex-wrap: wrap;
+            -ms-flex-direction: row;
+            -webkit-flex-flow: row wrap;
+            flex-flow: row wrap;
+            display: -webkit-box;
+            display: flex;
+            -webkit-align-content: stretch;
+            -ms-flex-line-pack: stretch;
+            align-content: stretch;
+            -webkit-align-items: stretch;
+            -ms-flex-align: stretch;
+            align-items: stretch;
+            -webkit-justify-content: space-between;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            li {
+            margin: @news-item-margin-tablet;
+            .two-column&{
+                //webkit-box-flex: auto;
+               // -ms-flex: auto;
+               // flex: 100%;
+               // width: 345px;
+                max-width: 48%;
+                }
+        }
+        }
+
+        .box_item_title {
+            font-size: @news-title-size - 8px;
+            max-height: ((@news-title-size - 8px) * @news-title-line-height * @news-title-max-lines) + 2px;
+        }
+
+        .box_item_summary {
+            font-size: @news-summary-size;
+            max-height: @news-summary-size * @news-summary-line-height * @news-summary-max-lines;
+        }
+
+        .box_bottomlink {
+            margin: @news-bottomlink-margin;
+        }
+
+        &.center-vertical {
+            .item_info:not(:first-child) .box_item_title, .item_info:not(:first-child) .box_item_summary {
+                margin-left: @news-img-margin-right;
+            }
+        }
+    }
+}
+
+/***62em = 992px ***/
+@media screen and (min-width: 62em) {
+    .home_news.home_news {
+        
+        .news_container{
+            padding: @news-padding-desktop;
+
+        }
+       /* h2 {
+            margin: @news-h2-margin-desktop;
+        }*/
+         ul li{
+            margin: @news-item-margin;
+        }
+          .box_item_title {
+            font-size: @news-title-size;
+            max-height: (@news-title-size * @news-title-line-height * @news-title-max-lines) + 2px;
+        }
+         
+    }
+}
+
+/***75em = 1200px ***/
+@media screen and (min-width: 75em) {
+    .home_news.home_news {
+
+        
+    }
+}

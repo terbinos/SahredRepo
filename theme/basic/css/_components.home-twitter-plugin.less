@@ -1,0 +1,64 @@
+@twitter-padding-mobile: 40px 10px 0 10px;//twitter Widget padding on mobile (Shorthand: top, right, bottom, left)
+@twitter-padding-tablet: 0 0 0 0;//twitter Widget padding on tablet (Shorthand: top, right, bottom, left)
+@twitter-padding-desktop: 0 0 0 0;//twitter Widget padding on desktop (Shorthand: top, right, bottom, left)
+
+@twitter-h2-margin-mobile: 0 0 20px 0;//twitter Widget Title margins on mobile (Shorthand: top, right, bottom, left)
+@twitter-h2-margin-tablet: 0 0 20px 0;//twitter Widget Title margins on tablet (Shorthand: top, right, bottom, left)
+@twitter-h2-margin-desktop: 0 0 20px 0;//twitter Widget Title margins on desktop (Shorthand: top, right, bottom, left)
+
+
+
+.home_twitter {
+	padding: @twitter-padding-mobile;
+
+
+	&:before {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		background: @social-media-background;
+		display: block;
+		z-index: -1;
+	}
+
+	h2 {
+		margin: @twitter-h2-margin-mobile;
+		font-size: @twitter-h2-font-size-mobile;
+		font-weight: @twitter-h2-font-weight;
+		color: @twitter-h2-color;
+		text-transform: @twitter-h2-text-transform;
+		font-family: @twitter-h2-font-family;
+	}
+
+	.tw_content {
+		background: #fff;
+		//remove space at bottom created by using inline-block;
+		line-height: 0;
+	}
+}
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+	.home_twitter {
+		padding: @twitter-padding-tablet;
+
+		h2 {
+			margin: @twitter-h2-margin-tablet;
+		}
+	}
+}
+
+/***62em = 992px ***/
+@media screen and (min-width: 62em) {
+	.home_twitter {
+		padding: @twitter-padding-desktop;
+
+		h2 {
+			font-size: @twitter-h2-font-size;
+			margin: @twitter-h2-margin-desktop;
+		}
+	}
+}

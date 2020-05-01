@@ -1,0 +1,28 @@
+//styles specific to the photo album widgets.  Do not modify unless there are bugs after CMS integration.
+
+.slideshow_link a {
+    color: @table-header-color !important;
+}
+.photo_album_widget .standard_list ul li:hover {
+    background: transparent;
+    cursor: default;
+}
+.slideshow_link {
+    background: @table-header-bg !important;
+    color: @table-header-color !important;
+}
+.ad-gallery.ad-gallery .ad-image-wrapper .ad-image {
+	z-index: 3;
+}
+.ad-gallery .ad-image-wrapper .ad-image .ad-image-description {
+	width: auto !important;
+	right: 3px;
+}
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+    // Photo Album
+    //---------------------------------------------------------
+    .ad-preloads {
+        display: none;
+    }
+}

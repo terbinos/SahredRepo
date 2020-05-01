@@ -1,0 +1,52 @@
+//styles for the social media icons usually in the page footer but could also be in the header or fixed to the side of the browser. Modified for each project.
+
+
+#page_footer .social_icons {
+        
+    margin: 0 0 20px 0;
+    position: relative;
+    a {
+        display: inline-block;
+        margin: 0 0px 4px;
+        background: @page-footer-social-icons-background;
+        width:48px;
+        height:44px;
+        text-align:center;
+        line-height:42px;
+        border: 1px solid transparent;
+        .transition();
+        &:hover{
+            background: @page-footer-social-icons-background-hover;
+            border: 1px solid @page-footer-social-icons-border-color-hover;
+        }
+        
+    }
+    h2{
+            text-transform:@page-footer-header-text-transform;
+            font-weight:@page-footer-header-font-weight;
+            font-size:@page-footer-header-font-size;
+            letter-spacing:0.75px;
+            color:@page-footer-header-color;
+            margin:0 0 17px 30px;
+        }
+    &:before{
+                position: absolute;
+                content: "\e044";
+                top:0;
+                left:0;
+                width:20px;
+                height:25px;
+                color:@page-footer-icons-color;
+                font-size:14px;
+                font-family: 'Glyphicons Halflings';
+
+            }
+}
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+    #page_footer .social_icons {
+        height:155px;
+        overflow:hidden;
+        margin:0;
+    } 
+}

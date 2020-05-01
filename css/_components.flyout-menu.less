@@ -1,0 +1,76 @@
+//styles specific to the flyout dropdown menu main navigation found in standard_2col.html. 
+//Do not modify unless there are bugs after CMS integration.
+
+//reset default styles so we can use different breakpoint
+@media screen and (min-width: 40.5em) and (max-width:47.9375em) {
+    ul.dropdownmenu li { 
+        float: none;     
+    }
+    .dropdownmenu > li > a {   
+        overflow: visible;  
+        text-indent: 0px;
+    }
+    .dropdownmenu ul{
+        position: static;
+        width: 100%;
+    }
+    .dropdownmenu ul a {width: auto;}
+    .dropdownmenu .dropdownitemhaschild > a{background: none;width: auto;}
+   
+}
+//768px
+@media screen and (min-width: 48em)
+{
+
+    .dropdownmenu
+    {
+
+        ul
+        {
+            border-top:none;
+            background:@dropdown-bg;
+            li
+            {
+                border-top: 1px solid @dropdown-inner-border;
+                a{background:@dropdown-bg;}
+                &:hover
+                {
+                    >a
+                    {
+                        background: @dropdown-bg-hover;
+                        color: @dropdown-color-hover;
+                    }
+                }
+            }
+
+            a
+            {
+                width: auto;
+                color: @dropdown-color;
+            }
+        }
+
+        .dropdownitemhaschild
+        {
+            >a
+            {
+                .has_multiple_bg;
+                background-image:none;
+                &:before
+                {
+                    .multiple_bg;
+                    width: 0;
+                    height: 0;
+                    left: auto;
+                    top: 9px;
+                    right: 7px;
+                    background: transparent;
+                    border-top: 4px solid transparent;
+                    border-bottom: 4px solid transparent;
+                    border-left: 4px solid @dropdown-arrow;
+                }
+            }
+        }
+    }
+}
+

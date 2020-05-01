@@ -1,0 +1,151 @@
+
+/*
+    Compile all necessary css files into one stylesheet
+    ***Include only files used by the project, delete or comment out others***
+    Do not add styles to this stylesheet, only import files.  
+    Add files to css folder as needed, following the naming convention
+    All files in css folder start with _ to indicate they should not be compiled to individual css files.
+*/
+@site-type="custom";
+.downmarket(@site-type) when (@site-type = basic) {
+	@import (optional) "theme/basic/_theme.config.less"; //Color theme is defined here
+	/*settings and theme files include variables*/
+	//updated for every project
+	@import (optional) "theme/basic/_theme.global.less"; //Manage theme colors on an element-by-element basis.
+	@import (optional) "theme/basic/_theme.colors.less"; //Manage theme typography on an element-by-element basis.
+	/*tools include mixins and other tools we need to include such as google fonts.*/
+	
+}
+
+.downmarket(@site-type) when (@site-type = custom) {
+	/*settings and theme files include variables*/
+	//updated for every project
+	@import (optional) "theme/custom/_settings.global.less"; //Manage theme colors on an element-by-element basis.
+	@import (optional) "theme/custom/_settings.colors.less"; //Manage theme typography on an element-by-element basis.
+
+}
+
+@import "css/_settings.config.less"; //configurations such as site type, sticky header, search type etc.  
+
+.downmarket(@site-type);
+
+//fonts loaded here
+@import (optional) "theme/custom/_tools.typography.less"; //Globally available typography (Google fonts).  Add font here if needed.
+
+//homepage files
+@import (optional) "theme/custom/css/_components.home-collage.less"; //standard home collage, uses image tag, collage constrained to page width
+@import (optional) "theme/custom/css/_components.home-hero-video.less"; //standard home video
+@import (optional) "theme/custom/css/_components.home-minicalendar.less"; //Mini Calendar grid
+@import (optional) "theme/custom/css/_components.home-events.less"; //standard home events list
+@import (optional) "theme/custom/css/_components.home-news.less"; //standard home news list, thumbnail, title, intro
+@import (optional) "theme/custom/css/_components.home-buttons.less"; //standard buttons with icon and text
+@import (optional) "theme/custom/css/_components.home-buttons-slider.less"; //standard buttons with icon and text -slider
+@import (optional) "theme/custom/css/_components.home-tabs.less"; //homepage tabs
+@import (optional) "theme/custom/css/_components.home-spotlight.less"; //standard spotlight area
+@import (optional) "theme/custom/css/_components.home-page.less"; //homepage layout
+@import (optional) "theme/custom/css/_components.home-facebook-plugin.less"; //facebook plugin widget
+@import (optional) "theme/custom/css/_components.home-twitter-plugin.less"; //twitter plugin widget
+@import (optional) "theme/custom/css/_components.home-instagram.less"; //instagram plugin widget
+@import (optional) "theme/custom/css/_components.home-videos-thumbnail.less"; //video thumbnail widget
+@import (optional) "theme/custom/css/_components.home-data.less"; //data widget
+@import (optional) "theme/custom/css/_components.home-custom-mobile.less"; //enhanced mobile button widget
+
+/*tools include mixins and other tools we need to include such as google fonts.*/
+@import "css/_tools.mixins.less"; //Globally available mixins.  Rarely modified.
+/*Generic styles needed for every project. */
+//Do not modify unless bug is found after integration.
+@import "css/_generic.reset.less"; //reset styles from product or bootstrap, for moving the breakpoint, for example.
+@import "css/_generic.shared.less"; //some misc shared styles
+/*setting default styles for html elements. */
+//Do not modify, controlled through variables.
+@import "css/_elements.page.less"; //default Page-level styles (global font styles and p style)
+@import "css/_elements.forms.less"; //default form styles (buttons, legends, labels etc)
+@import "css/_elements.headers.less"; //default header styles (h1, h2, h3, h4, h5, .subtitle etc)
+@import "css/_elements.links.less"; //default link styles
+/**
+    Objects that are reused within several components
+*/
+//Do not modify unless bug is found after integration:
+@import "css/_objects.mobile-list.less"; //mobile_list and mobile_box styles
+@import "css/_objects.flexslider.less"; //default flexslider styles
+@import "css/_objects.lightbox.less"; //lightbox adjustments (feedback lightbox, email lightbox etc)
+@import "css/_objects.list-filter.less"; //list filter styles
+@import "css/_objects.list-pagination.less"; //pagination styles
+@import "css/_objects.detail-view.less"; //detail views shared by various components
+//commonly modified for each project:
+@import "css/_objects.listtable.less"; //listtable class styles
+@import "css/_objects.small-boxes.less"; //small boxes styles
+@import "css/_objects.wrappers.less"; //wrappers and all of the layouts except homepage
+/**
+    individual components
+**/
+//global components found on every site throughout the site (header, footer, navigation).
+@import "css/_components.page-head.less"; //page header (#siteheader, #headercolumn, #home_link)
+@import "css/_components.page-foot.less"; //page footer (everything, including social media)
+@import "css/_components.logo.less"; //site logo in header
+@import "css/_components.top-nav.less"; //top navigation styles
+
+@import "css/_components.searchbox-@{search-type}.less"; //Search input usually in page header
+
+@import "css/_components.translate.less"; //googe translate dropdown styles.  Remove if site does not have translate
+@import "css/_components.social-media-icons.less"; //social media icons
+@import "css/_components.edit-views.less"; //backend edit view adjustments
+//remove this if site does not have sticky header
+@import "css/_components.sticky-header.less"; //adds sticky behavior to header (logo, search and main nav)
+//RARELY MODIFIED:
+@import "css/_components.mobile-nav.less"; //mobile navigation
+
+//Homepage specific components, modified for every project:
+//@import "css/_components.home-page.less"; //homepage layout
+
+//Interior page specific components, commonly modified:
+@import "css/_components.breadcrumb.less"; //page breadcrumb styles
+@import "css/_components.calendar.less"; //classic calendar styles (including minicalendar)
+@import "css/_components.content-area.less"; //content area styles including content areas in small columns
+@import "css/_components.interior-banner.less"; //interior banner styles
+@import "css/_components.interior-page.less"; //interior sitebody
+@import "css/_components.title-widget.less"; //title widget styles (includes h1, h2, title_right, all title_right icons)
+@import "css/_components.sidenav.less"; //Side navigation widget
+@import "css/_components.interior-buttons.less"; //interior button widget
+@import "css/_components.interior-collage.less"; //interior collage widget
+//styles specific to a particular box widget (general box widget styles are in _object.small-boxes.less)
+@import "css/_components.business-box.less"; //.small_box.business_box
+@import "css/_components.staff-box.less"; //Staff Directory box widget
+@import "css/_components.faq-box.less"; //.small_box.faq_box
+@import "css/_components.service-box.less"; //Service directory box widget
+//commonly modified:
+@import "css/_components.social-media-boxes.less"; //Facebook and Twitter boxes
+//specific pages. Modified after integration if bugs or ugly formatting are found.
+@import "css/_components.splash-page.less"; //Splash page styles
+@import "css/_components.404-page.less"; //404 page styles
+@import "css/_components.sso.less"; //Single Sign On area styles (login page, dashboard etc)
+@import "css/_components.vision-search.less"; //Vision Search results page styles
+@import "css/_components.google-search.less"; //google search results
+//misc components, very rarely modified, only after integration if there is a bug or customization request
+@import "css/_components.accordion.less"; //Accordion widget styles
+@import "css/_components.captcha.less"; //captcha styles
+@import "css/_components.content-filter.less"; //content filter styles
+@import "css/_components.document-widgets.less"; //document folder and document list widgets
+@import "css/_components.downloadmessage.less"; //downloadmessage class
+@import "css/_components.enotification.less"; //enotification styles
+@import "css/_components.facility-directory.less"; //facility directory styles
+@import "css/_components.fullwidth-banner.less"; //interior fullwidth banner styles
+@import "css/_components.faqs.less"; //faq styles (not box widgets)
+@import "css/_components.forms-and-surveys.less"; //Forms and Surveys styles
+@import "css/_components.image-widget.less"; //image widget styles not including banner styles
+@import "css/_components.imp-alert.less"; //important alert styles
+@import "css/_components.jobs.less"; //jobs widget (not box widget)
+@import "css/_components.meetings-manager.less"; //meetings manager widget
+@import "css/_components.news.less"; // news widget (not box widget)
+@import "css/_components.online-polls.less"; //online polls widgets
+@import "css/_components.photo-album.less"; //photo album widget
+@import "css/_components.rss-feeds.less"; //rss feeds widgets
+@import "css/_components.service-directory.less"; //service Directory styles (not box widget)
+@import "css/_components.service-requests.less"; //Service Request styles
+@import "css/_components.sitemap.less"; //sitemap views
+@import "css/_components.staff-directory.less"; //Staff Directory styles (not box widget)
+@import "css/_components.tabs.less"; //tabbed widget styles
+@import "css/_components.top-bar.less"; //bar at top of site preview mode
+//define helper classes and ugly stuff here. Do not modify.
+@import "css/_trumps.display.less"; //display classes, such as .desktop_only, .mobile_hide etc
+@import "css/_trumps.products.less"; //product overwrites

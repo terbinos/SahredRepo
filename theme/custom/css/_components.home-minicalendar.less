@@ -1,0 +1,209 @@
+@home-calendar-padding-desktop: 0px 0 40px 0;
+@home-calendar-padding-tablet: 0px 0 40px 0;
+@home-calendar-padding-mobile: 0px 10px 30px 10px;
+
+@events-cal-header-background: #444; //background behind S, M, T, W, T, F, S
+@events-cal-header-color: contrast(@events-cal-header-background, #444); //text color for S, M, T, W, T, F, S
+
+@events-cal-month-color: #fff; ///*February,March, April etc color*/
+@events-cal-month-weight: normal; ///*February,March, April etc font weight*/
+@events-cal-month-size: percentage(30px/@default-text-size); ///*February,March, April etc font size*/
+@events-cal-month-size-tablet: percentage(25px/@default-text-size); ///*February,March, April etc font size for tablet - better to keep smaller so it doesn't wrap to two lines*/
+@events-cal-month-transform: uppercase; ///*text transform for February,March, April etc - use "none" or "uppercase"*/
+@events-cal-month-font-family: inherit; ///*font family for February,March, April etc - use "none" or "uppercase"*/
+@events-cal-prev-next-size: percentage(16px/@default-text-size); ///*previous and next links font size (controls size of > and < arrows)*/
+@events-cal-header-size: percentage(@header-font-size/@default-text-size); ///*S, M, T, W, T, F, S font-size */
+@events-cal-header-weight: @header-font-weight; ///*S, M, T, W, T, F, S font-weight */
+@events-cal-day-size: percentage(@header-font-size/@default-text-size); ///*size of numbers on calendar*/
+@events-cal-day-weight: @header-font-weight; ///*weight of numbers on calendar*/
+@events-cal-prev-next-decoration: @default-link-decoration; ///*previous and next links text-decoration*/
+@events-cal-prev-next-decoration-hover: @default-link-decoration-hover; ///*previous and next links text-decoration on hover*/
+@events-cal-items-weight: 600; //font weight for the number for days with events.
+@events-cal-othermonthday-bg: #e6e6e7; ///*other month day background color*/
+@events-cal-day-color: #7a7a7a; ///*default day text color*/
+@events-cal-othermonthday-color: #9ca1a4; /*other month day text color*/
+@events-cal-today-bg: #444; ///*today background color*/
+@events-cal-today-color: contrast(@calendar-today-bg, #444); ///*today text color*/
+@events-cal-prev-next-color: #fff; ///*previous and next links color*/
+@events-cal-day-bg: @box-bg-color; ///*default day background color*/
+@events-cal-border-color: @border-color; ///*border color between days*/
+
+@events-cal-row-height: 60px; //height in pixels of each row in the calendar
+@events-cal-header-height: 55px; //height in pixels of the header row (S, M, T, W, T, F, S)
+
+@events-cal-popup-bg: #444; //background of popup on hover of day with events
+@events-cal-popup-border: 1px solid #222; //border of popup on hover of day with events
+@events-cal-popup-box-shadow: 0 0 0 rgba(0, 0, 0, 0); //box shadow of popup on hover of day with events
+@events-cal-time-color: contrast(@events-cal-popup-bg, @small-text-color); ///*calendar time color within popup*/
+@events-cal-link-color: contrast(@events-cal-popup-bg, @default-link-color); ///*calendar event title link color within popup*/
+@events-cal-popup-border-radius: 0px; //border radius for the events popup.
+
+.home_minicalendar {
+	padding: @home-calendar-padding-mobile;
+
+	h2 {
+		margin: @events-header-margin;
+		font-size: @events-header-font-size-mobile;
+		font-weight: @events-header-font-weight;
+		color: @events-header-color;
+		text-transform: @events-header-text-transform;
+		font-family: @events-header-font-family;
+		//background: @events-header-background;
+		display: none;
+
+		&:first-of-type {
+			display: block;
+		}
+	}
+
+	.calendar_mini_grid .calendar_title {
+		margin: 10px 0;
+	}
+
+	.calendar_mini_grid .calendar_title td a {
+		color: @events-cal-month-color;
+	}
+	//fix for product level issue on mac
+	.responsive-table-scroll {
+		width: 100%;
+	}
+
+	.minicalendar_widget {
+		max-width: 100%;
+
+		.calendar_dayheader {
+			background: @events-cal-header-background;
+			color: @events-cal-header-color;
+			border: 1px solid @events-cal-header-background;
+			height: @events-cal-header-height;
+			line-height: @events-cal-header-height;
+			font-weight: @events-cal-header-weight;
+			font-size: @events-cal-header-size;
+		}
+
+		.calendar_mini_grid .calendar_title td {
+			color: @events-cal-month-color;
+			text-transform: @events-cal-month-transform;
+			font-weight: @events-cal-month-weight;
+			font-size: @events-cal-month-size;
+			text-transform: @events-cal-month-transform;
+
+			a {
+				color: @events-cal-month-color;
+			}
+
+			h2 {
+				font-family: @events-cal-month-font-family;
+			}
+		}
+
+		td.calendar_nextprev a {
+			text-decoration: @events-cal-prev-next-decoration;
+			color: @events-cal-prev-next-color;
+			font-size: @events-cal-prev-next-size;
+		}
+
+		td.calendar_nextprev a:hover {
+			text-decoration: @events-cal-prev-next-decoration-hover;
+		}
+
+		td.calendar_day,
+		td.calendar_today,
+		td.calendar_weekendday,
+		td.calendar_othermonthday {
+			border: 1px solid @events-cal-border-color;
+			border-top: 0;
+			border-left: 0;
+			height: @events-cal-row-height;
+			line-height: @events-cal-row-height;
+			font-size: @events-cal-day-size;
+			font-weight: @events-cal-day-weight;
+
+			&:first-child {
+				border-left: 1px solid @events-cal-border-color;
+			}
+		}
+
+		td.calendar_today {
+			background: @events-cal-today-bg;
+			color: @events-cal-today-color;
+		}
+
+		.calendar_today > a, .calendar_mini_grid.calendar td.calendar_day_with_items.calendar_today > a {
+			color: @events-cal-today-color !important;
+		}
+
+		.calendar_mini_grid.calendar td.calendar_day_with_items > a {
+			font-weight: @events-cal-items-weight;
+		}
+
+		td.calendar_day,
+		td.calendar_weekendday,
+		td.calendar_day > a,
+		td.calendar_weekendday > a {
+			color: @events-cal-day-color !important;
+		}
+
+		td.calendar_day,
+		td.calendar_weekendday {
+			background: @events-cal-day-bg;
+		}
+
+		.calendar_othermonthday, .calendar_othermonthday > a {
+			color: @events-cal-othermonthday-color !important;
+		}
+
+		td.calendar_othermonthday {
+			background: @events-cal-othermonthday-bg;
+		}
+
+		.calendar_mini_grid.calendar td.calendar_day_with_items .calendar_items {
+			background-color: @events-cal-popup-bg;
+			border: @events-cal-popup-border;
+			border-radius: @events-cal-popup-border-radius;
+			box-shadow: @events-cal-popup-box-shadow;
+
+			.calendar_eventtime {
+				color: @events-cal-time-color !important;
+				font-size: 100% !important;
+			}
+
+			.calendar_eventlink {
+				color: @events-cal-link-color !important;
+				font-size: 100% !important;
+			}
+		}
+	}
+}
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+
+
+	.home_minicalendar {
+		padding: @home-calendar-padding-tablet;
+
+		h2 {
+			font-size: @events-header-font-size;
+			}
+			.minicalendar_widget {
+				.calendar_mini_grid .calendar_title td {
+					font-size: @events-cal-month-size-tablet;
+				}
+			}
+		}
+	}
+
+/***62em = 992px ***/
+@media screen and (min-width: 62em) {
+
+
+	.home_minicalendar {
+		padding: @home-calendar-padding-desktop;
+
+		.minicalendar_widget {
+			.calendar_mini_grid .calendar_title td {
+				font-size: @events-cal-month-size;
+			}
+		}
+	}
+}

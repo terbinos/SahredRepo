@@ -1,0 +1,338 @@
+//options: add .buttons-icon-left class to .home_buttons to make the icons align to the left of the text.
+//Remove .buttons-icon-left class to make icons align centered above the text.
+
+@buttons-padding-mobile: 15px 0px 15px 0px; //Buttons Widget padding on mobile (Shorthand: top, right, bottom, left)
+@buttons-padding-tablet: 28px 0px 28px; //Buttons Widget padding on tablet (Shorthand: top, right, bottom, left)
+@buttons-padding-desktop: 48px 0px 48px; //Buttons Widget padding on desktop (Shorthand: top, right, bottom, left)
+
+@button-vertical-margin: 20px; //vertical spacing between items on mobile view
+
+@button-spacing: 20px; //space between buttons
+
+// background: transparent linear-gradient(236deg, #FCA067 0%, #EB6946 100%) 0% 0% no-repeat padding-box;
+// box-shadow: 0px 5px 5px #002E3745;
+// border: 8px solid #FFFFFF61;
+// border-radius: 95px;
+// opacity: 1;
+//button height is dynamic based on number of buttons and spaceon tablet and desktop.  Height used on mobile.
+@button-height: 169px; //height of buttons
+@button-width: 169px; //width of buttons
+//these two values control the wrapping on tablet and mobile.
+@button-width-tablet: 170px;
+@button-width-mobile: 175px;
+
+@buttons-background: #fff; //background for entire buttons area
+
+@button-background: #fff; //background of each individual button (color or image)
+@button-background-hover: #fca067; //background of each individual button buttons on hover (color or image)
+
+@button-border: 8px solid #fca067; //border of buttons
+@button-border-hover: 0px solid transparent; //border of buttons
+@button-box-shadow: 0 0 0 transparent; // shadow around buttons
+@button-box-shadow-hover: 0 0 0 14px lighten(#eb6946, 20%); // shadow around buttons on hover
+@button-border-radius: 90px; //border radius of buttons (use 50% to make circular buttons, use 0 to make square buttons, use px value to make rounded corners)
+@button-icon-alignment: top; // alignment of icon in relation to text.  Options: top, left, right
+
+@button-color: #728389; //color of buttons text
+@button-color-hover: #1d3641; //color of buttons text on hover
+@button-decoration: none; //text decoration of buttons text (underline or none)
+@button-decoration-hover: none; //text decoration of buttons text on hover (underline or none)
+@button-line-height: 1.3; //line height of buttons text (px or ratio or percent)
+@button-weight: normal; //font weight of buttons text
+@button-font-family: Regular 30px/38px Sanchez; //font family of buttons text
+@button-text-transform: none; //text transform for buttons text (uppercase or none)
+@button-size: 30px; //size of buttons text
+@button-size-tablet: 17px; //size of buttons text on tablet
+//@button-text-vertical-align: middle; //vertical alignment of buttons text
+
+@button-img-max-width: 62px; //width of the widest icon used
+@button-img-max-height: 74px; //height of the tallest icon used.
+
+//variables used only when .buttons-icon-left class is NOT used
+@button-icon-area-height: 90px; //height of area that icon should be centered in.
+
+//variables specific to the .buttons-icon-left class
+@button-padding: 0 2% 0 @button-icon-area-width; //left padding to make room for icon
+
+//variables specific to the .buttons-icon-right class
+@button-padding-right: 0 @button-icon-area-width 0 10px; //right padding to make room for icon
+
+//variables used by both .buttons-icon-left and .buttons-icon-right classes.
+@button-icon-area-width: 100px; //width of area that icon should be centered in.
+
+.home_buttons {
+  display: block;
+
+  .buttons-list {
+    .unstyled_list;
+    margin: 0px -@button-spacing / 2;
+    padding: @buttons-padding-mobile;
+    display: -ms-flexbox;
+    -ms-flex-wrap: wrap;
+    -ms-flex-direction: row;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    display: -webkit-box;
+    display: flex;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    margin-bottom: -@button-vertical-margin;
+  }
+
+  .buttons-list-item {
+    -webkit-box-flex: auto;
+    -ms-flex: auto;
+    flex: auto;
+    width: @button-width-mobile;
+    margin: 0 @button-spacing / 2;
+    padding: 0 0px @button-vertical-margin 0;
+    max-width: ~"calc(100% - " @button-spacing~ ")";
+  }
+
+  .button-link {
+    background: @button-background;
+    border: @button-border;
+    border-radius: @button-border-radius;
+    box-shadow: @button-box-shadow;
+    //vertical align middle for text on mobile and desktop
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: @button-height;
+    position: relative;
+    text-decoration: @button-decoration;
+    text-align: center;
+    // left: 1413px;
+    .transition();
+    width: 100%;
+    margin: 0 auto;
+    -webkit-box-shadow: 0px 10px 15px 0px rgba(63, 162, 169, 0.15);
+    -moz-box-shadow: 0px 10px 15px 0px rgba(63, 162, 169, 0.15);
+    box-shadow: 0px 10px 15px 0px rgba(63, 162, 169, 0.15);
+    &:after {
+      position: absolute;
+      border-radius: @button-border-radius;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      content: "";
+      background: linear-gradient(259deg, #f38456 33%, #eb6946 58%);
+      opacity: 0;
+      z-index: -1;
+    }
+  }
+  a {
+    text-decoration: none !important;
+    &:hover,
+    &:focus {
+      .button-link {
+        text-decoration: @button-decoration-hover;
+        background: @button-background-hover;
+        box-shadow: #000000;
+        border: @button-border-hover;
+        -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 46, 55, 0.27);
+        -moz-box-shadow: 0px 5px 5px 0px rgba(0, 46, 55, 0.27);
+        box-shadow: 0px 5px 5px 0px rgba(0, 46, 55, 0.27);
+        background-origin: border-box !important;
+        transition: background 0.25s ease-in;
+        z-index: 2;
+
+        &:after {
+          opacity: 0.6;
+          transition: opacity 0.5s ease-out;
+          transition-delay: 0.25s;
+          z-index: -1;
+        }
+      }
+      .button-text {
+        color: @button-color-hover;
+        opacity: 1;
+      }
+    }
+  }
+  //if it uses images
+  .button-img {
+    bottom: @button-height - @button-icon-area-height;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    position: absolute;
+    max-width: @button-img-max-width;
+    max-height: @button-img-max-height;
+  }
+
+  .button-text {
+    color: @button-color;
+    display: block;
+    font-size: @button-size;
+    font-weight: @button-weight;
+    font-family: @button-font-family;
+    text-transform: @button-text-transform;
+    line-height: @button-line-height;
+    margin: 0 20px;
+    max-height: @button-size * @button-line-height * 2;
+    //vertical-align: @button-text-vertical-align !important;
+    //padding:@button-icon-area-height 10px 0;
+    // margin: 0 20px;
+    // max-height: @button-size * @button-line-height * 3;
+	text-align: center;
+	padding-top: 10px;
+    transition: all 0.25s ease-in;
+
+    &:hover,
+    &:focus,
+    &:active {
+      display: block;
+      // color: #1D3641;
+      // text-decoration: none;
+      //vertical-align: @button-text-vertical-align !important;
+    }
+  }
+  //if it uses images
+  .button-img + .button-text {
+    // padding: (@button-icon-area-height - 8px) 10px 0;
+    // max-height: (@button-size * @button-line-height * 2) + @button-icon-area-height - 8px;
+    text-align: center;
+    margin: 0;
+    align-self: flex-start;
+  }
+  //when the buttons should not distort or stretch, use .no-stretch class
+  &.no-stretch {
+    .button-link {
+      width: @button-width; //makes buttons not stretch
+      margin: 0 auto; //centers buttons within area
+    }
+  }
+
+  & when (@button-icon-alignment = left) {
+    &.home_buttons {
+      .button-link {
+        padding: @button-padding;
+      }
+
+      .button-img {
+        bottom: 0;
+        left: 0;
+        right: calc(~"100% - " @button-icon-area-width);
+        top: 0;
+      }
+
+      .button-img + .button-text {
+        padding: 0;
+        text-align: left;
+        align-self: center;
+      }
+    }
+  }
+
+  & when (@button-icon-alignment = right) {
+    &.home_buttons {
+      .button-link {
+        padding: @button-padding-right;
+      }
+
+      .button-img {
+        left: calc(~"100% - " @button-icon-area-width);
+        right: 0;
+        top: 0;
+        bottom: 0;
+      }
+
+      .button-img + .button-text {
+        padding: 0;
+        text-align: right;
+        align-self: center;
+      }
+    }
+  }
+}
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+  .home_buttons {
+    margin: 0;
+
+    .buttons-list {
+      padding: @buttons-padding-tablet;
+    }
+
+    .buttons-list-item {
+      width: @button-width-tablet;
+    }
+
+    .button-text {
+      font-size: @button-size-tablet;
+      max-height: @button-size-tablet * @button-line-height * 4;
+    }
+    //if it uses images
+    .button-img + .button-text {
+      max-height: (@button-size-tablet * @button-line-height * 2) +
+        @button-icon-area-height - 8px;
+    }
+  }
+}
+
+/***62em = 992px ***/
+@media screen and (min-width: 62em) {
+  .home_buttons {
+    .buttons-list {
+      padding: @buttons-padding-desktop;
+    }
+
+    .buttons-list-item {
+      width: @button-width;
+    }
+
+    .button-text {
+      font-size: @button-size;
+      max-height: @button-size * @button-line-height * 4;
+    }
+    //if it uses images
+    .button-img + .button-text {
+      max-height: (@button-size * @button-line-height * 2) +
+        @button-icon-area-height - 8px;
+    }
+  }
+}
+
+/***75em = 1200px ***/
+@media screen and (min-width: 75em) {
+  .home_buttons {
+    .buttons-list-item {
+      width: @button-width;
+    }
+
+    .button-text {
+      margin: 0;
+      width: auto;
+      font-size: @button-size;
+    }
+
+    &.no-stretch {
+      .button-link {
+        width: @button-width;
+        height: @button-height;
+      }
+    }
+  }
+}
+
+& when (@wide-layout =true) {
+  //1366px
+  @media (min-width: 85.375em) {
+    .home_buttons {
+      .button-text {
+        margin: 0 20px;
+      }
+    }
+  }
+}

@@ -1,0 +1,353 @@
+//add-on classes for this widget are:
+//.with-minicalendar: use this when the events widget is to the right of a minicalendar widget.  It will hide the widget title and align the "more events" button to the right
+//.center-vertical: use this class when the event titles should be centered vertically within their "block" or backgorund
+//.two-column - creates two columns of events
+
+@events-padding-mobile: 40px 10px 135px 10px; //Events Widget padding on mobile (Shorthand: top, right, bottom, left)(bottom padding includes height of More button and space above More button/under list)
+@events-padding-tablet: 40px 0px 161px 0px; //Events Widget padding on tablet (Shorthand: top, right, bottom, left)(bottom padding includes height of More button and space above More button/under list)
+@events-padding-desktop: 40px 0px 161px 0px; //Events Widget padding on desktop (Shorthand: top, right, bottom, left)(bottom padding includes height of More button and space above More button/under list)
+
+@events-item-margin: 0 0px 6px 0px; //margin between list items on desktop views (Shorthand: top, right, bottom, left)
+@events-item-margin-mobile: 0 0px 6px 0px; //margin between list items on mobile devices (Shorthand: top, right, bottom, left)
+@events-item-margin-tablet: 0 0px 6px 0px; //margin between list items on tablets (Shorthand: top, right, bottom, left)
+@events-datebox-border: 0px solid transparent; //border of the event date box
+@events-datebox-border-radius: 0; //rounded corners of the event date box
+@events-datebox-width: 122px; //width of the event date box
+@events-datebox-height: 122px; //height of the event date box
+@events-datebox-align: center; //text alignment for entire date box
+@events-datebox-padding: 25px 0 0 0; //padding for the event date box, to position text inside
+@events-datebox-margin-right: 40px; //space between datebox and text on right
+@events-datebox-margin-right-mobile: 17px; //space between datebox and text on right
+@events-datebox-month-padding: 0 0 0 0; //padding around the month text inside the datebox (May, Jun, Jul, Aug, Sep etc) (Shorthand: top, right, bottom, left)
+@events-datebox-month-margin: 0 0 0 0; //margin around the month text inside the datebox (May, Jun, Jul, Aug, Sep etc) (Shorthand: top, right, bottom, left)
+@events-title-decoration: none; //text decoration for event titles (underline or none)
+@events-title-decoration-hover: none; //text decoration for event titles on hover (underline or none)
+@events-title-line-height: 1.3; //event title line height
+@events-title-margin: 0 20px 0 0; //margin around event title.  Shorthand: top, right, bottom, left.
+@events-summary-line-height: 1.3; //event time line height
+@events-summary-max-lines: 1; //maximum lines of event time text that will show
+@events-bottomlink-width: 252px; //width of bottom "more" link. Use "auto" if no background
+@events-bottomlink-height: 72px; //height of bottom "more" link. Use "auto" if no background
+@events-bottomlink-decoration: none; //text-decoration of bottom "more" link (underline or none)
+@events-bottomlink-decoration-hover: none; //text-decoration of bottom "more" link on hover (underline or none)
+@events-bottomlink-text-align: center; //alignment of text in bottom "more" link. Center, left, right.
+@events-bottomlink-border: 0px solid #bbbbbb; // border of text in bottom "more" link.  Shorthand: size, style, color
+@events-bottomlink-border-radius: 3px; //border radius of text in bottom "more" link (rounded corners)
+@events-bottomlink-margin: 0 auto 40px auto; //Events bottom "more" link margin.  Shorthand: top, right, bottom, left.
+@events-bottomlink-margin-tablet: 0 auto 40px auto; //Events bottom "more" link margin.  Shorthand: top, right, bottom, left.
+@events-bottomlink-margin-mobile: 0 auto 40px auto; //Events bottom "more" link margin.  Shorthand: top, right, bottom, left.
+
+
+.home_events.home_events {
+	.events_container{
+        padding: @events-padding-mobile;
+        position:relative;
+    }
+
+	&:before {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		background: @events-background;
+		display: block;
+		z-index: -1;
+	}
+
+	h2 {
+		font-size: @events-header-font-size-mobile;
+		text-transform: @events-header-text-transform;
+		color: @events-header-color;
+		font-family: @events-header-font-family;
+		margin: @events-header-margin;
+		font-weight: @events-header-font-weight;
+	}
+
+	ul {
+		.unstyled_list;
+	}
+
+	li {
+		margin: @events-item-margin-mobile;
+		min-height: @events-datebox-height;
+		padding: 0;
+		position: relative;
+		width: 100%;
+	}
+
+
+	.event-item {
+		display: block;
+		text-decoration: none;
+
+		&:hover, &:focus {
+			text-decoration: none;
+		}
+	}
+
+	.item_info {
+		background: @events-item-background;
+		background-clip: content-box;
+		padding-left: 5px;
+	}
+
+	.datebox {
+		display: block;
+		background: @events-datebox-background;
+		border: @events-datebox-border;
+		border-radius: @events-datebox-border-radius;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: @events-datebox-width;
+		height: @events-datebox-height;
+		text-align: @events-datebox-align;
+		padding: @events-datebox-padding;
+	}
+
+	.datebox-month {
+		color: @events-datebox-month-color;
+		font-size: @events-datebox-month-size;
+		text-transform: @events-datebox-month-transform;
+		background: @events-datebox-month-background;
+		padding: @events-datebox-month-padding;
+		margin: @events-datebox-month-margin;
+		font-weight: @events-datebox-month-weight;
+		font-family: @events-datebox-month-family;
+	}
+
+	.datebox-number {
+		color: @events-datebox-number-color;
+		font-size: @events-datebox-number-text-size;
+		font-weight: @events-datebox-number-weight;
+		font-family: @events-datebox-number-family;
+		line-height: @events-datebox-number-text-size;
+	}
+
+	.box_item_title {
+		color: @events-title-color;
+		font-size: @events-title-size - 8px;
+		font-weight: @events-title-weight;
+		font-family: @events-title-font-family;
+		line-height: @events-title-line-height;
+		display: block;
+		max-height: ((@events-title-size - 8px) * @events-title-line-height * @events-title-max-lines) + 2px;
+		overflow: hidden;
+		margin: @events-title-margin;
+		text-decoration: @events-title-decoration;
+	}
+
+	.event-item:hover .item_info {
+		background: @events-item-background-hover;
+		background-clip: content-box;
+	}
+
+	.event-item:hover .box_item_title {
+		text-decoration: @events-title-decoration-hover;
+		color: @events-title-color-hover;
+	}
+
+	.event-item:hover .datebox {
+		background: @events-datebox-background-hover;
+	}
+
+	.event-item:hover .datebox-month {
+		color: @events-datebox-month-color-hover;
+	}
+
+	.event-item:hover .datebox-number {
+		color: @events-datebox-number-color-hover;
+	}
+
+	.box_item_summary {
+		color: @events-summary-color;
+		font-size: @events-summary-size;
+		max-height: @events-summary-size * @events-summary-line-height * @events-summary-max-lines;
+		overflow: hidden;
+		display: block;
+		font-weight: @events-summary-weight;
+		line-height: @events-summary-line-height;
+		margin: 0 20px 0 0;
+	}
+
+	.box_item_summary, .box_item_title, .box_item_date {
+		display: block;
+		margin-left: @events-datebox-width + @events-datebox-margin-right-mobile;
+	}
+
+	.box_bottomlink {
+		color: @events-bottomlink-color;
+		font-size: @events-bottomlink-size;
+		font-weight: @events-bottomlink-weight;
+		background: @events-bottomlink-background;
+		width: @events-bottomlink-width;
+		height: @events-bottomlink-height;
+		line-height: @events-bottomlink-height;
+		font-family: @events-bottomlink-font-family;
+		text-transform: @events-bottomlink-transform;
+		margin: @events-bottomlink-margin-mobile;
+		text-decoration: @events-bottomlink-decoration;
+		text-align: @events-bottomlink-text-align;
+		border: @events-bottomlink-border;
+		border-radius: @events-bottomlink-border-radius;
+		.transition();
+		display: block;
+		position: absolute;
+		bottom: 0px;
+		left: 0;
+		right: 0;
+		/*.with-minicalendar& {
+			right: 10px;
+			left: auto;
+		}*/
+		&:hover {
+			color: @events-bottomlink-color-hover;
+			text-decoration: @events-bottomlink-decoration-hover;
+			background: @events-bottomlink-background-hover;
+		}
+	}
+	//center vertically next to datebox if this class is added
+	&.center-vertical {
+		ul li {
+			padding: 0;
+		}
+
+		.event-item {
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-align-items: stretch;
+			-ms-flex-align: stretch;
+			align-items: stretch;
+			flex: 0 1 100%;
+		}
+
+		.datebox {
+			position: relative;
+			flex: 0 0 auto;
+		}
+
+		.item_info {
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-align-items: center;
+			-ms-flex-align: center;
+			align-items: center;
+			-webkit-align-content: center;
+			-ms-flex-line-pack: center;
+			align-content: center;
+			-webkit-flex-wrap: wrap;
+			-ms-flex-wrap: wrap;
+			flex-wrap: wrap;
+			width: 100%;
+		}
+
+		.box_item_title {
+			width: 100%;
+		}
+
+		.box_item_summary, .box_item_title, .box_item_summary:hover, .box_item_title:hover, .box_item_date, .box_item_date:hover {
+			margin-left: @events-datebox-margin-right-mobile;
+		}
+	}
+}
+	/***48em = 768px ***/
+	@media screen and (min-width: 48em) {
+		.home_events.home_events {
+
+            .events_container{
+                padding: @events-padding-tablet;
+            }
+
+			h2 {
+				font-size: @events-header-font-size;
+
+				.with-minicalendar& {
+					display: none;
+				}
+			}
+
+			ul {
+				.with-minicalendar& {
+					padding-top: 87px;
+				}
+
+				display: -ms-flexbox;
+				-ms-flex-wrap: wrap;
+				-ms-flex-direction: row;
+				-webkit-flex-flow: row wrap;
+				flex-flow: row wrap;
+				display: -webkit-box;
+				display: flex;
+				-webkit-align-content: stretch;
+				-ms-flex-line-pack: stretch;
+				align-content: stretch;
+				-webkit-align-items: stretch;
+				-ms-flex-align: stretch;
+				align-items: stretch;
+				-webkit-justify-content: space-between;
+				-ms-flex-pack: justify;
+				justify-content: space-between;
+			}
+
+			li {
+				margin: @events-item-margin-tablet;
+
+				.two-column& {
+					max-width: 48%;
+				}
+			}
+
+			.box_item_title {
+				font-size: @events-title-size - 8px;
+				max-height: ((@events-title-size - 8px) * @events-title-line-height * @events-title-max-lines) + 2px;
+			}
+
+			.box_item_summary, .box_item_title, .box_item_date {
+				margin-left: @events-datebox-width + @events-datebox-margin-right;
+			}
+
+			.box_bottomlink {
+				margin: @events-bottomlink-margin-tablet;
+				bottom: 0px;
+				/*.with-minicalendar& {
+					right: 0px;
+				}*/
+			}
+
+			&.center-vertical {
+				.box_item_summary, .box_item_title, .box_item_summary:hover, .box_item_title:hover, .box_item_date, .box_item_date:hover {
+					margin-left: @events-datebox-margin-right;
+				}
+			}
+		}
+	}
+	/***62em = 992px ***/
+	@media screen and (min-width: 62em) {
+		.home_events.home_events {
+
+            .events_container{
+                padding: @events-padding-desktop;
+            }
+			li {
+				margin: @events-item-margin;
+			}
+
+			.box_item_title {
+				font-size: @events-title-size;
+				max-height: (@events-title-size * @events-title-line-height * @events-title-max-lines) + 2px;
+			}
+
+			.box_bottomlink {
+				margin: @events-bottomlink-margin;
+			}
+		}
+	}
+	/***75em = 1200px ***/
+	@media screen and (min-width: 75em) {
+		.home_events.home_events {
+		}
+	}

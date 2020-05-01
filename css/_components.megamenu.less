@@ -1,0 +1,432 @@
+//styles specific to the megamenu dropdown menu main navigation found in index.html and others. 
+//may need minor modifications to padding to match design
+
+//reset default styles so we can use different breakpoint. Do not modify
+@Font-Raleway : 'Raleway', sans-serif;
+@import "../theme/custom/_tools.typography.css";
+@media screen and (min-width: 40.5em) and (max-width:47.9375em) {
+    ul.dropdownmenu li {
+        float: none;
+    }
+
+    .dropdownmenu > li > a {
+        overflow: visible;
+        text-indent: 0px;
+    }
+
+	.dropdownmenu .widthcontainer6col, .dropdownmenu .widthcontainer5col, .dropdownmenu .widthcontainer4col, .dropdownmenu .widthcontainer3col, .dropdownmenu .widthcontainer2col, .dropdownmenu .widthcontainer1col {
+		width: auto;
+	}
+
+    .dropdownmenu .megamenu_container {
+        background: transparent;
+        border: 0px solid #8dc4ca;
+        box-shadow: 0 0px 0px rgba(0, 0, 0, 0.4);
+        padding: 0;
+        position: static;
+        overflow:auto;
+        ul.megamenu_column {
+            padding: 0;
+            width: 100%;
+            border: 0;
+
+            a {
+                font-size: inherit;
+                letter-spacing: 0;
+                margin: 0;
+            }
+
+            a.megamenu_level1 {
+                font-weight: normal;
+            }
+        }
+    }
+}
+
+//modify below with caution as needed
+
+//768px
+@media screen and (min-width: 48em) {
+
+    @col-width: @max-width-portrait/4;
+
+    /** specific to mega menu **/
+    .dropdownmenu {
+
+
+        ul {
+            border: 0;
+            background: none;
+
+            ul.megamenu_column {
+            }
+        }
+
+        .megamenu_container {
+            border: 0;
+            border-top: 0px solid @mega-dropdown-outer-border;
+            background: @mega-dropdown-bg;
+            margin: 0;
+            padding: 0;
+            z-index: 20;
+            overflow: auto;
+
+            .inner_container {
+                position: relative;
+                z-index: 1;
+
+                &:before,
+                &:after {
+                    .multiple_bg;
+                    visibility: visible;
+                    top: 0;
+                    bottom: 0;
+                }
+
+                .megamenu_column {
+                    border: 0;
+                    //modify padding around columns here if needed.  Use percentages for larger padding so columns do not get too narrow on tablet.
+                    padding: 0 10px;
+
+                    ul {
+                        padding: 0;
+                        margin: 0;
+                    }
+
+                    a {
+                        color: @mega-dropdown-color;
+                        font-size: @mega-dropdown-font-size;
+                        line-height: 120%;
+                        word-wrap: break-word;
+                        letter-spacing: 0;
+                        margin: 10px 0;
+
+                        &:hover {
+                            text-decoration: @mega-dropdown-decoration-hover;
+                            color: @mega-dropdown-color-hover;
+                        }
+
+                        &.megamenu_level1 {
+                            font-size: @mega-dropdown-header-font-size;
+                            color: @mega-dropdown-header-color;
+                            font-weight: @mega-dropdown-header-weight;
+                            //text-transform: @mega-dropdown-header-transform;
+                            margin: 20px 0 0 0;
+                            font-family: @Font-Raleway;
+                        }
+
+                        &.megamenu_level2 {
+                            padding-left: 10px;
+                            font-size: @mega-dropdown-font-size + 1;
+                        }
+
+                        &.megamenu_level3 {
+                            padding-left: 30px;
+                        }
+
+                        &.megamenu_level4 {
+                            padding-left: 40px;
+                        }
+                    }
+
+                    li.megamenu_level1:first-child > a {
+                        margin-top: 10px;
+                    }
+                }
+            }
+
+            &.widthcontainer1col {
+                width: @col-width;
+
+                .inner_container {
+                    .megamenu_column {
+                        width: 100%;
+
+                        &:nth-child(n+2) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            &.widthcontainer2col {
+                width: @col-width*2;
+
+                .inner_container {
+                    .megamenu_column {
+                        width: 100% / 2;
+
+                        &:nth-child(n+3) {
+                            display: none;
+                        }
+                    }
+
+                    &:before {
+                        border-left: 1px solid @mega-dropdown-inner-border;
+                        width: 0;
+                        left: 100% / 2;
+                    }
+                }
+            }
+
+            &.widthcontainer3col {
+                width: @col-width*3;
+
+                .inner_container {
+                    .megamenu_column {
+                        width: 100% / 3;
+
+                        &:nth-child(n+4) {
+                            display: none;
+                        }
+                    }
+
+                    &:before {
+                        border-left: 1px solid @mega-dropdown-inner-border;
+                        border-right: 1px solid @mega-dropdown-inner-border;
+                        width: 100% / 3;
+                        left: 100% / 3;
+                    }
+                }
+            }
+
+            &.widthcontainer4col {
+                width: @col-width*4;
+
+                .inner_container {
+                    .megamenu_column {
+                        width: 100% / 4;
+
+                        &:nth-child(n+5) {
+                            display: none;
+                        }
+                    }
+
+                    &:before {
+                        border-left: 1px solid @mega-dropdown-inner-border;
+                        border-right: 1px solid @mega-dropdown-inner-border;
+                        width: @col-width * 2;
+                        left: @col-width;
+                    }
+
+                    &:after {
+                        border-left: 1px solid @mega-dropdown-inner-border;
+                        width: 0;
+                        left: @col-width * 2;
+                    }
+                }
+            }
+        }
+    }
+    #dropdownrootitem8 .widthcontainer1col,
+    #dropdownrootitem7 .widthcontainer1col {
+        right: 0px;
+    }
+
+    #dropdownrootitem8 .widthcontainer2col,
+    #dropdownrootitem7 .widthcontainer2col,
+    #dropdownrootitem6 .widthcontainer2col,
+    #dropdownrootitem5 .widthcontainer2col,
+    #dropdownrootitem4 .widthcontainer2col {
+        right: 0px;
+    }
+
+    #dropdownrootitem2 .widthcontainer3col,
+    #dropdownrootitem3 .widthcontainer3col,
+    #dropdownrootitem5 .widthcontainer3col,
+    #dropdownrootitem6 .widthcontainer3col,
+    #dropdownrootitem7 .widthcontainer3col,
+    #dropdownrootitem8 .widthcontainer3col {
+        right: 0px;
+    }
+
+    .dropdownmenu .widthcontainer4col,
+    .dropdownmenu .widthcontainer5col,
+    .dropdownmenu .widthcontainer6col,
+    .dropdownmenu .widthcontainer7col,
+    .dropdownmenu .widthcontainer8col {
+        width: 100%;
+        right: 0;
+    }
+	& when (@search-type = dropdown), (@search-type = overlay) {
+		#dropdownrootitem8 .widthcontainer1col,
+		#dropdownrootitem7 .widthcontainer1col {
+			right: -@search-trigger-width;
+		}
+
+		#dropdownrootitem8 .widthcontainer2col,
+		#dropdownrootitem7 .widthcontainer2col,
+		#dropdownrootitem6 .widthcontainer2col {
+			right: -@search-trigger-width;
+		}
+
+		#dropdownrootitem5 .widthcontainer3col,
+		#dropdownrootitem6 .widthcontainer3col,
+		#dropdownrootitem7 .widthcontainer3col,
+		#dropdownrootitem8 .widthcontainer3col {
+			right: -@search-trigger-width;
+		}
+
+		.dropdownmenu .megamenu_container.widthcontainer4col,
+		.dropdownmenu .megamenu_container.widthcontainer5col,
+		.dropdownmenu .megamenu_container.widthcontainer6col,
+		.dropdownmenu .megamenu_container.widthcontainer7col,
+		.dropdownmenu .megamenu_container.widthcontainer8col {
+			width: @max-width-portrait;
+            right: 0;
+            top: 95px;
+		}
+	}
+}
+
+//992px
+@media (min-width: 62em) {
+    @col-width: @max-width-landscape/4;
+	.dropdownmenu {
+		.megamenu_container {
+			&.widthcontainer1col {
+				width: @col-width;
+			}
+
+			&.widthcontainer2col {
+				width: @col-width*2;
+			}
+
+			&.widthcontainer3col {
+				width: @col-width*3;
+			}
+
+			&.widthcontainer4col {
+				width: @col-width*4;
+
+				.inner_container {
+					&:before {
+						width: @col-width * 2;
+						left: @col-width;
+					}
+
+					&:after {
+						left: @col-width * 2;
+					}
+				}
+			}
+
+			.inner_container {
+				.megamenu_column {
+					padding: 10px 20px;
+				}
+			}
+
+			& when (@search-type = dropdown), (@search-type = overlay) {
+				&.widthcontainer4col,
+				&.widthcontainer5col,
+				&.widthcontainer6col,
+				&.widthcontainer7col,
+				&.widthcontainer8col {
+					width: @max-width-landscape;
+				}
+			}
+		}
+	}
+	}
+
+
+//1200px
+@media (min-width: 75em) {
+    @col-width: @max-width/4;
+	.dropdownmenu {
+		.megamenu_container {
+			&.widthcontainer1col {
+				width: @col-width;
+			}
+
+			&.widthcontainer2col {
+				width: @col-width*2;
+			}
+
+			&.widthcontainer3col {
+				width: @col-width*3;
+			}
+
+			&.widthcontainer4col {
+				width: @col-width*4;
+
+				.inner_container {
+					&:before {
+						width: @col-width * 2;
+						left: @col-width;
+					}
+
+					&:after {
+						left: @col-width * 2;
+					}
+				}
+			}
+
+			.inner_container {
+				.megamenu_column {
+					padding: 20px 30px;
+				}
+			}
+
+			& when (@search-type = dropdown), (@search-type = overlay) {
+				&.widthcontainer4col,
+				&.widthcontainer5col,
+				&.widthcontainer6col,
+				&.widthcontainer7col,
+				&.widthcontainer8col {
+					width: @max-width;
+				}
+			}
+		}
+	}
+    
+}
+& when (@wide-layout = true) {
+	//1366px
+	@media (min-width: 85.375em) {
+		@col-width: @max-width-wide/4;
+
+		.dropdownmenu {
+			.megamenu_container {
+				&.widthcontainer1col {
+					width: @col-width;
+				}
+
+				&.widthcontainer2col {
+					width: @col-width*2;
+				}
+
+				&.widthcontainer3col {
+					width: @col-width*3;
+				}
+
+				&.widthcontainer4col {
+					width: @col-width*4;
+
+					.inner_container {
+						&:before {
+							width: @col-width * 2;
+							left: @col-width;
+						}
+
+						&:after {
+							left: @col-width * 2;
+						}
+					}
+				}
+
+				& when (@search-type = dropdown), (@search-type = overlay) {
+					&.widthcontainer4col,
+					&.widthcontainer5col,
+					&.widthcontainer6col,
+					&.widthcontainer7col,
+					&.widthcontainer8col {
+						width: @max-width-wide;
+					}
+				}
+			}
+		}
+	}
+}
+

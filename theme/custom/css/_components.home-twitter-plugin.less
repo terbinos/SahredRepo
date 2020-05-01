@@ -1,0 +1,57 @@
+@twitter-padding-mobile: 40px 10px 0 10px; //Events Widget padding on mobile (Shorthand: top, right, bottom, left)
+@twitter-padding-tablet: 0 0 0 0; //Events Widget padding on tablet (Shorthand: top, right, bottom, left)
+@twitter-padding-desktop: 0 0 0 0; //Events Widget padding on desktop (Shorthand: top, right, bottom, left)
+
+@twitter-h2-margin-mobile: 0 0 20px 0; //Events Widget Title margins on mobile (Shorthand: top, right, bottom, left)
+@twitter-h2-margin-tablet: 0 0 20px 0; //Events Widget Title margins on tablet (Shorthand: top, right, bottom, left)
+@twitter-h2-margin-desktop: 0 0 20px 0; //Events Widget Title margins on desktop (Shorthand: top, right, bottom, left)
+
+@twitter-h2-font-size: 50px; //Events Widget Title font size
+@twitter-h2-font-size-mobile: 35px; //Events Widget Title font size
+@twitter-h2-font-weight: normal; //Events Widget Title font weight
+@twitter-h2-text-transform: uppercase; //Events Widget Title font text transform (use uppercase or none)
+@twitter-h2-font-family: inherit; //Events Widget Title font family, use inherit if same as default font.
+@twitter-h2-color: @default-text-color; //Events Widget Title font color
+
+.home_twitter {
+	padding: @twitter-padding-mobile;
+	position: relative;
+
+	h2 {
+		margin: @twitter-h2-margin-mobile;
+		font-size: @twitter-h2-font-size-mobile;
+		font-weight: @twitter-h2-font-weight;
+		color: @twitter-h2-color;
+		text-transform: @twitter-h2-text-transform;
+		font-family: @twitter-h2-font-family;
+	}
+
+	.tw_content {
+		background: #fff;
+		//remove space at bottom created by using inline-block;
+		line-height: 0;
+	}
+}
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+	.home_twitter {
+		padding: @twitter-padding-tablet;
+
+		h2 {
+			margin: @twitter-h2-margin-tablet;
+		}
+	}
+}
+
+/***62em = 992px ***/
+@media screen and (min-width: 62em) {
+	.home_twitter {
+		padding: @twitter-padding-desktop;
+
+		h2 {
+			font-size: @twitter-h2-font-size;
+			margin: @twitter-h2-margin-desktop;
+		}
+	}
+}

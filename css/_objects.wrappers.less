@@ -1,0 +1,121 @@
+//general wrappers and layout styles defined here.
+//modify default background image here
+//more specific layout styles found in _components.home-page.less and _components.interior-page.less
+
+
+
+body.front_end_body {
+	background: @mobile-body-bg-color;
+	-ms-overflow-style: scrollbar;
+	overflow-x: hidden;
+}
+
+#sitebody {
+	background: @mobile-content-bg;
+	border-bottom: 1px solid #f0f0f0;
+}
+
+//reset bootstrap default padding
+.container {
+	padding: 0;
+}
+
+
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+
+	//#region ======= BODY, GLOBAL  ===========
+
+	//modify default page background here
+	body.front_end_body {
+		background: @body-bg-color;
+		background-position: center 0px;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-attachment: fixed;
+	}
+
+	#sitebody {
+		border-bottom: 0px;
+	}
+
+	.container, #sitebody, #siteheader, #footercolumn {
+		width: @max-width-portrait; /*Width of site from 768px width up to 992px width*/
+		max-width: @max-width-portrait; /*needed to overwrite backend product styles*/
+	}
+
+	//#region ======= SITE WRAPPER, SITE BODY BACKGROUND  ===========
+
+	.mainSpan_wrapper,
+	.mainSpan_wrapper_home {
+		//background: @bg-image-overlay;
+		position: relative;
+		z-index: 1;
+
+		&:before {
+			position: absolute;
+			top: @siteheader-height;
+			left: 0;
+			right: 0;
+			height: @nav-height;
+			background: @nav-bg;
+			content: "";
+		}
+
+		&:after {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: @siteheader-height;
+			background: @page-head-bg;
+			content: "";
+		}
+	}
+
+	.mainSpan_wrapper_home {
+		//for animations to prevent flashing content
+		.sr {
+			visibility: hidden;
+		}
+	}
+
+	.mainSpan {
+	}
+
+	/*Set layout posision and width*/
+	.container {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+/*62em = 992px*/
+@media only screen and (min-width:62em) {
+	.container, #sitebody, #siteheader, #footercolumn {
+		width: @max-width-landscape; /*Width of site from 992px width up to 1200px width*/
+		max-width: @max-width-landscape; /*needed to overwrite backend product styles*/
+	}
+}
+//1200px
+@media (min-width: 75em) {
+	.container, #sitebody, #siteheader, #footercolumn {
+		width: @max-width; /*maximum width of site, might change for each site*/
+		max-width: @max-width;
+	}
+}
+
+& when (@wide-layout = true) {
+	//1366px
+	@media (min-width: 85.375em) {
+		.container, #sitebody, #siteheader, #footercolumn {
+			width: @max-width-wide; /*maximum width of site, might change for each site*/
+			max-width: @max-width-wide;
+		}
+	}
+}

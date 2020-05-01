@@ -1,0 +1,249 @@
+//styles specific to the Advanced megamenu dropdown menu main navigation. Used only on projects with Advanced Megamenu purchased.
+//Modify below to match design (generally after integration)
+
+//768px
+@media screen and (min-width: 48em) {
+
+    .dropdownmenu {
+         * {box-sizing: border-box;}
+        .megamenu_container {
+            
+            //advanced mega menu
+            &.widthcontainer5col {
+                width: 100%;
+
+                .inner_container {
+                    .megamenu_column {
+                        width: 100% / 5;
+
+                        &:nth-child(n+6) {
+                            display: none;
+                        }
+                    }
+
+                    &:before {
+                        border-left: 1px solid @mega-dropdown-inner-border;
+                        border-right: 1px solid @mega-dropdown-inner-border;
+                        width: 20% * 2;
+                        left: 20%;
+                    }
+
+                    &:after {
+                        border-left: 1px solid @mega-dropdown-inner-border;
+                        border-right: 1px solid @mega-dropdown-inner-border;
+                        width: 20% * 2;
+                        left: 20% * 2;
+                    }
+                }
+            }
+            //advanced mega menu
+            &.widthcontainer6col {
+                width: 100%;
+                // position: relative;
+                .inner_container {
+                    .megamenu_column {
+                        width: 100% / 6;
+
+                        &:last-child {
+                            position: static;
+
+                            &:before {
+                                .multiple_bg;
+                                visibility: visible;
+                                top: 0px;
+                                bottom: 0px;
+                                right: 16.66%;
+                                width: 1px;
+                                border-right: 1px solid @mega-dropdown-inner-border;
+                            }
+                        }
+                    }
+
+                    &:before {
+                        border-left: 1px solid @mega-dropdown-inner-border;
+                        border-right: 1px solid @mega-dropdown-inner-border;
+                        width: 16.66% * 2;
+                        left: 16.66%;
+                    }
+
+                    &:after {
+                        border-left: 1px solid @mega-dropdown-inner-border;
+                        border-right: 1px solid @mega-dropdown-inner-border;
+                        width: 16.66% * 2;
+                        left: 16.66% * 2;
+                    }
+                }
+            }
+        }
+    }
+
+    
+    //for advanced megamenu to make text readable in backend
+    body.front_end_body  .dropdownmenu .megamenu_container .inner_container .megamenu_column a{color: @mega-dropdown-color;}
+    body.front_end_body  .dropdownmenu .megamenu_container .inner_container .megamenu_column a:hover{color: @mega-dropdown-color-hover;}
+    body.front_end_body  .dropdownmenu .megamenu_container .inner_container .megamenu_column a.megamenu_level1{color: @mega-dropdown-header-color;}
+	.widthcontainer5col ul.megamenu_column {
+		padding: 0 2%;
+		width: 20%;
+	}
+}
+.dropdownmenu ul.megamenu_column.megamenu_column_content {
+
+    padding-top: 18px !important;
+    font-size: 15px;
+    display: none; //hide on mobile
+    text-align: left;
+    line-height: 20px;
+
+    img {
+    }
+
+    .image_widget img {
+        border: 0;
+    }
+
+    .image_widget a {
+        display: block;
+    }
+
+    a {
+        margin: 0;
+        display: inline;
+        padding-left: 0;
+        letter-spacing: 0;
+    }
+
+    a:hover {
+        text-decoration: underline !important;
+    }
+
+    a:before, a:hover:before {
+        display: none;
+    }
+
+    p {
+        margin: 0 0 1em 0;
+        line-height: 20px;
+    }
+}
+
+.front_end_body .dropdownmenu ul.megamenu_column.megamenu_column_content {
+    color: @mega-dropdown-color;
+
+    a {
+        color: @mega-dropdown-color !important;
+    }
+
+    p {
+        color: @mega-dropdown-color;
+    }
+    h1, h2, h3, h4, h5, .subtitle {
+        color: @mega-dropdown-header-color;
+    }
+}
+/***this is here so that it inherits the correct colors etc, even if it is a subsite or design theme***/
+.front_end_body .dropdownmenu ul.megamenu_column.megamenu_column_content .calendar_mini_grid .calendar_title td span {
+    color: #ffffff;
+}
+
+//.dropdownmenu ul.megamenu_column.megamenu_column_content .calendar_mini_grid .calendar_title td a {color: @calendar-month-color;}
+
+.front_end_body .dropdownmenu ul.megamenu_column.megamenu_column_content .small_box .box_title,
+.mega_menu_navigation_config .mega_menu_column_body .small_box .box_title {
+    color: @mega-dropdown-header-color !important;
+    font-size: 20px !important;
+    font-weight: bold;
+    text-align: left;
+}
+
+.front_end_body .dropdownmenu ul.megamenu_column.megamenu_column_content a, .front_end_body .mega_menu_navigation_config .mega_menu_column_body a, .front_end_body .mega_menu_navigation_config .mega_menu_column_body .small_box .box_content ul li a, .front_end_body .dropdownmenu ul.megamenu_column.megamenu_column_content .small_box .item-list a, .front_end_body .mega_menu_navigation_config .mega_menu_column_body .small_box .item-list a, .front_end_body .dropdownmenu ul.megamenu_column.megamenu_column_content .service_box .box_content ul.service_list li a
+ {
+    color: @mega-dropdown-color;
+    text-align: left;
+    text-decoration:underline !important;
+}
+
+.dropdownmenu ul.megamenu_column.megamenu_column_content a
+{text-decoration:underline !important;}
+
+.dropdownmenu ul.megamenu_column.megamenu_column_content a:hover
+{text-decoration:none !important;}
+
+.dropdownmenu ul.megamenu_column.megamenu_column_content a.box_bottomlink, .mega_menu_navigation_config .mega_menu_column_body a.box_bottomlink{
+    text-decoration:none !important;
+    border-radius: 0 !important;
+
+}
+
+.dropdownmenu ul.megamenu_column.megamenu_column_content a.box_bottomlink:hover, .mega_menu_navigation_config .mega_menu_column_body a.box_bottomlink:hover{
+    text-decoration:underline !important;
+
+}
+.dropdownmenu ul.megamenu_column.megamenu_column_content .service_box .box_content ul.service_list li a:hover{text-decoration: none !important;}
+.dropdownmenu ul.megamenu_column.megamenu_column_content .small_box .box_content ul a{
+    font-weight:bold;
+    text-decoration:none !important;
+}
+
+.dropdownmenu ul.megamenu_column.megamenu_column_content .small_box .box_content ul a:hover{
+    text-decoration:underline !important;
+}
+
+.front_end_body .dropdownmenu ul.megamenu_column.megamenu_column_content .small_box .box_content ul.item-list li, 
+.front_end_body .dropdownmenu ul.megamenu_column.megamenu_column_content .small_box .box_content .item_smalltext, 
+.front_end_body .dropdownmenu ul.megamenu_column.megamenu_column_content .small_box ul.item-list li a, 
+.front_end_body .mega_menu_navigation_config .mega_menu_column_body .small_box .box_content ul.item-list li, 
+.front_end_body .mega_menu_navigation_config .mega_menu_column_body .small_box .box_content .item_smalltext, 
+.front_end_body .mega_menu_navigation_config .mega_menu_column_body .small_box ul.item-list li a, 
+.front_end_body .dropdownmenu ul.megamenu_column.megamenu_column_content .small_box, 
+.front_end_body .mega_menu_navigation_config .mega_menu_column_body .small_box, 
+.front_end_body .dropdownmenu ul.megamenu_column.megamenu_column_content .small_box .box_content ul,
+.front_end_body .dropdownmenu ul.megamenu_column.megamenu_column_content .small_box.faq_box .box_content .listfaq_a p, 
+.front_end_body .dropdownmenu ul.megamenu_column.megamenu_column_content .small_box.faq_box .box_content .listfaq_a ul, 
+.front_end_body .dropdownmenu ul.megamenu_column.megamenu_column_content .small_box.faq_box .box_content .listfaq_a ol, 
+.front_end_body .dropdownmenu ul.megamenu_column.megamenu_column_content .small_box.faq_box .box_content .listfaq_a li, 
+.front_end_body .dropdownmenu ul.megamenu_column.megamenu_column_content .small_box.faq_box .box_content .listfaq_a div {
+    color: @mega-dropdown-color !important;
+    text-align: left;
+    font-size: 100% !important;
+    line-height: 20px !important;
+     border-radius: 0 !important;
+}
+
+.dropdownmenu ul.megamenu_column.megamenu_column_content #searchbox a img, .mega_menu_navigation_config .mega_menu_column_body #searchbox a img {
+    display: inline;
+}
+
+.dropdownmenu ul.megamenu_column.megamenu_column_content #searchbox a:after, .mega_menu_navigation_config .mega_menu_column_body #searchbox a:after {
+    color: @subtitle-color;
+    font-size: @subtitle-size !important;
+}
+
+.dropdownmenu ul.megamenu_column.megamenu_column_content .small_box, .dropdownmenu ul.megamenu_column.megamenu_column_content .minicalendar_widget, .dropdownmenu ul.megamenu_column.megamenu_column_content .image_widget {
+    margin-bottom: 20px !important;
+}
+
+
+
+.dropdownmenu ul.megamenu_column.megamenu_column_content .business_box.mobile_list .box_content > ul > li > a, .front_end_body .dropdownmenu ul.megamenu_column.megamenu_column_content .staff_box.mobile_list .box_content > ul > li > a {
+    font-weight: bold;
+}
+.dropdownmenu ul.megamenu_column.megamenu_column_content .service_box .box_content .toggle_service:before {display:block; top:2px;}
+
+.dropdownmenu ul.megamenu_column.megamenu_column_content .calendar_mini_grid .calendar_eventlink {
+    color: #52514f !important;
+    margin:  0;
+}
+
+.dropdownmenu ul.megamenu_column.megamenu_column_content .calendar_mini_grid .calendar_items{line-height:120%;}
+
+.dropdownmenu ul.megamenu_column.megamenu_column_content .calendar_nextprev a, .mega_menu_navigation_config .mega_menu_column_body .calendar_nextprev a {
+     display: inline; //overwrite product style
+     text-decoration:none !important;
+}
+
+@media screen and (min-width: 48em) {
+    .dropdownmenu ul.megamenu_column.megamenu_column_content {
+        display:block;
+    }
+}

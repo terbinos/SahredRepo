@@ -1,0 +1,427 @@
+///*----------------------------------*\
+//  #GLOBAL
+//  Modify the values below to match each project
+//\*----------------------------------*/
+
+
+/* Fonts
+================================================== */
+//initialize the google font(s) that will be used here.
+//Delete any that are not used.  Refer to tools.typography.less
+
+.font-init-open-sans();
+
+// Base typographical styles.
+//IMPORTANT: all default text styles (below) should come from the Interior Page Design main content area.  The font styles should be defined here and nowhere else.
+@default-text-size: 16px; ///*default size for all text.  */
+@default-line-height: unit(22px/@default-text-size); ///*default line-height for all text. Divide default line height in pixels by default text size in pixels for a dynamic line height.*/
+@default-font-family: @Font-Open-Sans; ///*default font-family for all text*/
+@default-link-decoration: underline; ///*default text decoration for links*/
+@default-link-decoration-hover: none; ///*default text decoration for links on hover*/
+
+//table header, small box header, calendar header, mobile list header all use these
+@header-font-size: 16px;
+@header-font-weight: normal;
+@header-font-family: inherit;
+@header-text-transform: uppercase;
+
+//Based on small box sub text.  Used to calculate some other fonts such as breadcrumbs, sidenav, title_right, table fonts
+@small-text-size: 14px;
+
+
+/******************************/
+//Homepage typographical styles
+/**************************/
+
+//custom mobile buttons ("Enhanced Mobile Homepage")
+@mobile-button-border-radius: 50%; //border radius or rounded corners on the colored backgrounds.  50% = circles.  0 = squares.  A pixel value such as 10px will give squares with rounded corners.
+@mobile-button-font-size: 11px; //font size for button text
+@mobile-button-text-align: center; //horizontal alignment of button text (left, center or right)
+@mobile-button-font-family: inherit; //font-family for button text
+@mobile-button-font-weight: normal; //font-weight for button text
+
+//collage
+@slide-title-size: 26px; //font size of slide title text
+@slide-title-size-mobile: 18px; //font size of slide title text on mobile devices
+@slide-title-weight: normal; //font weight of slide title text
+@slide-title-max-lines: 2; //maximum number of lines the title will show on desktop.
+@slide-title-font-family: inherit; //slide title font-family
+@slide-title-text-transform: none; //text transform for slide titles (uppercase or none)
+
+@slide-description-size: 14px; //font size of slide description text
+@slide-description-size-mobile: 14px; //font size of slide description text on mobile
+@slide-description-max-lines: 5; //maximum number of lines the description will show on desktop.
+@slide-description-weight: normal; //font weight of slide description text
+@slide-description-font-family: inherit; //slide description font-family
+
+//buttons
+@button-icon-alignment: top; // alignment of icon in relation to text.  Options: top, left, right
+@button-weight: normal; //font weight of buttons text
+@button-font-family: inherit; //font family of buttons text
+@button-text-transform: none; //text transform for buttons text (uppercase or none)
+@button-size: 17px; //size of buttons text
+@button-size-tablet: 17px; //size of buttons text on tablet
+@button-border-radius: 50%; //border radius of buttons (use 50% to make circular buttons, use 0 to make square buttons, use px value to make rounded corners)
+
+//homepage spotlight
+@spotlight-h2-font-size-mobile: 35px; //Spotlight Widget Title font size
+@spotlight-h2-font-size: 50px; //Spotlight Widget Title font size
+@spotlight-h2-font-weight: normal; //Spotlight Widget Title font weight
+@spotlight-h2-text-transform: uppercase; //Spotlight Widget Title text transform (Uppercase, none)
+@spotlight-h2-font-family: inherit; //Spotlight Widget Title font family, use inherit if same as default font.
+
+@spotlight-text-size: 20px; //Spotlight text size.
+@spotlight-text-weight: normal; //Spotlight text font weight.
+@spotlight-text-font-family: inherit; //Spotlight text font family.
+
+@spotlight-bottomlink-size: 20px; //size of bottom "more" link
+@spotlight-bottomlink-weight: normal; //font weight of bottom "more" link
+@spotlight-bottomlink-transform: uppercase; //News bottom "more" link text transform (Uppercase, none)
+@spotlight-bottomlink-font-family: inherit; //News bottom "more" link font-family
+
+//Homepage tabs
+
+@tab-font-size-mobile: 24px; //font size of tab text "Events", "News", "Social" on mobile devices
+@tab-font-size: 50px; //font size of tab text "Events", "News", "Social" on tablet and desktop devices
+@tab-font-family: inherit; //font family of tab text "Events", "News", "Social"
+@tab-font-weight: normal; //font weight of tab text "Events", "News", "Social"
+@tab-text-transform: uppercase; //text transform of tab text "Events", "News", "Social" (Use uppercase or none)
+
+//used only with tab-style: boxed
+@tab-border-radius: 10px 10px 0 0; //used only when tabs have a background.  Shorthand: top left corner, top right corner, bottom right corner, bottom left corner
+
+//events
+//@events-header variables ONLY used when the events widget is OUTSIDE of any tabs.
+//Events header is hidden if it is in a tab because it becomes redundant with the tab text.
+@events-header-font-size: 50px; //Font size of widget header text ("Events" or "Meetings & Events" etc)
+@events-header-font-size-mobile: 35px; //Font size of widget header text ("Events" or "Meetings & Events" etc) on mobile
+@events-header-text-transform: uppercase; //text transform of widget header text ("News") - use: uppercase or none
+@events-header-margin: 0 0 20px 0; //margins around widget header text ("News") (Shorthand: top, right, bottom, left)
+@events-header-font-family: inherit; //font family of widget header text ("News")
+@events-header-font-weight: normal; //font weight of widget header text ("News")
+
+@events-datebox-month-size: 18px; //size of the month text inside the datebox (May, Jun, Jul, Aug, Sep etc)
+@events-datebox-month-weight: bold; //font-weight of the month text inside the datebox (May, Jun, Jul, Aug, Sep etc)
+@events-datebox-month-transform: uppercase; //text transform of the month text inside the datebox (May, Jun, Jul, Aug, Sep etc).
+@events-datebox-month-family: inherit; //font family for the month text inside the datebox (May, Jun, Jul, Aug, Sep etc)
+
+@events-datebox-number-text-size: 50px; //size of the number text inside the datebox (15, 16, 28, 30, etc)
+@events-datebox-number-weight: normal; //font weight of the number text inside the datebox (15, 16, 28, 30, etc)
+@events-datebox-number-family: inherit; //font family for the number text inside the datebox (15, 16, 28, 30, etc)
+
+@events-title-size: 25px; //event title font size
+@events-title-weight: normal; //event title font weight
+@events-title-font-family: inherit; //event title font family.  Use inherit if same as default font.
+@events-title-max-lines: 2; //maximum lines the event title will show before hiding additional lines of text
+
+@events-summary-size: 16px; //size of event time text
+@events-summary-weight: normal; //font weight of event time text
+
+@events-bottomlink-size: 20px; //size of bottom "more" link
+@events-bottomlink-weight: normal; //font weight of bottom "more" link
+@events-bottomlink-transform: uppercase; //Events bottom "more" link text transform (Uppercase, none)
+@events-bottomlink-font-family: inherit; //Events bottom "more" link font-family
+
+//minicalendar (if used!)
+@events-cal-month-weight: normal; ///*February,March, April etc font weight*/
+@events-cal-month-size: percentage(30px/@default-text-size); ///*February,March, April etc font size*/
+@events-cal-month-size-tablet: percentage(25px/@default-text-size); ///*February,March, April etc font size for tablet - better to keep smaller so it doesn't wrap to two lines*/
+@events-cal-month-transform: uppercase; ///*text transform for February,March, April etc - use "none" or "uppercase"*/
+@events-cal-month-font-family: inherit; ///*font family for February,March, April etc - use "none" or "uppercase"*/
+@events-cal-prev-next-size: percentage(16px/@default-text-size); ///*previous and next links font size (controls size of > and < arrows)*/
+@events-cal-header-size: percentage(@header-font-size/@default-text-size); ///*S, M, T, W, T, F, S font-size */
+@events-cal-header-weight: @header-font-weight; ///*S, M, T, W, T, F, S font-weight */
+@events-cal-day-size: percentage(@header-font-size/@default-text-size); ///*size of numbers on calendar*/
+@events-cal-day-weight: @header-font-weight; ///*weight of numbers on calendar*/
+@events-cal-prev-next-decoration: @default-link-decoration; ///*previous and next links text-decoration*/
+@events-cal-prev-next-decoration-hover: @default-link-decoration-hover; ///*previous and next links text-decoration on hover*/
+@events-cal-row-height: 60px; //height in pixels of each row in the calendar
+@events-cal-header-height: 55px; //height in pixels of the header row (S, M, T, W, T, F, S)
+@events-cal-items-weight: 600; //font weight for the number for days with events.
+
+@events-cal-popup-border-radius: 0px; //border radius for the events popup.
+
+//news
+//@news-header variables ONLY used when the news widget is OUTSIDE of any tabs.
+//News header is hidden if it is in a tab because it becomes redundant with the tab text.
+@news-header-font-size: 50px; //Font size of widget header text ("News")
+@news-header-font-size-mobile: 35px; //Font size of widget header text ("News") on mobile
+@news-header-text-transform: uppercase; //text transform of widget header text ("News") - use: uppercase or none
+@news-header-margin: 0 0 20px 0; //margins around widget header text ("News") (Shorthand: top, right, bottom, left)
+@news-header-font-family: inherit; //font family of widget header text ("News")
+@news-header-font-weight: normal; //font weight of widget header text ("News")
+
+@news-title-size: 25px; //news title font size
+@news-title-weight: normal; //news title font weight
+@news-title-font-family: inherit; //news title font family.  Use inherit if same as default font.
+@news-title-max-lines: 2; //maximum lines of news title that will show.
+
+@news-summary-size: 18px; //size of summary text
+@news-summary-weight: normal; //font weight of summary text
+@news-summary-max-lines: 4; //maximum lines of news summary that will show
+
+@news-bottomlink-size: 20px; //size of bottom "more" link
+@news-bottomlink-weight: normal; //font weight of bottom "more" link
+@news-bottomlink-transform: uppercase; //News bottom "more" link text transform (Uppercase, none)
+@news-bottomlink-font-family: inherit; //News bottom "more" link font-family
+
+/****homepage facebook (plugin version) IF USED*/
+@facebook-h2-font-size: 50px; //Facebook Widget Title font size
+@facebook-h2-font-size-mobile: 35px;
+@facebook-h2-font-weight: normal; //Facebook Widget Title font weight
+@facebook-h2-text-transform: uppercase; //Facebook Widget Title font text transform (use uppercase or none)
+@facebook-h2-font-family: inherit; //Facebook Widget Title font family, use inherit if same as default font.
+
+/****homepage twitter (plugin version) IF USED*/
+@twitter-h2-font-size: 50px; //Twitter Widget Title font size
+@twitter-h2-font-size-mobile: 35px;
+@twitter-h2-font-weight: normal; //Twitter Widget Title font weight
+@twitter-h2-text-transform: uppercase; //Twitter Widget Title font text transform (use uppercase or none)
+@twitter-h2-font-family: inherit; //Twitter Widget Title font family, use inherit if same as default font.
+
+/****homepage instagram (plugin) IF USED*/
+@instagram-h2-font-size: 50px; //Facebook Widget Title font size
+@instagram-h2-font-size-mobile: 35px;
+@instagram-h2-font-weight: normal; //Facebook Widget Title font weight
+@instagram-h2-text-transform: uppercase; //Facebook Widget Title font text transform (use uppercase or none)
+@instagram-h2-font-family: inherit; //Facebook Widget Title font family, use inherit if same as default font.
+
+/*****Homepage video thumbnail widget IF USED*****/
+
+@video-thumbs-h2-font-size: 50px; //video Widget Title font size
+@video-thumbs-h2-font-size-mobile: 35px; //video Widget Title font size on mobile
+@video-thumbs-h2-font-weight: normal; //video Widget Title font weight
+@video-thumbs-h2-text-transform: uppercase; //video Widget Title text transform (Use uppercase or none).
+@video-thumbs-h2-font-family: inherit; //video Widget Title font family, use inherit if same as default font.
+
+@video-thumbs-featured-border-width: 0px; //featured video border width
+@video-thumbs-featured-border-radius: 0px; //featured video border radius
+@video-thumbs-thumb-border-width: 0px; //thumbnail video border width
+@video-thumbs-thumb-border-radius: 0px; //thumbnail video border radius
+
+@video-thumbs-font-size: 18px; //text size for video captions (mobile)
+@video-thumbs-font-size-tablet: 12px; //text size for video captions (tablet)
+@video-thumbs-font-size-desktop: 18px; //text size for video captions (desktop)
+
+@video-thumbs-bottomlink-size: 20px; //size of bottom "more" link
+@video-thumbs-bottomlink-weight: normal; //font weight of bottom "more" link
+@video-thumbs-bottomlink-transform: uppercase; //video bottom "more" link text transform (Uppercase, none)
+@video-thumbs-bottomlink-font-family: inherit; //video bottom "more" link font-family
+
+/*****Homepage data visualization widget IF USED*****/
+
+
+@data-h2-font-size: 50px; //data Widget Title font size
+@data-h2-font-size-mobile: 35px;
+@data-h2-font-weight: normal; //data Widget Title font weight
+@data-h2-text-transform: uppercase; //data Widget Title text transform (Uppercase, none)
+@data-h2-font-family: inherit; //data Widget Title font family, use inherit if same as default font.
+@data-h2-align: center;
+
+@data-number-size: 46px; //font size of number
+@data-number-size-mobile: 30px; //font size of number on mobile
+@data-number-font: inherit; //font family of number
+@data-number-weight: normal; //font-weight of number
+
+@data-text-size: 16px; //data text size.
+@data-text-weight: normal; //data text font weight.
+@data-text-font-family: inherit; //data text font family.
+@data-text-transform: uppercase;
+@data-text-max-lines: 2;
+
+@data-img-max-height: 35px; //data image max height, to prevent a very tall image from breaking the layout.
+@data-img-max-width: 35px; //data image max width
+
+@data-bottomlink-size: 20px; //size of bottom "more" link
+@data-bottomlink-weight: normal; //font weight of bottom "more" link
+@data-bottomlink-border-radius: 3px; //border radius of text in bottom "more" link (rounded corners)
+@data-bottomlink-transform: uppercase; //News bottom "more" link text transform (Uppercase, none)
+@data-bottomlink-font-family: inherit; //News bottom "more" link font-family
+
+/*****Homepage button slider widget IF USED*****/
+@buttons-slider-h2-font-size: 50px; //button Widget Title font size
+@buttons-slider-h2-font-size-mobile: 35px;
+@buttons-slider-h2-font-weight: normal; //data Widget Title font weight
+@buttons-slider-h2-text-transform: uppercase; //data Widget Title text transform (Uppercase, none)
+@buttons-slider-h2-font-family: inherit; //data Widget Title font family, use inherit if same as default font.
+@buttons-slider-h2-align: center;
+
+@button-slider-size: 17px; //size of buttons text on desktop and mobile
+@button-slider-size-tablet: 17px; //size of buttons text on tablet
+@button-slider-decoration: none; //text decoration of buttons text (underline or none)
+@button-slider-decoration-hover: none; //text decoration of buttons text on hover (underline or none)
+@button-slider-weight: normal; //font weight of buttons text
+@button-slider-font-family: inherit; //font family of buttons text
+@button-slider-text-transform: uppercase; //text transform for buttons text (uppercase or none)
+@button-slider-line-height: 1.1; //line height of buttons text (px or ratio or percent)
+@button-slider-border-radius: 50%; //border radius of buttons
+
+
+@button-slider-img-max-width: 65px; //width of the widest icon used
+@button-slider-img-max-height: 45px; //height of the tallest icon used.
+
+/******************************/
+//site-wide and interior typographical styles
+/**************************/
+
+
+
+///*page title variables.  Taken from page title area in Interior Page Design*/
+@title-size: percentage(28px/@default-text-size); ///*size of page titles */
+@title-weight: normal; ///*weight of page titles */
+@title-transform: uppercase; //text-transform for page titles.  Use only "none" or "uppercase".
+@title-font-family: inherit;
+@page-subtitle-size: percentage(16px/@default-text-size); ///*size of subtitle that goes in page title area*/
+@page-subtitle-weight: bold; ///*size of subtitle that goes in page title area*/
+@subtitle-size: @page-subtitle-size; ///*size of subtitle in content area (usually same as above but not always)*/
+@subtitle-weight: @page-subtitle-weight; ///*weight of subtitle in content area (usually same as above but not always)*/
+
+
+//Site header
+@siteheader-height-mobile: 106px;
+@siteheader-height: 113px;
+@stickyheader-height: 56px; //IMPORTANT: set to 0 if not using sticky header.
+
+//top nav
+@top-nav-font-size: 13px; //font size for top nav links (top right of header)
+@top-nav-font-family: inherit; //font family for top nav links (top right of header)
+@top-nav-font-weight: normal; //font weight for top nav links (top right of header)
+
+///* Search box */
+@searchbox-mobile-font-size: 16px; ///*MOBILE font-size of searchbox text - should never be less than 16px to prevent buggy zooming*/
+
+//these values work well with "Overlay" search
+@searchbox-width: 100%; // width of the search bar, including the icon on the right
+@searchbox-height: 67px;// height of the search bar
+@searchbox-icon-width: 64px; //width of the searchbox icon
+@searchbox-icon-height: 63px; //height of the searchbox icon
+@searchbox-desktop-font-size: 22px; //DESKTOP font-size of searchbox text
+
+//these values work well with "basic", "expand", "center", dropdown search
+/*@searchbox-width: 257px; // width of the search bar, including the icon on the right
+@searchbox-height: 32px; // height of the search bar
+@searchbox-icon-width: 32px; //width of the searchbox icon
+@searchbox-icon-height: 32px; //height of the searchbox icon
+@searchbox-desktop-font-size: 16px; ///DESKTOP font-size of searchbox text*/
+
+
+@searchbox-icon-border-radius: 0; // border radius of the searchbox icon.  Use 50% for a round icon, 0 for square.
+@searchbox-font-family: inherit; ///*DESKTOP font-family of searchbox text*/
+@searchbox-text-transform: none; ///*DESKTOP text transform of searchbox text (uppercase or none)*/
+
+//used only if using the "overlay" search type
+//heading text such as "Popular searches"
+@toplinks-h2-font-size: 20px;
+@toplinks-h2-font-weight: normal;
+@toplinks-button-border-radius: 0;
+@toplinks-button-font-size: 14px;
+@toplinks-button-max-lines: 2;
+@toplinks-button-height: 53px;
+
+///* main navigation variables */
+@nav-height: 56px; ///*height of the main navigation menu*/
+@nav-font-size: 20px; ///*font size for the top level nav links*/
+@nav-font-weight: normal; ///*font weight for the top level nav links*/
+@nav-font: inherit; ///*font family for the top level nav links*/
+@nav-text-transform: uppercase; //text transform for top level nav links
+
+@top_col_gap: 0px; //if there is a gap below the main nav and above the left/right cols then put the height of the gap here.  If no gap, put 0.
+
+//Dropdown styles
+@mega-dropdown-header-font-size: 16px; ///*dropdownmenu font-size for larger text*/
+@mega-dropdown-header-weight: normal; ///*dropdownmenu text weight for larger text*/
+@mega-dropdown-font-size: 14px; ///*dropdownmenu font-size for smaller text/sub items*/
+@mega-dropdown-decoration-hover: underline; //are dropdown items underlined on hover?
+
+//footer
+@page-footer-font-family: inherit; //page footer font family
+@page-footer-font-size: 16px; //page footer font family
+
+@page-footer-header-font-weight: bold; //page footer header (Come Visit, Phone etc) font weight
+@page-footer-header-font-size: 22px; //page footer header (Come Visit, Phone etc) font size
+@page-footer-header-text-transform: uppercase; //page footer header (Come Visit, Phone etc) text transform (use uppercase or none)
+
+@page-footer-nav-font-size: 14px; //page footer navigation font size
+@page-footer-nav-text-transform: uppercase; //page footer navigation text transform (use uppercase or none)
+@page-footer-vision-link-weight: inherit; //page footer Vision link font weight
+
+//small box shown in Department Page design, small "News" box on right.
+@small-box-main-font-weight: normal; //are the item titles bold?
+@small-box-main-font-family: @default-font-family; //font family of item titles
+@small-box-more-size: percentage(11px/@default-text-size); ///*size of more link text*/
+@small-box-more-weight: normal; ///*are the more links bold?*/
+@small-box-more-transform: uppercase; ///*text transform for more links - use "none" or "uppercase"*/
+@small-box-more-arrow: ""; ///*arrow after "More" link in small boxes.*/
+@small-box-more-font-family: inherit; //font family of the box more links
+
+///* calendar variables */
+@calendar-month-weight: normal; ///*February,March, April etc font weight*/
+@calendar-month-size: percentage(21px/@default-text-size); ///*February,March, April etc font size*/
+@calendar-month-transform: uppercase; ///*text transform for February,March, April etc - use "none" or "uppercase"*/
+@calendar-month-font-family: inherit;
+@calendar-prev-next-size: percentage(11px/@default-text-size); ///*previous and next links font size*/
+
+/*********************************************
+    The variables below normally use one of the more generic variables defined above. 
+    Modify below this line only if design is different from standard template
+************************************************/
+
+// Project-level settings and setup.
+@max-width: 1023px; //site max width at 1200 screen width
+@max-width-portrait: 730px; //max-width at 768 screen width
+@max-width-landscape: 950px; //max-width at 992 screen width
+@max-width-wide: 1302px; //site max width if using wide layout
+
+//mobile
+@mobile-header-font-family: @header-font-family; //header style for mobile sidenav and mobile box widgets
+@mobile-header-font-weight: @header-font-weight; //header style for mobile sidenav and mobile box widgets
+
+//page header
+@search-trigger-width: @nav-height; // width of the search icon, used for "dropdown" and "overlay" searches where the icon sits next to the main navigation.
+@sticky-search-trigger-width: @stickyheader-height;// width of the search icon in the sticky header, used for searches where the icon sits next to the main navigation.
+
+///*page title variables.  Taken from page title area in Interior Page Design*/
+@breadcrumb-size: (percentage(@small-text-size/@default-text-size)) * 0.9; ///*size of breadcrumb text and links**/
+@breadcrumb-decoration: @default-link-decoration;
+@breadcrumb-decoration-hover: @default-link-decoration-hover;
+@title-right-size: (percentage(@small-text-size/@default-text-size)) * 0.9; ///*size of the share & bookmark, print, rss, feedback, and font size links*/
+@title-right-decoration: @default-link-decoration;
+@title-right-decoration-hover: @default-link-decoration-hover;
+
+//important alert
+@alert-text-size: percentage(@small-text-size/@default-text-size);
+
+///* table variables, taken from table shown in content area of Interior Page Design */
+@table-header-size: percentage(@header-font-size/@default-text-size); ///*size of listtable and tableData tables, also used for buttons.*/
+@table-header-weight: @header-font-weight; ///*weight of listtable and tableData tables, also used for buttons.*/
+@table-text-size: percentage(@small-text-size/@default-text-size); ///*size of regular text in listtable and tableData tables.*/
+@table-header-font-family: @header-font-family; //font family of listtable and table data headers, if different.
+
+//small box shown in Department Page design, small "News" box on right.
+@small-box-title-size: percentage(@header-font-size/@default-text-size); ///*size of title text (news, events, FAQ, Businesses etc) in the small boxes*/
+@small-box-title-weight: @header-font-weight; ///*weight of title text (news, events, FAQ, Businesses etc) in the small boxes*/
+@small-box-title-text-transform: @header-text-transform; //are the box titles all caps?
+@small-box-title-font-family: @header-font-family; //font family of the box titles if different
+@small-box-main-font-size: (percentage(@small-text-size/@default-text-size)) * 1.1; //font size of item titles
+@small-box-sub-font-size: percentage(@small-text-size/@default-text-size); //font size of item sub text
+
+//side navigation
+@sidenav-font-size: (percentage(@small-text-size/@default-text-size)) * 1.1; //sidenav text size
+
+//interior buttons
+@int-buttons-height: 125px; //height of buttons
+@int-buttons-width: 180px; //minimum width of buttons (buttons will expand to fill space, while fitting as many across as can fit without going below this width)
+@int-buttons-font-size: 18px; //size of text on buttons
+@int-buttons-font-weight: normal; //font weight of buttons text
+@int-buttons-font-family: @default-font-family; //font family of buttons text
+@int-buttons-text-transform: none; //text transform for buttons text (uppercase or none)
+@int-buttons-text-max-lines: 2; // number of lines of text allowed on the buttons
+@int-buttons-border-radius: 0px; //border radius (rounded corners) of buttons (pixel value)
+
+///* calendar variables */
+@calendar-header-size: percentage(@header-font-size/@default-text-size); ///*Sunday Monday etc font-size */
+@calendar-header-weight: @header-font-weight; ///*Sunday Monday etc font-weight */
+@calendar-day-size: percentage(@header-font-size/@default-text-size); ///*size of numbers on calendar*/
+@calendar-day-weight: @header-font-weight; ///*weight of numbers on calendar*/
+@calendar-prev-next-decoration: @default-link-decoration; ///*previous and next links text-decoration*/
+@calendar-prev-next-decoration-hover: @default-link-decoration-hover; ///*previous and next links text-decoration on hover*/

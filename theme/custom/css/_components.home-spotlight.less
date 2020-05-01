@@ -1,0 +1,185 @@
+//UPDATE VARIABLES FIRST, then add to or modify code only where/if needed
+
+@spotlight-background: #0f6371; //background of entire spotlight area
+
+@spotlight-padding-mobile: 30px 10px 30px 10px; //Spotlight Widget padding on mobile (Shorthand: top, right, bottom, left)
+@spotlight-padding-tablet: 40px 0 40px 0; //Spotlight Widget padding on tablet (Shorthand: top, right, bottom, left)
+@spotlight-padding-desktop: 60px 0 60px 0; //Spotlight Widget padding on desktop (Shorthand: top, right, bottom, left)
+
+@spotlight-max-lines: 10; //to limit the height of the spotlight to make sure long spotlight content does not break the layout
+
+//"Spotlight", or "In the Spotlight" or "Featured" etc text at the top of the widget, not inside box_content
+@spotlight-h2-background: transparent; //Spotlight Widget Title background color
+@spotlight-h2-color: contrast(@spotlight-background); //Spotlight Widget Title text color
+@spotlight-h2-font-size-mobile: 35px; //Spotlight Widget Title font size
+@spotlight-h2-font-size: 50px; //Spotlight Widget Title font size
+@spotlight-h2-font-weight: normal; //Spotlight Widget Title font weight
+@spotlight-h2-text-transform: uppercase; //Spotlight Widget Title text transform (Uppercase, none)
+@spotlight-h2-font-family: inherit; //Spotlight Widget Title font family, use inherit if same as default font.
+@spotlight-h2-margin-mobile: 0 0 30px 0; //Spotlight Widget Title margins on mobile (Shorthand: top, right, bottom, left)
+@spotlight-h2-margin-tablet: 0 0 30px 0; //Spotlight Widget Title margins on tablet (Shorthand: top, right, bottom, left)
+@spotlight-h2-margin-desktop: 0 0 30px 0; //Spotlight Widget Title margins on desktop (Shorthand: top, right, bottom, left)
+@spotlight-h2-line-height: 1.1;
+@spotlight-h2-max-lines: 2;
+
+@spotlight-text-color: contrast(@spotlight-background); //Spotlight text color.
+@spotlight-text-size: 20px; //Spotlight text size.
+@spotlight-text-weight: normal; //Spotlight text font weight.
+@spotlight-text-font-family: inherit; //Spotlight text font family.
+@spotlight-text-line-height: 1.45; //Spotlight text line height.
+@spotlight-text-align: left; //spotlight text alignment
+//@spotlight-img-max-height: 260px;//Spotlight image max height, to prevent a very tall image from breaking the layout.
+//@spotlight-img-max-width: 100%;//spotlight image max width
+
+//spotlight read more button, if present
+@spotlight-bottomlink-color: #fff; //color of bottom "more" link
+@spotlight-bottomlink-color-hover: #fff; //color of bottom "more" link on hover
+@spotlight-bottomlink-background: #ffd028; //background color of bottom "more" link
+@spotlight-bottomlink-background-hover: #1eb299; //background color of bottom "more" link
+@spotlight-bottomlink-size: 20px; //size of bottom "more" link
+@spotlight-bottomlink-weight: normal; //font weight of bottom "more" link
+@spotlight-bottomlink-transform: uppercase; //News bottom "more" link text transform (Uppercase, none)
+@spotlight-bottomlink-font-family: inherit; //News bottom "more" link font-family
+@spotlight-bottomlink-width: 252px; //width of bottom "more" link. Use "auto" if no background
+@spotlight-bottomlink-height: 72px; //height of bottom "more" link. Use "auto" if no background
+@spotlight-bottomlink-decoration: none; //text-decoration of bottom "more" link (underline or none)
+@spotlight-bottomlink-decoration-hover: none; //text-decoration of bottom "more" link on hover (underline or none)
+@spotlight-bottomlink-text-align: center; //alignment of text in bottom "more" link. Center, left, right.
+@spotlight-bottomlink-border: 0px solid #bbbbbb; // border of text in bottom "more" link.  Shorthand: size, style, color
+@spotlight-bottomlink-border-radius: 3px; //border radius of text in bottom "more" link (rounded corners)
+@spotlight-bottomlink-margin-mobile: 20px 0 0 0; //news bottom "more" link margin.  Shorthand: top, right, bottom, left.
+@spotlight-bottomlink-margin: auto 0 auto 0; //news bottom "more" link margin.  Shorthand: top, right, bottom, left.
+
+
+.home_spotlight.home_spotlight {
+	overflow: hidden;
+	background: transparent;
+	font-size: @spotlight-text-size;
+	font-weight: @spotlight-text-weight;
+	color: @spotlight-text-color;
+	font-family: @spotlight-text-font-family;
+	line-height: @spotlight-text-line-height;
+	text-align: @spotlight-text-align;
+
+	.spotlight-content {
+		padding: @spotlight-padding-mobile;
+		.clearfix();
+	}
+
+	h2:first-child {
+		margin: @spotlight-h2-margin-mobile;
+		font-size: @spotlight-h2-font-size-mobile;
+		font-weight: @spotlight-h2-font-weight;
+		color: @spotlight-h2-color;
+		text-transform: @spotlight-h2-text-transform;
+		font-family: @spotlight-h2-font-family;
+		background: @spotlight-h2-background;
+		padding: 0;
+		max-height: @spotlight-h2-font-size-mobile * @spotlight-h2-line-height * @spotlight-h2-max-lines;
+		overflow: hidden;
+	}
+
+	h1, h2, h3, h4, h5 {
+		font-weight: @spotlight-h2-font-weight;
+		color: @spotlight-h2-color;
+		text-transform: @spotlight-h2-text-transform;
+		font-family: @spotlight-h2-font-family;
+		background: @spotlight-h2-background;
+	}
+
+	a {
+		color: @spotlight-text-color;
+		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	p {
+		margin: 0;
+		overflow: hidden;
+		max-height: @spotlight-text-size * @spotlight-text-line-height * @spotlight-max-lines;
+	}
+
+	img {
+		//do not float image.  WYSIWYG editor will control alignment
+		/* display: block;
+            max-height: @spotlight-img-max-height;
+            max-width: @spotlight-img-max-width;
+            border: 3px solid #fff;
+            margin-bottom: 15px;*/
+	}
+
+	.box_bottomlink {
+		color: @spotlight-bottomlink-color;
+		font-size: @spotlight-bottomlink-size;
+		font-weight: @spotlight-bottomlink-weight;
+		background: @spotlight-bottomlink-background;
+		width: @spotlight-bottomlink-width;
+		height: @spotlight-bottomlink-height;
+		line-height: @spotlight-bottomlink-height;
+		font-family: @spotlight-bottomlink-font-family;
+		text-transform: @spotlight-bottomlink-transform;
+		float: right;
+		margin: @spotlight-bottomlink-margin-mobile;
+		text-decoration: @spotlight-bottomlink-decoration;
+		text-align: @spotlight-bottomlink-text-align;
+		border: @spotlight-bottomlink-border;
+		border-radius: @spotlight-bottomlink-border-radius;
+		.transition();
+		display: block;
+
+		&:hover {
+			color: @spotlight-bottomlink-color-hover;
+			text-decoration: @spotlight-bottomlink-decoration-hover;
+			background: @spotlight-bottomlink-background-hover;
+		}
+	}
+}
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+    //#region Home Spotlight
+	.home_spotlight.home_spotlight {
+		position: relative;
+
+
+		.spotlight-content {
+			padding: @spotlight-padding-tablet;
+			padding-right: 314px;
+		}
+
+		h2:first-child {
+			margin: @spotlight-h2-margin-tablet;
+			font-size: @spotlight-h2-font-size;
+			max-height: @spotlight-h2-font-size * @spotlight-h2-line-height * @spotlight-h2-max-lines;
+		}
+
+		.box_bottomlink {
+			position: absolute;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			float: none;
+			margin: @spotlight-bottomlink-margin;
+		}
+	}
+    
+}
+
+/***62em = 992px ***/
+@media screen and (min-width: 62em) {
+    //#region Home Spotlight
+	.home_spotlight.home_spotlight {
+
+
+		.spotlight-content {
+			padding: @spotlight-padding-desktop;
+			padding-right: 314px;
+		}
+
+		h2:first-child {
+			margin: @spotlight-h2-margin-desktop;
+		}
+	}
+}

@@ -1,0 +1,36 @@
+/*
+This is the editor style sheet,
+containing styles that will be used in the content editor tools.
+*/
+
+
+.downmarket(@site-type) when (@site-type = basic) {
+	@import (optional) "theme/basic/_theme.config.less"; //Color theme is defined here
+	@import (optional) "theme/basic/_theme.global.less"; //Manage theme colors on an element-by-element basis.
+	@import (optional) "theme/basic/_theme.colors.less"; //Manage theme typography on an element-by-element basis.
+	@import (optional) "theme/basic/_tools.typography.less"; //Globally available typography (Google fonts)
+}
+ 
+.downmarket(@site-type) when (@site-type = custom) {
+	@import (optional) "theme/custom/_settings.global.less"; //Globally-available variables and settings/config.
+	@import (optional) "theme/custom/_settings.colors.less"; //Globally-available variables and settings/config.
+	@import (optional) "theme/custom/_tools.typography.less"; //Globally available typography (Google fonts).  Add font here if needed.
+}
+
+@import "css/_settings.config.less"; //configurations such as site type, sticky header, search type etc.  
+
+.downmarket(@site-type);          
+                           
+/*settings and theme files include variables*/
+
+//tools include mixins and other tools we need to include such as google fonts.
+@import "css/_tools.mixins.less";  //Globally available mixins.
+
+@import "css/_elements.links.less"; //default link styles
+@import "css/_elements.page.less"; //default Page-level styles (global font styles and p style)
+@import "css/_elements.headers.less"; //default header styles (h1, h2, h3, h4, h5, .subtitle etc)
+@import "css/_components.tableData.less"; //tableData styles
+@import "css/_components.tableBox.less"; //tableBox styles
+
+ 
+     

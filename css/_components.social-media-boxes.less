@@ -1,0 +1,127 @@
+//Used for the twitter and facebook boxes in standard_3col.html.  
+//Slight modifications may be necessary below (rarely).
+
+
+.twitter_feed, .facebook_feed {
+	padding: 0 !important;
+
+	ul {
+		li {
+			img {
+				float: left;
+				margin-right: 10px;
+				margin-bottom: 5px;
+				display: block;
+				height: 50px;
+				width: 50px;
+			}
+
+			span.box_date {
+				float: right;
+				font-size: 80%;
+				text-transform: uppercase;
+				margin-left: 5px;
+				margin-right: 10px;
+			}
+
+			h4 {
+				line-height: 130% !important;
+				margin: 0;
+				font-size: inherit;
+
+				a, a:hover {
+					font-size: 100%;
+				}
+			}
+
+			a, a:hover {
+				text-decoration: none;
+				font-size: 110%;
+
+				span {
+					text-decoration: none;
+				}
+			}
+
+			p {
+				margin: 0;
+				font-size: 95%;
+				padding: 0;
+				border: 0;
+				line-height: 130%;
+
+				a {
+					font-size: 100%;
+					display: inline;
+					color: @default-link-color;
+					text-decoration: @default-link-decoration;
+					font-weight: normal;
+
+					&:hover {
+						text-decoration: @default-link-decoration-hover;
+						font-weight: normal;
+						font-size: 100%;
+						display: inline;
+						color: @default-link-color;
+					}
+				}
+			}
+		}
+	}
+
+	.box_bottomlink:after {
+		content: @small-box-more-arrow;
+		font-size: 140%;
+		line-height: 1;
+		//vertical-align:middle;
+	}
+}
+
+.twitter_feed ul li h4 span {
+    display: block;
+}
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+    
+    #sitebody .twitter_feed, #sitebody .facebook_feed {
+        padding: 0;
+        box-shadow: 0 0 0;
+		overflow:visible;
+        ul {
+            padding: 7px 15px 0 16px;
+
+            li {
+                .box_date {
+                    margin-right: 0;
+                }
+
+                h4 {
+                    font-size: @small-box-main-font-size;
+                    a, a:hover {
+                        color: @small-box-main-color;
+                         font-weight: @small-box-main-font-weight;
+                         font-family: @small-box-main-font-family;
+                         text-decoration: none;
+                        span {
+                            color: @small-box-main-color;
+                            font-weight: @small-box-main-font-weight;
+                        }
+                    }
+                
+                    a:hover {
+                        text-decoration: underline;
+                    }
+                }
+                p {
+                    font-size: @small-box-sub-font-size;
+                    color: @small-box-sub-color;
+                }
+            }
+        }
+
+        .box_bottomlink {
+            margin-right: 12px;
+        }
+    }
+}

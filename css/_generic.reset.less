@@ -1,0 +1,240 @@
+//Do not modify unless there are bugs after CMS integration.
+
+
+//reset default styles so we can use different breakpoint
+@media screen and (min-width: 40.5em) and (max-width:47.9375em) {
+    .standardlayout .column.left_col,
+    .standardthreecolumnlayout .column.left_col,
+    .standardlayout .column.right_col,
+    .standardthreecolumnlayout .column.right_col,
+    .standardthreecolumnlayout .column.small_col,
+    .twocolumnswithbottomlayout .column.left_col,
+    .twocolumnswithbottomlayout .column.right_col,
+    .threecolumnswithbottomlayout .column.left_col,
+    .threecolumnswithbottomlayout .column.middle_col,
+    .threecolumnswithbottomlayout .column.right_col,
+    .twocolumnreverselayout .column.has_small_col,
+    .twocolumnreverselayout .column.small_col {
+        width: 100%;
+        margin: 0 !important;
+    }
+
+    .title_widget, .content_area {
+        padding: 10px;
+    }
+
+    .content_area.facebook_feed, .content_area.twitter_feed {
+        padding: 0;
+    }
+
+    .sidenav, .small_col .sidenav {
+        float: none;
+        width: 100%;
+
+        .mobile_header.mobile_only {
+            display: block !important;
+        }
+    }
+
+    .sidenav ul li, .sidenav ul li.sidenav_expanded > a {
+        display: none;
+    }
+
+    .sidenav.mobile_list ul li a, .sidenav.mobile_list ul li a:hover {
+        padding: 0;
+        font-weight: normal;
+    }
+
+    .mobile_list ul li, .facebook_feed ul li, .twitter_feed ul li, .small_box .box_content ul li {
+        padding: 17px 7% 17px 16px;
+    }
+
+    .mobile_list ul li a, .mobile_list .box_bottomlink, .mobile_box .box_bottomlink,
+    .mobile_list ul li a:hover {
+        font-weight: bold;
+    }
+
+    .mobile_list .box_bottomlink, .mobile_box .box_bottomlink {
+        display: block;
+    }
+
+    .small_box {
+        margin-bottom: 0;
+    }
+
+    .standardthreecolumnlayout .small_col .small_box {
+        display: block;
+        margin-right: 0%;
+        width: 100%;
+    }
+
+    .mobile_list .item-list a:hover {
+        font-weight: normal;
+    }
+
+    .service_box .box_content > ul > li {
+        border-bottom: 1px solid #c6c4c4 !important;
+    }
+
+    .standardthreecolumnlayout .small_col .minicalendar_widget {
+        display: block;
+        margin: 0 auto;
+    }
+
+    #view-full {
+        display: block !important;
+    }
+
+    .mobile_only {
+        display: block !important;
+    }
+
+    .mobile_hide {
+        display: none !important;
+    }
+    //responsive tables
+    .front_end_body {
+        //Responsive CMS6 Tables & Responsive Client data table - Mobile version
+        table.responsive-table-data-mb:not(.non-responsive-table) {
+            .hidden {
+                display: none;
+            }
+
+            thead, tbody, th, td, tr {
+                display: block;
+            }
+            /*hide table header.*/
+            thead tr, tr th {
+                position: absolute;
+                top: -9999999px;
+                left: -999999px;
+            }
+
+            tr {
+                border: 1px solid #CCC;
+            }
+
+            td {
+                /*behave like a row*/
+                border: none;
+                border-bottom: 1px solid #EEE;
+                position: relative;
+                padding-left: 50% !important;
+                text-align: left;
+                min-height: 18px;
+            }
+
+            td:before {
+                /*now like a table header*/
+                position: absolute;
+                /*top and left value mimic padding*/
+                top: 6px;
+                left: 6px;
+                padding-right: 10px;
+                white-space: nowrap;
+                content: attr(data-th)" ";
+                font-weight: bold;
+            }
+            /* tr:nth-of-type(odd) {
+                background-color: #EEE;
+            }*/
+            td img, td object {
+                width: auto;
+                height: auto;
+                float: none;
+            }
+
+            td a.email_link {
+                margin: 0px;
+            }
+
+            td .title_column {
+                max-width: 100%;
+            }
+
+            td:first-child {
+                padding-left: 50% !important;
+            }
+        }
+    }
+    //Responsive Tables. Client Tables - Those that are created by product team or other clients
+    .front_end_body {
+        //Responsive CMS6 Tables & Responsive Client data table - Desktop version
+        table.responsive-table-data-dkt:not(.non-responsive-table) {
+            thead, tbody, th, td, tr {
+                display: block;
+            }
+            /*hide table header.*/
+            thead tr, tr th {
+                position: absolute;
+                top: -9999999px;
+                left: -999999px;
+            }
+
+            tr {
+                border: 1px solid #CCC;
+            }
+
+            td {
+                /*behave like a row*/
+                border: none;
+                border-bottom: 1px solid #EEE;
+                position: relative;
+                padding-left: 50% !important;
+                text-align: left;
+                min-height: 18px;
+            }
+
+            td:before {
+                /*now like a table header*/
+                position: absolute;
+                /*top and left value mimic padding*/
+                top: 6px;
+                left: 6px;
+                padding-right: 10px;
+                white-space: nowrap;
+                content: attr(data-th)" ";
+                font-weight: bold;
+            }
+            /* tr:nth-of-type(odd) {
+            background-color: #EEE;
+        }*/
+            td img, td object {
+                width: auto;
+                height: auto;
+                float: none;
+            }
+        }
+
+        table.listtable {
+            td p.command_button.register_now_command_button {
+                width: 100px !important;
+            }
+        }
+    }
+}
+
+//backend bootstrap resets
+html {
+    font-size: inherit;
+}
+
+*, *:after, *:before {
+    box-sizing: content-box;
+}
+
+.sitewrapper, .sitewrapper *, .sitewrapper *:after, .sitewrapper *:before {
+    box-sizing: border-box;
+}
+
+.progress {
+    box-shadow: 0 0 0;
+    height: auto;
+    margin-bottom: 0px;
+}
+
+
+//bootstrap overwrite for collapseable fields, to fix conflict with collapse class
+.collapse {
+    display: inherit;
+}

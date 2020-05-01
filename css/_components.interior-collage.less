@@ -1,0 +1,332 @@
+//@int-img-height: 455px; //actual height of the hero image, use height shown in desktop design.
+//@int-img-width: 1024px; //actual width of the hero image, use width shown in desktop design.
+
+//@int-img-height-tablet: 324px; //this value should be the height in pixels of the image used in the design as it naturally scales down for tablet view. We want to make all other images match this image if they are different dimensions.
+//@int-img-height-landscape: 422px;
+@int-img-max-height: 450px;
+
+@int-slide-content-background: rgba(0, 0, 0, 0.7); // background of slide content area
+@int-slide-content-padding-mobile: 10px; //padding on slide content area for mobile (use one number only, used in calculations below)
+@int-slide-content-padding-desktop: 10px 30px 40px 30px; //padding on slide content area for desktop (not used in calculations, can be 4 different values) shorthand: top, right, bottom, left.
+@int-slide-content-left: 0; //Position of slide content from left on desktop.
+@int-slide-content-bottom: 0; //Position of slide content from bottom on desktop.
+@int-slide-content-top: auto; //Position of slide content from top on desktop.
+@int-slide-content-right: 0; //Position of slide content from right on desktop.
+@int-slide-content-width: 100%; //width of slide content on desktop.
+
+@int-slide-title-size: 20px; //font size of slide title text
+@int-slide-title-size-mobile: 17px; //font size of slide title text on mobile devices
+@int-slide-title-weight: bold; //font weight of slide title text
+@int-slide-title-color: #fff; //color of slide title text
+@int-slide-title-color-hover: @int-slide-title-color; //color of slide title text on hover
+@int-slide-title-max-lines: 2; //maximum number of lines the title will show on desktop.
+@int-slide-title-font-family: inherit; //slide title font-family
+@int-slide-title-line-height: 1.3; //slide title line height
+@int-slide-title-decoration: none; //text decoration for slide titles (underline or none)
+@int-slide-title-decoration-hover: underline; //text decoration for slide titles on hover (underline or none)
+@int-slide-title-margin: 0 0 5px 0; //margin around slide title on desktop.  Shorthand: top, right, bottom, left.
+@int-slide-title-text-transform: none; //text transform for slide titles (uppercase or none)
+
+@int-slide-description-size: 14px; //font size of slide description text
+@int-slide-description-size-mobile: 13px; //font size of slide description text on mobile
+@int-slide-description-color: #fff; //color of slide description text
+@int-slide-description-max-lines: 3; //maximum number of lines the description will show on desktop.
+@int-slide-description-weight: normal; //font weight of slide description text
+@int-slide-description-line-height: 1.3; //line height of slide description text
+@int-slide-description-font-family: inherit; //slide description font-family
+
+@int-nav-dots-border: 2px solid #fff; //navigation dots border color and size and style
+@int-nav-dots-border-hover: 2px solid #fff; //navigation dots border color and size and style on hover
+@int-nav-dots-bg: transparent; //navigation dots background color or image
+@int-nav-dots-bg-hover: #fff; //navigation dots background color or image on hover
+@int-nav-dots-border-radius: 50%; //navigation dots border radius
+@int-nav-dots-height: 15px; //height of each individual navigation dot (including borders)
+@int-nav-dots-width: 15px; //width of each individual navigation dot (including borders)
+@int-nav-dots-top: auto; //navigation dots position from top on desktop.  Use "auto" if positioning from bottom.
+@int-nav-dots-left: 0; //navigation dots position from left on desktop.  Use "auto" if positioning from right.
+@int-nav-dots-bottom: 10px; //navigation dots position from bottom on desktop.  Use "auto" if positioning from top.
+@int-nav-dots-right: 0; //navigation dots position from right on desktop.  Use "auto" if positioning from left.
+
+//variables below are for arrows if added
+/*@int-nav-arrows-width: 30px; //navigation arrows width
+@int-nav-arrows-height: 38px; //navigation arrows height
+@int-nav-arrows-bg: url(_gfx/home/button_arrows.png) 0 0 no-repeat; //navigation arrows background image (sprite)
+@int-nav-arrows-bg-position-hover: 0 -40px; //navigation prev arrow background position on hover
+@int-nav-next-bg-position: -32px 0; //navigation next arrow background position
+@int-nav-next-bg-position-hover: -32px -40px; //navigation next arrow background position on hover
+
+//update the "50%" for different navigation arrow positions
+@int-nav-arrows-top-desktop: ~"calc(50% - " (@int-nav-arrows-height/2) ~")"; //navigation arrows position on desktop
+
+@int-nav-prev-left: 10px; //navigation previous arrow left position
+@int-nav-next-right: 10px; //navigation next arrow right position
+*/
+
+/*generally should not be updated*/
+//calculates a height as a percentage of the browser width, to keep heights even but scaling with browser size.
+//@int-mobile-img-height: unit(@int-img-height/@int-img-width*100, vw);
+
+
+.int_collage {
+	display: block;
+	width: 100%;
+	//margin-top: 30px;
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	.slides {
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-align-items: stretch;
+		-ms-flex-align: stretch;
+		align-items: stretch;
+
+		li {
+			overflow: hidden;
+			background: @int-slide-content-background;
+			position: relative;
+
+			> a {
+				display: block;
+				width: 100%;
+			}
+		}
+
+		img {
+			//width: 100%;
+			//height: @int-mobile-img-height;
+			margin: 0 auto;
+			display: block;
+			max-height: @int-img-max-height;
+		}
+	}
+
+	.slide_content {
+		width: 100%;
+		padding: @int-slide-content-padding-mobile;
+		overflow: hidden;
+	}
+
+	.slide_title {
+		margin: @int-slide-title-margin;
+		font-size: @int-slide-title-size-mobile;
+		font-weight: @int-slide-title-weight;
+		color: @int-slide-title-color;
+		max-height: @int-slide-title-size-mobile * @int-slide-title-line-height * @int-slide-title-max-lines;
+		overflow: hidden;
+		font-family: @int-slide-title-font-family;
+		text-transform: @int-slide-title-text-transform;
+		line-height: @int-slide-title-line-height;
+
+		a {
+			color: @int-slide-title-color;
+			text-decoration: @int-slide-title-decoration;
+		}
+
+		&:hover a {
+			color: @int-slide-title-color-hover;
+			text-decoration: @int-slide-title-decoration-hover;
+		}
+	}
+
+	.slide_description {
+		color: @int-slide-description-color;
+		font-size: @int-slide-description-size-mobile;
+		font-weight: @int-slide-description-weight;
+		font-family: @int-slide-description-font-family;
+		line-height: @int-slide-description-line-height;
+		max-height: @int-slide-description-size-mobile * @int-slide-description-line-height * @int-slide-description-max-lines;
+		overflow: hidden;
+		margin: 0;
+	}
+	//the dots
+	.flex-control-nav {
+		right: 0;
+		left: 0;
+		display: block;
+		position: absolute;
+		z-index: 3;
+		top: 10px;
+		//top:~"calc(" @int-mobile-img-height ~" - "@int-nav-dots-height + 20px ~")";
+		bottom: auto;
+		margin: 0 auto;
+		text-align: center;
+
+		li {
+			display: inline-block;
+			float: none;
+		}
+
+		a {
+			height: @int-nav-dots-height;
+			width: @int-nav-dots-width;
+			border-radius: @int-nav-dots-border-radius;
+			background: @int-nav-dots-bg;
+			border: @int-nav-dots-border;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+			margin: 0 3px;
+		}
+
+		a.flex-active,
+		a:hover {
+			background: @int-nav-dots-bg-hover;
+			border: @int-nav-dots-border-hover;
+		}
+	}
+	//the arrows, not included by default
+	/*.flex-direction-nav {
+        a {
+            width: @int-nav-arrows-width;
+            height: @int-nav-arrows-height;
+            margin: -@int-nav-arrows-height/2 0 0 0;
+            display: block;
+            position: absolute;
+            top: @int-mobile-img-height/2;
+            cursor: pointer;
+            text-indent: -9999px;
+            background: @int-nav-arrows-bg;
+            z-index: 3;
+            overflow: hidden;
+             -webkit-transform:scale(0.5);
+            transform:scale(0.5);
+            &:hover {
+                background-position: @int-nav-arrows-bg-position-hover;
+            }
+        }
+
+        .flex-next {
+            right: @int-nav-next-right;
+            display: block;
+            background-position: @int-nav-next-bg-position;
+        }
+
+        .flex-next:hover {
+            background-position: @int-nav-next-bg-position-hover;
+        }
+
+        .flex-prev {
+            left: @int-nav-prev-left;
+            display: block;
+        }
+
+        .flex-disabled {
+            cursor: default;
+        }
+    }*/
+}
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+	.int_collage {
+		overflow: hidden;
+
+
+
+
+
+		.slides {
+			li {
+				display: -ms-flexbox !important;
+				display: -webkit-flex !important;
+				display: flex !important;
+				-webkit-justify-content: center;
+				-ms-flex-pack: center;
+				justify-content: center;
+				-webkit-align-items: center;
+				-ms-flex-align: center;
+				align-items: center;
+				-webkit-flex-wrap: wrap;
+				-ms-flex-wrap: wrap;
+				flex-wrap: wrap;
+				width: 100%;
+				min-width: 100%;
+				background: rgba(0, 0, 0, 0.7);
+				//>a{width:100%;} //forces all images to be 100% width
+			}
+
+			img {
+				//&.horizontal{width:100%;}
+				width: 100%;
+				//  height: @int-img-height-tablet;
+			}
+		}
+
+		.slide_content {
+			padding: @int-slide-content-padding-desktop;
+			left: @int-slide-content-left;
+			bottom: @int-slide-content-bottom;
+			top: @int-slide-content-top;
+			right: @int-slide-content-right;
+			position: absolute;
+			width: @int-slide-content-width;
+			background: @int-slide-content-background;
+		}
+		/*.flex-direction-nav {
+            a {
+                top: @int-nav-arrows-top-desktop;
+                margin: 0;
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+        }*/
+		.flex-control-nav {
+			top: @int-nav-dots-top;
+			bottom: @int-nav-dots-bottom;
+			left: @int-nav-dots-left;
+			right: @int-nav-dots-right;
+		}
+	}
+
+	.top_col .int_collage {
+		//margin: 0;
+		width: 100%;
+	}
+	#sitebody.standardlayout .top_col .int_collage:last-child, #sitebody.standardthreecolumnlayout .top_col .int_collage:last-child, #sitebody.twocolumnreverselayout .top_col .int_collage:last-child {
+		padding-bottom: 0;
+	}
+	.top_col .main_menu_widget + script + script + .int_collage, .top_col .widget_wrapper + .widget_wrapper .int_collage {
+		//margin-top: @top_col_gap/2;
+		//margin-top: 0;
+
+		&:last-child {
+			//margin-bottom: -@top_col_gap/2;
+		}
+	}
+}
+
+/***62em = 992px ***/
+@media screen and (min-width: 62em) {
+	.int_collage {
+		.slides {
+			img {
+				// height: @int-img-height-landscape;
+			}
+		}
+
+		.slide_title {
+			font-size: @int-slide-title-size;
+			max-height: @int-slide-title-size * @int-slide-title-line-height * @int-slide-title-max-lines;
+		}
+
+		.slide_description {
+			font-size: @int-slide-description-size;
+			max-height: @int-slide-description-size * @int-slide-description-line-height * @int-slide-description-max-lines;
+		}
+	}
+}
+
+
+/***75em = 1200px ***/
+@media screen and (min-width: 75em) {
+	.int_collage {
+
+		.slides {
+			img {
+				// height: @int-img-height;
+			}
+		}
+	}
+}

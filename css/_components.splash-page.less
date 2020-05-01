@@ -1,0 +1,31 @@
+//Styles specific to the splash page. Do not modify unless there are bugs after CMS integration.
+.splash_page {
+     overflow:hidden;
+     max-width:100%;
+     padding:10px;
+     word-wrap:break-word; 
+}
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+	.splash_page {
+		background: transparent !important;
+		max-width: @max-width;
+
+		& when (@wide-layout = true) {
+			max-width: @max-width-wide;
+		}
+
+		border-radius: 0px;
+		margin: 15px auto 15px auto;
+		padding: 150px 0 0 0 !important;
+		min-height: 500px;
+		/*.form_button {
+			background: @header-background-color !important;
+			color: contrast(@header-background-color) !important;
+
+			&:hover {
+				background: lighten(@header-background-color,10%) !important;
+			}
+		}*/
+	}
+}

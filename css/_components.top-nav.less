@@ -1,0 +1,110 @@
+//links inside page header (usually top right corner).  Modified for each project to match design.
+//@top-nav-divider: "| ";
+@import "../theme/custom/_settings.colors.less";
+@import "../theme/custom/_settings.global.less";
+@import "../theme/custom/_tools.typography.css";
+@import "_settings.global.less";
+@import "_settings.config.less";
+@top-nav-divider: "";
+#headercolumn {
+    #top_nav {
+        display: none;
+    }
+}
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) and (max-width: 51em) {
+    #top_nav.right_adjust {
+        padding-right: 20px;
+    }
+}
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+  
+
+    #headercolumn #top_nav{
+        display: block;
+        z-index: 1;
+        position: relative;
+    }
+
+    #top_nav {
+        color:@top-nav-color;
+        float:right;
+        text-align:right;
+        line-height: 18px;
+        padding: 5px 0px 0px 0px;
+        max-width: 730px - min(@logo-width, 460);
+        max-height: (@top-nav-font-size * (18/@top-nav-font-size) * 2) + 6px;
+        overflow:hidden;
+        margin-right: -7px;
+        a {
+            color:@top-nav-color;
+            font-size: @top-nav-font-size;
+            margin: 0 7px;
+            text-decoration: none;
+            position: relative;
+            display: inline-block;
+            font-family:@top-nav-font-family;
+            font-weight:@top-nav-font-weight;
+            &:hover {
+                //color:@top-nav-color-hover;
+                text-decoration:underline;
+            }
+             &:first-child {
+                &:before {
+                    content: "";
+                }
+            }
+
+            &:before {
+                content: @top-nav-divider;
+                text-decoration: underline; //keep this for IE
+                position: absolute;
+                left: -22px;
+                display: inline-block;
+            }
+            //keep this for IE
+            &:before {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+/***62em = 992px ***/
+@media screen and (min-width: 62em) and (max-width: 64em) {
+    #top_nav.right_adjust {
+        padding-right: 20px;
+    }
+}
+/***62em = 992px ***/
+@media screen and (min-width: 62em) {
+    #top_nav {
+        padding: 8px 0px 0px 0px;
+        max-width: 950px - min(@logo-width, 460);
+        max-height: (@top-nav-font-size * (18/@top-nav-font-size) * 2) + 9px;
+        margin-right: 0px;
+        a {
+            margin:  8px 17px 0 17px;
+            &:last-child{margin-right:0;}
+        }
+    }
+}
+
+/***75em = 1200px ***/
+@media screen and (min-width: 75em) {
+	#top_nav {
+		max-width: @max-width - min(@logo-width, 460);
+	}
+}
+
+& when (@wide-layout = true) {
+	//1366px
+	@media (min-width: 85.375em) {
+		#top_nav {
+			max-width: @max-width-wide - min(@logo-width, 460);
+			
+		}
+	}
+}

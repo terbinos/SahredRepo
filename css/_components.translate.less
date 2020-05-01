@@ -1,0 +1,67 @@
+//styles for google translate dropdown.  Modified for each project, removed for projects not using google translate.  
+@translate-bg:  #fff;
+@translate-arrow-color: #888;
+@translate-font-color:  #262626;
+@translate-font-size: 18px;
+@translate-font-weight:normal;
+@translate-height:36px; //not including borders
+@translate-width:185px;//not including borders
+@translate-border: 1px solid #888;
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+    .translatebox {
+        float: right;
+        clear: both;
+        display: block;
+        margin: 8px 0px 0px 0px;
+        padding: 0px;
+        background: @translate-bg;
+        cursor: pointer;
+        border: @translate-border;
+        position:relative;
+        &:before{
+            position:absolute;
+            height:0;
+            width:0;
+            border-top:7px solid @translate-arrow-color;
+            border-left:5px solid transparent;
+            border-right:5px solid transparent;
+            content:"";
+            z-index:0;
+            top:0;
+            bottom:0;
+            margin: auto;
+            right: 10px;
+        }
+        a {
+            display: none;
+        }
+
+        .skiptranslate.goog-te-gadget {
+            color: white !important;
+            font-size: 0px;
+        }
+
+        .skiptranslate.goog-te-gadget select.goog-te-combo {
+            top: 0px;
+            border: 0 !important;
+            width:@translate-width;
+            padding: 0px 0px 0px 12px;
+            position: relative;
+            color: @translate-font-color !important;
+            font-size: @translate-font-size !important;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background: transparent;
+            margin: 0;
+           height: @translate-height;
+            min-width:0;
+            option{background: @translate-bg;} //for ie
+        }
+
+        select::-ms-expand {
+            display: none;
+        }
+    }
+}

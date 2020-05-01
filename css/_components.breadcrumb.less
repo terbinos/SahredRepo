@@ -1,0 +1,54 @@
+//Styles specific to the breadcrumb in the interior page title area. 
+//related stylesheet: _components.title-widget.less
+//rarely modified, controlled by variables. 
+
+//reset bootstrap breadcrumb styles
+.breadcrumb {
+    background-color: transparent;
+    border-radius: 0px;
+    margin: 0;
+    padding: 0;
+	min-height:0;
+    font-size: @breadcrumb-size;
+}
+
+.breadcrumb a, .breadcrumb {
+    color: @breadcrumb-color !important;
+    line-height: 110%;
+}
+
+.breadcrumb a:last-child {
+    //position: relative;
+    //display: inline-block;
+
+    &:after {
+        content: " \00BB";
+        text-decoration: underline;
+        position: absolute;
+        margin-left: 3px;
+        //right: -1em;
+        //display: inline-block;
+    }
+
+    &:after {
+        text-decoration: none;
+    }
+}
+
+.dashboard_header .breadcrumb a:last-child:after {
+    display: none;
+}
+
+
+
+.breadcrumb a {
+    text-decoration: @breadcrumb-decoration !important;
+}
+
+.breadcrumb a:hover {
+    text-decoration: @breadcrumb-decoration-hover !important;
+}
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+}

@@ -1,0 +1,19 @@
+
+.accordion_widget {
+	//the active/hovered title bar background and text
+	&.mn-accordion .accordion-item.state-open > .accordion-heading,
+	&.mn-accordion .accordion-item > .accordion-heading:hover {
+		background-color: @accordion-header-bg;
+		color: @accordion-header-color;
+		//the active/hovered title bar arrows color
+		.icon i {
+			border-color: @accordion-header-color;
+		}
+	}
+	//content color, background and border
+	&.mn-accordion .accordion-item > .accordion-content {
+		color: @accordion-content-color;
+		border: 1px solid @accordion-border-color;
+		background-color: @accordion-background-color;
+	}
+}

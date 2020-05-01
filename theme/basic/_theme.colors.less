@@ -1,0 +1,437 @@
+///*----------------------------------*\
+//  #COLORS
+//   Modify the values below to match each project
+//\*----------------------------------*/
+
+///Variables in this section are used in multiple places
+
+//default text colors are from Interior Page design, main content area.  Define these colors here and nowhere else.
+@default-text-color: #444444; ///*default color for all text*/
+@default-link-color: contrast(@interior-page-bg, @color1, @color3); ///*default color for all links*/
+
+//table header, small box header, calendar header, mobile list header use these
+@header-text-color: contrast(@header-background-color, @default-text-color);
+@header-background-color: @color1;
+
+//table borders and bgs, calendar borders and bgs, small box borders and bgs.
+@border-color: #cbcbcb;
+@box-bg-color: #fff;
+@bg-color-hover: fadeout(@header-background-color, 90%);
+
+//small text (small box sub text, calendar time color)
+@small-text-color: @default-text-color;
+
+/*********
+    end generic variables used in multiple places
+*/
+
+///* mobile color variables */
+@mobile-body-bg-color: #fff; ///*color of background on mobile view*/
+@mobile-page-header-bg-color: @page-head-bg; //color of background in the page header area (mobile)
+@mobile-menu-icon-color: contrast(@mobile-page-header-bg-color, @color1); //color of the "hamburger" menu at the top left of the mobile view.
+@mobile-more-bg-color: #E7E7E7; ///*color of background of more links on homepage*/
+@mobile-more-color: #878787; ///*color of more links on homepage.*/
+@mobile-content-bg: #ffffff; ///*background color of the mobile content sections*/
+
+//mobile slideout menu colors
+
+@mobile-menu-bg-level2: darken(@mobile-menu-bg, 6%); //background of level 2 in mobile slideout menu
+@mobile-menu-color-level2: @mobile-menu-color; //text color of level 2 in mobile slideout menu
+@mobile-menu-color-arrow-level2: @mobile-menu-color-level2; //down arrow color of level 2 in mobile slideout menu
+@mobile-menu-bg-level3: darken(@mobile-menu-bg-level2, 6%); //background of level 3 in mobile slideout menu
+@mobile-menu-color-level3: @mobile-menu-color; //text color of level 3 in mobile slideout menu
+@mobile-menu-color-arrow-level3: @mobile-menu-color-level3; //down arrow color of level 3 in mobile slideout menu
+@mobile-menu-bg-level4: darken(@mobile-menu-bg-level3, 3%); //background of level 4 in mobile slideout menu
+@mobile-menu-bg-level5: darken(@mobile-menu-bg-level4, 3%); //background of level 5 in mobile slideout menu
+
+//desktop colors
+@interior-page-bg: #fff; //color of interior page backgrounds
+@int-top-img-overlay: fade(@color1, 90%); // the color of the overlay at the top of the interior pages over the fullwidth background image
+@int-top-bg-color: #fff; //color BEHIND the top image
+@page-footer-bg: @color4; //background color of footer area
+
+/**********************/
+//Homepage colors
+/**********************/
+
+//custom mobile buttons ("Enhanced Mobile Homepage")
+@mobile-buttons-background: #f0f0f0; //background of entire mobile buttons area (color or image or both)
+@mobile-button-background: @color1; //background color behind icons
+@mobile-button-border: 4px solid @color3; //border size, style and color.
+@mobile-button-color: contrast(@mobile-buttons-background, #333); //text color of button text
+
+//collage
+@slide-content-background: rgba(0, 0, 0, 0.6); // background of slide content area
+@slide-title-color: contrast(@slide-content-background, @default-text-color); //color of slide title text
+@slide-title-color-hover: @slide-title-color; //color of slide title text on hover
+@slide-description-color: contrast(@slide-content-background, @default-text-color); //color of slide description text
+@nav-dots-border: 2px solid contrast(@slide-content-background); //navigation dots border color and size and style
+@nav-dots-border-hover: 2px solid @color2; //navigation dots border color and size and style on hover
+@nav-dots-bg: transparent; //navigation dots background color or image
+@nav-dots-bg-hover: @color2; //navigation dots background color or image on hover
+
+@down-arrow-bg: @color3; //background color of the "down" arrow at the bottom of the collage.
+@down-arrow-color: contrast(@down-arrow-bg); // color of the "down" arrow and circle at the bottom of the collage.
+
+//homepage buttons
+
+//NOTE: this can be an image!  Save image in _gfx/home  and use shorthand css background format.  Example: url(_gfx/home/buttons_bg.jpg) center 0/cover no-repeat;  IF you use an image you may need to adjust the text colors manually because the contrast check can't check images.
+@buttons-background: #fff; //background for entire buttons area
+
+@button-background: @color2; //background of each individual button (color or image)
+@button-background-hover: @color1; //background of each individual button buttons on hover (color or image)
+@button-color: contrast(@button-background, #000, #fff, 44%); //color of buttons text
+@button-color-hover: contrast(@button-background-hover, #000, #fff, 44%); //color of buttons text on hover
+@button-border: 0px solid transparent; //border of buttons
+@button-border-hover: 0px solid transparent; //border of buttons
+@button-box-shadow: 0 0 0 transparent; // shadow around buttons
+@button-box-shadow-hover: 0 0 0 14px lighten(@button-background-hover, 20%); // shadow around buttons on hover
+
+
+//homepage spotlight
+
+//NOTE: this can be an image!  Save image in _gfx/home  and use shorthand css background format.  Example: url(_gfx/home/spotlight_bg.jpg) center 0/cover no-repeat;  IF you use an image you may need to adjust the text colors manually because the contrast check can't check images.
+@spotlight-background: @color1; //background of entire spotlight area
+@spotlight-h2-background: transparent; //Spotlight Widget Title background color
+@spotlight-h2-color: contrast(@spotlight-background); //Spotlight Widget Title text color
+
+@spotlight-text-color: contrast(@spotlight-background); //Spotlight text color.
+
+@spotlight-bottomlink-color: contrast(@spotlight-bottomlink-background, #1d2424); //color of bottom "more" link
+@spotlight-bottomlink-color-hover: contrast(@spotlight-bottomlink-background-hover, #1d2424); //color of bottom "more" link on hover
+@spotlight-bottomlink-background: @color2; //background color of bottom "more" link
+@spotlight-bottomlink-background-hover: @color3; //background color of bottom "more" link
+
+//Homepage tabs
+@tab-color: contrast(@news-events-bg); //text color of tabs
+@tab-color-active: contrast(@news-events-bg); //text color of active tab
+@tab-border-color: rgba(255, 255, 255, 0.5); //bottom border color on tabs
+@tab-border-color-active: @color2; //bottom border color on active tabs (and hover)
+
+
+//NOTE: this can be an image!  Save image in _gfx/home  and use shorthand css background format.  Example: url(_gfx/home/tabcontent_bg.jpg) center 0/cover no-repeat;  IF you use an image you may need to adjust the text colors manually because the contrast check can't check images.
+@tab-content-bg: transparent; //background of tab content areas. Use "transparent" to remove background.
+
+
+//background of news/events tabbed area
+//NOTE: this can be an image!  Save image in _gfx/home  and use shorthand css background format.  Example: url(_gfx/home/news_events_bg.jpg) center 0/cover no-repeat;   IF you use an image you may need to adjust the text colors manually because the contrast check can't check images.
+@news-events-bg: @color3;
+
+//Homepage Events
+@events-background: @color3; //background for entire events area
+
+//@events-header variables ONLY used when the events widget is OUTSIDE of any tabs.
+//Events header is hidden if it is in a tab because it becomes redundant with the tab text.
+
+@events-header-color: #fff; //color of widget header text ("Events" or "Meetings & Events" etc)
+
+@events-item-background: #fff; //background for individual list items.  Use "transparent" for no background
+@events-item-background-hover: rgba(255, 255, 255, 0.85); //background for individual list items. Use "transparent" for no background
+
+@events-datebox-background: @color1; //background of the event date box.
+@events-datebox-background-hover: @color2; //background of the event date box on hover
+@events-datebox-month-color: contrast(@events-datebox-background); //color of the month text inside the datebox (May, Jun, Jul, Aug, Sep etc)
+@events-datebox-month-color-hover: contrast(@events-datebox-background-hover); //color of the month text inside the datebox (May, Jun, Jul, Aug, Sep etc)
+@events-datebox-month-background: transparent; //background of the month text inside the datebox (May, Jun, Jul, Aug, Sep etc)
+@events-datebox-number-color: contrast(@events-datebox-background); //color of the number text inside the datebox (15, 16, 28, 30, etc)
+@events-datebox-number-color-hover: contrast(@events-datebox-background-hover); //color of the month text inside the datebox (May, Jun, Jul, Aug, Sep etc)
+
+@events-title-color: contrast(@events-item-background); //color of event title text
+@events-title-color-hover: @events-title-color; //color of event title text on hover
+@events-summary-color: contrast(@events-item-background, @default-text-color); //color of event time text
+
+@events-bottomlink-color: contrast(@events-bottomlink-background, #1d2424); //color of bottom "more" link
+@events-bottomlink-color-hover: contrast(@events-bottomlink-background-hover, #1d2424); //color of bottom "more" link on hover
+@events-bottomlink-background: @color2; //background color of bottom "more" link
+@events-bottomlink-background-hover: @color1; //background color of bottom "more" link on hover
+
+//minicalendar (if used!)
+@events-cal-month-color: #fff; ///*February,March, April etc color*/
+@events-cal-header-background: @color1; //background behind S, M, T, W, T, F, S
+@events-cal-header-color: contrast(@events-cal-header-background, @color1); //text color for S, M, T, W, T, F, S
+@events-cal-othermonthday-bg: #e6e6e7; ///*other month day background color*/
+@events-cal-day-color: #7a7a7a; ///*default day text color*/
+@events-cal-othermonthday-color: #9ca1a4; /*other month day text color*/
+@events-cal-today-bg: @color2; ///*today background color*/
+@events-cal-today-color: contrast(@calendar-today-bg, @color1); ///*today text color*/
+@events-cal-prev-next-color: #fff; ///*previous and next links color*/
+@events-cal-day-bg: @box-bg-color; ///*default day background color*/
+@events-cal-border-color: @border-color; ///*border color between days*/
+
+@events-cal-popup-bg: @color1; //background of popup on hover of day with events
+@events-cal-popup-border: 1px solid @color3; //border of popup on hover of day with events
+@events-cal-popup-box-shadow: 0 0 0 rgba(0, 0, 0, 0); //box shadow of popup on hover of day with events
+@events-cal-time-color: contrast(@events-cal-popup-bg, @small-text-color); ///*calendar time color within popup*/
+@events-cal-link-color: contrast(@events-cal-popup-bg, @default-link-color); ///*calendar event title link color within popup*/
+
+//Homepage News
+@news-background: @color3; //background for entire news area
+//@news-header variables ONLY used when the news widget is OUTSIDE of any tabs.
+//News header is hidden if it is in a tab because it becomes redundant with the tab text.
+@news-header-color: contrast(@news-events-bg, @color1); //color of widget header text ("News")
+
+@news-item-background: #fff; //background for individual list items. Use "transparent" for no background
+@news-item-background-hover: rgba(255, 255, 255, 0.9); //background for individual list items.
+@news-title-color: contrast(@news-item-background, #000); //color of news title text
+@news-title-color-hover: @news-title-color; //color of news title text on hover
+@news-summary-color: contrast(@news-item-background, @default-text-color); //color of summary text
+
+@news-hover-border-color: @color2; //color of border on right when you hover over a news item
+
+@news-bottomlink-color: contrast(@news-bottomlink-background, #1d2424); //color of bottom "more" link
+@news-bottomlink-color-hover: contrast(@news-bottomlink-background-hover, #1d2424); //color of bottom "more" link on hover
+@news-bottomlink-background: @color2; //background color of bottom "more" link
+@news-bottomlink-background-hover: @color1; //background color of bottom "more" link on hover
+
+//social media row if used
+@social-media-background: #ccc; //entire background for social media row
+/**** homepage facebook (plugin version) IF USED */
+@facebook-h2-color: contrast(@body-bg-color, @default-text-color); //Facebook Widget Title font color
+
+/****homepage twitter (plugin version) IF USED*/
+
+@twitter-h2-color: contrast(@body-bg-color, @default-text-color); //Twitter Widget Title font color
+
+/**** homepage instagram (plugin) IF USED */
+@instagram-h2-color: contrast(@body-bg-color, @default-text-color); //Instagram Widget Title font color
+
+/*****Homepage video thumbnail widget IF USED*****/
+@video-thumbs-background: @color3;
+@video-thumbs-h2-color: contrast(@news-events-bg, @color1); //video Widget Title color
+@video-thumbs-featured-border-color: #fff; //featured video border color
+@video-thumbs-featured-border-color-hover: #fff; //featured video border color on hover
+@video-thumbs-featured-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0); //featured video shadow
+
+@video-thumbs-thumb-border-color: #fff; //thumbnail video border color
+@video-thumbs-thumb-border-color-hover: #fff; //thumbnail video border color on hover
+@video-thumbs-thumb-box-shadow: 0 0px 0px rgba(0, 0, 0, 0); //thumbnail video box shadow
+
+@video-thumbs-color: #fff; //color for video captions
+@video-thumbs-color-hover: #fff; //hover color for video captions
+@video-thumbs-text-background: rgba(0, 0, 0, 0.7); //color for video captions
+
+@video-thumbs-bottomlink-color: contrast(@news-bottomlink-background, #1d2424); //color of bottom "more" link
+@video-thumbs-bottomlink-color-hover: contrast(@news-bottomlink-background-hover, #1d2424); //color of bottom "more" link on hover
+@video-thumbs-bottomlink-background: @color2; //background color of bottom "more" link
+@video-thumbs-bottomlink-background-hover: @color1; //background color of bottom "more" link
+@video-thumbs-bottomlink-border: 0px solid #bbbbbb; // border of text in bottom "more" link.  Shorthand: size, style, color
+
+/*****Homepage data visualization widget IF USED*****/
+@data-background: @color1; //background for entire data area, image or color
+
+@data-h2-color: #fff; //data Widget Title text color
+
+@data-number-color: #fff; //color of number
+@data-text-color: #fff; //data text color.
+
+@data-bottomlink-color: contrast(@data-bottomlink-background, #1d2424); //color of bottom "more" link
+@data-bottomlink-color-hover: contrast(@data-bottomlink-background-hover, #1d2424); //color of bottom "more" link on hover
+@data-bottomlink-background: @color2; //background color of bottom "more" link
+@data-bottomlink-background-hover: @color3;
+@data-bottomlink-border: 0px solid #fff; // border of text in bottom "more" link.  Shorthand: size, style, color
+
+/*****Homepage button slider widget IF USED*****/
+@buttons-slider-background: #fff; //background for entire buttons area
+
+@buttons-slider-h2-color: @default-text-color; //data Widget Title text color
+
+@button-slider-background: @color2; //background of buttons (color or image)
+@button-slider-background-hover: @color1; //background of buttons on hover (color or image)
+@button-slider-color: contrast(@button-slider-background, #000, #fff, 44%); //color of buttons text
+@button-slider-color-hover: contrast(@button-slider-background-hover, #000, #fff, 44%); //color of buttons text on hover
+@button-slider-border: 0px solid @color1; //border of buttons
+@button-slider-border-hover: 0px solid @color2; //border of buttons on hover
+@button-slider-box-shadow: 0 0 0 rgba(0, 0, 0, 0); //box shadow of buttons
+@button-slider-box-shadow-hover: 0 0 0 14px lighten(@button-slider-background-hover, 20%); //box shadow of buttons on hover
+
+@buttons-slider-arrows-bg: @color3; //navigation arrows background
+@buttons-slider-arrows-bg-hover: @color1; //navigation arrows background on hover
+
+/************************/
+//Interior Pages and header/footer
+/************************/
+
+//title, subtitle, breadcrumb and title-right colors from the Page title area of the Interior Page design.
+@title-color: #000; ///*color of page titles*/
+@page-subtitle-color: @default-text-color; ///*color of subtitle that goes in page title area*/
+@subtitle-color: @page-subtitle-color; ///*color of subtitle in content area (usually same as above but not always)*/
+@breadcrumb-color: #666666; ///*color of breadcrumb text and links*/
+@title-right-color: @breadcrumb-color; ///*color of the share & bookmark, print, rss, feedback, and font size links*/
+@title-right-icon-color: @color3; //color of the icons for share & bookmark, print, rss, feedback and font size.
+
+///* table variables */
+//Table colors from table shown in content area in Interior Page design
+@table-text-color: @default-text-color; ///*default color of table link*/
+@table-text-hover-color: @table-text-color; ///*default color of table link*/
+
+//page footer
+@page-footer-color: contrast(@page-footer-bg, #5d5d5d); //color of page footer text
+@page-footer-header-color: contrast(@page-footer-bg, @default-text-color); //color of page footer headers (Come Visit, Phone etc)
+@page-footer-icons-color: @color3; //color of page footer icons (next to Come Visit, Phone etc)
+@page-footer-link-color: contrast(@page-footer-bg, #5d5d5d); //color of page footer text
+@page-footer-nav-color: contrast(@page-footer-bg, @default-text-color); //color of page footer navigation links
+@page-footer-vision-link-color: contrast(@page-footer-bg, @color1); //color of page footer links
+
+@page-footer-social-icons-background: rgba(0, 0, 0, 0.3); //background behind social media icons.
+@page-footer-social-icons-background-hover: rgba(0, 0, 0, 0.5); //background behind social media icons on hover.
+@page-footer-social-icons-border-color-hover: @color3; //border color of social icons on hover.  Use "transparent" to hide.
+
+///* important alert variables (collapseable bar at top of page. */
+@alert-bg: #d2000d; ///*important alert background*/
+@alert-color: contrast(@alert-bg, @default-text-color); ///*important alert text*/
+@alert-right-border-color: #e03e4d; ///*alert border next to show/hide button color*/
+@alert-arrows-color: contrast(@alert-bg, @default-text-color); //the color of the chevrons used to open and close the important alert
+@alert-tooltip-bg: #000; //background color of the "Show" and "Hide" tooltips
+@alert-tooltip-color: contrast(@alert-tooltip-bg); //color of the "Show" and "hide" text on tooltip
+
+//top nav
+@top-nav-color: contrast(@page-head-bg, #576e80); //color of top nav links
+
+///* search widget variables */
+@searchbox-text-color: @default-text-color; ///*color of searchbox placeholder and typed text*/
+@searchbox-mobile-text-color: #494949; ///*color of searchbox placeholder and typed text on mobile*/
+@searchbox-mobile-bg: #ebebeb; //background around search box on mobile
+@searchbox-bg: #f3f2f2; //background inside search box on desktop
+@searchbox-border: 0px solid #dddddd; //border around search box on desktop
+@searchbox-icon-bg:@color3; //background behind search icon on desktop
+@searchbox-icon-bg-hover: @color2; //background behind search icon on desktop on hover
+
+//used only if using the "overlay" search type
+@searchbox-overlay-bg: fade(@color1, 95%);
+@searchblock-border: 1px solid lighten(@searchbox-overlay-bg, 15%); //light border around entire search and toplinks
+@toplinks-h2-color: contrast(@searchbox-overlay-bg, #444);
+
+@toplinks-button-bg: transparent;
+@toplinks-button-border: 1px solid @color2;
+@toplinks-button-color: contrast(@toplinks-button-bg, #444);
+@toplinks-button-bg-hover: @color2;
+@toplinks-button-border-hover: 1px solid @color3;
+@toplinks-button-color-hover: contrast(@toplinks-button-bg-hover, #444);
+
+///* main navigation variables */
+@nav-color: contrast(@nav-bg, @default-text-color); ///*color of the top level anchors*/
+@nav-color-hover: contrast(@nav-bg-hover, #1d2424); ///*color of the top level anchors on hover*/
+@nav-bg: @color1; //background color of the entire navigation bar
+@nav-bg-hover: @color2; ///*color of the top level anchor backgrounds on hover, if needed*/
+
+//dropdown menu, "megamenu" style
+@mega-dropdown-bg: #ebebeb; ///*dropdownmenu bg color*/
+@mega-dropdown-header-color: contrast(@mega-dropdown-bg, #000, #fff, 36%); ///*dropdownmenu text color for larger text*/
+@mega-dropdown-color: contrast(@mega-dropdown-bg, @default-text-color, #fff, 36%); ///*dropdownmenu text color*/
+@mega-dropdown-color-hover: contrast(@mega-dropdown-bg, @color1); ///*dropdownmenu text color on hover*/
+@mega-dropdown-inner-border: fadeout(#000, 80%); ///*dropdownmenu border color in between items*/
+@mega-dropdown-outer-border: @color2; ///*dropdownmenu border color around dropdown*/
+
+//small box shown in Department Page design, small "News" box on right.
+
+@small-box-main-color: #000; ///*color of main text (news titles, events titles etc) in the small boxes*/
+@small-box-more-color: contrast(@small-box-more-background, #010101); ///*color of "more" text in the small boxes*/
+@small-box-more-background: @color2; //background color of "more" link in the small boxes.  use "transparent" if no background
+@small-box-more-background-hover: @color3;
+
+///*side navigation shown on Interior Page design  */
+@leftcol-bg: @color1; ///* background color of the enite .left_col */
+@sidenav-item-border: @color1; ///* primary border color */
+@sidenav-color: contrast(@leftcol-bg, @default-text-color); ///* base color for the sidenav anchors */
+@sidenav-color-hover: contrast(@sidenav-background-hover, #000); ///* color of the anchor on hover*/
+@sidenav-background-hover: @color2; ///* color of the backround of the anchors on hover */
+@sidenav-haschildren-color: @sidenav-color; ///* color of sidenav items that have children */
+@sidenav-expanded-bg: transparent; ///* backround color of expanded item*/
+@sidenav-expanded-color: @sidenav-color; ///* color of the sidenav that have a parent and are expanded */
+@sidenav-expanded-children-bg: transparent; ///*background color of children list item*/
+@sidenav-expanded-children-color: @sidenav-color; ///*text color of children list item*/
+@sidenav-expanded-second-level-bg: @sidenav-expanded-children-bg; ///* backround color of second level expanded item*/
+@sidenav-expanded-second-level-children-bg: @sidenav-expanded-children-bg; ///* backround color of children of second level expanded item*/
+@sidenav-current-bg: @color3; ///* background color of current item*/
+@sidenav-current-color: contrast(@sidenav-current-bg, #000, #fff, 34%); ///* background color of current item*/
+
+///* calendar variables */
+@calendar-month-color: #000000; ///*February,March, April etc color*/
+@calendar-othermonthday-bg: #e6e6e7; ///*other month day background color*/
+@calendar-day-color: #7a7a7a; ///*default day text color*/
+@calendar-othermonthday-color: #9ca1a4; /*other month day text color*/
+@calendar-today-bg: @color2; ///*today background color*/
+@calendar-today-color: contrast(@calendar-today-bg, #000); ///*today text color*/
+@calendar-today-link-color: @calendar-today-color; ///*today link color*/
+@calendar-today-time-color: @calendar-today-color; ///*today time color*/
+
+/*********************************************
+    The variables below normally use one of the more generic variables defined above. 
+    Modify below this line only if design is different from standard template
+************************************************/
+@body-bg-color: #fff; ///*background color of body (non mobile)*/
+//mobile lists
+@mobile-solid-border: @border-color; ///*color of the solid border around news/events/navigation lists on mobile view*/
+@mobile-header-bg-color: @header-background-color; ///*color of background in mobile_header (default) headers*/
+@mobile-header-text-color: @header-text-color; ///*color of text in mobile_header (default) headers*/
+@mobile-list-link-color: @default-text-color; ///*color of links in mobile lists*/
+@mobile-list-link-color-active: @mobile-list-link-color; ///*color of links in mobile lists on hover over*/
+@mobile-list-bg-color: @box-bg-color; ///*color of bg of mobile lists*/
+@mobile-list-bg-color-active: @mobile-list-bg-color; ///*bg color of mobile lists on hover over*/
+
+//mobile menus
+@mobile-menu-bg: @mega-dropdown-bg; //main background of mobile slideout menu
+@mobile-menu-color: @mega-dropdown-header-color; //color of first level (root) items in mobile slideout menu
+@mobile-menu-color-arrow: @mobile-menu-color; //color of "down" arrows to the right of the first level (root) items in mobile slideout menu
+@mobile-menu-border: @mega-dropdown-inner-border; //color of the border between the first level (root) items in the mobile slideout menu
+@mobile-menu-open-border: @mobile-menu-border;
+
+//tables
+@default-border-color: @border-color; ///*default color for all borders*/
+@table-border-color: @default-border-color; /*** border color for listtable and tableData/tableBox classes*/
+@box-background: @box-bg-color; ///*background color for tableBox, tableData, listtable, downloadmessage etc*/
+@table-header-bg: @header-background-color; ///*background image/color of listtable and tableData tables, also used for buttons.*/
+@table-header-color: @header-text-color; ////*olor of listtable and tableData tables, also used for buttons.*/
+@table-link-color: @default-link-color; ///*default color of table link*/
+@table-link-hover-color: @table-link-color; ///*hover color of table link*/
+@row-hover-bg: @bg-color-hover; ///*table row hover over background color*/
+
+//interior buttons widget
+@int-buttons-bg: @color3; //button background color
+@int-buttons-bg-hover: darken(@int-buttons-bg, 8%); //button background color on hover
+@int-buttons-color: contrast(@int-buttons-bg); //button text color
+@int-buttons-color-hover: contrast(@int-buttons-bg-hover); //button text color on hover
+@int-buttons-border: 0px solid @color2; //border of buttons (increase pixel value to add border, change last value (@color2) to change color)
+@int-buttons-border-hover: 0px solid @color3; //border of buttons on hover (increase pixel value to add border, change last value (@color2) to change color).  Note: keep border size the same on hover and non-hover, otherwise buttons will "jump" or shift)
+@int-buttons-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0); //box shadow of buttons.  Shorthand: offset from left, offset from top, size, rgba color
+@int-buttons-box-shadow-hover: 0px 0px 0px rgba(0, 0, 0, 0); //box shadow of buttons on hover Shorthand: offset from left, offset from top, size, rgba color
+
+//Dropdown menu, classic flyout menu.  Not usually shown in comps, pick appropriate color for hover
+@dropdown-bg: @mega-dropdown-bg; ///*dropdownmenu bg color*/
+@dropdown-color: @mega-dropdown-header-color; ///*dropdownmenu text color*/
+@dropdown-bg-hover: @header-background-color; ///*dropdownmenu bg color on hover*/
+@dropdown-color-hover: @header-text-color; ///*dropdownmenu text color*/
+@dropdown-inner-border: @mega-dropdown-inner-border; ///*dropdownmenu border color in between items*/
+@dropdown-outer-border: @mega-dropdown-outer-border; ///*dropdownmenu border color around dropdown*/
+@dropdown-arrow: @mega-dropdown-header-color; ///*color of the right arrow for the dropdownmenu */
+
+//small box widgets
+@small-box-title-color: @header-text-color; ///*color of title text (news, events, FAQ, Businesses etc) in the small boxes*/
+@small-box-title-bg: @header-background-color; ///*background of the small box titles*/
+@small-box-sub-color: @small-text-color; ///*color of sub text (news intros, events dates etc) in the small boxes*/
+@small-box-background: @box-bg-color; ///*background of the small boxes*/
+@small-box-border: @border-color;
+
+//calendar Grid
+@calendar-header-bg: @header-background-color; ///*Sunday Monday etc background*/
+@calendar-header-color: @header-text-color; ///*Sunday Monday etc color */
+@calendar-prev-next-color: @default-link-color; ///*previous and next links color*/
+@calendar-day-bg: @box-bg-color; ///*default day background color*/
+@calendar-border-color: @border-color; ///*border color between days*/
+@calendar-time-color: @small-text-color; ///*calendar time color*/
+@calendar-link-color: @default-link-color; ///*calendar event title link color*/
+
+//accordion widget
+@accordion-header-bg: @header-background-color; //background color of accordion header bar
+@accordion-header-color: @header-text-color; //text color of accordion header bar
+@accordion-content-color: @default-text-color; //text color of accordion expanded content
+@accordion-border-color: @border-color; //border color of accordion expanded content
+@accordion-background-color: @box-bg-color; //background color of accordion expanded content
+
+//tabbed widget
+@tabbed-tab-color: @default-text-color; //inactive/default tabs text color
+@tabbed-tab-bg: transparent; //inactive/default tabs background color
+@tabbed-tab-bg-active: @header-background-color; //active tab background color (also used for hover)
+@tabbed-tab-color-active: @header-text-color; //active tab text color (also used for hover)
+@tabbed-border-color: @border-color; //border color of tab content
+@tabbed-background-color: @box-bg-color; //background color of tab content

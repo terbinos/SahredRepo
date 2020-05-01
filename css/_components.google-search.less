@@ -1,0 +1,64 @@
+//styles specific to the google search results page.  Do not modify unless there are bugs after CMS integration.
+//!important needed throughout to overwrite google styles.
+
+#cse input.gsc-search-button {
+    background: @table-header-bg !important;
+    color: @table-header-color !important;
+}
+#cse {
+    * {
+        box-sizing: content-box;
+    }
+
+    .gsc-control-cse {
+        .clearfix();
+        background: transparent !important;
+        padding: 0 !important;
+        border: 0px !important;
+    }
+
+    .gsc-tabsArea {
+        border-bottom: 1px solid @default-border-color !important;
+    }
+
+    .gsc-tabHeader {
+        margin-left: 10px;
+        border: 1px solid @default-border-color !important;
+        border-bottom: 0 !important;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        background:@box-background !important;
+        &.gsc-tabhActive, &:hover{background:@row-hover-bg !important;}
+    }
+
+    .gsc-refinementHeader {
+        border: 1px solid @default-border-color !important;
+        background:@box-background !important;
+        &.gsc-refinementhActive, &:hover{background:@row-hover-bg !important;}
+    }
+
+    .gsc-result {
+        border: 0px !important;
+
+        .gs-result > * {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+    }
+
+    input[type=image].gsc-search-button {
+        background: @table-header-bg !important;
+        border: 2px solid transparent !important;
+        box-sizing: content-box;
+    }
+
+    .gsc-option-menu-item {
+        background: gray;
+    }
+
+    .gsc-option-menu,
+    .gsc-selected-option-container {
+        background: whiteSmoke !important;
+        border-radius: 2px 2px 2px 2px;
+    }
+}

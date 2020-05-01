@@ -1,0 +1,233 @@
+//#region ======= HOMEPAGE  ===========
+@down-arrow-bg : #fff;
+@down-arrow-color : #fff;
+.homepagelayout .column {
+	float: none;
+}
+
+.home_item2 {
+	clear: both;
+	position: relative;
+}
+
+.home_item3, .home_item13 {
+	background: @buttons-background;
+}
+
+.home_item4, .home_item6 {
+	background: @spotlight-background;
+}
+
+.home_item5, .home_item7, .home_item11, .home_item14 {
+	background: #1eb299;
+}
+
+ .home_item14 {
+	padding: 40px 0;
+}
+
+.scroll-arrow, .home_item_mobile {
+	display: none;
+}
+& when (@mobile-view = enhanced) {
+	.homepagelayout > * {
+		display: none;
+
+		&.home_item_mobile {
+			display: block;
+		}
+	}
+}
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+	& when (@mobile-view = enhanced) {
+		.homepagelayout > * {
+			display: block;
+
+			&.home_item_mobile {
+				display: none;
+			}
+		}
+	}
+	.scroll-arrow {
+		display: block;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 81px;
+		height: 72px;
+		text-indent: -4000px;
+		background: @down-arrow-bg;
+		margin: 0 auto;
+		overflow: hidden;
+		z-index: 3;
+
+		&:before {
+			content: "\2193";
+			color: @down-arrow-color;
+			font-size: 23px;
+			line-height: 29px;
+			text-align: center;
+			border: 2px solid @down-arrow-color;
+			border-radius: 50%;
+			width: 41px;
+			height: 41px;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+			text-indent: 0px;
+		}
+	}
+
+
+	#sitebody.homepagelayout {
+		padding: 0;
+		background: transparent;
+		width: 100%;
+		max-width: none;
+		margin-bottom:0;
+		//hides :before pseudo element that is used for interior pages.
+		&:before {
+			display: none;
+		}
+
+		border-bottom: 1px solid #f0f0f0;
+		display: -ms-grid;
+		display: grid;
+		//grid has 3 columns and a variable number of rows
+		-ms-grid-columns: 1fr @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 1fr;
+		grid-template-columns: 1fr @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 @max-width-portrait/12 1fr;
+		//-ms-grid-rows: auto;
+		//grid-template-rows: auto;
+		> * {
+			-ms-grid-column-align: stretch;
+			-ms-grid-row-align: stretch;
+			justify-self: stretch;
+			align-self: stretch;
+		}
+
+
+		.top_col {
+			.css-grid-item(@col-start:1, @col-span:14, @row-start:1, @row-span:1);
+
+			&:before, &:after {
+				display: none;
+			}
+
+			padding-top: @nav-height;
+		}
+
+		.home_item2 {
+			.css-grid-item(@col-start:1, @col-span:14, @row-start:2, @row-span:1);
+			overflow: hidden;
+		}
+
+		.home_item3 {
+			.css-grid-item(@col-start:1, @col-span:14, @row-start:3, @row-span:1);
+		}
+
+		.home_item4 {
+			.css-grid-item(@col-start:1, @col-span:14, @row-start:4, @row-span:1);
+		}
+
+		.home_item5 {
+			.css-grid-item(@col-start:1, @col-span:14, @row-start:5, @row-span:1);
+		}
+
+		.home_item6 {
+			.css-grid-item(@col-start:1, @col-span:14, @row-start:6, @row-span:1);
+		}
+
+		.home_item7 {
+			.css-grid-item(@col-start:1, @col-span:14, @row-start:7, @row-span:1);
+		}
+
+		.home_item8 {
+			.css-grid-item(@col-start:2, @col-span:4, @row-start:8, @row-span:1);
+			padding: 40px 13px 40px 0;
+		}
+
+		.home_item9 {
+			.css-grid-item(@col-start:6, @col-span:4, @row-start:8, @row-span:1);
+			padding: 40px 7px;
+		}
+
+		.home_item10 {
+			.css-grid-item(@col-start:10, @col-span:4, @row-start:8, @row-span:1);
+			padding: 40px 0 40px 13px;
+		}
+
+		.home_item11 {
+			.css-grid-item(@col-start:1, @col-span:14, @row-start:9, @row-span:1);
+		}
+
+		.home_item12 {
+			.css-grid-item(@col-start:1, @col-span:14, @row-start:10, @row-span:1);
+		}
+
+		.home_item13 {
+			.css-grid-item(@col-start:1, @col-span:14, @row-start:11, @row-span:1);
+		}
+
+		.home_item14 {
+			.css-grid-item(@col-start:1, @col-span:14, @row-start:12, @row-span:1);
+			//this row has two widgets, we want them to sit side-by-side.
+			.container {
+				display: flex;
+				justify-content: space-between;
+
+				&:before, &:after {
+					display: none;
+				}
+
+				> * {
+					max-width: 48%;
+				}
+			}
+		}
+		/*.equal-heights { //columns should be equal height.  Use flexbox
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-wrap: nowrap;
+            -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+           -webkit-align-items: stretch;
+            -ms-flex-align: stretch;
+            align-items: stretch;
+        
+        }*/
+	}
+}
+
+
+
+@media screen and (min-width: 62em) {
+
+	#sitebody.homepagelayout {
+		-ms-grid-columns: 1fr @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 1fr;
+		grid-template-columns: 1fr @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 @max-width-landscape/12 1fr;
+	}
+}
+
+@media screen and (min-width: 75em) {
+	#sitebody.homepagelayout {
+		-ms-grid-columns: 1fr @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 1fr;
+		grid-template-columns: 1fr @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 @max-width/12 1fr;
+	}
+}
+
+
+& when (@wide-layout = true) {
+	//1366px
+	@media (min-width: 85.375em) {
+		#sitebody.homepagelayout {
+			-ms-grid-columns: 1fr @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 1fr;
+			grid-template-columns: 1fr @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 @max-width-wide/12 1fr;
+		}
+	}
+}

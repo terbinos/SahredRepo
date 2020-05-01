@@ -1,0 +1,260 @@
+/************************************************
+Dropdown Menu
+************************************************/
+/* Fonts
+================================================== */
+/*font-family: 'Open Sans', sans-serif;*/
+@font-face {
+  font-family: 'Sanchez';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Sanchez'), local('Sanchez-Regular'), url(https://fonts.gstatic.com/s/sanchez/v7/Ycm2sZJORluHnXbIfmlR-A.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Raleway'), local('Raleway-Regular'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptug8zYS_SKggPNyC0ISg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Raleway Medium'), local('Raleway-Medium'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwN4rWqZPBQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Raleway SemiBold'), local('Raleway-SemiBold'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwPIsWqZPBQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Raleway Bold'), local('Raleway-Bold'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwJYtWqZPBQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: local('Raleway ExtraBold'), local('Raleway-ExtraBold'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwIouWqZPBQ.ttf) format('truetype');
+}
+/*********************************************
+    The variables below normally use one of the more generic variables defined above. 
+    Modify below this line only if design is different from standard template
+************************************************/
+/*other month day text color*/
+/*********************************************
+    The variables below normally use one of the more generic variables defined above. 
+    Modify below this line only if design is different from standard template
+************************************************/
+/*** border color for listtable and tableData/tableBox classes*/
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('fonts/glyphicons-halflings-regular.eot');
+  src: url('fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('fonts/glyphicons-halflings-regular.woff') format('woff'), url('fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+/****************************************
+        Whenever possible use display table and table-cell to distribute 
+        navigation items evenly based on text length. 
+        No need to define widths unless design specifically requires it.
+    
+        If design requires defined widths, uncomment sections below.
+       *********************************** */
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+  .mainnav {
+    width: 100%;
+    margin: 0 auto 0px;
+    max-width: 730px;
+    box-shadow: 0 0 0 transparent;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  .mainnav:after {
+    content: '';
+    width: 200%;
+    height: 15px;
+    background: #dce3e3;
+    position: absolute;
+    bottom: -40px;
+    left: -600px;
+  }
+  .mainSpan_wrapper_home .mainnav {
+    margin-bottom: 0;
+  }
+  .dropdownmenu {
+    padding: 0;
+    width: 100%;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  }
+  .dropdownmenu {
+    margin-right: 110px;
+    width: auto;
+    padding: 0px 20px 0 115px;
+    position: static;
+  }
+  .dropdownmenu > li {
+    border: 0px solid transparent;
+    height: 55px;
+    float: none !important;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+  }
+  .dropdownmenu > li > a,
+  .dropdownmenu > li > .notranslate a {
+    height: 55px;
+    font-family: Regular Sanchez;
+    color: #D72F00;
+    font-size: 18px;
+    font-weight: normal;
+    background: transparent;
+    margin-right: 0px;
+    text-indent: 0;
+    text-decoration: none;
+    text-align: center;
+    position: relative;
+    line-height: 1.2;
+    letter-spacing: 0px;
+    padding: 0 10px;
+    border: 0px solid transparent;
+    text-transform: none;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    border-radius: 10px;
+  }
+  .dropdownmenu > li:hover > a,
+  .dropdownmenu > li.active > a {
+    background: transparent;
+    color: #1D3641;
+    border: 0px solid transparent;
+    text-shadow: 0 0 0 transparent;
+    position: relative;
+  }
+  .dropdownmenu > li:hover > a:before,
+  .dropdownmenu > li.active > a:before {
+    content: '';
+    display: block !important;
+    width: 100%;
+    height: 38px;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    margin: auto;
+    background: #FFE1B9;
+    z-index: -1;
+    border-radius: 10px;
+  }
+  #dropdownrootitem1 {
+    display: none;
+  }
+}
+/***62em = 992px***/
+@media only screen and (min-width: 62em) {
+  .mainnav {
+    max-width: 950px;
+  }
+  .mainnav:after {
+    left: -700px;
+  }
+  .dropdownmenu > li > a,
+  .dropdownmenu > li > .notranslate a {
+    font-size: 20px;
+  }
+}
+@media (min-width: 75em) {
+  .mainnav {
+    max-width: 1024px;
+  }
+  .dropdownmenu {
+    padding: 0 20px 0 275px;
+  }
+}
+@media (min-width: 85.375em) {
+  .mainnav {
+    max-width: 1302px;
+  }
+  .dropdownmenu {
+    padding: 0 58px 0 468px;
+  }
+}
+@media screen and (min-width: 40.5em) and (max-width: 47.9375em) {
+  ul.dropdownmenu li {
+    float: none;
+  }
+  .dropdownmenu > li > a {
+    overflow: visible;
+    text-indent: 0px;
+  }
+  .dropdownmenu ul {
+    position: static;
+    width: 100%;
+  }
+  .dropdownmenu ul a {
+    width: auto;
+  }
+  .dropdownmenu .dropdownitemhaschild > a {
+    background: none;
+    width: auto;
+  }
+}
+@media screen and (min-width: 48em) {
+  .dropdownmenu ul {
+    border-top: none;
+    background: #FFE1B9;
+  }
+  .dropdownmenu ul li {
+    border-top: 1px solid #FCA067;
+  }
+  .dropdownmenu ul li a {
+    background: #FFE1B9;
+  }
+  .dropdownmenu ul li:hover > a {
+    background: #91CC9B;
+    color: #1D3641;
+  }
+  .dropdownmenu ul a {
+    width: auto;
+    color: #1C2E36;
+  }
+  .dropdownmenu .dropdownitemhaschild > a {
+    position: relative;
+    z-index: 1;
+    background-image: none;
+  }
+  .dropdownmenu .dropdownitemhaschild > a:before {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    width: 0;
+    height: 0;
+    left: auto;
+    top: 9px;
+    right: 7px;
+    background: transparent;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 4px solid #1C2E36;
+  }
+}

@@ -1,0 +1,95 @@
+//styles specific to the FAQ widgets.  Do not modify unless there are bugs after CMS integration.
+
+//FAQs
+.faq_header {
+    color: @subtitle-color;
+    font-size: 108% !important;
+}
+
+//faq tab view
+.faqtab_section {
+    border: 1px solid @table-header-bg;
+    background: @box-background;
+    color: @table-text-color;
+
+    td, label {
+        color: @table-text-color;
+    }
+
+    h1, h2, h3, h4, h5, .subtitle {
+        color: @table-text-color;
+    }
+}
+
+.faq_tab_nav li a {
+    color: @default-link-color;
+}
+
+.faq_tab_nav li a.active_faqtab {
+    border: 1px solid @table-header-bg;
+    border-right: 1px solid @box-background;
+    background: @box-background;
+    color: @table-text-color;
+    border-left: 5px solid @table-header-bg;
+}
+
+h3.faqtab_question, .faqtab_popup {
+    color: @default-text-color;
+}
+
+h3.faqtab_question:before, .faqtab_popup:before {
+    background: @table-header-bg;
+    color: @table-header-color;
+    line-height: 1.2em;
+    width: 1.2em;
+    height: 1.2em;
+    border-radius: 50%;
+}
+
+.faqtab_section h3.faqtab_question {
+    color: @table-text-color;
+}
+
+.faq_mobile_nav {
+    z-index: 1;
+}
+
+.faq_mobile_nav select {
+    border: 1px solid @table-header-bg !important;
+    border-bottom: 0px !important;
+}
+
+.viClientDialog .faq_container_dialog {
+    color: #404040;
+    padding-top: 10px;
+    padding-bottom: 15px;
+
+    .listfaq_q {
+        font-size: 110%;
+    }
+}
+
+.listfaq_q>h2, .listfaq_q>h3
+{
+    color: @default-link-color;
+}
+
+.listfaq_q.listfaq_q > h2
+{
+    //should be h2 for accessibility but shouldn't be so large, matching to h4 size instead
+    font-size: @subtitle-size - 10%;
+}
+.listfaq_q.listfaq_q > h3 {
+    //should be h3 for accessibility but should look like a link, to show it is clickable
+    font-size: 100%;
+    text-decoration: @default-link-decoration;
+    color: @default-link-color;
+    &:hover{
+        text-decoration: @default-link-decoration-hover;
+    }
+}
+.listfaq_answers .listfaq_q a[name]:before{display:none;}
+
+.listfaq_answers .faq_header+ul {
+    margin-bottom: 20px;
+}

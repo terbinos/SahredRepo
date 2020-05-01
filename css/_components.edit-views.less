@@ -1,0 +1,79 @@
+//styles specific to the Backend Edit views go here.  Set up after integration.  Use .config_widget_template class only to target edit views
+
+.config_widget_template *, .config_widget_template *:after, .config_widget_template *:before {
+    box-sizing: border-box;
+}
+.edit .widget_wrapper {
+    padding: 0;
+}
+
+.config_widget_template .home_collage .flex-control-nav{z-index: 21;}
+.config_widget_template .home_collage:hover .flex-control-nav{z-index: 300;}
+
+//overwrite product level style
+.page.edit .column.column.sortable_col:not(.site_template_column):not(.page_edit_empty_col) {
+	min-height: 40px;
+}
+.home_buttons .widget_wrapper_body.widget_wrapper_body {
+	overflow: visible;
+}
+#configure_widgets #siteheader, #configure_widgets #sitebody, #configure_widgets #footercolumn, #configure_widgets #page_footer .footer_copyright {
+	width: 100%;
+}
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+
+	.config_widget_template {
+		max-width: 100%;
+		overflow: hidden;
+		position: relative;
+		z-index: 1;
+
+		.sr {
+			visibility: visible;
+		}
+
+		.top_col > div:first-of-type {
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+
+		.vi-fullwidth-banner {
+			width: 100vw;
+			max-width: none;
+			left: 50%;
+			right: 50%;
+			margin-left: -50vw !important;
+			margin-right: -50vw;
+			margin-bottom: -30px;
+		}
+
+		.widget_wrapper .widget_wrapper_body.edit {
+			min-height: 45px;
+		}
+	}
+    .edit .widget_wrapper .widget_wrapper_title.edit{text-align:left;}
+    .config_widget_template .scroll-arrow {z-index:300;}
+	.config_widget_template .home_events, .config_widget_template .home_news {
+		.box_bottomlink {
+			bottom: -100px;
+		}
+	}
+	.config_widget_template .home_video_thumbs .video-thumbnail-bottomlink, .config_widget_template .home_data .home-data-bottomlink {
+		bottom: -100px;
+	}
+		.config_widget_template .home_spotlight.home_spotlight .box_bottomlink {
+			right: -314px;
+		}
+	}
+/*62em = 992px*/
+@media only screen and (min-width:62em) {
+    
+}
+
+@media (min-width: 1200px) {
+    .config_widget_template {
+        clear:both;
+    }
+}

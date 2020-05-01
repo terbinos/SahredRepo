@@ -1,0 +1,332 @@
+/*
+This is the editor style sheet,
+containing styles that will be used in the content editor tools.
+*/
+/* Fonts
+================================================== */
+/*font-family: 'Open Sans', sans-serif;*/
+@font-face {
+  font-family: 'Sanchez';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Sanchez'), local('Sanchez-Regular'), url(https://fonts.gstatic.com/s/sanchez/v7/Ycm2sZJORluHnXbIfmlR-A.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Raleway'), local('Raleway-Regular'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptug8zYS_SKggPNyC0ISg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Raleway Medium'), local('Raleway-Medium'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwN4rWqZPBQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Raleway SemiBold'), local('Raleway-SemiBold'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwPIsWqZPBQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Raleway Bold'), local('Raleway-Bold'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwJYtWqZPBQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: local('Raleway ExtraBold'), local('Raleway-ExtraBold'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwIouWqZPBQ.ttf) format('truetype');
+}
+/*********************************************
+    The variables below normally use one of the more generic variables defined above. 
+    Modify below this line only if design is different from standard template
+************************************************/
+/*other month day text color*/
+/*********************************************
+    The variables below normally use one of the more generic variables defined above. 
+    Modify below this line only if design is different from standard template
+************************************************/
+/*** border color for listtable and tableData/tableBox classes*/
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('fonts/glyphicons-halflings-regular.eot');
+  src: url('fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('fonts/glyphicons-halflings-regular.woff') format('woff'), url('fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+/*settings and theme files include variables*/
+a,
+a:visited,
+.column a {
+  color: #D72F00;
+  text-decoration: underline;
+}
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+a[name],
+a[name]:hover,
+a[name]:focus {
+  color: #262626;
+  text-decoration: none;
+}
+a img {
+  border: 0;
+}
+a:before,
+a:after {
+  text-decoration: underline;
+}
+a:before,
+a:after,
+a:hover:before,
+a:hover:after {
+  text-decoration: none;
+}
+body.front_end_body,
+.sitewrapper,
+.sitewrapper select,
+.sitewrapper input,
+.sitewrapper textarea,
+.sitewrapper table,
+#broken_links_reporter_form,
+body.dialog_body,
+body[radeditorbody],
+body[radeditorbody] table {
+  font-size: 20px !important;
+  line-height: 1.1 !important;
+  font-family: 'Sanchez', serif !important;
+  color: #262626;
+}
+.front_end_body :target:before,
+.front_end_body a[name]:before {
+  content: "";
+  display: block;
+  height: 100px;
+  /* fixed header height plus a little padding*/
+  position: relative;
+  z-index: -1;
+}
+p {
+  margin: 0 0 1em 0;
+}
+table img {
+  max-width: none;
+}
+h1,
+.content_area h1,
+.reDropDownBody h1 {
+  color: #EB6946;
+  line-height: 1.2;
+  font-weight: bold;
+  font-size: 200%;
+  font-family: 'Raleway', sans-serif;
+}
+h2,
+.content_area h2,
+.reDropDownBody h2 {
+  font-size: 160%;
+  color: #00838D;
+  font-weight: bold;
+  line-height: 1.2;
+}
+h3,
+.content_area h3,
+.reDropDownBody h3 {
+  font-size: 140%;
+  color: #00838D;
+  font-weight: bold;
+}
+h4,
+.content_area h4,
+.reDropDownBody h4 {
+  font-size: 120%;
+  color: #00838D;
+  font-weight: bold;
+}
+h5,
+.content_area h5,
+.reDropDownBody h5 {
+  font-size: 110%;
+  color: #00838D;
+  font-weight: bold;
+}
+h6,
+.content_area h6,
+.reDropDownBody h6 {
+  color: #00838D;
+  font-weight: bold;
+  font-size: 100%;
+}
+.subtitle {
+  font-size: 140%;
+  color: #00838D;
+  font-weight: bold;
+}
+.subtitle p,
+.subtitle a {
+  color: #00838D;
+  font-weight: bold;
+}
+/* Default Data Table Styling.  
+    Should match general table style in Interior comp.  
+    Modify padding and borders ONLY  (if needed), otherwise do not modify.
+    everything else controlled in settings.global or settings.colors.
+    
+    Should match _objects.listtable.less and _components.tableBox.less
+================================================== */
+table.tableData {
+  font-weight: normal;
+  background: #fff;
+  margin-bottom: 14px;
+  border: 0px solid #B6B6B6;
+  border-spacing: 0px;
+  width: auto;
+}
+table.tableData th {
+  text-transform: uppercase;
+  padding: 6px 9px;
+  text-align: left;
+  background: #91CC9B !important;
+  color: #1D3641;
+  font-weight: bold;
+  font-size: 90%;
+  font-family: 'Raleway', sans-serif;
+}
+table.tableData th a {
+  color: #1D3641 !important;
+}
+table.tableData th p {
+  padding: 0;
+  margin: 0;
+  color: #1D3641;
+}
+table.tableData a {
+  color: #D72F00;
+}
+table.tableData p {
+  color: #363636;
+}
+table.tableData td {
+  color: #363636;
+  font-size: 70%;
+}
+table.tableData tr td {
+  border-left: 1px solid #B6B6B6;
+}
+table.tableData tr td:last-child {
+  border-right: 1px solid #B6B6B6;
+}
+table.tableData tr:hover {
+  background: #e8e9ed;
+}
+table.tableData tr:hover > td a {
+  color: #D72F00 !important;
+}
+table.tableData tr:hover > td,
+table.tableData tr:hover > td > p {
+  color: #363636 !important;
+}
+table.tableData {
+  border-collapse: separate;
+}
+table.tableData tbody tr:first-child td {
+  border-top: 0;
+}
+table.tableData th {
+  border-left: 1px solid #91CC9B;
+}
+table.tableData thead {
+  border: 1px solid #91CC9B;
+}
+table.tableData td {
+  border: 0;
+  border-bottom: 1px solid #B6B6B6;
+  padding: 3px 9px 3px 9px;
+}
+table.tableData td p {
+  padding: 0;
+  margin: 0;
+}
+@media screen and (max-width: 48em) {
+  body:not([radeditorbody]) table.tableData {
+    width: 100% !important;
+  }
+}
+/* Default Data Table Styling.  
+    Should match general table style in Interior comp.  
+    Modify padding and borders ONLY  (if needed), otherwise do not modify.
+    everything else controlled in settings.global or settings.colors.
+    
+    Should match _objects.listtable.less and _components.tableData.less
+================================================== */
+table.tableBox {
+  font-weight: normal;
+  background: #fff;
+  margin-bottom: 14px;
+  border: 0px solid #B6B6B6;
+  border-spacing: 0px;
+  width: auto;
+}
+table.tableBox th {
+  text-transform: uppercase;
+  padding: 6px 9px;
+  text-align: left;
+  background: #91CC9B !important;
+  color: #1D3641;
+  font-weight: bold;
+  font-size: 90%;
+}
+table.tableBox th a {
+  color: #1D3641 !important;
+}
+table.tableBox th p {
+  padding: 0;
+  margin: 0;
+  color: #1D3641;
+}
+table.tableBox a {
+  color: #D72F00;
+}
+table.tableBox p {
+  color: #363636;
+}
+table.tableBox td {
+  color: #363636;
+  font-size: 70%;
+}
+table.tableBox tr td {
+  border-left: 1px solid #B6B6B6;
+}
+table.tableBox tr td:last-child {
+  border-right: 1px solid #B6B6B6;
+}
+table.tableBox tr:hover {
+  background: #e8e9ed;
+}
+table.tableBox tr:hover > td a {
+  color: #D72F00 !important;
+}
+table.tableBox tr:hover > td,
+table.tableBox tr:hover > td > p {
+  color: #363636 !important;
+}
+table.tableBox {
+  border-bottom: 1px solid #B6B6B6;
+}
+table.tableBox th,
+table.tableBox td {
+  padding: 5px;
+}
+table.tableBox td {
+  border-top: 1px solid #B6B6B6;
+}

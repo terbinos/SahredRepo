@@ -1,0 +1,208 @@
+
+//UPDATE VARIABLES FIRST, then add to or modify code only where/if needed
+
+@data-padding-mobile: 40px 10px 135px 10px; //data Widget padding on mobile (Shorthand: top, right, bottom, left)
+@data-padding-tablet: 40px 0px 161px 0px; //data Widget padding on tablet (Shorthand: top, right, bottom, left)
+@data-padding-desktop: 40px 0px 161px 0px; //data Widget padding on desktop (Shorthand: top, right, bottom, left)
+
+
+//"data", or "In the data" or "Featured" etc text at the top of the widget
+
+@data-h2-margin: 0 0 20px; //data Widget Title margins on mobile (Shorthand: top, right, bottom, left)
+
+@data-box-width-mobile: 170px; //works as a min-width, controls wrapping of items on mobile
+@data-box-width: 200px; //works as a min-width, controls wrapping of items and items per row on tablet/desktop
+
+@data-number-align: center; //text alignment of number
+@data-number-line-height: 1.2em;
+
+@data-text-line-height: 1.3em; //data text line height.
+@data-text-align: center; //data text alignment
+
+//default link text
+@data-link-decoration: none; //data link text decoration (underline or none).
+@data-link-decoration-hover: none; //data link text decoration on hover(underline or none).
+
+//data read more button, if present
+@data-bottomlink-width: 252px; //width of bottom "more" link. Use "auto" if no background
+@data-bottomlink-height: 72px; //height of bottom "more" link. Use "auto" if no background
+@data-bottomlink-decoration: none; //text-decoration of bottom "more" link (underline or none)
+@data-bottomlink-decoration-hover: none; //text-decoration of bottom "more" link on hover (underline or none)
+@data-bottomlink-text-align: center; //alignment of text in bottom "more" link. Center, left, right.
+@data-bottomlink-margin: 0 auto 40px; //news bottom "more" link margin.  Shorthand: top, right, bottom, left.
+@data-bottomlink-padding: 0;
+
+.home_data {
+
+
+
+	&:before {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		background: @data-background;
+		display: block;
+		z-index: -1;
+	}
+
+	.home-data-container {
+		position: relative;
+		padding: @data-padding-mobile;
+	}
+
+	.home-data-header {
+		margin: @data-h2-margin;
+		font-size: @data-h2-font-size-mobile;
+		font-weight: @data-h2-font-weight;
+		color: @data-h2-color;
+		text-transform: @data-h2-text-transform;
+		font-family: @data-h2-font-family;
+		text-align: @data-h2-align;
+	}
+
+	.data-image-frame {
+		margin: 0 0 10px 0;
+		height: @data-img-max-height;
+		position: relative;
+	}
+
+	.home-data-box {
+		flex: auto;
+		width: @data-box-width-mobile;
+		padding: 0 10px 30px 10px;
+	}
+
+	.data-number {
+		color: @data-number-color;
+		font-family: @data-number-font;
+		font-size: @data-number-size-mobile;
+		font-weight: @data-number-weight;
+		margin: 0;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		line-height: @data-number-line-height;
+		max-height: @data-number-line-height;
+		text-align: @data-number-align;
+	}
+
+	.data-desc {
+		text-transform: @data-text-transform;
+		line-height: @data-text-line-height;
+		overflow: hidden;
+		text-align: @data-text-align;
+		font-family: @data-text-font-family;
+		font-size: @data-text-size;
+		font-weight: @data-text-weight;
+		color: @data-text-color;
+		max-height: @data-text-line-height * @data-text-max-lines;
+	}
+
+	.home-data-content {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		flex-direction: row;
+		-moz-box-wrap: wrap;
+		-webkit-box-wrap: wrap;
+		-ms-flexbox-wrap: wrap;
+		flex-wrap: wrap;
+		margin: 40px 0 10px;
+
+
+
+		img {
+			display: block;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
+			opacity: 0.7;
+			max-height: @data-img-max-height;
+			max-width: @data-img-max-width;
+		}
+
+		a {
+			text-decoration: @data-link-decoration;
+
+			&:hover {
+				text-decoration: @data-link-decoration-hover;
+			}
+		}
+	}
+
+	.home-data-bottomlink {
+		color: @data-bottomlink-color;
+		font-size: @data-bottomlink-size;
+		font-weight: @data-bottomlink-weight;
+		background: @data-bottomlink-background;
+		width: @data-bottomlink-width;
+		height: @data-bottomlink-height;
+		line-height: @data-bottomlink-height;
+		font-family: @data-bottomlink-font-family;
+		text-transform: @data-bottomlink-transform;
+		margin: @data-bottomlink-margin;
+		padding: @data-bottomlink-padding;
+		text-decoration: @data-bottomlink-decoration;
+		text-align: @data-bottomlink-text-align;
+		border: @data-bottomlink-border;
+		border-radius: @data-bottomlink-border-radius;
+		.transition();
+		display: block;
+		position: absolute;
+		bottom: 0px;
+		left: 0;
+		right: 0;
+
+		&:hover {
+			color: @data-bottomlink-color-hover;
+			background: @data-bottomlink-background-hover;
+			text-decoration: @data-bottomlink-decoration-hover;
+			.transition();
+		}
+	}
+}
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+	//#region Home data
+	.home_data {
+		padding: @data-padding-tablet;
+
+        .home-data-container{
+            padding: @data-padding-tablet;
+        }
+		.home-data-header {
+			font-size: @data-h2-font-size;
+		}
+
+		.home-data-content {
+			margin: 60px 0 10px;
+		}
+
+		.home-data-box {
+			width: @data-box-width;
+		}
+
+		.data-number {
+			font-size: @data-number-size;
+		}
+	}
+}
+
+/***62em = 992px ***/
+@media screen and (min-width: 62em) {
+	//#region Home data
+	.home_data {
+		
+        .home-data-container{
+            padding: @data-padding-desktop;
+        }
+	}
+}

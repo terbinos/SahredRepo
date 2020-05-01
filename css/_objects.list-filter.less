@@ -1,0 +1,54 @@
+//CMS generated filters and alpha filters.  Do not modify unless there are bugs after integration.
+
+.list-filter select {
+    width: 225px;
+    max-width:100%;
+}
+
+.list-filter, .alpha-filter {
+    margin: 0 0 10px 0;
+    clear: both;
+    list-style: none;
+    padding: 0;
+
+    ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            float: left;
+
+            &:first-child:before {
+                content: "";
+            }
+
+            &:before {
+                color: Gray;
+                content: "|";
+            }
+        }
+    }
+}
+
+.alpha-filter .current {
+    color: inherit;
+    cursor: inherit;
+
+    &:hover {
+        background: transparent;
+        border-color: transparent;
+        box-shadow: 0 0 0;
+        color: inherit;
+    }
+}
+
+.alpha-filter a:hover {
+    background: @default-link-color;
+    border: solid 1px transparent;
+    color: #fff !important;
+}
+
+.alpha-filter .current:hover {
+    color: inherit !important;
+}
+

@@ -1,0 +1,91 @@
+//styles specific to the Forms and Surveys widgets.  Do not modify unless there are bugs after CMS integration.
+
+//Forms and Surveys
+
+.form_survey_widget .answer_container textarea {
+    min-width: 0;
+    width: 100%;
+}
+.front_end_body .form_survey_widget .formlist, .sitewrapper .form_survey_widget .formlist {
+   width: 100%;
+}
+.recaptcha {
+    width: auto !important;
+}
+
+.form_survey_widget .answer_container .form_answers_edit_table {
+    display: table;
+    width: 100%;
+}
+
+.form_survey_widget .answer_container {
+    overflow-y: hidden;
+    overflow-x: auto;
+    margin: 0 0 5px 5px;
+}
+
+.question_container .question_content p {
+    margin: 0;
+}
+
+.form_submit_container .recaptcha_container {
+    margin: 20px 0 0;
+}
+
+
+.form_survey_widget .command_box.form_submit_footer {
+   padding-top: 20px;
+    margin-top: 0;
+    clear:both;
+}
+
+.form_survey_widget .question_container .question_content .question_text_container {
+    display: inline;
+}
+
+.form_survey_widget label:empty, .form_submit_header:empty {
+    display: none;
+}
+
+.form_survey_widget .question_container.static_text {
+    margin-top: 0px;
+    padding: 0 5px;
+}
+
+.form_survey_widget .answer_container input.voter_input.selection_other {
+    margin-top: 3px;
+    margin-left: 22px;
+}
+
+//overwrite product style that causes edge of radio button to be cropped
+.form_survey_widget .form_submit_container .form_answers_edit_table td input.voter_input[type="radio"] {
+    margin-left: 0px;
+}
+.form_survey_widget.form_survey_widget .single_matrix label{width:auto;}
+
+//fix for file inputs going invisible on tab
+div.file_input_item>input.file_input_ori {
+    top: 0;
+}
+
+.form-phone {
+     width: 135px!important; 
+}
+
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+    // Forms and Surveys
+    //---------------------------------------------------------
+    .form_survey_widget .command_wrapper {
+        border: 1px solid transparent;
+        height: 20px;
+        margin: 5px 0;
+        width: auto;
+    }
+
+    .form_survey_widget .command_wrapper:hover {
+        background: @row-hover-bg;
+        border-color: @default-border-color;
+        border-radius: 10px;
+    }
+}

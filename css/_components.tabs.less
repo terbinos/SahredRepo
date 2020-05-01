@@ -1,0 +1,23 @@
+
+
+.tabbed_widget {
+	.tab-title .ui-tabs-anchor {
+		color: @tabbed-tab-color;
+		background-color: @tabbed-tab-bg;
+	}
+
+	.ui-tabs-tab.ui-tabs-active.ui-state-active, .tab-title.ui-state-hover {
+		border-color: @tabbed-border-color;
+		color: @tabbed-tab-color-active;
+		background-color: @tabbed-tab-bg-active;
+
+		.ui-tabs-anchor {
+			color: @tabbed-tab-color-active;
+		}
+	}
+
+	.tab-item.ui-widget-content {
+		border-color: @tabbed-border-color;
+		background-color: @tabbed-background-color;
+	}
+}

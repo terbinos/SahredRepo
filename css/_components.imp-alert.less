@@ -1,0 +1,196 @@
+//styles specific to the important alert banner at top of page.  Do not modify unless there are bugs after CMS integration.
+#alert_controls {
+    overflow: visible;
+    font-size: 0;
+    text-decoration: none;
+
+    &:before {
+        font-family: Glyphicons Halflings;
+        content: "\e258\e258";
+        -webkit-transform: rotate(-90deg) scale(1,1.5);
+        -ms-transform: rotate(-90deg) scale(1,1.5);
+        -moz-transform: rotate(-90deg) scale(1,1.5);
+        transform: rotate(-90deg) scale(1,1.5);
+        display: block;
+        letter-spacing: -3px;
+        font-weight: bold;
+        color: @alert-arrows-color;
+        text-decoration: none;
+        text-indent: 0;
+        margin-top: 7px;
+        font-size: 8px;
+    }
+}
+
+#alert_controls.hide {
+    background: @alert-bg;
+    display: block !important; /*overwrite bootstrap .hide class*/
+    &:hover {
+        //reset product styles
+        bottom: 5px;
+        height: 30px;
+        width: 28px;
+    }
+    &:after {
+        content: "Hide";
+        background: @alert-tooltip-bg;
+        color: @alert-tooltip-color;
+        position: absolute;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+        border-radius: 5px;
+        text-indent: 0;
+        display: none;
+        padding: 5px 10px 6px;
+        right: 2px;
+        font-size: 12px;
+        top: 43px;
+        font-family: @Font-Arial;
+    }
+
+    &:hover:after {
+        display: block;
+    }
+
+    + .important_alert_wrapper {
+        
+
+        &:before {
+            position: absolute;
+            right: 8px;
+            bottom: -8px;
+            width: 0;
+            height: 0;
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            border-bottom: 7px solid @alert-tooltip-bg;
+            content: "";
+            display: none;
+        }
+    }
+
+    &:hover + .important_alert_wrapper {
+        &:before {
+            display: block;
+        }
+    }
+}
+
+
+
+#alert_controls.show {
+    background: @alert-bg;
+    border-bottom-left-radius: 5px;
+    width: 28px;
+    height: 30px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    // background: url(_gfx/cmn/alert_controls.png) right -70px no-repeat;
+    &:hover {
+        width: 28px;
+    }
+
+    &:before {
+        -webkit-transform: rotate(90deg) scale(1,1.6);
+        -ms-transform: rotate(90deg) scale(1,1.6);
+        -moz-transform: rotate(90deg) scale(1,1.6);
+        transform: rotate(90deg) scale(1,1.6);
+        margin-top: 15px;
+        margin-left: 3px;
+    }
+
+    &:after {
+        content: "Show";
+        background: @alert-tooltip-bg;
+        color: @alert-tooltip-color;
+        position: absolute;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+        border-radius: 5px;
+        text-indent: 0;
+        display: none;
+        padding: 3px 8px 4px;
+        right: 37px;
+        font-size: 12px;
+        top: 5px;
+        font-family: @Font-Arial;
+    }
+    &:hover:after {
+        display: block;
+    }
+   
+}
+
+.alert_right {
+    background: none;
+}
+
+.alert_container:before {
+    .multiple_bgs(4px, 27px, 4px, auto, 1px, auto);
+    border-right: 1px solid @alert-right-border-color;
+    z-index: 5;
+}
+.alert_container {
+    background-image:none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+    padding:0;
+    margin:0;
+    z-index: 20;
+    &.alert--closed:after {
+        position: absolute;
+        right: 30px;
+        top: 10px;
+        width: 0;
+        height: 0;
+        border-left: 7px solid @alert-tooltip-bg;
+        border-bottom: 7px solid transparent;
+        border-top: 7px solid transparent;
+        content: "";
+        display: none;
+    }
+}
+.alert_container.alert--closed:hover:after {
+    display: block;
+}
+.alert_container.alert--closed:hover #alert_controls.show:after{display:block;} 
+
+.alert_container .important_alert_wrapper {
+    background: @alert-bg;
+}
+
+.alert_container .important_alert, 
+.alert_container .important_alert h1, 
+.alert_container .important_alert h2, 
+.alert_container .important_alert h3,
+.alert_container .important_alert h4,
+.alert_container .important_alert h5,
+.alert_container .important_alert a,
+.alert_container .important_alert .subtitle {
+    color: @alert-color;
+}
+//overwrite product level styles
+.alert_container .important_alert h2 {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-transform: none;
+    font-weight: @page-subtitle-weight;
+    font-size: @page-subtitle-size;
+}
+
+.alert_container .important_alert p {
+    display: block;
+}
+/***48em = 768px ***/
+@media screen and (min-width: 48em) {
+
+	.alert_container .important_alert {
+		font-size: @alert-text-size !important;
+		line-height: 1.3 !important;
+		margin: 0 auto;
+		overflow: hidden;
+		padding: 0;
+		max-width: @max-width;
+
+		& when (@wide-layout = true) {
+			max-width: @max-width-wide;
+		}
+	}
+}
