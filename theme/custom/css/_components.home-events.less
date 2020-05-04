@@ -5,9 +5,10 @@
 
 
 @events-padding-mobile: 40px 10px 135px 10px; //Events Widget padding on mobile (Shorthand: top, right, bottom, left)(bottom padding includes height of More button and space above More button/under list)
-@events-padding-tablet: 40px 0px 161px 0px; //Events Widget padding on tablet (Shorthand: top, right, bottom, left)(bottom padding includes height of More button and space above More button/under list)
-@events-padding-desktop: 40px 0px 161px 0px; //Events Widget padding on desktop (Shorthand: top, right, bottom, left)(bottom padding includes height of More button and space above More button/under list)
-@events-background: transparent; //background for entire events area
+@events-padding-tablet: 12px 0px 40px 0px; //Events Widget padding on tablet (Shorthand: top, right, bottom, left)(bottom padding includes height of More button and space above More button/under list)
+@events-padding-desktop: 42px 0px 70px 0px; //Events Widget padding on desktop (Shorthand: top, right, bottom, left)(bottom padding includes height of More button and space above More button/under list)
+
+@events-background: #fff; //background for entire events area
 
 @events-item-background: #fff; //background for individual list items.  Use "transparent" for no background
 @events-item-background-hover: rgba(255, 255, 255, 0.85); //background for individual list items. Use "transparent" for no background
@@ -15,15 +16,15 @@
 @events-item-margin-mobile: 0 0px 6px 0px; //margin between list items on mobile devices (Shorthand: top, right, bottom, left)
 @events-item-margin-tablet: 0 0px 6px 0px;//margin between list items on tablets (Shorthand: top, right, bottom, left)
 
-@events-header-color: #fff; //color of widget header text ("Events" or "Meetings & Events" etc)
-@events-header-font-size: 50px; //Font size of widget header text ("Events" or "Meetings & Events" etc)
+@events-header-color: #1D3641; //color of widget header text ("Events" or "Meetings & Events" etc)
+@events-header-font-size: 56px; //Font size of widget header text ("Events" or "Meetings & Events" etc)
 @events-header-font-size-mobile: 35px; //Font size of widget header text ("Events" or "Meetings & Events" etc) on mobile
 @events-header-text-transform: uppercase; //text transform of widget header text ("News") - use: uppercase or none
-@events-header-margin: 0 0 20px 0; //margins around widget header text ("News") (Shorthand: top, right, bottom, left)
-@events-header-font-family: inherit; //font family of widget header text ("News")
-@events-header-font-weight: normal; //font weight of widget header text ("News")
+@events-header-margin: 1217 0 20px 385; //margins around widget header text ("News") (Shorthand: top, right, bottom, left)
+@events-header-font-family:  Bold Raleway; //font family of widget header text ("News")
+@events-header-font-weight: bold; //font weight of widget header text ("News")
 
-@events-datebox-background: #0f6371; //background of the event date box.
+@events-datebox-background: #fff; //background of the event date box.
 @events-datebox-background-hover: #ffd028; //background of the event date box on hover
 @events-datebox-border: 0px solid transparent; //border of the event date box
 @events-datebox-border-radius: 0; //rounded corners of the event date box
@@ -43,7 +44,7 @@
 @events-datebox-month-weight: bold; //font-weight of the month text inside the datebox (May, Jun, Jul, Aug, Sep etc)
 @events-datebox-month-transform: uppercase; //text transform of the month text inside the datebox (May, Jun, Jul, Aug, Sep etc).
 @events-datebox-month-family: inherit; //font family for the month text inside the datebox (May, Jun, Jul, Aug, Sep etc)
-
+@event-item-text-align: center;
 @events-datebox-number-color: #fff; //color of the number text inside the datebox (15, 16, 28, 30, etc)
 @events-datebox-number-color-hover: #fff; //color of the month text inside the datebox (May, Jun, Jul, Aug, Sep etc)
 @events-datebox-number-text-size: 50px; //size of the number text inside the datebox (15, 16, 28, 30, etc)
@@ -51,8 +52,8 @@
 @events-datebox-number-family: inherit; //font family for the number text inside the datebox (15, 16, 28, 30, etc)
 
 
-@events-title-color: contrast(@events-item-background); //color of event title text
-@events-title-color-hover: @events-title-color; //color of event title text on hover
+@events-title-color: #728389; //color of event title text
+@events-title-color-hover: #20729e; //color of event title text on hover
 @events-title-decoration: none; //text decoration for event titles (underline or none)
 @events-title-decoration-hover: none; //text decoration for event titles on hover (underline or none)
 @events-title-line-height: 1.3; //event title line height
@@ -61,10 +62,11 @@
 @events-title-weight: normal; //event title font weight
 @events-title-font-family: inherit; //event title font family.  Use inherit if same as default font.
 @events-title-max-lines: 2; //maximum lines the event title will show before hiding additional lines of text
-
+@event-item-vertical-margin: 0;
 @events-summary-color:  @default-text-color; //color of event time text
 @events-summary-size: 16px; //size of event time text
 @events-summary-weight: normal; //font weight of event time text
+@event-item-horizontal-padding: 72px;
 @events-summary-line-height: 1.3; //event time line height
 @events-summary-max-lines: 1; //maximum lines of event time text that will show
 
@@ -86,13 +88,145 @@
 @events-bottomlink-margin: 0 auto 40px auto; //Events bottom "more" link margin.  Shorthand: top, right, bottom, left.
 @events-bottomlink-margin-tablet: 0 auto 40px auto; //Events bottom "more" link margin.  Shorthand: top, right, bottom, left.
 @events-bottomlink-margin-mobile: 0 auto 40px auto; //Events bottom "more" link margin.  Shorthand: top, right, bottom, left.
+@events-padding-mobile: 0 0 0 0; //Events Widget padding on mobile (Shorthand: top, right, bottom, left)
+@events-padding-tablet: 12px 0 40px 0; //Events Widget padding on tablet (Shorthand: top, right, bottom, left)
+@events-padding-desktop: 42px 0 70px 0; //Events Widget padding on desktop (Shorthand: top, right, bottom, left)
+@events-background: transparent; //background for entire events area
+
+//large text at top of widget, such as "Events and Meetings"
+@events-h2-font-size: 56px; //Events Widget Title font size
+@events-h2-font-weight: bold; //Events Widget Title font weight
+@events-h2-color: #1D3641; //Events Widget Title font color
+@events-h2-text-transform: uppercase; //Events Widget Title font text transform (use uppercase or none)
+@events-h2-font-family: @Font-Raleway; //Events Widget Title font family, use inherit if same as default font.
+@events-h2-margin-mobile: 0; //Events Widget Title margins on mobile (Shorthand: top, right, bottom, left)
+@events-h2-margin-tablet: 0; //Events Widget Title margins on tablet (Shorthand: top, right, bottom, left)
+@events-h2-margin-desktop: 0; //Events Widget Title margins on desktop (Shorthand: top, right, bottom, left)
+
+//styles for entire event list
+@events-list-padding: 40px 0 20px 0; //padding for the entire list
+@events-list-margin: 0 77px; //margin for the entire list, to leave room for the prev and next arrows
+
+//individual event titles
+@events-title-color: #728389; //color of event title text
+@events-title-color-hover: #20729e; //color of event title text on hover
+@events-title-decoration: none; //text decoration for event titles (underline or none)
+@events-title-decoration-hover: none; //text decoration for event titles on hover (underline or none)
+@events-title-size: 23px; //event title font size
+@events-title-weight: 500; //event title font weight
+@events-title-line-height: 1.6; //event title line height
+@events-title-font-family: inherit; //event title font family.  Use inherit if same as default font.
+@events-title-margin: 0 0 62px 0;  //margin around event title.  Shorthand: top, right, bottom, left.
+@events-title-max-lines: 3; //maximum lines the event title will show before hiding additional lines of text
+
+//individual event summaries
+@events-summary-size: 15px; //size of event time text
+@events-summary-color: #1D3641; //color of event time text
+@events-summary-weight: normal; //font weight of event time text
+@events-summary-line-height: 1.3; //event time line height
+@events-summary-max-lines: 1; //maximum lines of event time text that will show
+
+//each event item
+@event-item-background: #fff;
+@event-item-border: none;
+@event-item-border-radius: 0;
+@event-item-height: 376px;
+@event-item-horizontal-padding: 72px; //space between blocks
+@event-item-vertical-margin: 0; //space between rows of blocks
+@event-item-padding: 0 0px 10px; //padding to keep text away from edges of block
+@event-item-text-align: center; //text alignment for entire block
+
+//each event date box
+@events-datebox-background: #91CC9B; //background of the event date box
+@events-datebox-border: 0px solid; //border of the event date box
+@events-datebox-border-radius: 0px; //rounded corners of the event date box
+@events-datebox-width: 100%; //width of the event date box
+@events-datebox-height: 85px; //height of the event date box
+@events-datebox-align: center; //text alignment for entire date box
+@events-datebox-padding: 0 0 0 0; //padding for the event date box, to position text inside
+@events-datebox-margin: 0px auto; //margin for event date box, to position box. (shorthand: top/bottom, left/right)
+@events-datebox-month-color: #1D3641; //color of the month text inside the datebox (May, Jun, Jul, Aug, Sep etc)
+@events-datebox-month-size: 25px; //size of the month text inside the datebox (May, Jun, Jul, Aug, Sep etc)
+@events-datebox-month-weight: bold; //font-weight of the month text inside the datebox (May, Jun, Jul, Aug, Sep etc)
+@events-datebox-month-transform: uppercase; //text transform of the month text inside the datebox (May, Jun, Jul, Aug, Sep etc).
+@events-datebox-month-family: @Font-Raleway; //font family for the month text inside the datebox (May, Jun, Jul, Aug, Sep etc)
+@events-datebox-month-background: transparent; //background of the month text inside the datebox (May, Jun, Jul, Aug, Sep etc)
+@events-datebox-month-padding: 0 0 0 0; //padding around the month text inside the datebox (May, Jun, Jul, Aug, Sep etc) (Shorthand: top, right, bottom, left)
+@events-datebox-month-margin: 0 0 0 0; //margin around the month text inside the datebox (May, Jun, Jul, Aug, Sep etc) (Shorthand: top, right, bottom, left)
+@events-datebox-number-color: #1D3641; //color of the number text inside the datebox (15, 16, 28, 30, etc)
+@events-datebox-number-text-size: 59px; //size of the number text inside the datebox (15, 16, 28, 30, etc)
+@events-datebox-number-weight: normal; //font weight of the number text inside the datebox (15, 16, 28, 30, etc)
+@events-datebox-number-family: inherit; //font family for the number text inside the datebox (15, 16, 28, 30, etc)
+
+//previous and next arrows
+@events-prev-next-width: 50px; //width of previous and next arrows
+@events-prev-next-height: 65px; //height of previous and next arrows
+@events-prev-background: url(_gfx/home/calendar_arrow_left.svg) center center no-repeat; //background for previous arrow
+@events-next-background: url(_gfx/home/calendar_arrow_right.svg) center center no-repeat; //background for next arrow
+
+//more link
+@events-bottomlink-color: #fff; //color of bottom "more" link
+@events-bottomlink-color-hover: #1D3641; //color of bottom "more" link on hover
+@events-bottomlink-size: 23px; //size of bottom "more" link
+@events-bottomlink-weight: bold; //font weight of bottom "more" link
+@events-bottomlink-background: rgba(29, 54, 65, 0.6); //background color of bottom "more" link
+@events-bottomlink-width: 248px; //width of bottom "more" link. Use "auto" if no background
+@events-bottomlink-height: 60px; //height of bottom "more" link. Use "auto" if no background
+@events-bottomlink-decoration: none; //text-decoration of bottom "more" link (underline or none)
+@events-bottomlink-decoration-hover: none; //text-decoration of bottom "more" link on hover (underline or none)
+@events-bottomlink-text-align: center; //alignment of text in bottom "more" link. Center, left, right.
+@events-bottomlink-border: 2px solid #fff; // border of text in bottom "more" link.  Shorthand: size, style, color
+@events-bottomlink-border-radius: 10px; //border radius of text in bottom "more" link (rounded corners)
+@events-bottomlink-transform: uppercase; //Events bottom "more" link text transform (Uppercase, none)
+@events-bottomlink-font-family: @Font-Raleway; //Events bottom "more" link font-family
+@events-bottomlink-margin: 50px 110px 0 0; //Events bottom "more" link margin.  Shorthand: top, right, bottom, left.
 
 
+.home_events {
+    padding: @events-padding-mobile;
+    background: @events-background;
+	transition: all 0.5s ease;
 
-.home_events.home_events {
-	padding: @events-padding-mobile;
-	background: @events-background;
-	position: relative;
+    .widget_header_container {
+        display: flex;
+        justify-content: space-between;
+	}
+	
+    .color_indicator {
+        display: flex;
+        color: #1D3641;
+        font-family: @Font-Raleway;
+        font-weight: bold;
+        align-items: end;
+
+        p {
+            margin-left: 110px;
+            position: relative;
+
+            &:before {
+                content: '';
+                width: 25px;
+                height: 25px;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: -34px;
+                background: #91CC9B;
+                border-radius: 50%;
+                margin: auto;
+                display: block !important;
+            }
+
+            &.meeting_indicator {
+                &:before {
+                    background: #3FA2A9;
+                    display: block !important;
+                }
+            }
+        }
+    }
+
+
 
 	h2 {
 		font-size: @events-header-font-size-mobile;
@@ -101,8 +235,11 @@
 		font-family: @events-header-font-family;
 		margin: @events-header-margin;
 		font-weight: @events-header-font-weight;
-
-		
+		width:330px;
+		height:66px;
+		font: Bold 56px/66px Raleway;
+		letter-spacing: 4.48px;
+		color: #1D3641;
 	}
 
 	ul {
@@ -116,17 +253,69 @@
 		position: relative;
 		width: 100%;
 	}
+	.item {
+        float: left;
+        position: relative;
+        text-align: @event-item-text-align;
+        width: 100%;
+        margin-bottom: @event-item-vertical-margin;
+        padding: 0 @event-item-horizontal-padding/2;
 
-
-	.event-item {
-		display: block;
-		text-decoration: none;
-
-		&:hover, &:focus {
+		.event-item {
+			display: block;
 			text-decoration: none;
+			background: @event-item-background;
+			border: @event-item-border;
+			height: @event-item-height;
+			padding: @event-item-padding;
+			border-radius: @event-item-border-radius;
+			position: relative;
+			-webkit-box-shadow: 0px 10px 15px 0px rgba(0,84,100,0.2);
+			-moz-box-shadow: 0px 10px 15px 0px rgba(0,84,100,0.2);
+			box-shadow: 0px 10px 15px 0px rgba(0,84,100,0.2);
+
+			&:hover, &:focus {
+				text-decoration: none;
+
+				.datebox {
+                    background: #007078;
+
+                    > * {
+                        color: #fff !important;
+                    }
+                }
+
+                .item_info_container > *, .item_info > * {
+                    color: #fff !important;
+                }
+
+                .item_info_container {
+                    background-position: 0 -100%;
+                }
+
+                .image_container {
+                    &:after {
+                        background: #007078 !important;
+                    }
+                }
+			}
 		}
 	}
-
+	.item_info_container{
+		// padding: 21px 36px 58px;
+		// width: 325px;
+		// height: 364px;
+		// background: #FFFFFF 0% 0% no-repeat padding-box;
+		// box-shadow: 0px 10px 15px #00546433;
+		// opacity: 1;
+		padding: 21px 36px 58px;
+		position: relative;
+		background-size: 100% 200%;
+		background-image: linear-gradient(to top, #007078 50%, #fff 50%);
+		-webkit-transition: background-position 0.5s;
+		-moz-transition: background-position 0.5s;
+		transition: background-position 0.5s;
+	}
 	.item_info {
 		background: @events-item-background;
 		background-clip: content-box;
@@ -305,7 +494,7 @@
 
 		h2 {
 			font-size: @events-header-font-size;
-
+			color: #1D3641;
 			.with-minicalendar& {
 				display: none;
 			}

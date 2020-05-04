@@ -36,18 +36,18 @@
 @down-arrow-bg: #1eb299; //background color of the "down" arrow at the bottom of the collage.
 @down-arrow-color: contrast(@down-arrow-bg); // color of the "down" arrow and circle at the bottom of the collage.
 
-@nav-dots-border: 4px solid contrast(255,255,255,0.8); //navigation dots border color and size and style
-@nav-dots-border-hover: 4px solid contrast(255,255,255,0.8); //navigation dots border color and size and style on hover
+@nav-dots-border: 2px solid contrast(@slide-content-background); //navigation dots border color and size and style
+@nav-dots-border-hover: 2px solid #ffd028; //navigation dots border color and size and style on hover
 @nav-dots-bg: transparent; //navigation dots background color or image
-@nav-dots-bg-hover: transparent; //navigation dots background color or image on hover
+@nav-dots-bg-hover: #ffd028; //navigation dots background color or image on hover
 @nav-dots-border-radius: 50%; //navigation dots border radius
-@nav-dots-height: 17px; //height of each individual navigation dot (including borders)
-@nav-dots-width: 17px; //width of each individual navigation dot (including borders)
+@nav-dots-height: 13px; //height of each individual navigation dot (including borders)
+@nav-dots-width: 13px; //width of each individual navigation dot (including borders)
 @nav-dots-top: auto; //navigation dots position from top on desktop.  Use "auto" if positioning from bottom.
 @nav-dots-left: 0; //navigation dots position from left on desktop.  Use "auto" if positioning from right.
-@nav-dots-bottom: 150px; //navigation dots position from bottom on desktop.  Use "auto" if positioning from top.
+@nav-dots-bottom: 204px; //navigation dots position from bottom on desktop.  Use "auto" if positioning from top.
 @nav-dots-right: 0; //navigation dots position from right on desktop.  Use "auto" if positioning from left.
-@Font-Raleway : 'Raleway', sans-serif;
+
 //@nav-arrows-width: 30px; //navigation arrows width
 //@nav-arrows-height: 38px; //navigation arrows height
 //@nav-arrows-bg: url(_gfx/home/button_arrows.png) 0 0 no-repeat; //navigation arrows background image (sprite)
@@ -70,13 +70,8 @@
 	display: block;
 	width: 100%;
 	background: @slide-content-background;
-    font-family: @Font-Raleway !important;
-    flex: 0 1 100%;
-	align-self: flex-start;
-	.
+
 	.slides {
-        margin: 0 0 0 0;
-        height: 100%;
 		li {
 			overflow: hidden;
 			//transition: opacity 2.5s ease !important;
@@ -85,28 +80,25 @@
 				overflow: hidden;
 				padding-top: @img-height / @img-width * 100%;
 				display: block;
-                position: relative;
-                left: -1px;
+				position: relative;
 			}
 		}
 
 		img {
 			//max-width: none;
-            height: auto;
-            min-height: 100%;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            bottom: 0;
-            min-width: 100%;
-            transform: translate(-50%, 0);
+			height: 200px;
+			min-height: 100%;
+			position: absolute;
+			top: 0;
+			left: 50%;
+			bottom: 0;
+			min-width: 100%;
+			transform: translate(-50%, 0);
 		}
 	}
 
 	.container {
-        position: relative;
-        display: flex;
-        justify-content: center;
+		position: relative;
 	}
 
 	.slide_content {
@@ -148,17 +140,12 @@
 		font-family: @slide-description-font-family;
 		max-height: @slide-description-size * @slide-description-line-height * @slide-description-max-lines;
 		overflow: hidden;
-        line-height: @slide-description-line-height;
-        text-align: center;
-        -webkit-text-shadow: 0px 2px 20px rgba(0, 0, 0, 0.75);
-        -moz-text-shadow: 0px 2px 20px rgba(0, 0, 0, 0.75);
-        text-shadow: 0px 2px 20px rgba(0, 0, 0, 0.75);
+		line-height: @slide-description-line-height;
 		//white-space: nowrap;
 		//text-overflow: ellipsis;
 		// max-width: ~"calc(100% - 80px)";
 		//display: inline-block;
-        margin-bottom: 25px;
-        width:100%;
+		margin-bottom: 25px;
 		// margin-right: 10px;
 	}
 	//the dots
@@ -169,12 +156,8 @@
 		position: absolute;
 		z-index: 3;
 		top: 4px;
-		// padding: 6px 6px 6px 0;
-        background: @slide-content-background;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        transition: all;
+		padding: 6px 6px 6px 0;
+		background: @slide-content-background;
 
 		&:empty {
 			display: none
@@ -186,33 +169,14 @@
 			border-radius: @nav-dots-border-radius;
 			background: @nav-dots-bg;
 			border: @nav-dots-border;
-			// box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
-            margin-left: 8px;
-            position: relative;
-            transition: all 0.1s ease-in;
+			box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+			margin-left: 8px;
 		}
 
 		a.flex-active,
 		a:hover {
-            width: 25px;
-            height: 25px;
 			background: @nav-dots-bg-hover;
-            border: @nav-dots-border-hover;
-
-            &:before {
-                content: '';
-                width: 9.5px;
-                height: 9.5px;
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                background: #FCA067;
-                border-radius: 50%;
-                margin: auto;
-                display: block !important;
-            }
+			border: @nav-dots-border-hover;
 		}
 	}
 	//the arrows
@@ -232,10 +196,10 @@
 			height: 69px;
 			text-indent: -4000px;
 			cursor: pointer;
-			background: url(Assets/jpgs/collage.jpg) no-repeat right 0;
+			background: url(_gfx/home/play-pause.png) no-repeat right 0;
 
 			&.flex-pause {
-				background: url(Assets/jpgs/collage.jpg) no-repeat 0 0;
+				background: url(_gfx/home/play-pause.png) no-repeat 0 0;
 			}
 		}
 	}
@@ -302,57 +266,18 @@
 				max-width: none;
 				max-height: 100%;
 			}
-        }
-        
-        
-        .slide_description {
-            font-size: 45px;
-            margin-bottom: 55px;
-        }
+		}
 
 		.slide_content {
-			// padding: @slide-content-padding-desktop;
-			// left: @slide-content-left;
+			padding: @slide-content-padding-desktop;
+			left: @slide-content-left;
 			bottom: 90px;
 			top: @slide-content-top;
-            position: absolute;
-            width: 100%;
-            white-space: normal;
-            //background  : @slide-content-background;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            left: 0;
-            right: 0;
-            margin: auto;
-
-            .slide_link {
-                display: block;
-                text-decoration: none;
-                font-weight: bold;
-                color: #fff;
-                background: #3FA2A9;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-weight: bold;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                // .hover_gradient();
-                margin-top: 55px;
-                font-size: 19px;
-                height: 40px;
-                width: 200px;
-                border-radius: 7px;
-                bottom: 40px;
-
-                &:hover {
-                    //background     : linear-gradient(259deg, #FCA067, #EB6946);
-                    border: 5px solid rgba(255, 255, 255, 0.38);
-                    background-origin: border-box;
-                    color: #1D3641;
-                }
-            }
+			right: @slide-content-right;
+			position: absolute;
+			width: @slide-content-width;
+			white-space: normal;
+			background: @slide-content-background;
 		}
 
 		.slide_title {
@@ -370,11 +295,9 @@
 			left: @nav-dots-left;
 			right: @nav-dots-right;
 			background: transparent;
-			// padding: 0 400px 0 0;
+			padding: 0 400px 0 0;
 			margin: auto;
-            text-align: right;
-            display: flex;
-            align-items: center;
+			text-align: right;
 
 			li {
 				float: none;
@@ -400,23 +323,12 @@
 
 		.slides {
 			img {
-                top: 150px;
-                left: 0px;
-                width: 1920px;
-                height: 700px;
+			//	height: @img-height;
 			}
 		}
 
 		.slide_content {
-            width: @slide-content-width;
-            .slide_link {
-                margin-top: 55px;
-                font-size: 21px;
-                height: 50px;
-                width: 230px;
-                border-radius: 7px;
-                bottom: 40px;
-            }
+			//bottom: @slide-content-bottom;
 		}
 
 		.slide_title {
@@ -424,11 +336,11 @@
 		}
 
 		.slide_description {
-			font-size: 45px;
+			font-size: @slide-description-size;
 		}
 
 		.flex-control-nav {
-			// padding-right: 633px;
+			padding-right: 633px;
 			//bottom: @nav-dots-bottom;
 		}
 
@@ -444,9 +356,8 @@
 	.home_collage {
 		.slides {
 			li > a {
-                height: 0;
-                padding-top: @img-height / @img-width * 100%;
-                color: blue;
+				height: 0;
+				padding-top: @img-height / @img-width * 100%;
 			}
 
 			img {
@@ -464,22 +375,8 @@
 		}
 
 		.slide_content {
-            bottom: @slide-content-bottom / @img-width * 100vw;
-            
-            .slide_link {
-                margin-top: 55px;
-                font-size: 21px;
-                height: 50px;
-                width: 230px;
-                border-radius: 7px;
-                bottom: 0px;
-            }
-        }
-        
-        .slide_description {
-            font-size: 52px;
-            margin-bottom: -5px;
-        }
+			bottom: @slide-content-bottom / @img-width * 100vw;
+		}
 
 		.flex-control-nav {
 			padding-right: 700px;
@@ -497,27 +394,6 @@
 	//1366px
 	@media (min-width: 85.375em) {
 		.home_collage {
-            .video_bg_image_slider.video_ {
-                max-height: 700px;
-            }
-
-            .flex-control-nav {
-                //padding-right: 980px;
-            }
-
-            .slide_content {
-                .slide_link {
-                    font-size: 23px;
-                    height: 60px;
-                    width: 248px;
-                    border-radius: 10px;
-                }
-            }
-
-            .slide_description {
-                font-size: @slide-description-size;
-                margin-bottom: 25px;
-            }
 			.flex-control-nav {
 				padding-right: 980px;
 			}

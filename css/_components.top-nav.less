@@ -1,10 +1,5 @@
 //links inside page header (usually top right corner).  Modified for each project to match design.
 //@top-nav-divider: "| ";
-@import "../theme/custom/_settings.colors.less";
-@import "../theme/custom/_settings.global.less";
-@import "../theme/custom/_tools.typography.css";
-@import "_settings.global.less";
-@import "_settings.config.less";
 @top-nav-divider: "";
 #headercolumn {
     #top_nav {
@@ -37,7 +32,8 @@
         max-width: 730px - min(@logo-width, 460);
         max-height: (@top-nav-font-size * (18/@top-nav-font-size) * 2) + 6px;
         overflow:hidden;
-        margin-right: -7px;
+        margin-right: 16px;
+        
         a {
             color:@top-nav-color;
             font-size: @top-nav-font-size;
@@ -86,7 +82,7 @@
         max-height: (@top-nav-font-size * (18/@top-nav-font-size) * 2) + 9px;
         margin-right: 0px;
         a {
-            margin:  8px 17px 0 17px;
+            margin: 8px 17px 0 17px;
             &:last-child{margin-right:0;}
         }
     }

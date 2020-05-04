@@ -75,11 +75,11 @@
         height: 28px !important;
         margin: 0;
         position: absolute;
-        right: 5px;
+        right: 12px;
         text-align: left;
         text-decoration: none;
         text-indent: -4000px;
-        top: 6px;
+        top: 11px;
         width: 29px;
         overflow: hidden;
     }
@@ -106,7 +106,7 @@
         -webkit-align-items: stretch;
         -ms-flex-align: stretch;
         align-items: stretch;
-        margin: 0 -5px;
+        margin: 44px -5px;
 
         li {
             flex: 0 1 100%;
@@ -134,10 +134,10 @@
                 justify-content: center;
                 text-decoration: none;
                 text-align: center;
-
+                // .hover_gradient();
                 &:hover {
-                    background: @toplinks-button-bg-hover;
-                    border-color: @toplinks-button-border-hover;
+                    // background: @toplinks-button-bg-hover;
+                    border: @toplinks-button-border-hover;
 
                     .link-text {
                         color: @toplinks-button-color-hover;
@@ -150,6 +150,7 @@
 
             .link-text {
                 //height:100%;
+                // font-family:  .hover_gradient();;
                 font-size: @toplinks-button-font-size;
                 text-align: center;
                 color: @toplinks-button-color;
@@ -241,13 +242,16 @@
     .search-trigger {
         position: absolute;
         right: auto;
-        top: @siteheader-height;
+        top: 75px;
         margin-left: ~"calc(" @max-width-portrait ~" - " 126px ~")";
         display: block;
+        width:55px;
+        height:55px;
         cursor: pointer;
-        background: #CC421C url("_gfx/cmn/search-main.svg") no-repeat center center;
-        height: @nav-height;
+        background: #CC421C url("_gfx/cmn/search_icon.svg") no-repeat center center;
+        background-size: 30px 30px;
         float: right;
+        margin-top: 25px;
         width: @search-trigger-width;
         text-indent: -4000px;
         text-align: left;
@@ -257,10 +261,9 @@
         &.active {
             //background: url("_gfx/cmn/close_icon.svg") no-repeat center center;
             //background-size: 20px auto;
-            display: none;
         }
-        &:hover {
-            background: url("_gfx/cmn/search-main.svg") no-repeat center center,  linear-gradient(310deg, #D83B10, #EB6946);
+        &.hover{
+            background: url("_gfx/cmn/search_icon.svg") no-repeat center center,  linear-gradient(310deg, #D83B10, #EB6946);
         }
     }
 
@@ -277,7 +280,7 @@
 		> a {
 			display: inline-block;
 			background: @searchbox-icon-bg url("_gfx/cmn/search_icon.svg") no-repeat center center;
-			background-size: 20px auto;
+			background-size: 30px auto;
 			width: @searchbox-icon-width;
 			height: @searchbox-icon-height !important;
 			top: 2px;
@@ -300,7 +303,8 @@
 			text-transform: @searchbox-text-transform;
 			height: @searchbox-height;
 			line-height: @searchbox-height !important;
-			padding: 0 (@searchbox-icon-width+4) 0 27px;
+            padding: 0 (@searchbox-icon-width+4) 0 27px;
+            font-style: italic;
 
 			&::-webkit-input-placeholder {
 				font-size: @searchbox-desktop-font-size;
@@ -342,7 +346,15 @@
 @media only screen and (min-width: 62em) {
 
     .search-trigger {
-        margin-left: ~"calc(" @max-width-landscape ~" - " @search-trigger-width ~")";
+        margin-left: ~"calc(" @max-width-landscape ~" - " 162px ~")";
+    }
+
+    .top_links ul li {
+        max-width: ~"calc(25% - 18px)";
+
+        .link-text{
+            font-size: 21px;
+        }
     }
 }
 /***75em = 1200px***/
@@ -351,6 +363,10 @@
     .search-trigger {
         margin-left: ~"calc(" @max-width ~" - " @search-trigger-width ~")";
     }
+    
+    .top_links ul li .link-text{
+        font-size: 23px;
+    }
 }
 
 
@@ -358,7 +374,11 @@
     /*1366px*/
     @media only screen and (min-width:85.375em) {
         .search-trigger {
-            margin-left: ~"calc(" @max-width-wide ~" - " @search-trigger-width ~")";
+            margin-left: ~"calc(" @max-width-wide ~" - " 162px ~")";
+        }
+
+        .top_links ul li {
+            max-width: ~"calc(25% - 36px)";
         }
     }
 }
