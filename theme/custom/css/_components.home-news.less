@@ -1,321 +1,586 @@
-@news-padding-mobile: 40px 10px 135px 10px; //News Widget padding on mobile (Shorthand: top, right, bottom, left) (bottom padding includes height of More button and space above More button/under list)
-@news-padding-tablet: 40px 0px 175px 0px; //News Widget padding on tablet (Shorthand: top, right, bottom, left)(bottom padding includes height of More button and space above More button/under list)
-@news-padding-desktop: 40px 0px 175px 0px; //News Widget padding on desktop (Shorthand: top, right, bottom, left)(bottom padding includes height of More button and space above More button/under list)
-@news-background: transparent; //background for entire news area
+@news-padding-mobile: 12px 10px 40px 10px; //News Widget padding on mobile (Shorthand: top, right, bottom, left)
+@news-padding-tablet : 12px 0 40px 0; //News Widget padding on tablet (Shorthand: top, right, bottom, left)
+@news-padding-desktop: 42px 0 70px 0; //News Widget padding on desktop (Shorthand: top, right, bottom, left)
+@news-background     : transparent; //background for entire news area
 
-@news-header-color: #fff; //color of widget header text ("News")
-@news-header-font-size: 50px; //Font size of widget header text ("News")
-@news-header-font-size-mobile: 35px; //Font size of widget header text ("News") on mobile
-@news-header-text-transform: uppercase; //text transform of widget header text ("News") - use: uppercase or none
-@news-header-margin: 0 0 20px 0; //margins around widget header text ("News") (Shorthand: top, right, bottom, left)
-@news-header-font-family: inherit; //font family of widget header text ("News")
-@news-header-font-weight: normal; //font weight of widget header text ("News")
+@news-h2-font-size     : 28px; //News Widget Title font size
+@news-h2-font-weight   : normal; //News Widget Title font weight
+@news-h2-color         : #da4a31; //News Widget Title text color
+@news-h2-margin-mobile : 0 0 20px 0; //News Widget Title margins on mobile (Shorthand: top, right, bottom, left)
+@news-h2-margin-tablet : 0 0 20px 0; //News Widget Title margins on tablet (Shorthand: top, right, bottom, left)
+@news-h2-margin-desktop: 0 0 20px 0; //News Widget Title margins on desktop (Shorthand: top, right, bottom, left)
+@news-h2-text-transform: uppercase; //News Widget Title text transform (Uppercase, none)
+@news-h2-font-family   : inherit; //News Widget Title font family, use inherit if same as default font.
 
-@news-item-background: #fff; //background for individual list items. Use "transparent" for no background
-@news-item-background-hover: rgba(255, 255, 255, 0.9); //background for individual list items.
-@news-item-padding: 23px 15px 22px 25px; //padding between list items (Shorthand: top, right, bottom, left)
-@news-item-padding-mobile: 12px 10px 12px 15px; //padding between list items (Shorthand: top, right, bottom, left)
-@news-item-margin: 0 0 6px 0; //margin between list items on desktop views (Shorthand: top, right, bottom, left)
-@news-item-margin-mobile: 0 0 6px 0; //margin between list items on mobile devices (Shorthand: top, right, bottom, left)
-@news-item-margin-tablet: 0 0 6px 0;//margin between list items on tablets (Shorthand: top, right, bottom, left)
+//styles for entire news list
+@news-list-padding: 0; //padding for the entire list
+@news-list-margin : 0; //margin for the entire list, to leave room for the prev and next arrows
 
-@news-hover-border-color: #ffd028; //color of border on right when you hover over a news item
 
-@news-img-margin-right-mobile: 15px; //space between thumbnail and text on right
-@news-img-margin-right: 25px; //space between thumbnail and text on right
-@news-img-width: 164px; //width of thumbnail
-@news-img-max-height: 164px; //height of thumbnail
+//each news block
+@news-item-background      : #fff; //background of news item
+@news-item-background-hover: #0c5681; //background of news item on hover
+@news-item-border          : 0px #dddddd solid; //border of each news item
+@news-item-height          : 420px; //height of each news item
+@news-column-margin        : 10px; //space between columns of items
+//@news-row-margin         : 10px; //margin between rows of list items (mobile)
+@news-item-padding         : 0px 40px 90px 80px; //padding to keep text away from edges. Shorthand: top, right, bottom, left.
+@news-item-text-align      : left; //text alignment for entire item
+@news-item-border-radius   : 0;
 
-@news-title-color: contrast(@news-item-background); //color of news title text
-@news-title-color-hover: @news-title-color; //color of news title text on hover
-@news-title-size: 25px; //news title font size
-@news-title-weight: normal; //news title font weight
-@news-title-font-family: inherit; //news title font family.  Use inherit if same as default font.
-@news-title-max-lines: 2; //maximum lines of news title that will show.
-@news-title-decoration: none; //text decoration for news titles (underline or none)
-@news-title-decoration-hover: none; //text decoration for news titles on hover (underline or none)
-@news-title-line-height: 1.3; //news title line height
-@news-title-margin: 0 0 6px 0; //margin around news title.  Shorthand: top, right, bottom, left.
 
-@news-summary-color: contrast(@news-item-background, @default-text-color); //color of summary text
-@news-summary-size: 18px; //size of summary text
-@news-summary-weight: normal; //font weight of summary text
-@news-summary-max-lines: 4; //maximum lines of news summary that will show
-@news-summary-line-height: 1.4; //news summary line height
+@news-img-margin-right: 0; //space between thumbnail and text on right
+@news-img-width       : 100%;
+@news-img-max-height  : 200px;
 
-@news-bottomlink-color: #fff; //color of bottom "more" link
-@news-bottomlink-color-hover: #fff; //color of bottom "more" link on hover
-@news-bottomlink-background: #ffd028; //background color of bottom "more" link
-@news-bottomlink-background-hover: #0f6371; //background color of bottom "more" link on hover
-@news-bottomlink-size: 20px; //size of bottom "more" link
-@news-bottomlink-weight: normal; //font weight of bottom "more" link
-@news-bottomlink-transform: uppercase; //News bottom "more" link text transform (Uppercase, none)
-@news-bottomlink-font-family: inherit; //News bottom "more" link font-family
-@news-bottomlink-width: 252px; //width of bottom "more" link. Use "auto" if no background
-@news-bottomlink-height: 72px; //height of bottom "more" link. Use "auto" if no background
-@news-bottomlink-decoration: none; //text-decoration of bottom "more" link (underline or none)
+@news-title-color           : #EB6946; //color of news title text
+@news-title-color-hover     : #20729e; //color of news title text on hover
+@news-title-decoration      : none; //text decoration for news titles (underline or none)
+@news-title-decoration-hover: underline; //text decoration for news titles on hover (underline or none)
+@news-title-size            : 40px; //news title font size
+@news-title-line-height     : 1.3; //news title line height
+@news-title-weight          : bold; //news title font weight
+@news-title-font-family     : @Font-Raleway; //news title font family.  Use inherit if same as default font.
+@news-title-max-lines       : 1; //maximum lines of news title that will show.
+@news-title-margin          : -10px 0 22px 0; //margin around news title.  Shorthand: top, right, bottom, left.
+
+@news-summary-size       : 22px; //size of summary text
+@news-summary-color      : #1D3641; //color of summary text
+@news-summary-weight     : normal; //font weight of summary text
+@news-summary-line-height: 1.3; //news summary line height
+@news-summary-max-lines  : 5; //maximum lines of news summary that will show
+
+//previous and next arrows
+@news-prev-next-width : 60px; //width of previous and next arrows
+@news-prev-next-height: 60px; //height of previous and next arrows
+@news-prev-background : url(_gfx/home/news_arrow_left.svg) center center no-repeat; //background for previous arrow
+@news-next-background : url(_gfx/home/news_arrow_right.svg) center center no-repeat; //background for next arrow
+
+@news-bottomlink-color           : #fff; //color of bottom "more" link
+@news-bottomlink-color-hover     : #fff; //color of bottom "more" link on hover
+@news-bottomlink-size            : 12px; //size of bottom "more" link
+@news-bottomlink-weight          : 600; //font weight of bottom "more" link
+@news-bottomlink-background      : #a1957b; //background color of bottom "more" link
+@news-bottomlink-background-hover: #444; //background color of bottom "more" link
+@news-bottomlink-width           : 125px; //width of bottom "more" link. Use "auto" if no background
+@news-bottomlink-height          : 25px; //height of bottom "more" link. Use "auto" if no background
+@news-bottomlink-decoration      : none; //text-decoration of bottom "more" link (underline or none)
 @news-bottomlink-decoration-hover: none; //text-decoration of bottom "more" link on hover (underline or none)
-@news-bottomlink-text-align: center; //alignment of text in bottom "more" link. Center, left, right.
-@news-bottomlink-border: 0px solid #bbbbbb; // border of text in bottom "more" link.  Shorthand: size, style, color
-@news-bottomlink-border-radius: 3px; //border radius of text in bottom "more" link (rounded corners)
-@news-bottomlink-margin: 0 auto 40px auto; //news bottom "more" link margin.  Shorthand: top, right, bottom, left.
-@news-bottomlink-margin-mobile: 0 auto 40px auto; //news bottom "more" link margin.  Shorthand: top, right, bottom, left.
-
-
-.home_news.home_news {
-	padding: @news-padding-mobile;
-	background: @news-background;
-	position: relative;
-
-	h2 {
-		font-size: @news-header-font-size-mobile;
-		text-transform: @news-header-text-transform;
-		color: @news-header-color;
-		font-family: @news-header-font-family;
-		margin: @news-header-margin;
-		font-weight: @news-header-font-weight;
-	}
-
-	ul {
-		.unstyled_list;
-	}
-
-	li {
-		margin: @news-item-margin-mobile;
-		position: relative;
-		width: 100%;
-	}
-
-	.news-item {
-		text-decoration: none;
-		display: block;
-		background: @news-item-background;
-		padding: @news-item-padding-mobile;
-		min-height: @news-img-max-height + 54px;
-		border-right: 10px solid transparent;
-
-		&:hover, &:focus {
-			text-decoration: none;
-			border-right: 10px solid @news-hover-border-color;
-			background: @news-item-background-hover;
-		}
-
-		&:hover .box_item_title {
-			text-decoration: @news-title-decoration-hover;
-			color: @news-title-color-hover;
-		}
-
-		&:hover .news-readmore {
-			text-decoration: none;
-		}
-	}
-
-	.box_item_title {
-		color: @news-title-color;
-		font-size: @news-title-size - 8px;
-		font-weight: @news-title-weight;
-		font-family: @news-title-font-family;
-		line-height: @news-title-line-height;
-		display: block;
-		max-height: ((@news-title-size - 8px) * @news-title-line-height * @news-title-max-lines) + 2px;
-		overflow: hidden;
-		margin: @news-title-margin;
-		text-decoration: @news-title-decoration;
-	}
+@news-bottomlink-text-align      : center; //alignment of text in bottom "more" link. Center, left, right.
+@news-bottomlink-border          : 0px solid #bbbbbb; // border of text in bottom "more" link.  Shorthand: size, style, color
+@news-bottomlink-border-radius   : 0; //border radius of text in bottom "more" link (rounded corners)
+@news-bottomlink-transform       : none; //News bottom "more" link text transform (Uppercase, none)
+@news-bottomlink-font-family     : inherit; //News bottom "more" link font-family
+@news-bottomlink-margin          : 20px 0 0 0; //news bottom "more" link margin.  Shorthand: top, right, bottom, left.
 
 
 
-	img {
-		left: 0;
-		position: absolute;
-		top: 0;
-		width: 100px;
-		max-height: @news-img-max-height;
-	}
+.home_news {
+    padding   : @news-padding-mobile;
+    background: @news-background;
+    position  : relative;
+    margin    : 80px auto 100px;
 
+    h2 {
+        margin        : @news-h2-margin-mobile;
+        font-size     : @news-h2-font-size;
+        font-weight   : @news-h2-font-weight;
+        color         : @news-h2-color;
+        text-transform: @news-h2-text-transform;
+        font-family   : @news-h2-font-family;
+    }
 
-	.item_info:not(:first-child) .box_item_title, .item_info:not(:first-child) .box_item_summary, .item_info:not(:first-child) .news-readmore {
-		margin-left: 115px;
-	}
+    .slick_content {
+        margin  : 0 auto;
+        position: relative;
+        width   : 100%;
+        opacity : 0;
+        height  : 0;
+        overflow: hidden;
+        .transition();
 
-	.box_item_summary {
-		color: @news-summary-color;
-		font-size: @news-summary-size - 3px;
-		max-height: (@news-summary-size - 3px) * @news-summary-line-height * @news-summary-max-lines;
-		overflow: hidden;
-		display: block;
-		font-weight: @news-summary-weight;
-		line-height: @news-summary-line-height;
-		margin: 0;
-	}
-	/*.news-readmore {
+        &.slick-initialized {
+            opacity: 1;
+            height : auto;
+        }
+    }
+
+    .slick-list {
+        width   : auto;
+        position: relative;
+        overflow: hidden;
+        margin  : @news-list-margin;
+        padding : @news-list-padding;
+    }
+
+    .item {
+        float          : left;
+        position       : relative;
+        text-align     : @news-item-text-align;
+        width          : 100%;
+        //margin-bottom: @news-row-margin;
+
+        &.has_image {
+            //margin: 0 0 0 25px;
+        }
+
+    }
+
+    .news-item {
+        display        : flex;
+        text-decoration: none;
+        height         : @news-item-height;
+        background     : @news-item-background;
+        border         : @news-item-border;
+        border-radius  : @news-item-border-radius;
+        padding        : 30px 0;
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+            //background   :@news-item-background-hover;
+        }
+    }
+
+    .image_frame {
+        max-height        : 350px;
+        max-width         : 533px;
+        flex-shrink       : 0;
+        position          : relative;
+        -webkit-box-shadow: 0px 10px 25px 0px rgba(0, 84, 100, 0.2);
+        -moz-box-shadow   : 0px 10px 25px 0px rgba(0, 84, 100, 0.2);
+        box-shadow        : 0px 10px 25px 0px rgba(0, 84, 100, 0.2);
+
+        &:after {
+            content   : '';
+            width     : 13px;
+            height    : 100%;
+            position  : absolute;
+            bottom    : 06px;
+            //left    : 0;
+            right     : 0;
+            top       : 0;
+            background: #EB6946;
+        }
+    }
+
+    img {
         display: block;
-        color:@news-read-more-link-color;
-        font-size: @news-summary-size;
-        margin:0;
+        width  : @news-img-width;
+        height : 100%;
+    }
+
+    .item_info {
+        //padding : @news-item-padding;
+        position: relative;
+    }
+
+    .box_item_title {
+        padding        : 0;
+        color          : @news-title-color;
+        font-size      : @news-title-size;
+        font-weight    : @news-title-weight;
+        font-family    : @news-title-font-family;
+        line-height    : @news-title-line-height;
+        display        : block;
+        max-height     : @news-title-size * @news-title-line-height * @news-title-max-lines;
+        overflow       : hidden;
+        margin         : @news-title-margin;
+        text-decoration: @news-title-decoration;
+    }
+
+    .news-item:hover .box_item_title {
+        //text-decoration: @news-title-decoration-hover;
+        //color          : @news-title-color-hover;
+    }
+
+    .box_item_summary {
+        padding    : 0;
+        color      : @news-summary-color;
+        font-size  : @news-summary-size;
+        max-height : @news-summary-size * @news-summary-line-height * @news-summary-max-lines;
+        overflow   : hidden;
+        display    : block;
+        font-weight: @news-summary-weight;
         line-height: @news-summary-line-height;
-    }*/
-	.box_bottomlink {
-		color: @news-bottomlink-color;
-		font-size: @news-bottomlink-size;
-		font-weight: @news-bottomlink-weight;
-		background: @news-bottomlink-background;
-		width: @news-bottomlink-width;
-		height: @news-bottomlink-height;
-		line-height: @news-bottomlink-height;
-		font-family: @news-bottomlink-font-family;
-		text-transform: @news-bottomlink-transform;
-		margin: @news-bottomlink-margin-mobile;
-		text-decoration: @news-bottomlink-decoration;
-		text-align: @news-bottomlink-text-align;
-		border: @news-bottomlink-border;
-		border-radius: @news-bottomlink-border-radius;
-		.transition();
-		display: block;
-		position: absolute;
-		bottom: 0px;
-		left: 0;
-		right: 0;
+        margin     : 0;
+    }
 
-		&:hover {
-			color: @news-bottomlink-color-hover;
-			text-decoration: @news-bottomlink-decoration-hover;
-			background: @news-bottomlink-background-hover;
-		}
-	}
-	//center vertically next to datebox if this class is added
-	&.center-vertical {
-		ul li {
-			padding: 0;
-		}
+    .learn_more_link {
+        display        : block;
+        text-decoration: none;
+        font-size      : 23px;
+        font-weight    : bold;
+        font-family    : @Font-Raleway;
+        color          : #fff;
+        background     : #3FA2A9;
+        height         : 60px;
+        width          : 248px;
+        display        : flex;
+        justify-content: center;
+        align-items    : center;
+        font-weight    : bold;
+        text-transform : uppercase;
+        border-radius  : 10px;
+        letter-spacing : 1px;
 
-		.news-item {
-			display: table;
-			width: 100%;
-			min-height: 0;
-		}
+        // .hover_gradient();
+        position: absolute;
+        bottom  : 9px;
 
-		img {
-			position: relative;
-			max-width: none;
-		}
+        &:hover {
+            //background       : linear-gradient(259deg, #FCA067, #EB6946);
+            border             : 5px solid rgba(255, 255, 255, 0.38);
+            background-origin  : border-box;
+            color            : #1D3641;
+            //font-size        : 24px;
+        }
+    }
 
-		.item_info {
-			display: table-cell;
-			vertical-align: middle;
-			width: 100%;
-		}
+    .slick-prev,
+    .slick-next {
+        display            : block;
+        background         : @news-prev-background;
+        background-position: 42% 50% !important;
+        width              : @news-prev-next-width;
+        height             : @news-prev-next-height  !important; //Important needed to overwrite Product level important on "button" elements;;
+        border             : 0;
+        text-indent        : -9999px;
+        position           : absolute;
+        right              : 230px;
+        bottom             : 9px;
+        transform          : translateY(-50%);
+        .opacity(1);
+        padding           : 0;
+        border            : 5px solid #728389;
+        border-radius     : 100%;
+        -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 84, 100, 0.2);
+        -moz-box-shadow   : 0px 3px 5px 0px rgba(0, 84, 100, 0.2);
+        box-shadow        : 0px 3px 5px 0px rgba(0, 84, 100, 0.2);
+        transition        : all .25s ease-out;
 
-		.item_info:not(:first-child) .box_item_title, .item_info:not(:first-child) .box_item_summary {
-			margin-left: @news-img-margin-right-mobile;
-		}
-	}
-}
+        &:hover {
+            background: #EB6946 url(_gfx/home/news_arrow_left_h.svg) center center no-repeat;
+            border    : 5px solid #EB6946;
+            //.opacity(0.7);
+        }
+    }
 
-/*** = 400px ***/
-@media screen and (min-width: 25em) {
-	.home_news.home_news {
+    .slick-next {
+        background         : @news-next-background;
+        background-position: 60% 50% !important;
+        left               : auto;
+        right              : 150px;
 
-		.news-item {
-			padding: @news-item-padding;
-		}
+        &:hover {
+            background: #EB6946 url(_gfx/home/news_arrow_right_h.svg) center center no-repeat;
+            ;
+            //.opacity(0.7);
+        }
+    }
 
-		img {
-			left: 0;
-			top: 0;
-			width: @news-img-width;
-		}
+    .slick-disabled {
+        cursor: default;
+        .opacity(0.3);
 
-		.item_info:not(:first-child) .box_item_title, .item_info:not(:first-child) .box_item_summary, .item_info:not(:first-child) .news-readmore {
-			margin-left: @news-img-width + @news-img-margin-right + 10px;
-		}
-	}
+        &:hover {
+            .opacity(0.3);
+        }
+    }
+
+    .box_bottomlink {
+        color          : @news-bottomlink-color;
+        font-size      : @news-bottomlink-size;
+        font-weight    : @news-bottomlink-weight;
+        background     : @news-bottomlink-background;
+        width          : @news-bottomlink-width;
+        height         : @news-bottomlink-height;
+        line-height    : @news-bottomlink-height;
+        font-family    : @news-bottomlink-font-family;
+        text-transform : @news-bottomlink-transform;
+        float          : right;
+        margin         : @news-bottomlink-margin;
+        text-decoration: @news-bottomlink-decoration;
+        text-align     : @news-bottomlink-text-align;
+        border         : @news-bottomlink-border;
+        border-radius  : @news-bottomlink-border-radius;
+
+        &:hover {
+            color          : @news-bottomlink-color-hover;
+            text-decoration: @news-bottomlink-decoration-hover;
+            background     : @news-bottomlink-background-hover;
+        }
+    }
 }
 
 /***48em = 768px ***/
 @media screen and (min-width: 48em) {
-	.home_news.home_news {
-		padding: @news-padding-tablet;
-
-		h2 {
-			font-size: @news-header-font-size;
-		}
-
-		ul {
-			display: -ms-flexbox;
-			-ms-flex-wrap: wrap;
-			-ms-flex-direction: row;
-			-webkit-flex-flow: row wrap;
-			flex-flow: row wrap;
-			display: -webkit-box;
-			display: flex;
-			-webkit-align-content: stretch;
-			-ms-flex-line-pack: stretch;
-			align-content: stretch;
-			-webkit-align-items: stretch;
-			-ms-flex-align: stretch;
-			align-items: stretch;
-			-webkit-justify-content: space-between;
-			-ms-flex-pack: justify;
-			justify-content: space-between;
-
-			li {
-				margin: @news-item-margin-tablet;
-
-				.two-column& {
-					//webkit-box-flex: auto;
-					// -ms-flex: auto;
-					//flex: auto;
-					//width: 345px;
-					max-width: 48%;
-				}
-			}
-		}
-
-		.box_item_title {
-			font-size: @news-title-size - 8px;
-			max-height: ((@news-title-size - 8px) * @news-title-line-height * @news-title-max-lines) + 2px;
-		}
-
-		.box_item_summary {
-			font-size: @news-summary-size;
-			max-height: @news-summary-size * @news-summary-line-height * @news-summary-max-lines;
-		}
-
-		.box_bottomlink {
-			margin: @news-bottomlink-margin;
-		}
-
-		&.center-vertical {
-			.item_info:not(:first-child) .box_item_title, .item_info:not(:first-child) .box_item_summary {
-				margin-left: @news-img-margin-right;
-			}
-		}
-	}
-}
-
-/***62em = 992px ***/
-@media screen and (min-width: 62em) {
-	.home_news.home_news {
-		padding: @news-padding-desktop;
-		/* h2 {
-            margin: @news-h2-margin-desktop;
-        }*/
-		ul li {
-			margin: @news-item-margin;
-		}
-
-		.box_item_title {
-			font-size: @news-title-size;
-			max-height: (@news-title-size * @news-title-line-height * @news-title-max-lines) + 2px;
-		}
-	}
-}
-
-/***75em = 1200px ***/
-@media screen and (min-width: 75em) {
     .home_news {
+        width    : 1327px;
+        max-width: 1327px;
+        padding  : @news-padding-tablet;
+
+        h2 {
+            margin: @news-h2-margin-tablet;
+        }
+
+        .item {
+            &.has_image {
+                //margin: 0 0 0 12px;
+                .item_info {
+                    padding: 0 0px 77px 30px;
+        
+                }
+            }
+        }
+
+        .news-item {
+            height : 280px;
+            padding: 30px 0;
+        }
 
         
+
+        .box_item_title {
+            font-size: 27px;
+            margin   : -10px 0 0px 0;
+            max-height: 40px;
+        }
+
+        .box_item_summary {
+            font-size: 16px;
+        }
+
+        .image_frame {
+            max-height        : 210px;
+            max-width         : 320px;
+            -webkit-box-shadow: 0 10px 12px 0 rgba(0, 84, 100, .2);
+            -moz-box-shadow   : 0 10px 12px 0 rgba(0, 84, 100, .2);
+            box-shadow        : 0 10px 12px 0 rgba(0, 84, 100, .2);
+            margin            : 0 0 0 12px;
+
+            &:after {
+                width: 8px;
+            }
+        }
+
+        .learn_more_link {
+            height   : 40px;
+            width    : 195px;
+            font-size: 20px;
+            border-radius: 6px;
+        }
+
+        .slick-prev {
+            right          : 80px;
+            width          : 40px;
+            height         : 40px !important;
+            bottom         : 16px;
+            background-size: 11px;
+
+            &:hover {
+                background-size: 11px;
+            }
+        }
+
+        .slick-next {
+            right          : 20px;
+            width          : 40px;
+            height         : 40px !important;
+            bottom         : 16px;
+            background-size: 11px;
+
+            &:hover {
+                background-size: 11px;
+            }
+        }
+    }
+}
+
+/***62em = 992px***/
+@media only screen and (min-width: 62em) {
+    .home_news {
+        padding  : @news-padding-desktop;
+        width    : 1000px !important;
+        max-width: 1000px !important;
+
+        .item {
+            &.has_image {
+                //margin: 0 0 0 25px;
+
+                .item_info {
+                    padding: 0 0px 77px 42px;
+                }
+            }
+        }
+
+        .news-item {
+            height : 355px;
+            padding: 30px 0;
+        }
+
+       
+
+        .box_item_title {
+            font-size: 35px;
+            margin   : @news-title-margin;
+            max-height: 52px;
+        }
+
+        .box_item_summary {
+            font-size: 19px;
+        }
+
+        .image_frame {
+            max-height        : 286px;
+            max-width         : 436px;
+            -webkit-box-shadow: 0px 10px 25px 0px rgba(0, 84, 100, 0.2);
+            -moz-box-shadow   : 0px 10px 25px 0px rgba(0, 84, 100, 0.2);
+            box-shadow        : 0px 10px 25px 0px rgba(0, 84, 100, 0.2);
+            margin            : 0 0 0 25px;
+
+            &:after {
+                width: 13px;
+            }
+        }
+
+        .learn_more_link {
+            height   : 50px;
+            width    : 230px;
+            font-size: 23px;
+            border-radius: 10px;
+        }
+
+
+
+        h2 {
+            margin: @news-h2-margin-desktop;
+        }
+
+        .slick-prev {
+            right          : 125px;
+            width          : 50px;
+            height         : 50px !important;
+            bottom         : 12px;
+            background-size: 15px;
+
+            &:hover {
+                background-size: auto;
+            }
+        }
+
+        .slick-next {
+            right          : 55px;
+            width          : 50px;
+            height         : 50px !important;
+            bottom         : 12px;
+            background-size: 15px;
+
+            &:hover {
+                background-size: auto;
+            }
+        }
+    }
+}
+
+
+/***75em =1200px ***/
+@media only screen and (min-width: 75em) {
+    .home_news {
+        padding  : @news-padding-desktop;
+        width    : 1074px !important;
+        max-width: 1074px !important;
+
+        .news-item {
+            height : 355px;
+            padding: 30px 0;
+        }
+
+        .box_item_title {
+            font-size: @news-title-size;
+        }
+
+        .box_item_summary {
+            font-size: 20px;
+        }
+
+        .image_frame {
+            max-height: 286px;
+            max-width : 436px;
+        }
+
+        .learn_more_link {
+            height: 60px;
+            width : 248px;
+        }
+
+        h2 {
+            margin: @news-h2-margin-desktop;
+        }
+
+        .slick-prev {
+            right          : 150px;
+            width          : 60px;
+            height         : 60px !important;
+            bottom         : 8px;
+            background-size: auto;
+        }
+
+        .slick-next {
+            right          : 80px;
+            width          : 60px;
+            height         : 60px !important;
+            bottom         : 8px;
+            background-size: auto;
+        }
+    }
+}
+
+/*** 85.375em = 1366px***/
+@media only screen and (min-width: 85.375em) {
+    .home_news {
+        padding  : @news-padding-desktop;
+        width    : 1354px !important;
+        max-width: 1354px !important;
+
+        
+        .item {
+            &.has_image {
+                //margin: 0 0 0 12px;
+                .item_info {
+                    padding: @news-item-padding;
+        
+                }
+            }
+        }
+
+        .news-item {
+            height : @news-item-height;
+            padding: 30px 0;
+        }
+
+
+        .box_item_summary {
+            font-size: @news-summary-size;
+        }
+
+
+        .image_frame {
+            max-height: 350px;
+            max-width : 533px;
+        }
+
+        h2 {
+            margin: @news-h2-margin-desktop;
+        }
+
+
+        .slick-prev {
+            right: 230px;
+        }
+
+        .slick-next {
+            right: 150px;
+        }
     }
 }
